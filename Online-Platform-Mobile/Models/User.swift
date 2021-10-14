@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum Role {
+    case Client
+    case Seller
+}

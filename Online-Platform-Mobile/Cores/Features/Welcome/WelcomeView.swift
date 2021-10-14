@@ -9,18 +9,73 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        ZStack {
-            Image("welcomepage")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    Text("FOTOIN")
-                        .foregroundColor(.white)
-                    Text("FOTOIN")
-                        .foregroundColor(.white)
+        NavigationView{
+            ZStack {
+                
+                Image("welcomepage")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .brightness(-0.05)
+                
+                VStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                            .frame(maxHeight: 300)
+                        
+                        VStack (alignment: .leading){
+                            Text("Cekrek") // App Name
+                                .font(.largeTitle)
+                                .bold()
+                            Text("Slogan") // App Slogan
+                        }
+                        .foregroundColor(Color.theme.primarywhite)
+                        .padding(.vertical)
+                        
+                        // Find Service Nav Link
+                        NavigationLink(destination: RegisterView(role: .Client)
+                        ) {
+                            Text("Find a Service")
+                                .frame(minWidth: 0, maxWidth: 300)
+                                .padding()
+                                .foregroundColor(Color.theme.primarywhite)
+                                .background(Color.theme.tertiary)
+                                .cornerRadius(15)
+                                .font(.title3)
+                        }
+                        .navigationTitle("")
+                        
+                        // Become Seller Nav Link
+                        NavigationLink(destination: RegisterView(role: .Seller)) {
+                            Text("Become a Seller")
+                                .frame(minWidth: 0, maxWidth: 300)
+                                .foregroundColor(Color.theme.primarywhite)
+                                .padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .stroke(Color.theme.primarywhite, lineWidth: 2)
+                                )
+                                .font(.title3)
+                        }
+                        .navigationTitle("")
+                    }
+                    
+                    VStack {
+                        HStack {
+                            Text("Already have an account?")
+                                .foregroundColor(Color.theme.primarywhite)
+                            NavigationLink(
+                                destination: LoginView(),
+                                label: {
+                                    Text("Sign In")
+                                        .bold()
+                                        .foregroundColor(Color.theme.primarywhite)
+                                })
+                        }
+                    }
+                    .padding()
                 }
-            
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct Online_Platform_MobileApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }
