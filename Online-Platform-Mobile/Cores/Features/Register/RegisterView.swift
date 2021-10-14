@@ -64,7 +64,7 @@ struct RegisterView: View {
                         
                         Spacer()
                     }
-                    .background(Color.theme.primarywhite)
+                    .background(Color.white)
                     .cornerRadius(10)
                     .edgesIgnoringSafeArea(.bottom)
                     
