@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FDF27157C1D00E7461E /* RegisterView.swift */; };
+		4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */; };
+		4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE32715916900E7461E /* LabelForm.swift */; };
 		4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9772652714371A00C28B5D /* ColorExtension.swift */; };
 		4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E977268271438D600C28B5D /* PrimaryButton.swift */; };
 		4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97726A271443F800C28B5D /* SecondaryButton.swift */; };
@@ -15,17 +18,21 @@
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
 		F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900F127114681007EF04C /* Preview Assets.xcassets */; };
+		F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */; };
+		F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */; };
+		F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */; };
 		F785C1ED271539DB008035EC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* Helper.swift */; };
 		F785C1EF271539F9008035EC /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EE271539F9008035EC /* LoginRepository.swift */; };
 		F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F027153A05008035EC /* RegisterRepository.swift */; };
 		F785C1F327153A1B008035EC /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F227153A1B008035EC /* LoginService.swift */; };
 		F785C1F527153A24008035EC /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* RegisterService.swift */; };
-		F785C1F727153A32008035EC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F627153A32008035EC /* LoginView.swift */; };
-		F785C1F927153A3B008035EC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F827153A3B008035EC /* RegisterView.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E8A6FDF27157C1D00E7461E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		4E8A6FE32715916900E7461E /* LabelForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelForm.swift; sourceTree = "<group>"; };
 		4E9772652714371A00C28B5D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4E977268271438D600C28B5D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E97726A271443F800C28B5D /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -35,13 +42,14 @@
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F72900EE27114681007EF04C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72900F127114681007EF04C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F785C1EC271539DB008035EC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F785C1EE271539F9008035EC /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		F785C1F027153A05008035EC /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		F785C1F227153A1B008035EC /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
-		F785C1F627153A32008035EC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		F785C1F827153A3B008035EC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,9 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E8A6FDE27157C0E00E7461E /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				4E8A6FDF27157C1D00E7461E /* RegisterView.swift */,
+				4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		4E977263271436FE00C28B5D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F764C4BF271824CD00C302A5 /* Fonts */,
 				4E9772642714370B00C28B5D /* Extension */,
 			);
 			path = Utilities;
@@ -77,6 +95,7 @@
 			children = (
 				4E977268271438D600C28B5D /* PrimaryButton.swift */,
 				4E97726A271443F800C28B5D /* SecondaryButton.swift */,
+				4E8A6FE32715916900E7461E /* LabelForm.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -93,6 +112,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4E8A6FDE27157C0E00E7461E /* Register */,
 				4E97726E2714503B00C28B5D /* Welcome */,
 			);
 			path = Features;
@@ -128,7 +148,6 @@
 				4E97726C2714501300C28B5D /* Cores */,
 				4E977263271436FE00C28B5D /* Utilities */,
 				F7290102271148F6007EF04C /* Models */,
-				F729010327114902007EF04C /* Views */,
 				F72901052711491E007EF04C /* Services */,
 				F7290106271149F5007EF04C /* Repositories */,
 				F72900FE271147C2007EF04C /* Helpers */,
@@ -164,15 +183,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F729010327114902007EF04C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F729010827114AD8007EF04C /* Login */,
-				F729010727114AC8007EF04C /* Register */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		F72901052711491E007EF04C /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,23 +200,6 @@
 				F729010C27114AF1007EF04C /* Register */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		F729010727114AC8007EF04C /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				F785C1F827153A3B008035EC /* RegisterView.swift */,
-			);
-			name = Register;
-			path = ../Models/Register;
-			sourceTree = "<group>";
-		};
-		F729010827114AD8007EF04C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F785C1F627153A32008035EC /* LoginView.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		F729010927114AE1007EF04C /* Login */ = {
@@ -238,6 +231,16 @@
 				F785C1EE271539F9008035EC /* LoginRepository.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F764C4BF271824CD00C302A5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */,
+				F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */,
+				F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */,
 				F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */,
+				F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */,
+				F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */,
 				F72900EF27114681007EF04C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +318,15 @@
 			files = (
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F785C1EF271539F9008035EC /* LoginRepository.swift in Sources */,
-				F785C1F927153A3B008035EC /* RegisterView.swift in Sources */,
 				F785C1ED271539DB008035EC /* Helper.swift in Sources */,
 				4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */,
 				4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */,
+				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
+				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
-				F785C1F727153A32008035EC /* LoginView.swift in Sources */,
 				F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */,
+				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* RegisterService.swift in Sources */,
 				F785C1F327153A1B008035EC /* LoginService.swift in Sources */,
 				4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */,
