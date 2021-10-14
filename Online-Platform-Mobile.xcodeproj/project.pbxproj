@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E07267C27182C8400806F54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267B27182C8400806F54 /* LoginView.swift */; };
+		4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267D27182D7B00806F54 /* LoginViewModel.swift */; };
 		4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FDF27157C1D00E7461E /* RegisterView.swift */; };
 		4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */; };
 		4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE32715916900E7461E /* LabelForm.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E07267B27182C8400806F54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4E07267D27182D7B00806F54 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4E8A6FDF27157C1D00E7461E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		4E8A6FE32715916900E7461E /* LabelForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelForm.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E07267A27182C7300806F54 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4E07267B27182C8400806F54 /* LoginView.swift */,
+				4E07267D27182D7B00806F54 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		4E8A6FDE27157C0E00E7461E /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4E07267A27182C7300806F54 /* Login */,
 				4E8A6FDE27157C0E00E7461E /* Register */,
 				4E97726E2714503B00C28B5D /* Welcome */,
 			);
@@ -326,10 +340,12 @@
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
 				F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */,
+				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
 				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* RegisterService.swift in Sources */,
 				F785C1F327153A1B008035EC /* LoginService.swift in Sources */,
 				4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */,
+				4E07267C27182C8400806F54 /* LoginView.swift in Sources */,
 				F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

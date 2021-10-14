@@ -65,7 +65,7 @@ struct WelcomeView: View {
                             Text("Already have an account?")
                                 .foregroundColor(Color.theme.primarywhite)
                             NavigationLink(
-                                destination: Text("test"),
+                                destination: LoginView(),
                                 label: {
                                     Text("Sign In")
                                         .bold()

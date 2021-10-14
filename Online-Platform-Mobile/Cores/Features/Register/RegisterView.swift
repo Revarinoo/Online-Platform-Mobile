@@ -39,10 +39,11 @@ struct RegisterView: View {
                                     .bold()
                                 Text("hello friends sign up to continue")
                                     .font(.caption)
+                                    .foregroundColor(.gray)
                             }
                             .padding()
                             
-                            ExtractedView()
+                            FormView()
                             
                             Button(action: toggle){
                                 HStack (alignment: .firstTextBaseline){
@@ -82,7 +83,7 @@ struct RegisterView_Previews: PreviewProvider {
     }
 }
 
-struct ExtractedView: View {
+struct FormView: View {
     @StateObject var registerVM = RegisterViewModel()
     var body: some View {
         VStack {
