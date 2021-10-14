@@ -60,10 +60,19 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        PrimaryButton(content: "Sign Up", maxWidth: 290, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                        PrimaryButton(content: "Sign Up", maxWidth: 290, action: {
+//                            registerVM.Register(role: role)
+                            registerVM.keluar()
+                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
                         
                         Spacer()
+                        
+                        VStack {
+                            if registerVM.isAuthenticated {
+                                NavigationLink("", destination: WelcomeView())
+                            }
+                        }
                     }
                     .background(Color.white)
                     .cornerRadius(10)
@@ -87,9 +96,9 @@ struct FormView: View {
     @StateObject var registerVM = RegisterViewModel()
     var body: some View {
         VStack {
-            LabelForm(content: registerVM.name, labeltext: "Names")
-            LabelForm(content: registerVM.name, labeltext: "Email")
-            LabelForm(content: registerVM.name, labeltext: "Password")
+            LabelForm(content: $registerVM.name, labeltext: "Names", type: "Text")
+            LabelForm(content: $registerVM.email, labeltext: "Email", type: "Text")
+            LabelForm(content: $registerVM.password, labeltext: "Password", type: "Password")
         }
         .padding()
     }

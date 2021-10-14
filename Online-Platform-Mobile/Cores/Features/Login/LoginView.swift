@@ -39,8 +39,8 @@ struct LoginView: View {
                             .padding()
                             
                             VStack {
-                                LabelForm(content: loginVM.name, labeltext: "Email")
-                                LabelForm(content: loginVM.name, labeltext: "Password")
+                                LabelForm(content: $loginVM.name, labeltext: "Email", type: "Text")
+                                LabelForm(content: $loginVM.name, labeltext: "Password", type: "Password")
                             }
                             .padding()
                         }

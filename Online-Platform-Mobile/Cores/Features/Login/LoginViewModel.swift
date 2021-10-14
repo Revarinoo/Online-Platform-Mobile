@@ -13,5 +13,4 @@ class LoginViewModel: ObservableObject {
     @Published var password = ""
     @Published var name = ""
     @Published var email = ""
-    
 }
