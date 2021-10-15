@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @StateObject var registerVM: RegisterViewModel
+    
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -33,7 +37,7 @@ struct WelcomeView: View {
                         .padding(.vertical)
                         
                         // Find Service Nav Link
-                        NavigationLink(destination: RegisterView(role: .Client)
+                        NavigationLink(destination: RegisterView(registerVM: registerVM, role: .Client)
                         ) {
                             Text("Find a Service")
                                 .frame(minWidth: 0, maxWidth: 300)
@@ -46,7 +50,7 @@ struct WelcomeView: View {
                         .navigationTitle("")
                         
                         // Become Seller Nav Link
-                        NavigationLink(destination: RegisterView(role: .Seller)) {
+                        NavigationLink(destination: RegisterView(registerVM: registerVM, role: .Seller)) {
                             Text("Become a Seller")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .foregroundColor(Color.theme.primarywhite)
@@ -82,6 +86,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(registerVM: RegisterViewModel())
     }
 }

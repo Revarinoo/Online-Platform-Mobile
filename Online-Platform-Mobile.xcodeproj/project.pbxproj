@@ -23,12 +23,12 @@
 		F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */; };
 		F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */; };
 		F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */; };
+		F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764C4C727189CDF00C302A5 /* HomeClient.swift */; };
 		F785C1ED271539DB008035EC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* Helper.swift */; };
-		F785C1EF271539F9008035EC /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EE271539F9008035EC /* LoginRepository.swift */; };
-		F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F027153A05008035EC /* RegisterRepository.swift */; };
 		F785C1F327153A1B008035EC /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F227153A1B008035EC /* LoginService.swift */; };
 		F785C1F527153A24008035EC /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* RegisterService.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
+		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,12 +49,12 @@
 		F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		F764C4C727189CDF00C302A5 /* HomeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClient.swift; sourceTree = "<group>"; };
 		F785C1EC271539DB008035EC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		F785C1EE271539F9008035EC /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
-		F785C1F027153A05008035EC /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		F785C1F227153A1B008035EC /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +125,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F764C4C627189CCC00C302A5 /* Home */,
 				4E07267A27182C7300806F54 /* Login */,
 				4E8A6FDE27157C0E00E7461E /* Register */,
 				4E97726E2714503B00C28B5D /* Welcome */,
@@ -163,7 +164,6 @@
 				4E977263271436FE00C28B5D /* Utilities */,
 				F7290102271148F6007EF04C /* Models */,
 				F72901052711491E007EF04C /* Services */,
-				F7290106271149F5007EF04C /* Repositories */,
 				F72900FE271147C2007EF04C /* Helpers */,
 				F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */,
 				F72900EC27114680007EF04C /* ContentView.swift */,
@@ -207,15 +207,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F7290106271149F5007EF04C /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				F729010E27114AF7007EF04C /* Login */,
-				F729010C27114AF1007EF04C /* Register */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		F729010927114AE1007EF04C /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,22 +222,6 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		F729010C27114AF1007EF04C /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				F785C1F027153A05008035EC /* RegisterRepository.swift */,
-			);
-			path = Register;
-			sourceTree = "<group>";
-		};
-		F729010E27114AF7007EF04C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F785C1EE271539F9008035EC /* LoginRepository.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		F764C4BF271824CD00C302A5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +230,23 @@
 				F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F764C4C627189CCC00C302A5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F7C86F25271968F700C26C22 /* ViewModels */,
+				F764C4C727189CDF00C302A5 /* HomeClient.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F7C86F25271968F700C26C22 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F7C86F262719691300C26C22 /* HomeClientViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
-				F785C1EF271539F9008035EC /* LoginRepository.swift in Sources */,
+				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
 				F785C1ED271539DB008035EC /* Helper.swift in Sources */,
 				4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */,
 				4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */,
@@ -339,8 +331,8 @@
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
-				F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */,
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
+				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
 				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* RegisterService.swift in Sources */,
 				F785C1F327153A1B008035EC /* LoginService.swift in Sources */,

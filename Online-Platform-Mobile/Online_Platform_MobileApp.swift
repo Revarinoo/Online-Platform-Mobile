@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct Online_Platform_MobileApp: App {
+    @StateObject var regVM = RegisterViewModel()
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            if regVM.isAuthenticated {
+                HomeClient()
+            }
+            else {
+                WelcomeView(registerVM: regVM)
+            }
+            
         }
     }
 }

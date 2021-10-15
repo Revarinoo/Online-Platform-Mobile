@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @StateObject var registerVM = RegisterViewModel()
+    @StateObject var registerVM: RegisterViewModel
     
     @State var isChecked:Bool = false
     @State var role: Role
@@ -43,7 +43,7 @@ struct RegisterView: View {
                             }
                             .padding()
                             
-                            FormView()
+                            FormView(registerVM: registerVM)
                             
                             Button(action: toggle){
                                 HStack (alignment: .firstTextBaseline){
@@ -59,20 +59,21 @@ struct RegisterView: View {
                         
                         
                         Spacer()
+                            PrimaryButton(content: "Sign Up", maxWidth: 326, action: {
+                                registerVM.Register(role: role)
+                            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                                .padding()
                         
-                        PrimaryButton(content: "Sign Up", maxWidth: 290, action: {
-//                            registerVM.Register(role: role)
-                            registerVM.keluar()
-                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                            .padding()
-                        
-                        Spacer()
-                        
-                        VStack {
-                            if registerVM.isAuthenticated {
-                                NavigationLink("", destination: WelcomeView())
-                            }
+                        if registerVM.redBanner {
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.red)
+                                Text(registerVM.failedMessage)
+                                    .foregroundColor(Color.white)
+                            }.frame(width: 390, height: 50, alignment: .center)
                         }
+                        Spacer()
+    
                     }
                     .background(Color.white)
                     .cornerRadius(10)
@@ -88,12 +89,18 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(role: .Client)
+        RegisterView(registerVM: RegisterViewModel(), role: .Client)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
     }
 }
 
 struct FormView: View {
-    @StateObject var registerVM = RegisterViewModel()
+    @State var registerVM: RegisterViewModel
+    
+    init(registerVM: RegisterViewModel) {
+        self.registerVM = registerVM
+    }
+    
     var body: some View {
         VStack {
             LabelForm(content: $registerVM.name, labeltext: "Names", type: "Text")

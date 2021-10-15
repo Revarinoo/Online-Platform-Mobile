@@ -8,15 +8,13 @@
 import Foundation
 
 class RegisterViewModel: ObservableObject {
-    
+    static let shared = RegisterViewModel()
     @Published var password = ""
     @Published var name = ""
     @Published var email = ""
     @Published var isAuthenticated = false
-
-    func keluar() {
-        print("halo \(name)")
-    }
+    @Published var redBanner = false
+    @Published var failedMessage = ""
     
     func Register(role: Role) {
         let defaults = UserDefaults.standard
@@ -29,7 +27,12 @@ class RegisterViewModel: ObservableObject {
                         self.isAuthenticated = true
                     }
                 case .failure(let error):
-                    print(error.localizedDescription)
+                
+                DispatchQueue.main.async {
+                    self.failedMessage = String("\(error)")
+                    self.redBanner = true
+                }
+                print(error)
             }
         }
     }
