@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @StateObject var registerVM: RegisterViewModel
+    @StateObject var loginVM: LoginViewModel
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -65,7 +69,7 @@ struct WelcomeView: View {
                             Text("Already have an account?")
                                 .foregroundColor(Color.theme.primarywhite)
                             NavigationLink(
-                                destination: LoginView(),
+                                destination: LoginView(loginVM: loginVM),
                                 label: {
                                     Text("Sign In")
                                         .bold()
@@ -82,6 +86,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(registerVM: RegisterViewModel(), loginVM: LoginViewModel())
     }
 }

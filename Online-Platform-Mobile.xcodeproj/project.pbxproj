@@ -77,6 +77,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		4E2283FA271C95C100E508E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F785C1F227153A1B008035EC /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		4E8A6FDE27157C0E00E7461E /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,9 +208,8 @@
 		F72901052711491E007EF04C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4E2283FA271C95C100E508E0 /* Login */,
 				F729010A27114AE3007EF04C /* Register */,
-				F729010927114AE1007EF04C /* Login */,
-				F785C1F227153A1B008035EC /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
