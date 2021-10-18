@@ -20,6 +20,9 @@
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
 		F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900F127114681007EF04C /* Preview Assets.xcassets */; };
+		F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */; };
+		F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */; };
+		F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */; };
 		F785C1ED271539DB008035EC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* Helper.swift */; };
 		F785C1EF271539F9008035EC /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EE271539F9008035EC /* LoginRepository.swift */; };
 		F785C1F127153A05008035EC /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F027153A05008035EC /* RegisterRepository.swift */; };
@@ -43,6 +46,9 @@
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F72900EE27114681007EF04C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72900F127114681007EF04C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F785C1EC271539DB008035EC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F785C1EE271539F9008035EC /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		F785C1F027153A05008035EC /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		4E977263271436FE00C28B5D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F764C4BF271824CD00C302A5 /* Fonts */,
 				4E9772642714370B00C28B5D /* Extension */,
 			);
 			path = Utilities;
@@ -247,6 +254,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		F764C4BF271824CD00C302A5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */,
+				F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */,
+				F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,7 +322,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */,
 				F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */,
+				F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */,
+				F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */,
 				F72900EF27114681007EF04C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
