@@ -19,9 +19,8 @@ struct PrimaryButton: View {
         Button(action: action, label: {
             Text(content)
                 .foregroundColor(textColor)
-                .frame(width: (maxWidth != nil) ? maxWidth : nil)
-                .padding()
-                .padding(.horizontal,20)
+                .frame(width: (maxWidth != nil) ? maxWidth : nil, height: 50)
+                
                 .background(btnColor)
                 .cornerRadius(15)
         })
@@ -30,7 +29,7 @@ struct PrimaryButton: View {
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(content: ("Log In"), maxWidth: 290, action: {}, btnColor: Color.theme.primary, textColor: Color.theme.primarywhite)
+        PrimaryButton(content: ("Log In"), maxWidth: 326, action: {}, btnColor: Color.theme.primary, textColor: Color.theme.primarywhite)
             .previewLayout(.sizeThatFits)
     }
 }

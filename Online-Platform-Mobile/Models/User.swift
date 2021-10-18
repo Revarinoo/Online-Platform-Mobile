@@ -7,7 +7,17 @@
 
 import Foundation
 
-enum Role {
-    case Client
-    case Seller
+enum Role: String {
+    case Client = "Client"
+    case Seller = "Seller"
 }
+
+struct User: Codable {
+    let name: String
+    let email: String
+    let type_role: String
+    let updated_at: String?
+    let created_at: String?
+    let id: Int
+}
+
