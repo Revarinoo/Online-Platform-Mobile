@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var loginVM = LoginViewModel()
+    @StateObject var loginVM: LoginViewModel
     
     @State var isChecked:Bool = false
     
@@ -39,15 +39,17 @@ struct LoginView: View {
                             .padding()
                             
                             VStack {
-                                LabelForm(content: loginVM.name, labeltext: "Email")
-                                LabelForm(content: loginVM.name, labeltext: "Password")
+                                LabelForm(content: $loginVM.email, labeltext: "Email", type: "Text")
+                                LabelForm(content: $loginVM.password, labeltext: "Password", type: "Password")
                             }
                             .padding()
                         }
                         
                         Spacer()
                         
-                        PrimaryButton(content: "Next", maxWidth: 290, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                        PrimaryButton(content: "Next", maxWidth: 290, action: {
+                            loginVM.Login(role: Role.Client)
+                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
                         
                         Spacer()
@@ -66,7 +68,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(loginVM: LoginViewModel())
     }
 }
 
