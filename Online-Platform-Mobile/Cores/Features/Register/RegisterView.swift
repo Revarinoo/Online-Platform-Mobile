@@ -31,7 +31,7 @@ struct RegisterView: View {
                         .bold()
                         .padding(.horizontal)
                     
-                    VStack {
+                    VStack (spacing: 5) {
                         VStack (alignment: .leading) {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Welcome")
@@ -43,7 +43,7 @@ struct RegisterView: View {
                             }
                             .padding()
                             
-                            FormView(registerVM: registerVM, selection: Role(rawValue: selection.rawValue) ?? .Client)
+                            FormView(registerVM: registerVM, selection: $selection)
                             
                             Button(action: toggle){
                                 HStack (alignment: .firstTextBaseline){
@@ -58,12 +58,11 @@ struct RegisterView: View {
                         
                         
                         
-                        Spacer()
-                        PrimaryButton(content: "Sign Up", maxWidth: 326, action: {
+                        PrimaryButton(content: "Sign Up", maxWidth: 330, action: {
                             registerVM.Register(role: selection)
                             print(selection.rawValue)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                            .padding()
+                            .padding(15)
                         
                         VStack {
                             HStack {
@@ -112,12 +111,7 @@ struct RegisterView_Previews: PreviewProvider {
 
 struct FormView: View {
     @State var registerVM: RegisterViewModel
-    @State var selection: Role
-    
-    init(registerVM: RegisterViewModel, selection: Role) {
-        self.registerVM = registerVM
-        self.selection = selection
-    }
+    @Binding var selection: Role
     
     var body: some View {
         VStack (alignment: .leading){
@@ -128,7 +122,7 @@ struct FormView: View {
             VStack(alignment: .leading) {
                 Text("Role")
                     .foregroundColor(Color.gray)
-                CustomPicker(selection: selection)
+                CustomPicker(selection: $selection)
             }
             
         }

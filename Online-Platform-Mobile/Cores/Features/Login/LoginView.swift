@@ -10,6 +10,9 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject var loginVM: LoginViewModel
+    @StateObject var registerVM: RegisterViewModel
+    
+    @State var selection: Role
     
     @State var isChecked:Bool = false
     
@@ -35,12 +38,21 @@ struct LoginView: View {
                                 Text("You’ve been missed!")
                                     .font(.caption)
                                     .foregroundColor(.gray)
+                                
+                               
                             }
                             .padding()
                             
                             VStack {
+                                
                                 LabelForm(content: $loginVM.email, labeltext: "Email", type: "Text")
                                 LabelForm(content: $loginVM.password, labeltext: "Password", type: "Password")
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Role")
+                                        .foregroundColor(Color.gray)
+                                    CustomPicker(selection: $selection)
+                                }
                             }
                             .padding()
                         }
@@ -48,9 +60,23 @@ struct LoginView: View {
                         Spacer()
                         
                         PrimaryButton(content: "Next", maxWidth: 290, action: {
-                            loginVM.Login(role: Role.Client)
+                            loginVM.Login(role: selection)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
+                        
+                        VStack {
+                            HStack {
+                                Text("Not registered yet?")
+                                    .foregroundColor(Color.theme.primary)
+                                NavigationLink(
+                                    destination: RegisterView(registerVM: registerVM),
+                                    label: {
+                                        Text("Create Account")
+                                            .bold()
+                                            .foregroundColor(Color.theme.primary)
+                                    })
+                            }
+                        }
                         
                         Spacer()
                     }
@@ -68,7 +94,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginVM: LoginViewModel())
+        LoginView(loginVM: LoginViewModel(), registerVM: RegisterViewModel(), selection: Role.Client)
     }
 }
 

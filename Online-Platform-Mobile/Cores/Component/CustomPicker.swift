@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomPicker: View {
     
-    @State var selection: Role
+    @Binding var selection: Role
 
     
     var body: some View {
@@ -47,6 +47,6 @@ struct CustomPicker: View {
 
 struct CustomPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPicker(selection: .Client)
+        CustomPicker(selection: .constant(.Client))
     }
 }
