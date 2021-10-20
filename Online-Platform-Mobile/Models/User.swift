@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum Role: String {
+enum Role: String, CaseIterable, Equatable {
     case Client = "Client"
     case Seller = "Seller"
+    
 }
 
 struct User: Codable {

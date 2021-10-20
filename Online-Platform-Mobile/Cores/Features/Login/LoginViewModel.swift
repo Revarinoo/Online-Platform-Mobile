@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
@@ -17,25 +18,25 @@ class LoginViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var redBanner = false
     
-    func Login(role: Role) {
-        let defaults =  UserDefaults.standard
-        print(email)
-        LoginService().Login(email: email, password: password, type_role: role) { result in
-            switch result {
-            case .success(let token):
-                defaults.setValue(token, forKey: "JWT")
-                DispatchQueue.main.async {
-                    self.isAuthenticated = true
+    @AppStorage("JWT", store: .standard) var token = ""
+    
+    func login(role: Role) {
+        AuthService().login(loginRequestBody: LoginRequestBody(email: email, password: password, type_role: role.rawValue)) { response in
+          
+            if let code = response?.code, let message = response?.message {
+                if code == 201, let access_token = response?.access_token {
+                    DispatchQueue.main.async {
+                        self.isAuthenticated = true
+                        self.token = access_token
+                    }
                 }
-                
-            case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.failedMessage = String("\(error)")
-                    self.redBanner = true
+                else {
+                    print("masuk sini")
+                    DispatchQueue.main.async {
+                        self.redBanner = true
+                        self.failedMessage = message
+                    }
                 }
-                print(error)
-                
             }
         }
     }

@@ -19,8 +19,7 @@ struct PrimaryButton: View {
         Button(action: action, label: {
             Text(content)
                 .foregroundColor(textColor)
-                .frame(width: (maxWidth != nil) ? maxWidth : nil, height: 50)
-                
+                .frame(maxWidth : .infinity, maxHeight: 50)
                 .background(btnColor)
                 .cornerRadius(15)
         })

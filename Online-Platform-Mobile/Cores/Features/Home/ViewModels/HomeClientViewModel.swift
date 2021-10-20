@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+
+class HomeClientViewModel {
+    @AppStorage("JWT", store: .standard) var token = ""
+    
+    func signOut() {
+        token = ""
+    }
+}

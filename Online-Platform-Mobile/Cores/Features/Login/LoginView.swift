@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var loginVM: LoginViewModel
+    @StateObject var loginVM = LoginViewModel()
+    
+    @State var selection: Role
     
     @State var isChecked:Bool = false
     
@@ -35,12 +37,21 @@ struct LoginView: View {
                                 Text("You’ve been missed!")
                                     .font(.caption)
                                     .foregroundColor(.gray)
+                                
+                               
                             }
                             .padding()
                             
                             VStack {
+                                
                                 LabelForm(content: $loginVM.email, labeltext: "Email", type: "Text")
                                 LabelForm(content: $loginVM.password, labeltext: "Password", type: "Password")
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Role")
+                                        .foregroundColor(Color.gray)
+                                    CustomPicker(selection: $selection)
+                                }
                             }
                             .padding()
                         }
@@ -48,10 +59,33 @@ struct LoginView: View {
                         Spacer()
                         
                         PrimaryButton(content: "Next", maxWidth: 290, action: {
-                            loginVM.Login(role: Role.Client)
+                            loginVM.login(role: selection)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
                         
+                        VStack {
+                            HStack {
+                                Text("Not registered yet?")
+                                    .foregroundColor(Color.theme.primary)
+                                NavigationLink(
+                                    destination: RegisterView(),
+                                    label: {
+                                        Text("Create Account")
+                                            .bold()
+                                            .foregroundColor(Color.theme.primary)
+                                    })
+                            }
+                        }
+                        
+                        Spacer()
+                        if loginVM.redBanner {
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.red)
+                                Text(loginVM.failedMessage)
+                                    .foregroundColor(Color.white)
+                            }.frame(width: 390, height: 50, alignment: .center)
+                        }
                         Spacer()
                     }
                     .background(Color.theme.primarywhite)
@@ -68,7 +102,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginVM: LoginViewModel())
+        LoginView(selection: Role.Client)
     }
 }
 

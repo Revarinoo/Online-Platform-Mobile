@@ -9,15 +9,16 @@ import SwiftUI
 
 @main
 struct Online_Platform_MobileApp: App {
-    @StateObject var regVM = RegisterViewModel()
-    @StateObject var logVM = LoginViewModel()
+    
+    @AppStorage("JWT", store: .standard) var token = ""
+    
     var body: some Scene {
         WindowGroup {
-            if regVM.isAuthenticated || logVM.isAuthenticated {
-                HomeClient()
+            if token == "" {
+                WelcomeView()
             }
             else {
-                WelcomeView(registerVM: regVM, loginVM: logVM)
+                HomeClient()
             }
             
         }
