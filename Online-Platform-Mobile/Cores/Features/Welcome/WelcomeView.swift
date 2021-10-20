@@ -37,7 +37,7 @@ struct WelcomeView: View {
                         .padding(.vertical)
                         
                         // Find Service Nav Link
-                        NavigationLink(destination: RegisterView(registerVM: registerVM, role: .Client)
+                        NavigationLink(destination: RegisterView(registerVM: registerVM)
                         ) {
                             Text("Find a Service")
                                 .frame(minWidth: 0, maxWidth: 300)
@@ -50,7 +50,7 @@ struct WelcomeView: View {
                         .navigationTitle("")
                         
                         // Become Seller Nav Link
-                        NavigationLink(destination: RegisterView(registerVM: registerVM, role: .Seller)) {
+                        NavigationLink(destination: RegisterView(registerVM: registerVM)) {
                             Text("Become a Seller")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .foregroundColor(Color.theme.primarywhite)

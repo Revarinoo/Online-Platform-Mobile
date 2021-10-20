@@ -15,6 +15,7 @@ class RegisterViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var redBanner = false
     @Published var failedMessage = ""
+    @Published var role = ""
     
     func Register(role: Role) {
         let defaults = UserDefaults.standard

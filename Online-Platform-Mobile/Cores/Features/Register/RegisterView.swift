@@ -12,8 +12,8 @@ struct RegisterView: View {
     @StateObject var registerVM: RegisterViewModel
     
     @State var isChecked:Bool = false
-    @State var role: Role
-    
+
+    @State var selection: Role = .Client
     var tnc = "By creating an account, you agree to our Terms and Conditions"
     
     func toggle(){isChecked = !isChecked}
@@ -43,7 +43,7 @@ struct RegisterView: View {
                             }
                             .padding()
                             
-                            FormView(registerVM: registerVM)
+                            FormView(registerVM: registerVM, selection: Role(rawValue: selection.rawValue) ?? .Client)
                             
                             Button(action: toggle){
                                 HStack (alignment: .firstTextBaseline){
@@ -59,11 +59,27 @@ struct RegisterView: View {
                         
                         
                         Spacer()
-                            PrimaryButton(content: "Sign Up", maxWidth: 326, action: {
-                                registerVM.Register(role: role)
-                            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                                .padding()
+                        PrimaryButton(content: "Sign Up", maxWidth: 326, action: {
+                            registerVM.Register(role: selection)
+                            print(selection.rawValue)
+                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                            .padding()
                         
+                        VStack {
+                            HStack {
+                                Text("Already have an account?")
+                                    .foregroundColor(Color.theme.primary)
+                                NavigationLink(
+                                    destination: Text("Hai"),
+                                    label: {
+                                        Text("Sign In")
+                                            .bold()
+                                            .foregroundColor(Color.theme.primary)
+                                    })
+                            }
+                        }
+                        .padding(.top,5)
+                        Spacer()
                         if registerVM.redBanner {
                             ZStack {
                                 Rectangle()
@@ -73,7 +89,7 @@ struct RegisterView: View {
                             }.frame(width: 390, height: 50, alignment: .center)
                         }
                         Spacer()
-    
+                        
                     }
                     .background(Color.white)
                     .cornerRadius(10)
@@ -89,23 +105,32 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(registerVM: RegisterViewModel(), role: .Client)
+        RegisterView(registerVM: RegisterViewModel(), selection: .Client)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
     }
 }
 
 struct FormView: View {
     @State var registerVM: RegisterViewModel
+    @State var selection: Role
     
-    init(registerVM: RegisterViewModel) {
+    init(registerVM: RegisterViewModel, selection: Role) {
         self.registerVM = registerVM
+        self.selection = selection
     }
     
     var body: some View {
-        VStack {
+        VStack (alignment: .leading){
             LabelForm(content: $registerVM.name, labeltext: "Names", type: "Text")
             LabelForm(content: $registerVM.email, labeltext: "Email", type: "Text")
             LabelForm(content: $registerVM.password, labeltext: "Password", type: "Password")
+            
+            VStack(alignment: .leading) {
+                Text("Role")
+                    .foregroundColor(Color.gray)
+                CustomPicker(selection: selection)
+            }
+            
         }
         .padding()
     }

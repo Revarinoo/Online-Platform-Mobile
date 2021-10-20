@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E07267C27182C8400806F54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267B27182C8400806F54 /* LoginView.swift */; };
 		4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267D27182D7B00806F54 /* LoginViewModel.swift */; };
+		4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E805DAE271FC0DC0063C83D /* CustomPicker.swift */; };
 		4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FDF27157C1D00E7461E /* RegisterView.swift */; };
 		4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */; };
 		4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE32715916900E7461E /* LabelForm.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		4E07267B27182C8400806F54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4E07267D27182D7B00806F54 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4E805DAE271FC0DC0063C83D /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		4E8A6FDF27157C1D00E7461E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		4E8A6FE32715916900E7461E /* LabelForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelForm.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				4E977268271438D600C28B5D /* PrimaryButton.swift */,
 				4E97726A271443F800C28B5D /* SecondaryButton.swift */,
 				4E8A6FE32715916900E7461E /* LabelForm.swift */,
+				4E805DAE271FC0DC0063C83D /* CustomPicker.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -212,13 +215,6 @@
 				F729010A27114AE3007EF04C /* Register */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		F729010927114AE1007EF04C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		F729010A27114AE3007EF04C /* Register */ = {
@@ -337,6 +333,7 @@
 				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
+				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
