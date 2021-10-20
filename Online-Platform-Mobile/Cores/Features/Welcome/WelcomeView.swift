@@ -9,9 +9,6 @@ import SwiftUI
 
 struct WelcomeView: View {
     
-    @StateObject var registerVM: RegisterViewModel
-    @StateObject var loginVM: LoginViewModel
-    
     var body: some View {
         NavigationView{
             ZStack {
@@ -37,7 +34,7 @@ struct WelcomeView: View {
                         .padding(.vertical)
                         
                         // Find Service Nav Link
-                        NavigationLink(destination: RegisterView(registerVM: registerVM)
+                        NavigationLink(destination: RegisterView()
                         ) {
                             Text("Find a Service")
                                 .frame(minWidth: 0, maxWidth: 300)
@@ -50,7 +47,7 @@ struct WelcomeView: View {
                         .navigationTitle("")
                         
                         // Become Seller Nav Link
-                        NavigationLink(destination: RegisterView(registerVM: registerVM)) {
+                        NavigationLink(destination: RegisterView()) {
                             Text("Become a Seller")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .foregroundColor(Color.theme.primarywhite)
@@ -69,7 +66,7 @@ struct WelcomeView: View {
                             Text("Already have an account?")
                                 .foregroundColor(Color.theme.primarywhite)
                             NavigationLink(
-                                destination: LoginView(loginVM: loginVM, registerVM: registerVM, selection: .Client),
+                                destination: LoginView(selection: .Client),
                                 label: {
                                     Text("Sign In")
                                         .bold()
@@ -86,6 +83,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(registerVM: RegisterViewModel(), loginVM: LoginViewModel())
+        WelcomeView()
     }
 }

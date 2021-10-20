@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct HomeClient: View {
+    
+    var homeClientVM = HomeClientViewModel()
+    
     var body: some View {
         NavigationView {
-            Text("Hello")
+            Button {
+                homeClientVM.signOut()
+            } label: {
+                Text("Sign Out")
+            }
+
         }
         
     }

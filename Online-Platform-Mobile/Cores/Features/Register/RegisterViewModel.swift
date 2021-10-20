@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 class RegisterViewModel: ObservableObject {
-    static let shared = RegisterViewModel()
+    
     @Published var password = ""
     @Published var name = ""
     @Published var email = ""
@@ -17,23 +18,25 @@ class RegisterViewModel: ObservableObject {
     @Published var failedMessage = ""
     @Published var role = ""
     
-    func Register(role: Role) {
-        let defaults = UserDefaults.standard
-        
-        RegisterService().Register(name: name, email: email, password: password, type_role: role) { result in
-            switch result {
-                case .success(let token):
-                    defaults.setValue(token, forKey: "JWT")
+    @AppStorage("JWT", store: .standard) var token = ""
+    
+    func register(role: Role) {
+        AuthService().register(registerRequestBody: RegisterRequestBody(name: name, email: email, password: password, type_role: role.rawValue)) { response in
+          
+            if let code = response?.code, let message = response?.message {
+                if code == 201, let access_token = response?.access_token {
                     DispatchQueue.main.async {
                         self.isAuthenticated = true
+                        self.token = access_token
                     }
-                case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.failedMessage = String("\(error)")
-                    self.redBanner = true
                 }
-                print(error)
+                else {
+                    print("masuk sini")
+                    DispatchQueue.main.async {
+                        self.redBanner = true
+                        self.failedMessage = message
+                    }
+                }
             }
         }
     }

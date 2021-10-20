@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var loginVM: LoginViewModel
-    @StateObject var registerVM: RegisterViewModel
+    @StateObject var loginVM = LoginViewModel()
     
     @State var selection: Role
     
@@ -60,7 +59,7 @@ struct LoginView: View {
                         Spacer()
                         
                         PrimaryButton(content: "Next", maxWidth: 290, action: {
-                            loginVM.Login(role: selection)
+                            loginVM.login(role: selection)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
                         
@@ -69,7 +68,7 @@ struct LoginView: View {
                                 Text("Not registered yet?")
                                     .foregroundColor(Color.theme.primary)
                                 NavigationLink(
-                                    destination: RegisterView(registerVM: registerVM),
+                                    destination: RegisterView(),
                                     label: {
                                         Text("Create Account")
                                             .bold()
@@ -78,6 +77,15 @@ struct LoginView: View {
                             }
                         }
                         
+                        Spacer()
+                        if loginVM.redBanner {
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.red)
+                                Text(loginVM.failedMessage)
+                                    .foregroundColor(Color.white)
+                            }.frame(width: 390, height: 50, alignment: .center)
+                        }
                         Spacer()
                     }
                     .background(Color.theme.primarywhite)
@@ -94,7 +102,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginVM: LoginViewModel(), registerVM: RegisterViewModel(), selection: Role.Client)
+        LoginView(selection: Role.Client)
     }
 }
 

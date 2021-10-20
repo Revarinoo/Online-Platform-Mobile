@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @StateObject var registerVM: RegisterViewModel
+    @StateObject var registerVM = RegisterViewModel()
     
     @State var isChecked:Bool = false
 
@@ -59,7 +59,7 @@ struct RegisterView: View {
                         
                         
                         PrimaryButton(content: "Sign Up", maxWidth: 330, action: {
-                            registerVM.Register(role: selection)
+                            registerVM.register(role: selection)
                             print(selection.rawValue)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding(15)
@@ -69,7 +69,7 @@ struct RegisterView: View {
                                 Text("Already have an account?")
                                     .foregroundColor(Color.theme.primary)
                                 NavigationLink(
-                                    destination: Text("Hai"),
+                                    destination: LoginView(selection: .Client).navigationBarBackButtonHidden(true),
                                     label: {
                                         Text("Sign In")
                                             .bold()
@@ -104,7 +104,7 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(registerVM: RegisterViewModel(), selection: .Client)
+        RegisterView(selection: .Client)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
     }
 }
