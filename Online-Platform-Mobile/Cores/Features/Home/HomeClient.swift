@@ -19,22 +19,62 @@ struct HomeClient: View {
     
     var body: some View {
         NavigationView {
-            
-            CouponCard()
-                .navigationBarTitle("Discover")
-                .navigationBarItems(leading:
-                                        Button(action: {
-                    homeClientVM.signOut()
-                }) {
-                    Image(systemName: "xmark.circle.fill").imageScale(.large)
+            VStack (alignment: .leading) {
+                CouponCard()
+                    .padding()
+                VStack (alignment: .leading) {
+                    Text("Categories")
                         .foregroundColor(Color.theme.primary)
-                }, trailing:
-                    Button(action: {
-                    print("Edit button pressed...")
-                }) {
-                    Image(systemName: "message").imageScale(.large)
-                        .foregroundColor(Color.theme.primary)
-                })
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    ScrollView (.horizontal, showsIndicators: false, content: {
+                        HStack {
+                            ForEach(0..<10) { index in
+                                CategoryCard()
+                            }
+                        }
+                    })
+                }
+                .padding(.leading)
+                
+                VStack {
+                    HStack {
+                        Text("Recommendation")
+                            .foregroundColor(Color.theme.primary)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("View All")
+                            .foregroundColor(.gray)
+                    }
+                    
+                    ScrollView (.vertical, showsIndicators: false, content: {
+                        VStack {
+                            ForEach(0..<10) { index in
+                                SellerCard()
+                                    .cornerRadius(15)
+                            }
+                        }
+                    })
+                }
+                .padding()
+                
+            }.edgesIgnoringSafeArea(.bottom)
+                .edgesIgnoringSafeArea(.trailing)
+            .navigationBarTitle("Discover")
+            .navigationBarItems(leading:
+                                    Button(action: {
+                homeClientVM.signOut()
+            }) {
+                Text("Log Out")
+                    .foregroundColor(.red)
+            }, trailing:
+                                    Button(action: {
+                print("Edit button pressed...")
+            }) {
+                Image(systemName: "message").imageScale(.large)
+                    .foregroundColor(Color.theme.primary)
+            })
         }
         
     }
