@@ -11,14 +11,30 @@ struct HomeClient: View {
     
     var homeClientVM = HomeClientViewModel()
     
+    init() {
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.primary)]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.primary)]
+    }
+    
     var body: some View {
         NavigationView {
-            Button {
-                homeClientVM.signOut()
-            } label: {
-                Text("Sign Out")
-            }
-
+            
+            CouponCard()
+                .navigationBarTitle("Discover")
+                .navigationBarItems(leading:
+                                        Button(action: {
+                    homeClientVM.signOut()
+                }) {
+                    Image(systemName: "xmark.circle.fill").imageScale(.large)
+                        .foregroundColor(Color.theme.primary)
+                }, trailing:
+                    Button(action: {
+                    print("Edit button pressed...")
+                }) {
+                    Image(systemName: "message").imageScale(.large)
+                        .foregroundColor(Color.theme.primary)
+                })
         }
         
     }
