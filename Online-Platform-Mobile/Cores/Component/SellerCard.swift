@@ -35,6 +35,7 @@ struct SellerCard: View {
         }
         .padding()
         .background(Color.theme.primarywhite)
+        
     }
 }
 

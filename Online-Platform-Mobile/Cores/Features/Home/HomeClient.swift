@@ -11,10 +11,13 @@ struct HomeClient: View {
     
     var homeClientVM = HomeClientViewModel()
     
+    private var categoryListVM:  CategoryListViewModel
+    
     init() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.primary)]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.primary)]
+        self.categoryListVM = CategoryListViewModel()
     }
     
     var body: some View {
@@ -29,8 +32,8 @@ struct HomeClient: View {
                         .fontWeight(.bold)
                     ScrollView (.horizontal, showsIndicators: false, content: {
                         HStack {
-                            ForEach(0..<10) { index in
-                                CategoryCard()
+                            ForEach(categoryListVM.categories, id: \.id) { category in
+                                Text("\(category.image)")
                             }
                         }
                     })
@@ -53,6 +56,7 @@ struct HomeClient: View {
                             ForEach(0..<10) { index in
                                 SellerCard()
                                     .cornerRadius(15)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
                             }
                         }
                     })

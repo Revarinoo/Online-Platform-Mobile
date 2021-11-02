@@ -10,8 +10,11 @@ import SwiftUI
 
 class HomeClientViewModel {
     @AppStorage("JWT", store: .standard) var token = ""
+    @Published var categories: [Category] = []
     
     func signOut() {
         token = ""
     }
+    
+    
 }

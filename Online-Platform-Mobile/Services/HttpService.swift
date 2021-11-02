@@ -19,6 +19,9 @@ final class HttpService {
                 let responses = try? JSONDecoder().decode(resultType.self, from: data!)
                 completionHandler(responses)
             }
+            if (error != nil) {
+                print("error")
+            }
         }.resume()
     }
 }
