@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RatingCard: View {
     
-    var rate: Float = 4.0
+    var rate: Double
     
     var body: some View {
         Label(String(rate), systemImage: "star.fill")
@@ -25,7 +25,7 @@ struct RatingCard: View {
 
 struct RatingCard_Previews: PreviewProvider {
     static var previews: some View {
-        RatingCard()
+        RatingCard(rate: 2.0)
             .previewLayout(.sizeThatFits)
     }
 }

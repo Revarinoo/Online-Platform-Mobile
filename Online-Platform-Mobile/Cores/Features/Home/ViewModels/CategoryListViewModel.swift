@@ -22,8 +22,8 @@ class CategoryListViewModel: ObservableObject {
     }
     
     func fetchCategories() {
-        print("hi")
-        Webservice().getCategories { response in
+        print("hi fetch categories")
+        Homeservice().getCategories { response in
             if let response = response {
                 DispatchQueue.main.async {
                     self.categories = response.categories ?? []
