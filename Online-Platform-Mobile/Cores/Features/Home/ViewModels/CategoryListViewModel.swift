@@ -22,9 +22,13 @@ class CategoryListViewModel: ObservableObject {
     }
     
     func fetchCategories() {
+        print("hi")
         Webservice().getCategories { response in
             if let response = response {
-                self.categories = response.categories ?? []
+                DispatchQueue.main.async {
+                    self.categories = response.categories ?? []
+                    print("Response \(self.categories)")
+                }
             }
         }
     }
