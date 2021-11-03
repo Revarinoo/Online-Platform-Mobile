@@ -22,3 +22,16 @@ struct User: Codable {
     let id: Int
 }
 
+struct Seller: Codable {
+    let seller_id: Int?
+    let name: String?
+    let photo: String?
+    let seller_type: [String]?
+    let rating: Double
+}
+
+extension Seller: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(seller_id)
+    }
+}
