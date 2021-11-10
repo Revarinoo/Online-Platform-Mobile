@@ -11,6 +11,7 @@
 		4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267D27182D7B00806F54 /* LoginViewModel.swift */; };
 		4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C820F272D9FB40049B8C8 /* Category.swift */; };
 		4E0C8213272DA0DB0049B8C8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0C8212272DA0DB0049B8C8 /* SDWebImageSwiftUI */; };
+		4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15A9A92736C42700440837 /* CategoryIcon.swift */; };
 		4E19209027269D6200B349C7 /* CouponCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19208F27269D6200B349C7 /* CouponCard.swift */; };
 		4E1920922726AD0900B349C7 /* SellerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1920912726AD0900B349C7 /* SellerCard.swift */; };
 		4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1920932726B1A600B349C7 /* RatingCard.swift */; };
@@ -25,6 +26,9 @@
 		4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E977268271438D600C28B5D /* PrimaryButton.swift */; };
 		4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97726A271443F800C28B5D /* SecondaryButton.swift */; };
 		4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97726F2714507C00C28B5D /* WelcomeView.swift */; };
+		4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABAC51273C3A46000E7D44 /* ProductService.swift */; };
+		4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */; };
+		4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8C20F2736720200C9AD66 /* ProductView.swift */; };
 		F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */; };
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
@@ -45,6 +49,7 @@
 		4E07267B27182C8400806F54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4E07267D27182D7B00806F54 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4E0C820F272D9FB40049B8C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4E15A9A92736C42700440837 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
 		4E19208F27269D6200B349C7 /* CouponCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCard.swift; sourceTree = "<group>"; };
 		4E1920912726AD0900B349C7 /* SellerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCard.swift; sourceTree = "<group>"; };
 		4E1920932726B1A600B349C7 /* RatingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCard.swift; sourceTree = "<group>"; };
@@ -59,6 +64,9 @@
 		4E977268271438D600C28B5D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E97726A271443F800C28B5D /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		4E97726F2714507C00C28B5D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		4EABAC51273C3A46000E7D44 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		4EE8C20F2736720200C9AD66 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F72900E727114680007EF04C /* Online-Platform-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Online-Platform-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Online_Platform_MobileApp.swift; sourceTree = "<group>"; };
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 				4E1920912726AD0900B349C7 /* SellerCard.swift */,
 				4E1920932726B1A600B349C7 /* RatingCard.swift */,
 				4E1920952726BE9600B349C7 /* CategoryCard.swift */,
+				4E15A9A92736C42700440837 /* CategoryIcon.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -150,6 +159,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4EE8C20E2736712100C9AD66 /* Product */,
 				F764C4C627189CCC00C302A5 /* Home */,
 				4E07267A27182C7300806F54 /* Login */,
 				4E8A6FDE27157C0E00E7461E /* Register */,
@@ -164,6 +174,15 @@
 				4E97726F2714507C00C28B5D /* WelcomeView.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		4EE8C20E2736712100C9AD66 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				4EE8C20F2736720200C9AD66 /* ProductView.swift */,
+				4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		F72900DE2711467F007EF04C = {
@@ -229,6 +248,7 @@
 				F729010A27114AE3007EF04C /* Authentication */,
 				F7D6A49F272007D000E0BCD1 /* HttpService.swift */,
 				4E58D33F272FEB2E0035D7C6 /* Homeservice.swift */,
+				4EABAC51273C3A46000E7D44 /* ProductService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -349,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */,
 				4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */,
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
@@ -359,7 +380,10 @@
 				4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */,
 				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
+				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
+				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,
+				4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */,
 				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
@@ -505,7 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
-				DEVELOPMENT_TEAM = PKF8ACHM24;
+				DEVELOPMENT_TEAM = A226GG3668;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -535,7 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
-				DEVELOPMENT_TEAM = PKF8ACHM24;
+				DEVELOPMENT_TEAM = A226GG3668;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

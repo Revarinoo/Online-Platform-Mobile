@@ -34,24 +34,3 @@ class CategoryListViewModel: ObservableObject {
     }
     
 }
-
-//class CategoryViewModel {
-//
-//    var category: Category
-//
-//    init(category: Category){
-//        self.category = category
-//    }
-//
-//    var id: Int {
-//        return self.category.id
-//    }
-//
-//    var name: String {
-//        return self.category.name
-//    }
-//
-//    var image: String {
-//        return self.category.image
-//    }
-//}

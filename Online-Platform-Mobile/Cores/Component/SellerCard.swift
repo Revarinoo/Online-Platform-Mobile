@@ -28,8 +28,15 @@ struct SellerCard: View {
                 Text(name)
                     .fontWeight(.medium)
                 HStack{
-                    ForEach(0 ..< category.count) { value in
-                        Text(category[value])
+                    if (category.count != 0) {
+                        ForEach(0 ..< category.count) { value in
+                            Text(category[value])
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        
+                    } else {
+                        Text("-")
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -54,6 +61,6 @@ struct SellerCard_Previews: PreviewProvider {
             .cornerRadius(10)
             .padding()
             .previewLayout(.sizeThatFits)
-            
+        
     }
 }

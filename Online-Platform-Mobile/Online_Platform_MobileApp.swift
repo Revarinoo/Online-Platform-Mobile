@@ -18,7 +18,7 @@ struct Online_Platform_MobileApp: App {
                 WelcomeView()
             }
             else {
-                HomeClient()
+                ProductView()
             }
             
         }
