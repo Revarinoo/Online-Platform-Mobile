@@ -29,7 +29,8 @@ struct CategoryIcon: View {
                 .font(.caption)
                 .foregroundColor(Color.theme.primary)
         }
-        .frame(width: 63, height: 60)
+        .frame(minWidth: 63, maxHeight: 60)
+        .padding(EdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3))
     }
 }
 

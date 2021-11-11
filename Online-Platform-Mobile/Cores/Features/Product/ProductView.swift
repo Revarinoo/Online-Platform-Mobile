@@ -18,7 +18,7 @@ struct ProductView: View {
                     HStack {
                         ForEach(categoryListVM.categories, id: \.self) { category in
                             CategoryIcon(image: category.icon ?? "", name: category.name ?? "")
-                                .frame(width: 63, height: 86)
+                                .frame(minWidth: 63, maxHeight: 86)
                                 .background(Color.theme.secondary)
                                 .cornerRadius(10)
                                 .onTapGesture {
@@ -27,6 +27,7 @@ struct ProductView: View {
                                     productListVM.fetchSeller(catId: productListVM.selectedCategory)
                                     print(productListVM.selectedCategory)
                                 }
+                                .padding(.bottom, 21)
                         }
                     }
                     .padding(.leading)
