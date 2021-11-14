@@ -20,12 +20,10 @@ class ProductViewModel: ObservableObject {
     }
     
     func fetchSeller(catId: Int) {
-        print("hi seller")
         ProductService().getSeller(categoryId: catId) { response in
             if let response = response {
                 DispatchQueue.main.async {
                     self.seller = response.data ?? []
-                    print("ini Response Seller \(self.seller)")
                 }
             }
         }

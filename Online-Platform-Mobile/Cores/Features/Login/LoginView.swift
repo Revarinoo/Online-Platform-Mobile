@@ -97,6 +97,9 @@ struct LoginView: View {
             }
             .navigationBarHidden(true)
         }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
     }
 }
 

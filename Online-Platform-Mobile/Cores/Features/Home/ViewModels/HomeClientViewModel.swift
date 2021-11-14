@@ -27,24 +27,20 @@ class HomeClientViewModel: ObservableObject {
     }
     
     func fetchSeller(catId: Int) {
-        print("hi seller")
         ProductService().getSeller(categoryId: catId) { response in
             if let response = response {
                 DispatchQueue.main.async {
                     self.seller = response.data ?? []
-                    print("ini Response \(self.seller)")
                 }
             }
         }
     }
     
     func fetchRecommendedSeller() {
-        print("hi rec seller")
         Homeservice().getRecommendedSeller { response in
             if let response = response {
                 DispatchQueue.main.async {
                     self.recseller = response.data ?? []
-                    print("ini Response \(self.seller)")
                 }
             }
         }

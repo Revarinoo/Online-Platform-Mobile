@@ -35,9 +35,11 @@ struct ProductView: View {
                 ScrollView (.vertical, showsIndicators: false, content: {
                     VStack {
                         ForEach(productListVM.seller, id: \.self) { seller in
-                            SellerCard(name: seller.name ?? "", category: seller.seller_type ?? [], image: seller.photo ?? "", rate: seller.rating)
-                                .cornerRadius(15)
-                                .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
+                            NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)) {
+                                SellerCard(name: seller.name ?? "", category: seller.seller_type ?? [], image: seller.photo ?? "", rate: seller.rating)
+                                    .cornerRadius(15)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
+                            }
                         }
                     }
                     .padding(.horizontal)

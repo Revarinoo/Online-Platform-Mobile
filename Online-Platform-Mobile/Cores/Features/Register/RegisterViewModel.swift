@@ -31,7 +31,6 @@ class RegisterViewModel: ObservableObject {
                     }
                 }
                 else {
-                    print("masuk sini")
                     DispatchQueue.main.async {
                         self.redBanner = true
                         self.failedMessage = message

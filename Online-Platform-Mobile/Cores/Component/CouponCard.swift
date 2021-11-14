@@ -48,6 +48,7 @@ struct CouponCard: View {
         }
         .padding()
         .background(Color.theme.primarywhite)
+        .frame(height: 149, alignment: .leading)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
         

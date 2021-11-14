@@ -20,7 +20,7 @@ struct Online_Platform_MobileApp: App {
             else {
                 ProductView()
             }
-            
+//            ProductDetailView()
         }
     }
 }

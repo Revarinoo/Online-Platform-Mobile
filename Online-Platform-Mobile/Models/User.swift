@@ -23,7 +23,7 @@ struct User: Codable {
 }
 
 struct Seller: Codable {
-    let seller_id: Int?
+    let product_id: Int?
     let name: String?
     let photo: String?
     let seller_type: [String]?
@@ -32,6 +32,6 @@ struct Seller: Codable {
 
 extension Seller: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(seller_id)
+        hasher.combine(product_id)
     }
 }
