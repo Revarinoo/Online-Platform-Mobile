@@ -48,6 +48,8 @@
 		F785C1ED271539DB008035EC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* Helper.swift */; };
 		F785C1F527153A24008035EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* AuthService.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
+		F7A2A5652744111A00856135 /* PackageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2A5642744111A00856135 /* PackageDetail.swift */; };
+		F7A2A56727441C1300856135 /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2A56627441C1300856135 /* NavigationBackButton.swift */; };
 		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D5900E273FEE8600A2D916 /* ProductDetailService.swift */; };
@@ -101,6 +103,8 @@
 		F785C1EC271539DB008035EC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F7A2A5642744111A00856135 /* PackageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetail.swift; sourceTree = "<group>"; };
+		F7A2A56627441C1300856135 /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7D5900E273FEE8600A2D916 /* ProductDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailService.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				F75CE2C227411F5400F0977E /* DismissKeyboard.swift */,
 				4E9772652714371A00C28B5D /* ColorExtension.swift */,
 				F75CE2CE2741742300F0977E /* RoundedCorner.swift */,
+				F7A2A56627441C1300856135 /* NavigationBackButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				F75CE2CA274162F600F0977E /* LocationRating.swift */,
 				F7450B3C274295A00061B717 /* ReviewsCard.swift */,
 				F7450B3E2742C1D90061B717 /* PackageCard.swift */,
+				F7A2A5642744111A00856135 /* PackageDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */,
+				F7A2A5652744111A00856135 /* PackageDetail.swift in Sources */,
 				F7D59019273FF74000A2D916 /* ProductDetailView.swift in Sources */,
 				4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */,
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
@@ -474,6 +481,7 @@
 				F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */,
 				4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */,
 				F7450B3D274295A00061B717 /* ReviewsCard.swift in Sources */,
+				F7A2A56727441C1300856135 /* NavigationBackButton.swift in Sources */,
 				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,

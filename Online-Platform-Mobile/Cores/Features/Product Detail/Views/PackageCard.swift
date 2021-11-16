@@ -24,8 +24,10 @@ struct PackageCard: View {
             VStack (alignment: .leading) {
                 Text("\(package.quantity!) " + typeDetail)
                     .font(.custom(ThemeFont.displayRegular, size: 18))
+                    .foregroundColor(Color.black)
                 Text(setPriceFormat(price: Int(package.price!)))
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                    .foregroundColor(Color.theme.primary)
             }
             .frame(width: 163, alignment: .leading)
             

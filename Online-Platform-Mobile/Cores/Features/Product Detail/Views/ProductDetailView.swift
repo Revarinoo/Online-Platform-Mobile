@@ -177,8 +177,10 @@ struct ProductDetailView: View {
                 .font(.custom(ThemeFont.displaySemiBold, size: 15))
             VStack (spacing: 15) {
                 ForEach(productDetailVM.productDetailModel.packages, id: \.self) { package in
-                    PackageCard(package: package, carts: $cart)
-                        .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
+                    NavigationLink (destination: PackageDetail(package: package)) {
+                        PackageCard(package: package, carts: $cart)
+                            .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
+                    }
                 }
             }
         }
