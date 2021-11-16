@@ -14,8 +14,14 @@ struct ProductDetailModel: Identifiable {
     let seller_type: String
     let location: String
     let rating: Double
-    let reviews: [Review]
+    let reviews: [ReviewModel]
     let description: String
     let user: ProductSeller
     let packages: [ProductPackage]
+}
+
+struct ReviewModel: Identifiable {
+    let id = UUID()
+    let name: String
+    let comment: String
 }

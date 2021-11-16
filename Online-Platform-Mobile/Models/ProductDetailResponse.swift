@@ -41,5 +41,11 @@ struct ProductPackage: Codable {
     let high_resolution: Int?
     let source_file: Int?
     let commercial_use: Int?
-    let editing: Int?
+    let light_editing: Int?
+}
+
+extension ProductPackage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

@@ -23,7 +23,7 @@ struct ImageSlider: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .frame(width: proxy.size.width, height: proxy.size.height / 2.3, alignment: .top)
+            .frame(width: proxy.size.width, height: 406, alignment: .top)
             .edgesIgnoringSafeArea(.top)
         }
     }

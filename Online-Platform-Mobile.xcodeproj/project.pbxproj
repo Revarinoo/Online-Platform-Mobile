@@ -33,13 +33,14 @@
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
 		F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900F127114681007EF04C /* Preview Assets.xcassets */; };
+		F7450B3D274295A00061B717 /* ReviewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7450B3C274295A00061B717 /* ReviewsCard.swift */; };
+		F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7450B3E2742C1D90061B717 /* PackageCard.swift */; };
 		F75CE2C327411F5400F0977E /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2C227411F5400F0977E /* DismissKeyboard.swift */; };
 		F75CE2C5274142FC00F0977E /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2C4274142FC00F0977E /* ImageSlider.swift */; };
 		F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2C82741622900F0977E /* ThemeFont.swift */; };
 		F75CE2CB274162F600F0977E /* LocationRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2CA274162F600F0977E /* LocationRating.swift */; };
 		F75CE2CD274168B500F0977E /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F75CE2CC274168B500F0977E /* SFProDisplay-Medium.ttf */; };
 		F75CE2CF2741742300F0977E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2CE2741742300F0977E /* RoundedCorner.swift */; };
-		F75CE2D127417B6E00F0977E /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2D027417B6E00F0977E /* ReviewCard.swift */; };
 		F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */; };
 		F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */; };
 		F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */; };
@@ -47,6 +48,7 @@
 		F785C1ED271539DB008035EC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* Helper.swift */; };
 		F785C1F527153A24008035EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* AuthService.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
+		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D5900E273FEE8600A2D916 /* ProductDetailService.swift */; };
 		F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D59011273FF0F200A2D916 /* ProductDetailModel.swift */; };
@@ -84,13 +86,14 @@
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F72900EE27114681007EF04C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72900F127114681007EF04C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7450B3C274295A00061B717 /* ReviewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCard.swift; sourceTree = "<group>"; };
+		F7450B3E2742C1D90061B717 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		F75CE2C227411F5400F0977E /* DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
 		F75CE2C4274142FC00F0977E /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		F75CE2C82741622900F0977E /* ThemeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFont.swift; sourceTree = "<group>"; };
 		F75CE2CA274162F600F0977E /* LocationRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRating.swift; sourceTree = "<group>"; };
 		F75CE2CC274168B500F0977E /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		F75CE2CE2741742300F0977E /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
-		F75CE2D027417B6E00F0977E /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		F764C4C0271824DF00C302A5 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		F785C1EC271539DB008035EC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7D5900E273FEE8600A2D916 /* ProductDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailService.swift; sourceTree = "<group>"; };
 		F7D59011273FF0F200A2D916 /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
@@ -305,7 +309,8 @@
 				F7D59018273FF74000A2D916 /* ProductDetailView.swift */,
 				F75CE2C4274142FC00F0977E /* ImageSlider.swift */,
 				F75CE2CA274162F600F0977E /* LocationRating.swift */,
-				F75CE2D027417B6E00F0977E /* ReviewCard.swift */,
+				F7450B3C274295A00061B717 /* ReviewsCard.swift */,
+				F7450B3E2742C1D90061B717 /* PackageCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 		F764C4BF271824CD00C302A5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */,
 				F75CE2CC274168B500F0977E /* SFProDisplay-Medium.ttf */,
 				F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */,
 				F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */,
@@ -430,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */,
 				F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */,
 				F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */,
 				F764C4C1271824DF00C302A5 /* SFProDisplay-Regular.ttf in Resources */,
@@ -464,7 +471,9 @@
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,
 				F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */,
+				F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */,
 				4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */,
+				F7450B3D274295A00061B717 /* ReviewsCard.swift in Sources */,
 				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
@@ -473,7 +482,6 @@
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
 				F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
-				F75CE2D127417B6E00F0977E /* ReviewCard.swift in Sources */,
 				4E1920962726BE9600B349C7 /* CategoryCard.swift in Sources */,
 				4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */,
 				F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */,
@@ -620,6 +628,7 @@
 				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Online-Platform-Mobile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -650,6 +659,7 @@
 				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Online-Platform-Mobile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

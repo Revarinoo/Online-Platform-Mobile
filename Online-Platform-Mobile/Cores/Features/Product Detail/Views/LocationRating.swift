@@ -36,16 +36,16 @@ struct LocationRating: View {
             }
         }
         .padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
-        .frame(width: 165, height: 64)
+        .frame(width: 165, height: 64, alignment: .leading)
         .background(Color.theme.primarywhite)
         .cornerRadius(10)
-        .shadow(color: Color.theme.darkGrey, radius: 10, x: 2, y: 3)
+        .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
     }
 }
 
 struct LocationRating_Previews: PreviewProvider {
     static var previews: some View {
-        LocationRating(type: "Rating", rating: 4.1, reviewCount: 10)
+        LocationRating(type: "Location", location: "Jakarta")
             .previewLayout(.sizeThatFits)
     }
 }
