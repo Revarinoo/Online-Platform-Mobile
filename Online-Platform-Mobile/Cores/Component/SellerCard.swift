@@ -26,10 +26,18 @@ struct SellerCard: View {
                 .clipped() // Equal to clipsToBounds = true
             VStack (alignment: .leading) {
                 Text(name)
+                    .foregroundColor(Color.black)
                     .fontWeight(.medium)
                 HStack{
-                    ForEach(0 ..< category.count) { value in
-                        Text(category[value])
+                    if (category.count != 0) {
+                        ForEach(0 ..< category.count) { value in
+                            Text(category[value] + (category.count > 1 && value == 0 ? "," : ""))
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        
+                    } else {
+                        Text("-")
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -54,6 +62,6 @@ struct SellerCard_Previews: PreviewProvider {
             .cornerRadius(10)
             .padding()
             .previewLayout(.sizeThatFits)
-            
+        
     }
 }

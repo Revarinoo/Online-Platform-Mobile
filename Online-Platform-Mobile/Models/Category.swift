@@ -8,13 +8,14 @@
 import Foundation
 
 struct Category: Codable {
-    let id: Int?
+    let category_id: Int?
     let name: String?
     let image: String?
+    let icon: String?
 }
 
 extension Category: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(category_id)
     }
 }

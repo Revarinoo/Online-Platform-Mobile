@@ -99,6 +99,9 @@ struct RegisterView: View {
             }
             .navigationBarHidden(true)
         }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
     }
 }
 

@@ -12,15 +12,13 @@ class HomeClientViewModel: ObservableObject {
     @AppStorage("JWT", store: .standard) var token = ""
     @Published var categories: [Category] = []
     @Published var recseller: [Seller] = []
+    @Published var seller: [Seller] = []
+    @Published var selectedCategory:Int = 0
     
     
     init() {
         fetchRecommendedSeller()
-        if recseller != nil {
-            print(recseller)
-        } else {
-            print("ga ada recommend seller")
-        }
+        fetchSeller(catId: selectedCategory)
         
     }
     
@@ -28,13 +26,21 @@ class HomeClientViewModel: ObservableObject {
         token = ""
     }
     
+    func fetchSeller(catId: Int) {
+        ProductService().getSeller(categoryId: catId) { response in
+            if let response = response {
+                DispatchQueue.main.async {
+                    self.seller = response.data ?? []
+                }
+            }
+        }
+    }
+    
     func fetchRecommendedSeller() {
-        print("hi rec seller")
         Homeservice().getRecommendedSeller { response in
             if let response = response {
                 DispatchQueue.main.async {
                     self.recseller = response.data ?? []
-                    print("Response \(self.categories)")
                 }
             }
         }
