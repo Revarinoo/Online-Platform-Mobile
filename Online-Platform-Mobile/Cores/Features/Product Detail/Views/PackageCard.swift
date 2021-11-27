@@ -32,8 +32,10 @@ struct PackageCard: View {
             .frame(width: 163, alignment: .leading)
             
             Button {
-                self.isClicked = true
-                carts.append(self.package)
+                if !isClicked {
+                    self.isClicked = true
+                    carts.append(self.package)
+                }
             } label: {
                 HStack (spacing: 3) {
                     Image(systemName: "plus")
@@ -75,9 +77,9 @@ struct PackageCard: View {
         if price == 0 {
             return "N/A"
         } else if price > 999999{
-            return "\(String(format: "%g", Double(price)/1000000))M"
+            return "\(String(format: "%g", Double(price)/1000000)) Juta"
         } else if price > 999 {
-            return "\(price/1000)K"
+            return "\(price/1000) Ribu"
         } else {
             return "\(price)"
         }
