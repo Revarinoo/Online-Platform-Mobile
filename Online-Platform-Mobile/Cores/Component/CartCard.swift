@@ -43,9 +43,10 @@ struct CartCard: View {
                         .frame(width: 34, height: 28)
                         .foregroundColor(Color.theme.primarywhite)
                 case "Loc":
-                    Image(systemName: "location")
+                    Image("loc")
                         .resizable()
-                        .frame(width: 34, height: 28)
+                        .scaledToFill()
+                        .frame(width: 19.5, height: 23.69)
                         .foregroundColor(Color.theme.primarywhite)
                 default:
                     WebImage(url: URL(string: ""))

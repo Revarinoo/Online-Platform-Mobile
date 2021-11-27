@@ -26,7 +26,7 @@ struct PackageCard: View {
                 Text("\(package.quantity!) " + typeDetail)
                     .font(.custom(ThemeFont.displayRegular, size: 18))
                     .foregroundColor(Color.black)
-                Text(setPriceFormat(price: Int(package.price!)))
+                Text(Int(package.price!).setPriceFormat())
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                     .foregroundColor(Color.theme.primary)
             }
@@ -36,9 +36,6 @@ struct PackageCard: View {
                 if !self.isClicked {
                     self.isClicked = true
                     carts.append(self.package)
-                    if package.type == "Album" {
-                        locflag = 1
-                }
                 }
             } label: {
                 HStack (spacing: 3) {
@@ -72,22 +69,13 @@ struct PackageCard: View {
             }
             else {
                 imageIcon = "albumIcon"
+                locflag = 1
                 typeDetail = "pages album"
             }
         }
     }
     
-    private func setPriceFormat(price: Int) -> String {
-        if price == 0 {
-            return "N/A"
-        } else if price > 999999{
-            return "\(String(format: "%g", Double(price)/1000000)) Juta"
-        } else if price > 999 {
-            return "\(price/1000) Ribu"
-        } else {
-            return "\(price)"
-        }
-    }
+    
 }
 
 struct PackageCard_Previews: PreviewProvider {

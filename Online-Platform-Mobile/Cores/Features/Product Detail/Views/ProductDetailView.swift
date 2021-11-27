@@ -87,7 +87,7 @@ struct ProductDetailView: View {
                         .padding(.leading, 9)
                         .frame(width: 181, alignment: .leading)
                     
-                    NavigationLink(destination: OrderView(cart: $cart, locflag: $locflag)) {
+                    NavigationLink(destination: OrderView(cart: cart, locflag: locflag)) {
                         Text("Checkout")
                             .font(.custom(ThemeFont.displaySemiBold, size: 15))
                             .foregroundColor(Color.white)

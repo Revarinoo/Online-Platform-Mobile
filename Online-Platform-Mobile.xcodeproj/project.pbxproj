@@ -35,6 +35,8 @@
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
 		F72900F227114681007EF04C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900F127114681007EF04C /* Preview Assets.xcassets */; };
+		F737A700275295AD00161CF0 /* CartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F737A6FF275295AD00161CF0 /* CartCardView.swift */; };
+		F737A7032752994400161CF0 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F737A7022752994400161CF0 /* NumberFormatter.swift */; };
 		F7450B3D274295A00061B717 /* ReviewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7450B3C274295A00061B717 /* ReviewsCard.swift */; };
 		F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7450B3E2742C1D90061B717 /* PackageCard.swift */; };
 		F75CE2C327411F5400F0977E /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75CE2C227411F5400F0977E /* DismissKeyboard.swift */; };
@@ -92,6 +94,8 @@
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F72900EE27114681007EF04C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72900F127114681007EF04C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F737A6FF275295AD00161CF0 /* CartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCardView.swift; sourceTree = "<group>"; };
+		F737A7022752994400161CF0 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		F7450B3C274295A00061B717 /* ReviewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCard.swift; sourceTree = "<group>"; };
 		F7450B3E2742C1D90061B717 /* PackageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCard.swift; sourceTree = "<group>"; };
 		F75CE2C227411F5400F0977E /* DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				4E9772652714371A00C28B5D /* ColorExtension.swift */,
 				F75CE2CE2741742300F0977E /* RoundedCorner.swift */,
 				F7A2A56627441C1300856135 /* NavigationBackButton.swift */,
+				F737A7022752994400161CF0 /* NumberFormatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -238,7 +243,8 @@
 		4EF760B92747793E00BBB0CE /* OrderView */ = {
 			isa = PBXGroup;
 			children = (
-				4EF760BA2747795B00BBB0CE /* OrderView.swift */,
+				F737A6FE2752958500161CF0 /* View Model */,
+				F737A6FD2752957F00161CF0 /* View */,
 			);
 			path = OrderView;
 			sourceTree = "<group>";
@@ -320,6 +326,22 @@
 				F7D6A4A127200A2100E0BCD1 /* AuthResponse.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F737A6FD2752957F00161CF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EF760BA2747795B00BBB0CE /* OrderView.swift */,
+				F737A6FF275295AD00161CF0 /* CartCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F737A6FE2752958500161CF0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		F75CE2C62741618200F0977E /* ViewModels */ = {
@@ -494,9 +516,11 @@
 				F785C1ED271539DB008035EC /* Helper.swift in Sources */,
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
 				4E1920922726AD0900B349C7 /* SellerCard.swift in Sources */,
+				F737A7032752994400161CF0 /* NumberFormatter.swift in Sources */,
 				4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */,
 				4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */,
 				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
+				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
