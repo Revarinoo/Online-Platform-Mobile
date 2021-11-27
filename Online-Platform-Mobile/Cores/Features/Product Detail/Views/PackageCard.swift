@@ -33,10 +33,12 @@ struct PackageCard: View {
             .frame(width: 163, alignment: .leading)
             
             Button {
-                self.isClicked = true
-                carts.append(self.package)
-                if package.type == "Album" {
-                    locflag = 1
+                if !self.isClicked {
+                    self.isClicked = true
+                    carts.append(self.package)
+                    if package.type == "Album" {
+                        locflag = 1
+                }
                 }
             } label: {
                 HStack (spacing: 3) {
@@ -79,9 +81,9 @@ struct PackageCard: View {
         if price == 0 {
             return "N/A"
         } else if price > 999999{
-            return "\(String(format: "%g", Double(price)/1000000))M"
+            return "\(String(format: "%g", Double(price)/1000000)) Juta"
         } else if price > 999 {
-            return "\(price/1000)K"
+            return "\(price/1000) Ribu"
         } else {
             return "\(price)"
         }
