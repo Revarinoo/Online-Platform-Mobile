@@ -14,6 +14,7 @@ struct PackageCard: View {
     @State var typeDetail: String = ""
     @State private var isClicked = false
     @Binding var carts: [ProductPackage]
+    @Binding var locflag: Int
     
     var body: some View {
         HStack {
@@ -25,15 +26,17 @@ struct PackageCard: View {
                 Text("\(package.quantity!) " + typeDetail)
                     .font(.custom(ThemeFont.displayRegular, size: 18))
                     .foregroundColor(Color.black)
-                Text(setPriceFormat(price: Int(package.price!)))
+                Text(Int(package.price!).setPriceFormat())
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                     .foregroundColor(Color.theme.primary)
             }
             .frame(width: 163, alignment: .leading)
             
             Button {
-                self.isClicked = true
-                carts.append(self.package)
+                if !self.isClicked {
+                    self.isClicked = true
+                    carts.append(self.package)
+                }
             } label: {
                 HStack (spacing: 3) {
                     Image(systemName: "plus")
@@ -66,27 +69,18 @@ struct PackageCard: View {
             }
             else {
                 imageIcon = "albumIcon"
+                locflag = 1
                 typeDetail = "pages album"
             }
         }
     }
     
-    private func setPriceFormat(price: Int) -> String {
-        if price == 0 {
-            return "N/A"
-        } else if price > 999999{
-            return "\(String(format: "%g", Double(price)/1000000))M"
-        } else if price > 999 {
-            return "\(price/1000)K"
-        } else {
-            return "\(price)"
-        }
-    }
+    
 }
 
 struct PackageCard_Previews: PreviewProvider {
     static var previews: some View {
-        PackageCard(package: ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), carts: .constant([]))
+        PackageCard(package: ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), carts: .constant([]), locflag: .constant(1))
             .previewLayout(.sizeThatFits)
     }
 }

@@ -14,6 +14,7 @@ struct ProductDetailView: View {
     @State var productId: Int
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var cart: [ProductPackage] = []
+    @State var locflag = 0
     
     var body: some View {
         ZStack {
@@ -86,9 +87,7 @@ struct ProductDetailView: View {
                         .padding(.leading, 9)
                         .frame(width: 181, alignment: .leading)
                     
-                    Button {
-                        
-                    } label: {
+                    NavigationLink(destination: OrderView(cart: cart, locflag: locflag)) {
                         Text("Checkout")
                             .font(.custom(ThemeFont.displaySemiBold, size: 15))
                             .foregroundColor(Color.white)
@@ -178,7 +177,7 @@ struct ProductDetailView: View {
             VStack (spacing: 15) {
                 ForEach(productDetailVM.productDetailModel.packages, id: \.self) { package in
                     NavigationLink (destination: PackageDetail(package: package)) {
-                        PackageCard(package: package, carts: $cart)
+                        PackageCard(package: package, carts: $cart, locflag: $locflag)
                             .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
                     }
                 }

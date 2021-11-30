@@ -8,7 +8,6 @@
 import Foundation
 
 class ProductDetailViewModel: ObservableObject {
-    static let shared = ProductDetailViewModel()
     private let detailService = ProductDetailService()
     @Published var productDetailModel: ProductDetailModel = ProductDetailModel(portfolio: [""], category: "", seller_type: "", location: "", rating: 0.0, reviews: [ReviewModel(name: "", comment: "")], description: "", user: ProductSeller(id: 1, name: "", photo: ""), packages: [ProductPackage(id: 0, price: 0, revision: 0, quantity: 0, type: "", high_resolution: 0, source_file: 0, commercial_use: 0, light_editing: 0)])
     
@@ -32,11 +31,11 @@ class ProductDetailViewModel: ObservableObject {
         }
     }
     
-    func calculateCart(carts: [ProductPackage]) -> Int {
+    func calculateCart(carts: [ProductPackage]) -> String {
         var total = 0
         for cart in carts {
             total += Int(cart.price!)
         }
-        return total
+        return total.rupiahFormatter()
     }
 }
