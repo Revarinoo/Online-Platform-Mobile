@@ -52,6 +52,7 @@ struct ProductDetailView: View {
                                                 .padding(.bottom, 10)
                                         }
                                     }
+                                    .padding([.leading, .trailing], 8)
                                 }
                             }
             
