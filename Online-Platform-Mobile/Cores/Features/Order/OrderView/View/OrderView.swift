@@ -13,17 +13,17 @@ struct OrderView: View {
     @State var ordertime = Date()
     @State var orderlocation = ""
     @State var cart: [ProductPackage]
-    @State var locflag: Int
-    
+    @State var locationFlag = false
+    @StateObject var orderVM = OrderViewModel()
     
     var body: some View {
         ZStack {
             VStack (spacing: 24) {
-                if locflag != 0 {
+                if locationFlag {
                     VStack (alignment: .leading) {
                         Text("Deliver to")
                             .font(.custom(ThemeFont.displaySemiBold, size: 15))
-                        CartCard(name: "Rumah Bandung", desc: "21, Jalan Jatinegara", type: "Loc", cart: $cart, index: 0)
+                        CartCard(name: "Rumah Bandung", desc: "21, Jalan Jatinegara", type: "Loc")
                     }
                     .padding(.horizontal)
                 }
@@ -46,12 +46,12 @@ struct OrderView: View {
                 VStack (alignment: .leading){
                     Text("Order Details")
                     VStack {
-                        DatePicker("Date", selection: $orderdate, displayedComponents: [.date])
+                        DatePicker("Date", selection: $orderVM.order.schedule_date, displayedComponents: [.date])
                             .padding(.top)
                         Divider()
-                        DatePicker("Time", selection: $ordertime, displayedComponents: [.hourAndMinute])
+                        DatePicker("Time", selection: $orderVM.order.schedule_time, displayedComponents: [.hourAndMinute])
                         Divider()
-                        TextField("Location", text: $orderlocation)
+                        TextField("Location", text: $orderVM.order.location)
                             .padding(.bottom)
                     }
                     .padding(.horizontal)
@@ -62,11 +62,14 @@ struct OrderView: View {
                 }
                 .padding()
                 Spacer()
+                
             }
             .padding(.top, 16)
             
             VStack {
                 Spacer()
+                CartCard(name: "Apply your coupon code", desc: "", type: "Disc")
+                    .padding([.leading, .trailing], 16)
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Total Price")
@@ -82,13 +85,16 @@ struct OrderView: View {
                         }
                     }
                     Spacer()
-                    Text("Place Order")
-                        .font(.custom(ThemeFont.displaySemiBold, size: 15))
-                        .foregroundColor(Color.white)
-                        .frame(width: 125, height: 33)
-                        .background(Color.theme.primary)
-                        .cornerRadius(10)
-
+                    Button {
+                        orderVM.createOrder(carts: cart)
+                    } label: {
+                        Text("Place Order")
+                            .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                            .foregroundColor(Color.white)
+                            .frame(width: 125, height: 33)
+                            .background(Color.theme.primary)
+                            .cornerRadius(10)
+                    }
                 }
                 .padding([.leading, .trailing], 16)
                 .frame(width: UIScreen.main.bounds.width, height: 93)
@@ -112,6 +118,6 @@ struct OrderView: View {
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView(cart: [ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1)], locflag: 1)
+        OrderView(cart: [ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1)], locationFlag: true)
     }
 }

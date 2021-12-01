@@ -14,7 +14,7 @@ struct PackageCard: View {
     @State var typeDetail: String = ""
     @State private var isClicked = false
     @Binding var carts: [ProductPackage]
-    @Binding var locflag: Int
+    @Binding var locationFlag: Bool
     
     var body: some View {
         HStack {
@@ -35,6 +35,9 @@ struct PackageCard: View {
             Button {
                 if !self.isClicked {
                     self.isClicked = true
+                    if package.type == "Album" {
+                        locationFlag = true
+                    }
                     carts.append(self.package)
                 }
             } label: {
@@ -69,7 +72,6 @@ struct PackageCard: View {
             }
             else {
                 imageIcon = "albumIcon"
-                locflag = 1
                 typeDetail = "pages album"
             }
         }
@@ -80,7 +82,7 @@ struct PackageCard: View {
 
 struct PackageCard_Previews: PreviewProvider {
     static var previews: some View {
-        PackageCard(package: ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), carts: .constant([]), locflag: .constant(1))
+        PackageCard(package: ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), carts: .constant([]), locationFlag: .constant(false))
             .previewLayout(.sizeThatFits)
     }
 }
