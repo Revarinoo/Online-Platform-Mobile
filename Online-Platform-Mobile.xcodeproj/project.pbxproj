@@ -19,6 +19,9 @@
 		4E1920962726BE9600B349C7 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1920952726BE9600B349C7 /* CategoryCard.swift */; };
 		4E58D340272FEB2E0035D7C6 /* Homeservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E58D33F272FEB2E0035D7C6 /* Homeservice.swift */; };
 		4E58D342273033C80035D7C6 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E58D341273033C80035D7C6 /* CategoryListViewModel.swift */; };
+		4E6198982756633F00224C9C /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6198972756633F00224C9C /* Transfer.swift */; };
+		4E61989A275788F700224C9C /* PaymentTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E619899275788F700224C9C /* PaymentTime.swift */; };
+		4E75F16D2757A8C700F6D382 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75F16C2757A8C700F6D382 /* PaymentView.swift */; };
 		4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E805DAE271FC0DC0063C83D /* CustomPicker.swift */; };
 		4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FDF27157C1D00E7461E /* RegisterView.swift */; };
 		4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */; };
@@ -82,6 +85,9 @@
 		4E1920952726BE9600B349C7 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		4E58D33F272FEB2E0035D7C6 /* Homeservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeservice.swift; sourceTree = "<group>"; };
 		4E58D341273033C80035D7C6 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		4E6198972756633F00224C9C /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
+		4E619899275788F700224C9C /* PaymentTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTime.swift; sourceTree = "<group>"; };
+		4E75F16C2757A8C700F6D382 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		4E805DAE271FC0DC0063C83D /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		4E8A6FDF27157C1D00E7461E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		4E8A6FE127157DEC00E7461E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -155,6 +161,24 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		4E619895275662EE00224C9C /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				4E6198962756632500224C9C /* Payment+View */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		4E6198962756632500224C9C /* Payment+View */ = {
+			isa = PBXGroup;
+			children = (
+				4E6198972756633F00224C9C /* Transfer.swift */,
+				4E619899275788F700224C9C /* PaymentTime.swift */,
+				4E75F16C2757A8C700F6D382 /* PaymentView.swift */,
+			);
+			path = "Payment+View";
+			sourceTree = "<group>";
+		};
 		4E8A6FDE27157C0E00E7461E /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				4EF760B82747793500BBB0CE /* Order */,
+				4E619895275662EE00224C9C /* Payment */,
 				F7D5900D273FEE0D00A2D916 /* Product Detail */,
 				4EE8C20E2736712100C9AD66 /* Product */,
 				F764C4C627189CCC00C302A5 /* Home */,
@@ -527,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */,
+				4E61989A275788F700224C9C /* PaymentTime.swift in Sources */,
 				F7A2A5652744111A00856135 /* PackageDetail.swift in Sources */,
 				F7D59019273FF74000A2D916 /* ProductDetailView.swift in Sources */,
 				4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */,
@@ -549,6 +575,7 @@
 				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
+				4E6198982756633F00224C9C /* Transfer.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,
 				F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */,
@@ -575,6 +602,7 @@
 				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* AuthService.swift in Sources */,
 				4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */,
+				4E75F16D2757A8C700F6D382 /* PaymentView.swift in Sources */,
 				F7D59017273FF6D300A2D916 /* ProductDetailResponse.swift in Sources */,
 				4E07267C27182C8400806F54 /* LoginView.swift in Sources */,
 				F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */,
