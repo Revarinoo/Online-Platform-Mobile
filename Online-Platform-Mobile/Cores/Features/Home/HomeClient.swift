@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct HomeClient: View {
     
     @StateObject var homeClientVM = HomeClientViewModel()
-    
+    @State var uiTabarController: UITabBarController?
     @StateObject var categoryListVM = CategoryListViewModel()
     
     init() {
@@ -53,7 +54,11 @@ struct HomeClient: View {
                         ScrollView (.vertical, showsIndicators: false, content: {
                             VStack {
                                 ForEach(homeClientVM.recseller, id: \.self) { seller in
-                                    NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)) {
+                                    NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)
+                                                    .onAppear(perform: {
+                                        uiTabarController?.tabBar.isHidden = true
+                                    })
+                                    ) {
                                         SellerCard(name: seller.name ?? "", category: seller.seller_type ?? [], image: seller.photo ?? "", rate: seller.rating)
                                             .cornerRadius(15)
                                             .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
@@ -66,7 +71,6 @@ struct HomeClient: View {
                     
                 }.edgesIgnoringSafeArea(.bottom)
                     .edgesIgnoringSafeArea(.trailing)
-                .navigationBarTitle("Discover")
                 .navigationBarItems(leading:
                                         Button(action: {
                     homeClientVM.signOut()
@@ -82,7 +86,13 @@ struct HomeClient: View {
                 })
             })
         
-        
+            .introspectTabBarController { (UITabBarController) in
+                                    UITabBarController.tabBar.isHidden = false
+                                    uiTabarController = UITabBarController
+                                }
+            .onAppear {
+                uiTabarController?.tabBar.isHidden = false
+            }
     }
 }
 

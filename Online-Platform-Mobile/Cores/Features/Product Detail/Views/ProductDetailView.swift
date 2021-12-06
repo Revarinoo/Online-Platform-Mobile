@@ -105,9 +105,12 @@ struct ProductDetailView: View {
                 .background(Color.init(hex: "F7F7F7"))
                 .padding(.bottom, 14)
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
         .navigationBarHidden(true)
         .frame(maxWidth: 390, minHeight: 860, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 50)
+        
         .onAppear {
             productDetailVM.getDetail(productId: productId)
             productDetailVM.refresh(productId: productId)

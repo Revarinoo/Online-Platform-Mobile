@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Online_Platform_MobileApp: App {
     
     @AppStorage("JWT", store: .standard) var token = ""
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -19,6 +24,9 @@ struct Online_Platform_MobileApp: App {
             }
             else {
                 TabBar(selection: 0)
+                    .onAppear {
+                        UserHelper.shared.getUserData()
+                    }
             }
 //            ProductDetailView()
         }
