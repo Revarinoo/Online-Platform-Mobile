@@ -13,7 +13,7 @@ struct HomeClient: View {
     @StateObject var homeClientVM = HomeClientViewModel()
     @State var uiTabarController: UITabBarController?
     @StateObject var categoryListVM = CategoryListViewModel()
-    
+    @State var isActive = false
     init() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.primary)]
@@ -78,12 +78,15 @@ struct HomeClient: View {
                     Text("Log Out")
                         .foregroundColor(.red)
                 }, trailing:
-                                        Button(action: {
-                    print("Edit button pressed...")
-                }) {
+                                        NavigationLink(destination: ChatList(), isActive: $isActive) {
+                    Button(action: {
+                        isActive.toggle()
+                    }) {
                     Image(systemName: "message").imageScale(.large)
                         .foregroundColor(Color.theme.primary)
-                })
+                }
+                }
+                )
             })
         
             .introspectTabBarController { (UITabBarController) in

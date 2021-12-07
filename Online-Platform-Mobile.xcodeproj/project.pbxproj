@@ -52,6 +52,8 @@
 		F785C1ED271539DB008035EC /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* UserHelper.swift */; };
 		F785C1F527153A24008035EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* AuthService.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
+		F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79501AF275F9FD900F5F8E9 /* ChatList.swift */; };
+		F79501B2275FC16500F5F8E9 /* PersonalChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79501B1275FC16500F5F8E9 /* PersonalChat.swift */; };
 		F7A2A5652744111A00856135 /* PackageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2A5642744111A00856135 /* PackageDetail.swift */; };
 		F7A2A56727441C1300856135 /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2A56627441C1300856135 /* NavigationBackButton.swift */; };
 		F7A89945275E5B0800263321 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7A89944275E5B0800263321 /* GoogleService-Info.plist */; };
@@ -61,6 +63,7 @@
 		F7A89951275E5E5600263321 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89950275E5E5600263321 /* MessageViewModel.swift */; };
 		F7A89953275E652100263321 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89952275E652100263321 /* UserService.swift */; };
 		F7A89957275E6C7700263321 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = F7A89956275E6C7700263321 /* Introspect */; };
+		F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89958275E7A0B00263321 /* ChatModel.swift */; };
 		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC9027577053000B0B99 /* OrderViewModel.swift */; };
@@ -124,12 +127,15 @@
 		F785C1EC271539DB008035EC /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F79501AF275F9FD900F5F8E9 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
+		F79501B1275FC16500F5F8E9 /* PersonalChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalChat.swift; sourceTree = "<group>"; };
 		F7A2A5642744111A00856135 /* PackageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetail.swift; sourceTree = "<group>"; };
 		F7A2A56627441C1300856135 /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		F7A89944275E5B0800263321 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7A8994C275E5E3200263321 /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
 		F7A89950275E5E5600263321 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		F7A89952275E652100263321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F7A89958275E7A0B00263321 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC9027577053000B0B99 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				F7D59011273FF0F200A2D916 /* ProductDetailModel.swift */,
 				F7D59016273FF6D300A2D916 /* ProductDetailResponse.swift */,
 				F7D4AC9927579725000B0B99 /* OrderModel.swift */,
+				F7A89958275E7A0B00263321 /* ChatModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,6 +440,8 @@
 		F7A8994E275E5E3600263321 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F79501AF275F9FD900F5F8E9 /* ChatList.swift */,
+				F79501B1275FC16500F5F8E9 /* PersonalChat.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +593,7 @@
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F7D4AC9827578D0B000B0B99 /* DateExtension.swift in Sources */,
 				F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */,
+				F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
 				4E15B5B92745573700F5C0CF /* CartCard.swift in Sources */,
 				4E58D340272FEB2E0035D7C6 /* Homeservice.swift in Sources */,
@@ -598,8 +608,10 @@
 				F7A89951275E5E5600263321 /* MessageViewModel.swift in Sources */,
 				4E9772662714371A00C28B5D /* ColorExtension.swift in Sources */,
 				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
+				F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */,
 				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
+				F79501B2275FC16500F5F8E9 /* PersonalChat.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,

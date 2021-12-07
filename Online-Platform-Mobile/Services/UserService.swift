@@ -13,9 +13,15 @@ class UserService {
     func getUserProfile(completionHandler:@escaping(_ result: UserProfile?)->Void){
         let request = NSMutableURLRequest(url: NSURL(string:  HttpService.endpoint + "user")! as URL)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-            HttpService.shared.request(request as URLRequest, resultType: UserProfile.self) { response in
-                   completionHandler(response)
-               }
+        HttpService.shared.request(request as URLRequest, resultType: UserProfile.self) { response in
+               completionHandler(response)
+           }
+    }
+    
+    func getSpecificUserProfile(userId: Int, completionHandler:@escaping(_ result: UserProfile?)->Void){
+        let request = NSMutableURLRequest(url: NSURL(string:  HttpService.endpoint + "user/\(userId)")! as URL)
+        HttpService.shared.request(request as URLRequest, resultType: UserProfile.self) { response in
+               completionHandler(response)
+           }
     }
 }
