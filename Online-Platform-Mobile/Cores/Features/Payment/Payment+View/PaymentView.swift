@@ -32,7 +32,18 @@ struct PaymentView: View {
                     .cornerRadius(10)
                     .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 2, y: 2)
             }
+            
+            VStack (spacing: -3) {
+                Image(systemName: "triangle.fill")
+                    .foregroundColor(Color.theme.primary)
+                Image("Paymentalert")
+            }
+            .padding(.top, -25)
+            Spacer()
+            PrimaryButton(content: "I Have Completed Payment", maxWidth: 200, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+            
         }
+        .padding()
         .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
     }
