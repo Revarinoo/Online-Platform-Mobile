@@ -13,28 +13,94 @@ struct PersonalChat: View {
     var target: ProfileChat
     var chatRoom: ChatRoom
     @State var messageField = ""
+    @State private var messageIDScroll: String?
+    let columns = [GridItem(.flexible(minimum: 10))]
     
     var body: some View {
         VStack {
-            List(messageVM.messages) { message in
-                HStack {
-                    Text(message.content)
-                    Spacer()
+            ScrollView (.vertical, showsIndicators: false) {
+                ScrollViewReader { scrollReader in
+                    LazyVGrid(columns: columns, content: {
+                        ForEach(messageVM.messages) { message in
+                            let isUser = messageVM.userProfile.user.id == chatRoom.users[0]
+                            HStack{
+                                Text(message.content)
+                                    .foregroundColor(isUser ? Color.white : Color.black)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 12)
+                                    .background(isUser ? Color.theme.primary : Color.white)
+                                    .cornerRadius(15, corners: isUser ? [.topLeft, .bottomLeft, .bottomRight] : [.topRight, .bottomLeft, .bottomRight])
+                            }
+                            .frame(maxWidth: .infinity, alignment: isUser ? . trailing : .leading)
+                            .padding(.vertical, 3)
+                            .padding([.leading, .trailing], 16)
+                            .id(message.id)
+                        }
+                        
+                        .onChange(of: messageIDScroll) { _ in
+                            if let messageID = messageIDScroll {
+                                scrollTo(messageID: messageID, shouldAnimate: true, scrollReader: scrollReader)
+                            }
+                        }
+                        .onAppear {
+                            print("MASUK \(messageVM.messages)")
+                            if let messageID = messageVM.messages.last?.id {
+                                print("tidak null \(messageID)")
+                                scrollTo(messageID: messageID, shouldAnimate: true, scrollReader: scrollReader)
+                            }
+                        }
+                    })
+                   
                 }
             }
-            HStack {
-                TextField("Enter Message ....", text: $messageField)
+            HStack (spacing: 9) {
+                TextField("Text Message", text: $messageField)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 Button(action: {
                     messageVM.sendMessage(content: messageField, docId: chatRoom.id)
+                    self.messageField = ""
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                        messageIDScroll = messageVM.messages.last?.id
+                    })
                 }, label: {
-                    Text("Send")
+                    Image("send")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 27, height: 27)
                 })
             }
+            .padding([.leading, .trailing], 16)
+            .frame(height: 25, alignment: .bottom)
+            .padding(.top, 15)
+            .edgesIgnoringSafeArea(.bottom)
         }
+        .background(Color.white.ignoresSafeArea())
+        .toolbar(content: {
+            ToolbarItem(placement: .principal) {
+                HStack (spacing: 6) {
+                    WebImage(url: URL(string: target.photo))
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .clipShape(Circle())
+                    Text(target.name)
+                        .font(.custom(ThemeFont.displaySemiBold, size: 17))
+                }
+            }
+        })
         .onAppear {
             messageVM.fetchData(docId: chatRoom.id)
+        }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
+    }
+    
+    func scrollTo(messageID: String, anchor: UnitPoint? = nil, shouldAnimate: Bool, scrollReader: ScrollViewProxy) {
+        DispatchQueue.main.async {
+            withAnimation(shouldAnimate ? Animation.easeIn: nil) {
+                scrollReader.scrollTo(messageID, anchor: anchor)
+            }
         }
     }
 }

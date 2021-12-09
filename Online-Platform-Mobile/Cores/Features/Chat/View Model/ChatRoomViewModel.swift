@@ -73,4 +73,30 @@ class ChatRoomViewModel: ObservableObject {
             }
         }
     }
+    
+    func createChatRoom(target: Int) -> Bool {
+        if isCreated(user: userProfile.user.id, target: target) { return false }
+        var target1 = userProfile.user.id
+        var target2 = target
+        if role == "Seller" {
+            target1 = target
+            target2 = userProfile.user.id
+        }
+        db.collection("chatrooms").addDocument(data: ["users": [target1, target2]]) { err in
+            if let err = err {
+                print(err.localizedDescription)
+            }
+        }
+        return true
+    }
+    
+    private func isCreated(user: Int, target: Int) -> Bool {
+        getData()
+        for chatroom in chatRooms {
+            if chatroom.users.contains(user) && chatroom.users.contains(target) {
+                return true
+            }
+        }
+        return false
+    }
 }

@@ -61,8 +61,6 @@ struct ChatList: View {
         .introspectTabBarController { (UITabBarController) in
             UITabBarController.tabBar.isHidden = true
             uiTabBarController = UITabBarController
-        }.onDisappear{
-            uiTabBarController?.tabBar.isHidden = false
         }
         .navigationTitle("Chats")
     }
