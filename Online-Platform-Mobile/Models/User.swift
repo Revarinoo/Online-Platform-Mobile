@@ -35,3 +35,9 @@ extension Seller: Hashable {
         hasher.combine(product_id)
     }
 }
+
+struct UserProfile: Codable{
+    var id: Int
+    var name: String
+    var photo: String
+}

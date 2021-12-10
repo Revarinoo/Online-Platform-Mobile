@@ -19,6 +19,7 @@ class LoginViewModel: ObservableObject {
     @Published var redBanner = false
     
     @AppStorage("JWT", store: .standard) var token = ""
+    @AppStorage("role", store: .standard) var role = ""
     
     func login(role: Role) {
         AuthService().login(loginRequestBody: LoginRequestBody(email: email, password: password, type_role: role.rawValue)) { response in
@@ -28,6 +29,7 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.isAuthenticated = true
                         self.token = access_token
+                        self.role = role.rawValue
                     }
                 }
                 else {

@@ -9,27 +9,27 @@ import SwiftUI
 
 struct TabBar: View {
     @State var selection = 0
+    @State var navTitle = ""
     
     var body: some View {
-        NavigationView {
             TabView(selection: $selection) {
-                
-                ZStack {
+                NavigationView {
                     HomeClient()
+                        .navigationTitle("Discover")
                 }
                 .tabItem {
                     Label("Discover", systemImage: "house")
                 }
                 .tag(0)
-                ZStack {
+                NavigationView {
                     ProductView()
+                        .navigationTitle("Product List")
                 }
                 .tabItem {
                     Label("Product", systemImage: "list.dash")
                 }
                 .tag(1)
             }
-        }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
         }

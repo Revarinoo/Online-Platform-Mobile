@@ -15,6 +15,9 @@ struct ProductDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var cart: [ProductPackage] = []
     @State var locationFlag = false
+    @StateObject var chatVM = ChatRoomViewModel()
+    @State var isCreated = false
+    @State var isNavigate = false
     
     var body: some View {
         ZStack {
@@ -105,9 +108,12 @@ struct ProductDetailView: View {
                 .background(Color.init(hex: "F7F7F7"))
                 .padding(.bottom, 14)
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
         .navigationBarHidden(true)
         .frame(maxWidth: 390, minHeight: 860, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 50)
+        
         .onAppear {
             productDetailVM.getDetail(productId: productId)
             productDetailVM.refresh(productId: productId)
@@ -148,16 +154,20 @@ struct ProductDetailView: View {
                 Text(productDetailVM.productDetailModel.user.name ?? "")
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                 Spacer()
-                Button(action: {
-                    
-                }) {
-                    Text("Chat")
-                        .font(.custom(ThemeFont.displaySemiBold, size: 15))
-                        .foregroundColor(Color.theme.primary)
+                NavigationLink(destination: ChatList(), isActive: $isNavigate) {
+                    Button(action: {
+                        isCreated = chatVM.createChatRoom(target: productDetailVM.productDetailModel.user.id ?? 0)
+                        isNavigate = true
+                    }) {
+                        Text("Chat")
+                            .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                            .foregroundColor(Color.theme.primary)
+                    }
+                    .frame(width: 94, height: 33)
+                    .background(Color.theme.primarywhite)
+                    .cornerRadius(10)
                 }
-                .frame(width: 94, height: 33)
-                .background(Color.theme.primarywhite)
-                .cornerRadius(10)
+                
             }
         }
     }

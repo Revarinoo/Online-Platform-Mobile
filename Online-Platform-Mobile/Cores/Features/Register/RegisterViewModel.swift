@@ -16,9 +16,9 @@ class RegisterViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var redBanner = false
     @Published var failedMessage = ""
-    @Published var role = ""
     
     @AppStorage("JWT", store: .standard) var token = ""
+    @AppStorage("role", store: .standard) var role = ""
     
     func register(role: Role) {
         AuthService().register(registerRequestBody: RegisterRequestBody(name: name, email: email, password: password, type_role: role.rawValue)) { response in
@@ -28,6 +28,7 @@ class RegisterViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.isAuthenticated = true
                         self.token = access_token
+                        self.role = role.rawValue
                     }
                 }
                 else {

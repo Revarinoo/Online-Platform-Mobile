@@ -6,6 +6,7 @@
 //  Edited by Reva
 
 import SwiftUI
+import Introspect
 
 struct OrderView: View {
     
@@ -15,6 +16,7 @@ struct OrderView: View {
     @State var cart: [ProductPackage]
     @State var locationFlag = false
     @StateObject var orderVM = OrderViewModel()
+    @State var uiTabarController: UITabBarController?
     
     var body: some View {
         ZStack {
@@ -102,6 +104,7 @@ struct OrderView: View {
                 
             }
         }
+        
         .navigationTitle("Order")
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.bottom)
