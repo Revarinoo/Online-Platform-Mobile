@@ -11,8 +11,8 @@ struct ProductView: View {
     
     @StateObject var categoryListVM = CategoryListViewModel()
     @StateObject var productListVM = ProductViewModel()
+    
     var body: some View {
-        NavigationView{
             VStack {
                 ScrollView (.horizontal, showsIndicators: false, content: {
                     HStack {
@@ -46,7 +46,6 @@ struct ProductView: View {
                 })
             }
                 .navigationTitle("Product List")
-        }
     }
 }
 
