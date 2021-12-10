@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PaymentView: View {
     var amountToPay: String
+    var orderId: Int
     
     var body: some View {
         VStack(alignment: .leading){
@@ -53,6 +54,6 @@ struct PaymentView: View {
 
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentView(amountToPay: "100000")
+        PaymentView(amountToPay: "100000", orderId: 0)
     }
 }

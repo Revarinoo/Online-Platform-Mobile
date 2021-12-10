@@ -12,6 +12,7 @@ class OrderViewModel: ObservableObject {
     private var orderService = OrderService()
     @Published var order: CreateOrder = CreateOrder()
     @Published var isNavigate: Bool = false
+    @Published var orderId: Int = 0
     
     func createOrder(carts: [ProductPackage]) {
         var tempId: [Int] = []
@@ -24,7 +25,10 @@ class OrderViewModel: ObservableObject {
         orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages)) { result in
             if let result = result {
                 if result.code == 201 {
-                    self.isNavigate = true
+                    DispatchQueue.main.async {
+                        self.isNavigate = true
+                        self.orderId = result.order_id
+                    }
                 }
             }
         }

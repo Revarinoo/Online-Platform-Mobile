@@ -89,7 +89,7 @@ struct OrderView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink(destination: PaymentView(amountToPay: calculateCart(carts: cart)), isActive: $orderVM.isNavigate) {
+                    NavigationLink(destination: PaymentView(amountToPay: calculateCart(carts: cart), orderId: orderVM.orderId), isActive: $orderVM.isNavigate) {
                         Button {
                             orderVM.createOrder(carts: cart)
                         } label: {

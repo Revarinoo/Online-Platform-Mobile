@@ -11,6 +11,7 @@ import SwiftUI
 struct PostOrderResponse: Codable {
     let code: Int
     let message: String
+    let order_id: Int
 }
 
 class OrderService {
