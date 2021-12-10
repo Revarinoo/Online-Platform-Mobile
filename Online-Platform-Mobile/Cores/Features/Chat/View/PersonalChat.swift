@@ -22,7 +22,7 @@ struct PersonalChat: View {
                 ScrollViewReader { scrollReader in
                     LazyVGrid(columns: columns, content: {
                         ForEach(messageVM.messages) { message in
-                            let isUser = messageVM.userProfile.user.id == chatRoom.users[0]
+                            let isUser = messageVM.userProfile.user.id == message.sender
                             HStack{
                                 Text(message.content)
                                     .foregroundColor(isUser ? Color.white : Color.black)
@@ -31,10 +31,11 @@ struct PersonalChat: View {
                                     .background(isUser ? Color.theme.primary : Color.white)
                                     .cornerRadius(15, corners: isUser ? [.topLeft, .bottomLeft, .bottomRight] : [.topRight, .bottomLeft, .bottomRight])
                             }
-                            .frame(maxWidth: .infinity, alignment: isUser ? . trailing : .leading)
+                            .frame(maxWidth: .infinity, alignment: isUser ? .trailing : .leading)
                             .padding(.vertical, 3)
                             .padding([.leading, .trailing], 16)
                             .id(message.id)
+                            .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
                         }
                         
                         .onChange(of: messageIDScroll) { _ in
@@ -43,7 +44,6 @@ struct PersonalChat: View {
                             }
                         }
                         .onAppear {
-                            print("MASUK \(messageVM.messages)")
                             if let messageID = messageVM.messages.last?.id {
                                 print("tidak null \(messageID)")
                                 scrollTo(messageID: messageID, shouldAnimate: true, scrollReader: scrollReader)
