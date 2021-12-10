@@ -11,6 +11,7 @@ import SwiftUI
 class OrderViewModel: ObservableObject {
     private var orderService = OrderService()
     @Published var order: CreateOrder = CreateOrder()
+    @Published var isNavigate: Bool = false
     
     func createOrder(carts: [ProductPackage]) {
         var tempId: [Int] = []
@@ -22,7 +23,9 @@ class OrderViewModel: ObservableObject {
         dateFormatter.dateFormat = "HH:mm:ss"
         orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages)) { result in
             if let result = result {
-                print(result)
+                if result.code == 201 {
+                    self.isNavigate = true
+                }
             }
         }
     }

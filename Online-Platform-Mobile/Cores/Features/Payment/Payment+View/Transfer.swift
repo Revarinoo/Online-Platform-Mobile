@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Transfer: View {
+    var amount: String
     var body: some View {
         HStack (alignment: .top, spacing: 15){
             ZStack {
@@ -32,7 +33,7 @@ struct Transfer: View {
                     .cornerRadius(10)
                 Spacer()
                 Text("Amount to Pay")
-                Text("Rp805.000")
+                Text("Rp\(amount)")
                     .fontWeight(.bold)
                     .frame(width: 265, height: 33, alignment: .leading)
                     .padding(.leading,20)
@@ -47,7 +48,7 @@ struct Transfer: View {
 
 struct Transfer_Previews: PreviewProvider {
     static var previews: some View {
-        Transfer()
+        Transfer(amount: "850.000")
             .padding()
             .frame(width: 358, height: 167, alignment: .top)
             .background(Color.white)

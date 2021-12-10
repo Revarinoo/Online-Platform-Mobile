@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PaymentView: View {
+    var amountToPay: String
+    
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading) {
@@ -25,7 +27,7 @@ struct PaymentView: View {
                 Text("Transfer to")
                     .foregroundColor(Color.theme.primary)
                     .fontWeight(.semibold)
-                Transfer()
+                Transfer(amount: amountToPay)
                     .padding()
                     .frame(width: 358, height: 167, alignment: .top)
                     .background(Color.white)
@@ -51,6 +53,6 @@ struct PaymentView: View {
 
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentView()
+        PaymentView(amountToPay: "100000")
     }
 }
