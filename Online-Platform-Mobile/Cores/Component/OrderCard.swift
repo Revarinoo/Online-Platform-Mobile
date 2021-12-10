@@ -3,35 +3,40 @@
 //  Online-Platform-Mobile
 //
 //  Created by Christian Adiputra on 04/12/21.
-//
+//  Edited by Reva
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct OrderCard: View {
     
-    @State var orderdate = "21 November 2021"
+    var order: MyOrderModel
     
     var body: some View {
         VStack(alignment: .leading) {
             
-            HStack(alignment: .top) {
-                Image(systemName: "person.fill")
+            HStack(alignment: .top, spacing: 18) {
+                WebImage(url: URL(string: order.photo))
                     .resizable()
-                    .frame(width: 57, height: 57)
                     .scaledToFill()
+                    .frame(width: 57, height: 57)
+                    .cornerRadius(6.48)
+    
                 VStack (alignment: .leading, spacing: 5){
-                    Text("Muhammad Ardie")
-                    Label(orderdate, systemImage: "calendar")
+                    Text(order.name)
+                        .font(.custom(ThemeFont.displayMedium, size: 18))
+                    Label(order.order_date, systemImage: "calendar")
                         .foregroundColor(Color.gray)
-                        .font(.caption)
+                        .font(.custom(ThemeFont.displayRegular, size: 15))
                 }
             }
-            .padding()
+            .padding(EdgeInsets(top: 21, leading: 16, bottom: 0, trailing: 0))
             
             HStack {
                 Spacer()
                 Button(action: {}, label: {
                     Text("Cancel")
+                        .font(.custom(ThemeFont.displayMedium, size: 15))
                         .foregroundColor(Color.red)
                         .frame(width: 113, height: 38)
                         .overlay(
@@ -49,7 +54,7 @@ struct OrderCard: View {
 
 struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCard()
+        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", status: ""))
             .frame(width: 357, height: 141)
             .background(Color.white)
             .cornerRadius(10)

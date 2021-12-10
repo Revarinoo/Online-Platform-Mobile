@@ -9,10 +9,14 @@ import Foundation
 import SwiftUI
 
 class OrderViewModel: ObservableObject {
+    static let shared = OrderViewModel()
     private var orderService = OrderService()
     @Published var order: CreateOrder = CreateOrder()
     @Published var isNavigate: Bool = false
     @Published var orderId: Int = 0
+    @Published var pendingOrders: [MyOrderModel] = []
+    @Published var upcomingOrders: [MyOrderModel] = []
+    @Published var completedOrders: [MyOrderModel] = []
     
     func createOrder(carts: [ProductPackage]) {
         var tempId: [Int] = []
@@ -40,5 +44,23 @@ class OrderViewModel: ObservableObject {
             total += cart.price!
         }
         return total
+    }
+    
+    func getAllOrder() {
+        orderService.getAllOrder { result in
+            if let response = result {
+                if response.code == 201 {
+                    var temp: [MyOrderModel] = []
+                    for data in response.data {
+                        temp.append(MyOrderModel(order_id: data.order_id, photo: data.photo, name: data.name, order_date: data.order_date, status: data.status))
+                    }
+                    DispatchQueue.main.async {
+                        self.pendingOrders = temp.filter { $0.status == "Pending" }
+                        self.upcomingOrders = temp.filter { $0.status == "Upcoming" }
+                        self.completedOrders = temp.filter { $0.status == "Completed" }
+                    }
+                }
+            }
+        }
     }
 }

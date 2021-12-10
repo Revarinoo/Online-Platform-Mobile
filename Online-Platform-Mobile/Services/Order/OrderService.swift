@@ -8,11 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct PostOrderResponse: Codable {
-    let code: Int
-    let message: String
-    let order_id: Int
-}
+
 
 class OrderService {
     @AppStorage("JWT", store: .standard) var token = ""
@@ -26,6 +22,17 @@ class OrderService {
         request.httpBody = try? JSONEncoder().encode(orderRequest)
         
         HttpService.shared.request(request as URLRequest, resultType: PostOrderResponse.self) { result in
+            completionHandler(result)
+        }
+    }
+    
+    func getAllOrder(completionHandler: @escaping(_ result: MyOrderResponse?) -> Void) {
+        guard let url = URL(string: HttpService.endpoint + "order/all") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        HttpService.shared.request(request, resultType: MyOrderResponse.self) { result in
             completionHandler(result)
         }
     }

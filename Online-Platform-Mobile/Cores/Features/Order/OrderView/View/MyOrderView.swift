@@ -11,6 +11,7 @@ struct MyOrderView: View {
     
     @State private var orderstatus = 0
     @State private var count = 5
+    @StateObject var orderVM = OrderViewModel.shared
     
     //to change segmented color
     init() {
@@ -28,35 +29,54 @@ struct MyOrderView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                
-                Picker("Order Status", selection: $orderstatus) {
-                    Text("Pending").tag(0)
-                    Text("Upcoming").tag(1)
-                    Text("Completed").tag(2)
-                }
-                .pickerStyle(.segmented)
-                .padding()
-                
-                ScrollView (.vertical, showsIndicators: false, content: {
-                    VStack {
-                        ForEach((1...5), id: \.self) { _ in
-                            OrderCard()
-                                .frame(width: 357, height: 141)
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-                        }
-                    }
-                    .padding(.horizontal)
-                })
-                Spacer()
+        VStack {
+            Divider().background(Color.init(hex: "A7A7A7"))
+            Picker("Order Status", selection: $orderstatus) {
+                Text("Pending").tag(0)
+                Text("Upcoming").tag(1)
+                Text("Completed").tag(2)
             }
-            .frame(maxHeight: .infinity)
-            .navigationBarTitle("My Order")
+            .pickerStyle(.segmented)
+            .padding()
+            
+            ScrollView (.vertical, showsIndicators: false, content: {
+                VStack {
+                    switch orderstatus {
+                    case 0:
+                        AllOrderView(orders: orderVM.pendingOrders)
+                        
+                    case 1:
+                        AllOrderView(orders: orderVM.upcomingOrders)
+                        
+                    case 2:
+                        AllOrderView(orders: orderVM.completedOrders)
+                    default:
+                        Text("")
+                    }
+                }
+                .padding(.horizontal)
+            })
+            Spacer()
+        }
+        .frame(maxHeight: .infinity)
+        .onAppear {
+            orderVM.getAllOrder()
         }
         
+    }
+}
+
+struct AllOrderView: View {
+    var orders: [MyOrderModel]
+    
+    var body: some View {
+        ForEach(orders, id: \.id) { data in
+            OrderCard(order: data)
+                .frame(width: 357, height: 141)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+        }
     }
 }
 

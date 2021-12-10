@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubmitPaymentView: View {
     // test pake orderVm dl
-    @StateObject var orderVM = OrderViewModel()
+    @StateObject var orderVM = OrderViewModel.shared
     @State private var imageTest = UIImage(named: "welcomepage")!
     @State private var isShowingPhotoPicker = false
     

@@ -10,7 +10,7 @@ import SwiftUI
 struct OrderDetailView: View {
     
     //test pake vm lain dl
-    @StateObject var orderVM = OrderViewModel()
+    @StateObject var orderVM = OrderViewModel.shared
     @State var locationorder = "Hotel Shangri-La, Jakarta Pusat"
     @State var orderdate = "Nov 17, 2021"
     @State var ordertime = "13 : 00"

@@ -13,3 +13,26 @@ struct CreateOrder {
     var schedule_time: Date = Date()
     var packages: [Int] = []
 }
+
+struct MyOrderResponse: Codable {
+    let data: [MyOrderResponseDetail]
+    let code: Int
+    let message: String
+}
+
+struct MyOrderResponseDetail: Codable {
+    let order_id: Int
+    let photo: String
+    let name: String
+    let order_date: String
+    let status: String
+}
+
+struct MyOrderModel: Identifiable {
+    let id = UUID()
+    let order_id: Int
+    let photo: String
+    let name: String
+    let order_date: String
+    let status: String
+}

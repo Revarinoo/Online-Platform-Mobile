@@ -15,3 +15,8 @@ struct PostOrderRequest: Encodable {
     let packages: [Int]
 }
 
+struct PostOrderResponse: Codable {
+    let code: Int
+    let message: String
+    let order_id: Int
+}

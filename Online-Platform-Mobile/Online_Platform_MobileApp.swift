@@ -28,7 +28,6 @@ struct Online_Platform_MobileApp: App {
                         UserHelper.shared.getUserData()
                     }
             }
-//            ProductDetailView()
         }
     }
 }

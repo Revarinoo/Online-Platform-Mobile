@@ -29,6 +29,15 @@ struct TabBar: View {
                     Label("Product", systemImage: "list.dash")
                 }
                 .tag(1)
+                
+                NavigationView {
+                    MyOrderView()
+                        .navigationTitle("My Order")
+                }
+                .tabItem {
+                    Label("Order", systemImage: "newspaper")
+                }
+                .tag(2)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
