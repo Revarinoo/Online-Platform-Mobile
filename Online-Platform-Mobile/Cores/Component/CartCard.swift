@@ -40,8 +40,6 @@ struct CartCard: View {
                         .frame(width: 34, height: 28)
                         .foregroundColor(Color.theme.primarywhite)
                 }
-                
-                
             }
             VStack (alignment: .leading, spacing: 3) {
                 Text("\(name)")

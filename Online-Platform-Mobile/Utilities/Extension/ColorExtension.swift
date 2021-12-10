@@ -44,4 +44,6 @@ struct ColorTheme {
     let primarywhite = Color("PrimaryWhite")
     let secpurple = Color("SecPurple")
     let darkGrey = Color("DarkGrey")
+    let lightgrey = Color("LightGrey")
+
 }
