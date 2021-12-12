@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SubmitPaymentView: View {
     // test pake orderVm dl
-    @StateObject var orderVM = OrderViewModel.shared
-    @State private var imageTest = UIImage(named: "welcomepage")!
-    @State private var isShowingPhotoPicker = false
+    @ObservedObject var orderVM = OrderViewModel()
+    @StateObject var paymentVM = PaymentViewModel()
+    @State private var selectedImage: Image? = Image("")
+    //@State private var isShowingPhotoPicker = false
+//    @State var isUploaded: Bool = false
     
     var body: some View {
         VStack(alignment: .leading){
@@ -31,25 +33,26 @@ struct SubmitPaymentView: View {
                 .cornerRadius(10)
                 .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
             }
-            UploadBox(isShowingPhotoPicker: $isShowingPhotoPicker)
+            UploadBox(isShowingPhotoPicker: $paymentVM.isShowingPhotoPicker, isUploaded: $paymentVM.isUploaded)
                 .padding(.top, 20)
-            Image(uiImage: imageTest)
+            self.selectedImage?
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .frame(width: 200, height: 300)
-//                .onTapGesture { isShowingPhotoPicker = true
-//                    print(isShowingPhotoPicker)
-//                }
             Spacer()
-            PrimaryButton(content: "Submit", maxWidth: 200, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+            PrimaryButton(content: "Submit", maxWidth: 200, action: {
+                
+                
+            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
+                    ImagePicker(image: $selectedImage)
+                })
             
         }
         .padding()
         .navigationTitle("Submit Payment")
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $isShowingPhotoPicker, content: {
-            PhotoPicker(testImage: $imageTest)
-        })
+        
     }
 }
 
