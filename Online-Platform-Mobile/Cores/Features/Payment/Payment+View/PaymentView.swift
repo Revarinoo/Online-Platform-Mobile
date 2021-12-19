@@ -11,6 +11,8 @@ struct PaymentView: View {
     var amountToPay: String
     var orderId: Int
     
+    
+    
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading) {
@@ -43,7 +45,16 @@ struct PaymentView: View {
             }
             .padding(.top, -25)
             Spacer()
-            PrimaryButton(content: "I Have Completed Payment", maxWidth: 200, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+            NavigationLink(destination: SubmitPaymentView()) {
+                
+                Text("I Have Completed Payment")
+                    .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                    .frame(maxWidth : .infinity, maxHeight: 50)
+                    .background(Color.theme.secondary)
+                    .foregroundColor(Color.theme.primary)
+                    .cornerRadius(10)
+            }
+            
             
         }
         .padding()

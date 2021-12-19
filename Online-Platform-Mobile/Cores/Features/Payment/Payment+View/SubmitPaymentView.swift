@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct SubmitPaymentView: View {
-    // test pake orderVm dl
+    
     @ObservedObject var orderVM = OrderViewModel()
     @StateObject var paymentVM = PaymentViewModel()
     @State private var selectedImage: Image? = Image("")
-    //@State private var isShowingPhotoPicker = false
-//    @State var isUploaded: Bool = false
-    
+
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading) {
@@ -25,7 +23,7 @@ struct SubmitPaymentView: View {
                     DatePicker("Date", selection: $orderVM.order.schedule_date, displayedComponents: [.date])
                         .padding(.top)
                     Divider()
-                    TextField("Bill name", text: $orderVM.order.location)
+                    TextField("Bill name", text: $paymentVM.bill_name)
                         .padding(.bottom)
                 }
                 .padding(.horizontal)

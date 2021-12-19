@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PaymentRequest: Encodable {
     let order_id: Int
-//    let transfer_receipt: Image
+    let transfer_receipt: Data
     let payment_date: Date
     let bill_name: String
 }
