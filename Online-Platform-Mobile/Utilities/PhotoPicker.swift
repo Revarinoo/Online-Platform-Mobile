@@ -10,7 +10,9 @@ import SwiftUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     
-    @Binding var testImage: UIImage
+    
+    @Binding var testImage: UIImage?
+    @Binding var uploaded: Bool
     
     func makeUIViewController(context: Context) -> UIViewController {
         let picker = UIImagePickerController()
@@ -36,6 +38,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.editedImage] as? UIImage {
                 photoPicker.testImage = image
+                photoPicker.uploaded = true
             } else {
                 print("error om")
             }
