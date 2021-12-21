@@ -50,6 +50,7 @@
 		4EE4F3892769F5EC0001B874 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F3882769F5EC0001B874 /* ProfileViewModel.swift */; };
 		4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8C20F2736720200C9AD66 /* ProductView.swift */; };
 		4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF760BA2747795B00BBB0CE /* OrderView.swift */; };
+		F7253C782771908400B8652B /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C772771908400B8652B /* NavigationExtension.swift */; };
 		F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */; };
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
@@ -68,6 +69,12 @@
 		F764C4C3271824E700C302A5 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */; };
 		F764C4C5271824EE00C302A5 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */; };
 		F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764C4C727189CDF00C302A5 /* HomeClient.swift */; };
+		F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EDFA9277035010078D4A0 /* ChooseLocationView.swift */; };
+		F76EDFAC277035720078D4A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EDFAB277035720078D4A0 /* LocationViewModel.swift */; };
+		F76EDFAE277035C40078D4A0 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EDFAD277035C40078D4A0 /* LocationList.swift */; };
+		F76EDFB0277047CF0078D4A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EDFAF277047CF0078D4A0 /* MapView.swift */; };
+		F76EDFB32770C1FF0078D4A0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F76EDFB22770C1FF0078D4A0 /* Alamofire */; };
+		F76EDFB52770C8B30078D4A0 /* SubmitPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76EDFB42770C8B30078D4A0 /* SubmitPaymentModel.swift */; };
 		F785C1ED271539DB008035EC /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1EC271539DB008035EC /* UserHelper.swift */; };
 		F785C1F527153A24008035EC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1F427153A24008035EC /* AuthService.swift */; };
 		F785C1FB27153A5F008035EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785C1FA27153A5F008035EC /* User.swift */; };
@@ -143,6 +150,7 @@
 		4EE4F3882769F5EC0001B874 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4EE8C20F2736720200C9AD66 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		4EF760BA2747795B00BBB0CE /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		F7253C772771908400B8652B /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		F72900E727114680007EF04C /* Online-Platform-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Online-Platform-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Online_Platform_MobileApp.swift; sourceTree = "<group>"; };
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +170,11 @@
 		F764C4C2271824E700C302A5 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		F764C4C4271824EE00C302A5 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F764C4C727189CDF00C302A5 /* HomeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClient.swift; sourceTree = "<group>"; };
+		F76EDFA9277035010078D4A0 /* ChooseLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationView.swift; sourceTree = "<group>"; };
+		F76EDFAB277035720078D4A0 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		F76EDFAD277035C40078D4A0 /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		F76EDFAF277047CF0078D4A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F76EDFB42770C8B30078D4A0 /* SubmitPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPaymentModel.swift; sourceTree = "<group>"; };
 		F785C1EC271539DB008035EC /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		F785C1F427153A24008035EC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F785C1FA27153A5F008035EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -196,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76EDFB32770C1FF0078D4A0 /* Alamofire in Frameworks */,
 				4E0C8213272DA0DB0049B8C8 /* SDWebImageSwiftUI in Frameworks */,
 				F7A89957275E6C7700263321 /* Introspect in Frameworks */,
 				F7A89948275E5C4B00263321 /* FirebaseAuth in Frameworks */,
@@ -264,6 +278,7 @@
 				F7A2A56627441C1300856135 /* NavigationBackButton.swift */,
 				F737A7022752994400161CF0 /* NumberFormatter.swift */,
 				F7D4AC9727578D0B000B0B99 /* DateExtension.swift */,
+				F7253C772771908400B8652B /* NavigationExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -301,6 +316,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F76EDFA627702E9B0078D4A0 /* Location */,
 				4EE4F37727663DBE0001B874 /* Seller */,
 				F7A8994B275E5DFF00263321 /* Chat */,
 				4EF760B82747793500BBB0CE /* Order */,
@@ -452,6 +468,8 @@
 				F7D59016273FF6D300A2D916 /* ProductDetailResponse.swift */,
 				F7D4AC9927579725000B0B99 /* OrderModel.swift */,
 				F7A89958275E7A0B00263321 /* ChatModel.swift */,
+				F76EDFAD277035C40078D4A0 /* LocationList.swift */,
+				F76EDFB42770C8B30078D4A0 /* SubmitPaymentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -539,6 +557,32 @@
 				F764C4C727189CDF00C302A5 /* HomeClient.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F76EDFA627702E9B0078D4A0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F76EDFA8277033B40078D4A0 /* ViewModels */,
+				F76EDFA7277033A90078D4A0 /* View */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F76EDFA7277033A90078D4A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F76EDFA9277035010078D4A0 /* ChooseLocationView.swift */,
+				F76EDFAF277047CF0078D4A0 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F76EDFA8277033B40078D4A0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F76EDFAB277035720078D4A0 /* LocationViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F7A8994B275E5DFF00263321 /* Chat */ = {
@@ -633,6 +677,7 @@
 				F7A89947275E5C4B00263321 /* FirebaseAuth */,
 				F7A89949275E5C4B00263321 /* FirebaseFirestore */,
 				F7A89956275E6C7700263321 /* Introspect */,
+				F76EDFB22770C1FF0078D4A0 /* Alamofire */,
 			);
 			productName = "Online-Platform-Mobile";
 			productReference = F72900E727114680007EF04C /* Online-Platform-Mobile.app */;
@@ -666,6 +711,7 @@
 				4E0C8211272DA0DB0049B8C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				F7A89946275E5C4A00263321 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F7A89955275E6C7700263321 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				F76EDFB12770C1FF0078D4A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F72900E827114680007EF04C /* Products */;
 			projectDirPath = "";
@@ -707,8 +753,10 @@
 				4E102D61275B2A6100AAC2D9 /* MyOrderView.swift in Sources */,
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F7D4AC9827578D0B000B0B99 /* DateExtension.swift in Sources */,
+				F76EDFAE277035C40078D4A0 /* LocationList.swift in Sources */,
 				4EE4F380276736AD0001B874 /* CreateProductViewModel.swift in Sources */,
 				F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */,
+				F7253C782771908400B8652B /* NavigationExtension.swift in Sources */,
 				F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
 				4E15B5B92745573700F5C0CF /* CartCard.swift in Sources */,
@@ -720,6 +768,7 @@
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
+				F76EDFB52770C8B30078D4A0 /* SubmitPaymentModel.swift in Sources */,
 				4E1920922726AD0900B349C7 /* SellerCard.swift in Sources */,
 				4EE4F3822769F1C00001B874 /* MyProductView.swift in Sources */,
 				4E102D65275B48B400AAC2D9 /* OrderDetailView.swift in Sources */,
@@ -742,6 +791,7 @@
 				4EE4F3852769F4740001B874 /* ProfileView.swift in Sources */,
 				F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */,
 				F7D4AC9C2757D774000B0B99 /* TabBar.swift in Sources */,
+				F76EDFAC277035720078D4A0 /* LocationViewModel.swift in Sources */,
 				4EE4F37D27663F190001B874 /* ProductInformation.swift in Sources */,
 				4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */,
 				F7450B3D274295A00061B717 /* ReviewsCard.swift in Sources */,
@@ -749,12 +799,14 @@
 				F7A89953275E652100263321 /* UserService.swift in Sources */,
 				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
+				F76EDFB0277047CF0078D4A0 /* MapView.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
 				4E102D67275C9D6A00AAC2D9 /* LocationCard.swift in Sources */,
 				F75CE2CB274162F600F0977E /* LocationRating.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
 				F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */,
+				F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
 				4E1920962726BE9600B349C7 /* CategoryCard.swift in Sources */,
 				4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */,
@@ -908,10 +960,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
-				DEVELOPMENT_TEAM = A226GG3668;
+				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Online-Platform-Mobile/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Graf;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide best experience when choosing photo location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -939,10 +993,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
-				DEVELOPMENT_TEAM = A226GG3668;
+				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Online-Platform-Mobile/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Graf;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide best experience when choosing photo location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -994,6 +1050,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F76EDFB12770C1FF0078D4A0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
 		F7A89946275E5C4A00263321 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1017,6 +1081,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E0C8211272DA0DB0049B8C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		F76EDFB22770C1FF0078D4A0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F76EDFB12770C1FF0078D4A0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		F7A89947275E5C4B00263321 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -13,6 +13,7 @@ struct PostOrderRequest: Encodable {
     let schedule_date: String
     let schedule_time: String
     let packages: [Int]
+    let shipping_address: String
 }
 
 struct PostOrderResponse: Codable {

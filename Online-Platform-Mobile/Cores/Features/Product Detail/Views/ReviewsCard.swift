@@ -13,17 +13,18 @@ struct ReviewsCard: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 5) {
                 Text("\"\(review.comment)\"")
-                    .font(.system(size: 9))
+                    .font(.custom(ThemeFont.displayRegular, size: 12))
                     .foregroundColor(Color.theme.primary)
-                    
+                    .padding(.top, 16)
+                Spacer()
                 HStack {
                     Spacer()
                     Text(review.name)
-                        .font(.system(size: 7))
+                        .font(.custom(ThemeFont.displayRegular, size: 12))
                         .foregroundColor(Color.theme.darkGrey)
                 }
             }
-        .frame(width: 116, height: 101)
+        .frame(width: 210, height: 120)
             .padding(EdgeInsets(top: 8, leading: 11, bottom: 4, trailing: 11))
             .background(Color.theme.primarywhite)
             .cornerRadius(10)

@@ -11,7 +11,8 @@ struct SubmitPaymentView: View {
     
     @ObservedObject var orderVM = OrderViewModel()
     @StateObject var paymentVM = PaymentViewModel()
-    @State private var selectedImage: Image? = Image("")
+    var orderId: Int
+    @State private var selectedImage: UIImage = UIImage()
 
     var body: some View {
         VStack(alignment: .leading){
@@ -20,10 +21,10 @@ struct SubmitPaymentView: View {
                     .foregroundColor(Color.theme.primary)
                     .fontWeight(.semibold)
                 VStack {
-                    DatePicker("Date", selection: $orderVM.order.schedule_date, displayedComponents: [.date])
+                    DatePicker("Date", selection: $paymentVM.submitPaymentModel.payment_date, displayedComponents: [.date])
                         .padding(.top)
                     Divider()
-                    TextField("Bill name", text: $paymentVM.bill_name)
+                    TextField("Bill name", text: $paymentVM.submitPaymentModel.bill_name)
                         .padding(.bottom)
                 }
                 .padding(.horizontal)
@@ -31,20 +32,23 @@ struct SubmitPaymentView: View {
                 .cornerRadius(10)
                 .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
             }
-            UploadBox(isShowingPhotoPicker: $paymentVM.isShowingPhotoPicker, isUploaded: $paymentVM.isUploaded)
+            UploadBox(isShowingPhotoPicker: $paymentVM.isShowingPhotoPicker, isUploaded: paymentVM.submitPaymentModel.transfer_receipt.size.width == 0 ? .constant(false) : .constant(true), image: paymentVM.submitPaymentModel.transfer_receipt.size.width == 0 ? UIImage(systemName: "photo") : paymentVM.submitPaymentModel.transfer_receipt)
                 .padding(.top, 20)
-            self.selectedImage?
+            Image(uiImage: self.selectedImage)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 300)
             Spacer()
-            PrimaryButton(content: "Submit", maxWidth: 200, action: {
-                
-                
-            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
-                    ImagePicker(image: $selectedImage)
-                })
+            NavigationLink(destination: TabBar(selection: 2).navigationBarHidden(true).navigationBarBackButtonHidden(true).ignoresSafeArea(), isActive: $paymentVM.isFinishedUploading) {
+                PrimaryButton(content: "Submit", maxWidth: 200, action: {
+                    paymentVM.submitPaymentModel.order_id = self.orderId
+                    paymentVM.submitPayment()
+                    
+                }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                    .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: $paymentVM.submitPaymentModel.transfer_receipt)
+                    })
+            }
             
         }
         .padding()
@@ -56,6 +60,6 @@ struct SubmitPaymentView: View {
 
 struct SubmitPaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitPaymentView()
+        SubmitPaymentView(orderId: 1)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct CreateOrder {
-    var location: String = String()
+    var location: String = String("Location")
     var schedule_date: Date = Date()
     var schedule_time: Date = Date()
     var packages: [Int] = []

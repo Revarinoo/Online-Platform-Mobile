@@ -31,7 +31,7 @@ struct TabBar: View {
                 .tag(1)
                 
                 NavigationView {
-                    SubmitPaymentView()
+                    MyOrderView()
                         .navigationTitle("My Order")
                 }
                 .tabItem {

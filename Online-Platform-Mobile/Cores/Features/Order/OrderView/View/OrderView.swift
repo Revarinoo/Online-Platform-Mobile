@@ -17,18 +17,22 @@ struct OrderView: View {
     @State var locationFlag = false
     @StateObject var orderVM = OrderViewModel.shared
     @State var uiTabarController: UITabBarController?
+    @State var location = "Location"
+    @State var shipping = "Choose your address"
     
     var body: some View {
         ZStack {
             ScrollView (.vertical, showsIndicators: false) {
                 VStack (spacing: 24) {
                     if locationFlag {
-                        VStack (alignment: .leading) {
-                            Text("Deliver to")
-                                .font(.custom(ThemeFont.displaySemiBold, size: 15))
-                            CartCard(name: "Rumah Bandung", desc: "21, Jalan Jatinegara", type: "Loc")
+                        NavigationLink(destination: ChooseLocationView(location: $shipping)) {
+                            VStack (alignment: .leading) {
+                                Text("Deliver to")
+                                    .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                                CartCard(name: $shipping, desc: "", type: "Loc")
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
                     VStack (alignment: .leading) {
                         Text("Package List")
@@ -54,8 +58,20 @@ struct OrderView: View {
                             Divider()
                             DatePicker("Time", selection: $orderVM.order.schedule_time, displayedComponents: [.hourAndMinute])
                             Divider()
-                            TextField("Location", text: $orderVM.order.location)
-                                .padding(.bottom)
+                            NavigationLink(destination: ChooseLocationView(location: $orderVM.order.location)){
+                                HStack {
+                                    Text(orderVM.order.location)
+                                        .font(.custom(ThemeFont.displayRegular, size: 18))
+                                        .foregroundColor(.black)
+                                    Spacer()
+                                    Text("Choose Location")
+                                        .font(.custom(ThemeFont.displayRegular, size: 18))
+                                        .foregroundColor(.black)
+                                    Image(systemName: "chevron.right")
+                                }
+                            }
+                            .padding(.bottom, 16)
+                            .padding(.top, 10)
                         }
                         .padding(.horizontal)
                         .background(Color.white)
@@ -72,7 +88,7 @@ struct OrderView: View {
             .padding(.bottom, 170)
             VStack {
                 Spacer()
-                CartCard(name: "Apply your coupon code", desc: "", type: "Disc")
+                CartCard(name: .constant("Apply your coupon code"), desc: "", type: "Disc")
                     .padding([.leading, .trailing], 16)
                 HStack {
                     VStack (alignment: .leading) {
@@ -91,7 +107,8 @@ struct OrderView: View {
                     Spacer()
                     NavigationLink(destination: PaymentView(amountToPay: calculateCart(carts: cart), orderId: orderVM.orderId), isActive: $orderVM.isNavigate) {
                         Button {
-                            orderVM.createOrder(carts: cart)
+                            
+                            orderVM.createOrder(carts: cart, shipping: locationFlag ? shipping : "")
                         } label: {
                             Text("Place Order")
                                 .font(.custom(ThemeFont.displaySemiBold, size: 15))
@@ -125,6 +142,6 @@ struct OrderView: View {
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView(cart: [ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1)], locationFlag: true)
+        OrderView(cart: [ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1), ProductPackage(id: 1, price: 300000, revision: 1, quantity: 100, type: "Photo", high_resolution: 1, source_file: 1, commercial_use: 1, light_editing: 1)], locationFlag: true)
     }
 }

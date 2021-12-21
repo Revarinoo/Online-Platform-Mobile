@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct CartCard: View {
     
-    @State var name: String
+    @Binding var name: String
     @State var desc: String
     @State var type: String
 
@@ -65,18 +65,18 @@ struct CartCard: View {
     }
 }
 
-struct CartCard_Previews: PreviewProvider {
-    static var previews: some View {
-        CartCard(name: "Rumah Bandung", desc: "21, Jalan Jingganegara", type: "Loc")
-            .padding()
-            .cornerRadius(10)
-            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-            .previewLayout(.sizeThatFits)
-        
-        CartCard(name: "1 discount is applied", desc: "500K", type: "Disc")
-            .padding()
-            .cornerRadius(10)
-            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct CartCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CartCard(name: "Rumah Bandung", desc: "21, Jalan Jingganegara", type: "Loc")
+//            .padding()
+//            .cornerRadius(10)
+//            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+//            .previewLayout(.sizeThatFits)
+//        
+//        CartCard(name: "1 discount is applied", desc: "500K", type: "Disc")
+//            .padding()
+//            .cornerRadius(10)
+//            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
