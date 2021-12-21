@@ -70,7 +70,7 @@ struct AllOrderView: View {
     var body: some View {
         ForEach(orders, id: \.id) { data in
             NavigationLink(destination: OrderDetailView(orderId: data.order_id)) {
-                OrderCard(order: data)
+                OrderCard(order: data, isPending: false)
                     .frame(width: 357, height: 141)
                     .background(Color.white)
                     .cornerRadius(10)
@@ -85,7 +85,7 @@ struct PendingOrderView: View {
     
     var body: some View {
         ForEach(orders, id: \.id) { data in
-            OrderCard(order: data)
+            OrderCard(order: data, isPending: true)
                 .frame(width: 357, height: 141)
                 .background(Color.white)
                 .cornerRadius(10)

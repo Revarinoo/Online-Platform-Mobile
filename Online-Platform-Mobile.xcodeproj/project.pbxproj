@@ -53,6 +53,7 @@
 		F7253C782771908400B8652B /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C772771908400B8652B /* NavigationExtension.swift */; };
 		F7253C7A2772089D00B8652B /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C792772089D00B8652B /* OrderDetailViewModel.swift */; };
 		F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */; };
+		F7253C7E2772453500B8652B /* RescheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C7D2772453500B8652B /* RescheduleView.swift */; };
 		F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */; };
 		F72900ED27114680007EF04C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72900EC27114680007EF04C /* ContentView.swift */; };
 		F72900EF27114681007EF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72900EE27114681007EF04C /* Assets.xcassets */; };
@@ -155,6 +156,7 @@
 		F7253C772771908400B8652B /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		F7253C792772089D00B8652B /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderDetailModel.swift; sourceTree = "<group>"; };
+		F7253C7D2772453500B8652B /* RescheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescheduleView.swift; sourceTree = "<group>"; };
 		F72900E727114680007EF04C /* Online-Platform-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Online-Platform-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72900EA27114680007EF04C /* Online_Platform_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Online_Platform_MobileApp.swift; sourceTree = "<group>"; };
 		F72900EC27114680007EF04C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				F737A6FF275295AD00161CF0 /* CartCardView.swift */,
 				4E102D60275B2A6100AAC2D9 /* MyOrderView.swift */,
 				4E102D64275B48B400AAC2D9 /* OrderDetailView.swift */,
+				F7253C7D2772453500B8652B /* RescheduleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */,
+				F7253C7E2772453500B8652B /* RescheduleView.swift in Sources */,
 				F79501B2275FC16500F5F8E9 /* PersonalChat.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
 				4E6198982756633F00224C9C /* Transfer.swift in Sources */,

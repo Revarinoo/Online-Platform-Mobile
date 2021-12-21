@@ -20,4 +20,11 @@ class OrderDetailViewModel: ObservableObject {
             }
         }
     }
+    
+    func rescheduleOrder(orderId: Int, date: Date) {
+        orderService.rescheduleOrder(orderId: orderId, schedule_date: date.serverFormattedDate())
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) { [weak self] in
+            self?.getOrderDetail(orderId: orderId)
+        }
+    }
 }

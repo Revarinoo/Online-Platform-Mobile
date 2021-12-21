@@ -11,6 +11,8 @@ import SDWebImageSwiftUI
 struct OrderCard: View {
     
     var order: MyOrderModel
+    var isPending: Bool
+    @State var showAlert = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,7 +37,9 @@ struct OrderCard: View {
             
             HStack {
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    showAlert.toggle()
+                }, label: {
                     Text("Cancel")
                         .font(.custom(ThemeFont.displayMedium, size: 15))
                         .foregroundColor(Color.red)
@@ -45,17 +49,22 @@ struct OrderCard: View {
                                 .stroke(Color.red, lineWidth: 1)
                         )
                 })
+                    .opacity(isPending ? 1 : 0)
                     .padding(.trailing, 10)
                     .padding(.bottom, 10)
             }
         }
-        
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Cancel Order"), message: Text("Are you sure want to cancel order?"), primaryButton: .default(Text("No")), secondaryButton: .default(Text("Yes"), action: {
+                OrderViewModel.shared.cancelOrder(orderId: order.order_id)
+            }))
+        }
     }
 }
 
 struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", status: ""))
+        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", status: ""), isPending: true)
             .frame(width: 357, height: 141)
             .background(Color.white)
             .cornerRadius(10)

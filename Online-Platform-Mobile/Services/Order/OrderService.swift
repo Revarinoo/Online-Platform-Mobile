@@ -7,8 +7,7 @@
 
 import Foundation
 import SwiftUI
-
-
+import Alamofire
 
 class OrderService {
     @AppStorage("JWT", store: .standard) var token = ""
@@ -44,5 +43,36 @@ class OrderService {
         HttpService.shared.request(URLRequest(url: url), resultType: ClientOrderDetail.self) { result in
             completionHandler(result)
         }
+    }
+    
+    func updateOrderStatus(orderId: Int, status: String) {
+        let parameters: [String : Any] = [
+            "order_id": orderId,
+            "status": status
+        ]
+        
+        updateRequest(parameters: parameters)
+    }
+    
+    private func updateRequest(parameters: [String : Any]) {
+        Alamofire.request(HttpService.endpoint + "client/order/update" ,method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                switch response.result {
+                case .success(_): break
+                    
+                case .failure(let error):
+                    print(error)
+                
+                }
+            }
+    }
+    
+    func rescheduleOrder(orderId: Int, schedule_date: String) {
+        let parameters: [String : Any] = [
+            "order_id": orderId,
+            "schedule_date": schedule_date
+        ]
+        
+        updateRequest(parameters: parameters)
     }
 }

@@ -63,4 +63,11 @@ class OrderViewModel: ObservableObject {
             }
         }
     }
+    
+    func cancelOrder(orderId: Int) {
+        orderService.updateOrderStatus(orderId: orderId, status: "Cancelled")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(300)) { [weak self] in
+            self?.getAllOrder()
+        }
+    }
 }

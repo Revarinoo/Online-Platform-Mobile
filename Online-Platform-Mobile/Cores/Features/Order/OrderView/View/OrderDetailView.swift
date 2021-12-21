@@ -13,6 +13,8 @@ struct OrderDetailView: View {
     @StateObject private var orderDetailVM = OrderDetailViewModel()
     var orderId: Int
     @State var uiTabBarController: UITabBarController?
+    @State var showReschedule = false
+    
     
     var body: some View {
         VStack {
@@ -78,7 +80,9 @@ struct OrderDetailView: View {
                 .padding()
             }
             Spacer()
-            PrimaryButton(content: "Reschedule", maxWidth: 200, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+            PrimaryButton(content: "Reschedule", maxWidth: 200, action: {
+                showReschedule.toggle()
+            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                 .padding()
         }
         .navigationBarTitle("Order Detail", displayMode: .inline)
@@ -92,6 +96,12 @@ struct OrderDetailView: View {
         .onDisappear {
             uiTabBarController?.tabBar.isHidden = false
         }
+        .fullScreenCover(isPresented: $showReschedule) {
+            RescheduleView(orderDetailVM: orderDetailVM, orderId: orderId, isShowed: $showReschedule)
+                .animation(.linear)
+                .transition(.opacity)
+                .background(BackgroundCleanerView())
+        }
     }
 }
 
@@ -99,4 +109,19 @@ struct OrderDetailView_Previews: PreviewProvider {
     static var previews: some View {
         OrderDetailView(orderId: 1)
     }
+}
+
+struct BackgroundCleanerView: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UIView {
+    let view = UIView()
+    
+        DispatchQueue.main.async {
+        view.superview?.superview?.backgroundColor = .clear
+        
+    }
+        return view
+        
+    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
