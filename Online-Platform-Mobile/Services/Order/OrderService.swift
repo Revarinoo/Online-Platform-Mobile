@@ -36,4 +36,13 @@ class OrderService {
             completionHandler(result)
         }
     }
+    
+    func getClientOrder(orderId: Int, completionHandler: @escaping(_ result: ClientOrderDetail?)->Void) {
+        guard let url = URL(string: HttpService.endpoint + "client/order/detail/\(orderId)") else {
+            return
+        }
+        HttpService.shared.request(URLRequest(url: url), resultType: ClientOrderDetail.self) { result in
+            completionHandler(result)
+        }
+    }
 }

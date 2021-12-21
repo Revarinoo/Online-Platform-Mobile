@@ -24,6 +24,7 @@ struct OrderCard: View {
     
                 VStack (alignment: .leading, spacing: 5){
                     Text(order.name)
+                        .foregroundColor(.black)
                         .font(.custom(ThemeFont.displayMedium, size: 18))
                     Label(order.order_date, systemImage: "calendar")
                         .foregroundColor(Color.gray)
