@@ -108,6 +108,8 @@
 		F7D59019273FF74000A2D916 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D59018273FF74000A2D916 /* ProductDetailView.swift */; };
 		F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D6A49F272007D000E0BCD1 /* HttpService.swift */; };
 		F7D6A4A227200A2100E0BCD1 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D6A4A127200A2100E0BCD1 /* AuthResponse.swift */; };
+		F7EBC68F2772EF83009768E4 /* TabBarSeller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EBC68E2772EF83009768E4 /* TabBarSeller.swift */; };
+		F7EBC6922772EFDC009768E4 /* SellerOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EBC6912772EFDC009768E4 /* SellerOrdersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +210,8 @@
 		F7D59018273FF74000A2D916 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F7D6A49F272007D000E0BCD1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		F7D6A4A127200A2100E0BCD1 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		F7EBC68E2772EF83009768E4 /* TabBarSeller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSeller.swift; sourceTree = "<group>"; };
+		F7EBC6912772EFDC009768E4 /* SellerOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerOrdersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +310,7 @@
 				4E102D62275B2EC000AAC2D9 /* OrderCard.swift */,
 				4E102D66275C9D6A00AAC2D9 /* LocationCard.swift */,
 				F7D4AC9B2757D774000B0B99 /* TabBar.swift */,
+				F7EBC68E2772EF83009768E4 /* TabBarSeller.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 		4EE4F37727663DBE0001B874 /* Seller */ = {
 			isa = PBXGroup;
 			children = (
+				F7EBC6902772EFC2009768E4 /* Order */,
 				4EE4F3832769F40F0001B874 /* Profile */,
 				4EE4F37827663EB00001B874 /* Product */,
 			);
@@ -665,6 +671,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F7EBC6902772EFC2009768E4 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				F7EBC6912772EFDC009768E4 /* SellerOrdersView.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -792,6 +806,7 @@
 				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */,
+				F7EBC68F2772EF83009768E4 /* TabBarSeller.swift in Sources */,
 				F7253C7E2772453500B8652B /* RescheduleView.swift in Sources */,
 				F79501B2275FC16500F5F8E9 /* PersonalChat.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
@@ -813,6 +828,7 @@
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
 				F76EDFB0277047CF0078D4A0 /* MapView.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
+				F7EBC6922772EFDC009768E4 /* SellerOrdersView.swift in Sources */,
 				4E102D67275C9D6A00AAC2D9 /* LocationCard.swift in Sources */,
 				F75CE2CB274162F600F0977E /* LocationRating.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,

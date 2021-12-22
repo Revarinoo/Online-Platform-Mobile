@@ -12,6 +12,7 @@ import Firebase
 struct Online_Platform_MobileApp: App {
     
     @AppStorage("JWT", store: .standard) var token = ""
+    @AppStorage("role", store: .standard) var role = ""
     
     init() {
         FirebaseApp.configure()
@@ -23,10 +24,15 @@ struct Online_Platform_MobileApp: App {
                 WelcomeView()
             }
             else {
-                TabBar(selection: 0)
-                    .onAppear {
-                        UserHelper.shared.getUserData()
-                    }
+                if role == "Client" {
+                    TabBar(selection: 0)
+                        .onAppear {
+                            UserHelper.shared.getUserData()
+                        }
+                }
+                else if role == "Seller" {
+                    TabBarSeller(selection: 0)
+                }
             }
         }
     }

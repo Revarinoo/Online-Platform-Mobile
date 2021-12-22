@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject var loginVM = LoginViewModel()
     
     @State var selection: Role
+    @AppStorage("role", store: .standard) var role = ""
     
     @State var isChecked:Bool = false
     
@@ -59,6 +60,7 @@ struct LoginView: View {
                         Spacer()
                         
                         PrimaryButton(content: "Next", maxWidth: 290, action: {
+                            self.role = selection.rawValue
                             loginVM.login(role: selection)
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
