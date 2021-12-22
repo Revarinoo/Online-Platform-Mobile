@@ -1,18 +1,13 @@
 //
-//  UserView.swift
+//  CategoryListView.swift
 //  Online-Platform-Mobile
 //
-//  Created by Christian Adiputra on 20/12/21.
+//  Created by Kenneth J on 22/12/21.
 //
 
 import SwiftUI
 
-struct Item: Identifiable, Hashable {
-    var id = UUID()
-    var name: String = ""
-}
-
-struct UserView: View {
+struct CategoryListView: View {
     
     @State private var searchText = ""
     
@@ -27,16 +22,22 @@ struct UserView: View {
                         List{
                             ForEach(itemList.filter({ searchText.isEmpty ? true : $0.name.contains(searchText)
                             }), id: \.id) { item in
-                                NavigationLink(destination: ProductListView()) {
-                                    Text(item.name)
-                                }
+                                Text(item.name)
                             }
                             .onDelete(perform: self.deleteRow)
                         }
                     }
                 }
             }
-            .navigationTitle("User List")
+            .navigationTitle("Category List")
+            .toolbar(content: {
+                Button {
+                    print("bisa")
+                } label: {
+                    Text("Add Category")
+                }
+
+            })
             .listStyle(PlainListStyle())
         }
     }
@@ -45,8 +46,8 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
+struct CategoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+        CategoryListView()
     }
 }
