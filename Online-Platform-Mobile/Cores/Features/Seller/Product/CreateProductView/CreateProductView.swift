@@ -29,7 +29,12 @@ struct CreateProductView: View {
                 
                 
                 Section(header: Text("Product Detail")) {
-                    TextField("Package Name ", text: $createproductVM.packageName)
+                    Stepper("Photo Amount (\(createproductVM.photoamount))") {
+                        createproductVM.photoamount += 5
+                    } onDecrement: {
+                        createproductVM.photoamount -= 5
+                    }
+                    
                     Toggle(isOn: $createproductVM.highresolution) {
                         Text("High Resolution")
                     }
@@ -55,11 +60,17 @@ struct CreateProductView: View {
                     } label: {
                         Text("Category")
                     }
-                    TextField("Revision Amount", text: $createproductVM.packagePrice)
+                    Stepper("Revision Amount (\(createproductVM.revisionAmount))") {
+                        createproductVM.revisionAmount += 5
+                    } onDecrement: {
+                        createproductVM.revisionAmount -= 5
+                    }
+                    
+                    
                 }
             }
             .navigationBarItems(trailing:
-                Button("Save") {
+                                    Button("Save") {
                 print(createproductVM.packageName)
                 print(createproductVM.packageCategory)
                 print(createproductVM.highresolution)
@@ -68,13 +79,9 @@ struct CreateProductView: View {
                 print(createproductVM.fullediting)
                 print(createproductVM.fullediting)
                 print("X")
-                }
+            }
             )
             .navigationBarTitle("Create Product", displayMode: .inline)
-            //            .padding(.horizontal)
-            //            .background(Color.white)
-            //            .cornerRadius(10)
-            //            .shadow(color: Color.gray.opacity(0.4), radius: 3)
         }
     }
 }

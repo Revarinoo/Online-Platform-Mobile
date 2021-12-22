@@ -23,10 +23,11 @@ struct Online_Platform_MobileApp: App {
                 WelcomeView()
             }
             else {
-                TabBar(selection: 0)
-                    .onAppear {
-                        UserHelper.shared.getUserData()
-                    }
+                UserView()
+//                TabBar(selection: 0)
+//                    .onAppear {
+//                        UserHelper.shared.getUserData()
+//                    }
             }
         }
     }
