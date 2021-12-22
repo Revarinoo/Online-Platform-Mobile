@@ -45,7 +45,7 @@ struct PaymentView: View {
             }
             .padding(.top, -25)
             Spacer()
-            NavigationLink(destination: SubmitPaymentView()) {
+            NavigationLink(destination: SubmitPaymentView(orderId: self.orderId)) {
                 
                 Text("I Have Completed Payment")
                     .font(.custom(ThemeFont.displaySemiBold, size: 15))

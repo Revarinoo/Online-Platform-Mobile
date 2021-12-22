@@ -43,11 +43,9 @@ struct MyOrderView: View {
                 VStack {
                     switch orderstatus {
                     case 0:
-                        AllOrderView(orders: orderVM.pendingOrders)
-                        
+                        PendingOrderView(orders: orderVM.pendingOrders)
                     case 1:
                         AllOrderView(orders: orderVM.upcomingOrders)
-                        
                     case 2:
                         AllOrderView(orders: orderVM.completedOrders)
                     default:
@@ -71,7 +69,23 @@ struct AllOrderView: View {
     
     var body: some View {
         ForEach(orders, id: \.id) { data in
-            OrderCard(order: data)
+            NavigationLink(destination: OrderDetailView(orderId: data.order_id)) {
+                OrderCard(order: data, isPending: false)
+                    .frame(width: 357, height: 141)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+            }
+        }
+    }
+}
+
+struct PendingOrderView: View {
+    var orders: [MyOrderModel]
+    
+    var body: some View {
+        ForEach(orders, id: \.id) { data in
+            OrderCard(order: data, isPending: true)
                 .frame(width: 357, height: 141)
                 .background(Color.white)
                 .cornerRadius(10)

@@ -18,7 +18,7 @@ class OrderViewModel: ObservableObject {
     @Published var upcomingOrders: [MyOrderModel] = []
     @Published var completedOrders: [MyOrderModel] = []
     
-    func createOrder(carts: [ProductPackage]) {
+    func createOrder(carts: [ProductPackage], shipping: String) {
         var tempId: [Int] = []
         for data in carts {
             tempId.append(data.id!)
@@ -26,7 +26,7 @@ class OrderViewModel: ObservableObject {
         order.packages = tempId
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
-        orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages)) { result in
+        orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages, shipping_address: shipping)) { result in
             if let result = result {
                 if result.code == 201 {
                     DispatchQueue.main.async {
@@ -61,6 +61,13 @@ class OrderViewModel: ObservableObject {
                     }
                 }
             }
+        }
+    }
+    
+    func cancelOrder(orderId: Int) {
+        orderService.updateOrderStatus(orderId: orderId, status: "Cancelled")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(300)) { [weak self] in
+            self?.getAllOrder()
         }
     }
 }

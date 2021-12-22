@@ -47,8 +47,6 @@ struct HomeClient: View {
                                 .font(.title3)
                                 .fontWeight(.bold)
                             Spacer()
-                            Text("View All")
-                                .foregroundColor(.gray)
                         }
                         
                         ScrollView (.vertical, showsIndicators: false, content: {

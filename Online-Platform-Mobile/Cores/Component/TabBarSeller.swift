@@ -1,41 +1,42 @@
 //
-//  TabBar.swift
+//  TabBarSeller.swift
 //  Online-Platform-Mobile
 //
-//  Created by Revarino Putra on 01/12/21.
+//  Created by Revarino Putra on 22/12/21.
 //
 
 import SwiftUI
 
-struct TabBar: View {
+struct TabBarSeller: View {
+    
     @State var selection = 0
     @State var navTitle = ""
     
     var body: some View {
             TabView(selection: $selection) {
                 NavigationView {
-                    HomeClient()
-                        .navigationTitle("Discover")
+                    SellerOrdersView()
+                        .navigationTitle("My Order")
                 }
                 .tabItem {
-                    Label("Discover", systemImage: "house")
+                    Label("Order", systemImage: "list.dash")
                 }
                 .tag(0)
                 NavigationView {
-                    ProductView()
-                        .navigationTitle("Product List")
+                    ProfileView()
+                        .navigationTitle("Product")
                 }
                 .tabItem {
-                    Label("Product", systemImage: "list.dash")
+                    Label("Product", systemImage: "archivebox")
                 }
                 .tag(1)
                 
                 NavigationView {
-                    MyOrderView()
-                        .navigationTitle("My Order")
+                    ProfileView()
+                        .navigationTitle("Profile")
                 }
                 .tabItem {
-                    Label("Order", systemImage: "newspaper")
+                    Label("Order", systemImage: "person")
                 }
                 .tag(2)
             }
@@ -45,8 +46,8 @@ struct TabBar: View {
     }
 }
 
-struct TabBar_Previews: PreviewProvider {
+struct TabBarSeller_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar(selection: 0)
+        TabBarSeller()
     }
 }

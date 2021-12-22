@@ -51,7 +51,7 @@ struct ProductDetailView: View {
                                     HStack (spacing: 15) {
                                         ForEach(productDetailVM.productDetailModel.reviews) { review in
                                             ReviewsCard(review: review)
-                                                .frame(height: 113)
+                                                .frame(height: 120)
                                                 .padding(.bottom, 10)
                                         }
                                     }
