@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E3AFB9277389BA00A476E5 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3AFB8277389BA00A476E5 /* ProductListView.swift */; };
+		18E3AFBB277389C800A476E5 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3AFBA277389C800A476E5 /* CategoryListView.swift */; };
+		18E3AFC02773994400A476E5 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3AFBF2773994400A476E5 /* AddCategoryView.swift */; };
+		18E3AFC22773A01000A476E5 /* OvalTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3AFC12773A01000A476E5 /* OvalTextFieldStyle.swift */; };
 		4E07267C27182C8400806F54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267B27182C8400806F54 /* LoginView.swift */; };
 		4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07267D27182D7B00806F54 /* LoginViewModel.swift */; };
 		4E0A00612764AC68002B0A70 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A00602764AC68002B0A70 /* PaymentViewModel.swift */; };
@@ -118,6 +122,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18E3AFB8277389BA00A476E5 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		18E3AFBA277389C800A476E5 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		18E3AFBF2773994400A476E5 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
+		18E3AFC12773A01000A476E5 /* OvalTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextFieldStyle.swift; sourceTree = "<group>"; };
 		4E07267B27182C8400806F54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4E07267D27182D7B00806F54 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4E0A00602764AC68002B0A70 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
@@ -240,6 +248,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18E3AFB62773899200A476E5 /* ProductListView */ = {
+			isa = PBXGroup;
+			children = (
+				18E3AFB8277389BA00A476E5 /* ProductListView.swift */,
+			);
+			path = ProductListView;
+			sourceTree = "<group>";
+		};
+		18E3AFB7277389A700A476E5 /* CategoryListView */ = {
+			isa = PBXGroup;
+			children = (
+				18E3AFBA277389C800A476E5 /* CategoryListView.swift */,
+			);
+			path = CategoryListView;
+			sourceTree = "<group>";
+		};
+		18E3AFBE2773993400A476E5 /* AddCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				18E3AFBF2773994400A476E5 /* AddCategoryView.swift */,
+			);
+			path = AddCategoryView;
+			sourceTree = "<group>";
+		};
 		4E07267A27182C7300806F54 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +284,9 @@
 		4E30D19C2770EA8D00B7BCD0 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				18E3AFBE2773993400A476E5 /* AddCategoryView */,
+				18E3AFB7277389A700A476E5 /* CategoryListView */,
+				18E3AFB62773899200A476E5 /* ProductListView */,
 				4E30D19D2770EAC200B7BCD0 /* UserView */,
 			);
 			path = Admin;
@@ -496,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				F785C1EC271539DB008035EC /* UserHelper.swift */,
+				18E3AFC12773A01000A476E5 /* OvalTextFieldStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -801,6 +837,7 @@
 			files = (
 				4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */,
 				4E61989A275788F700224C9C /* PaymentTime.swift in Sources */,
+				18E3AFC22773A01000A476E5 /* OvalTextFieldStyle.swift in Sources */,
 				F7A2A5652744111A00856135 /* PackageDetail.swift in Sources */,
 				4E30D19F2770EB1D00B7BCD0 /* UserView.swift in Sources */,
 				F7D59019273FF74000A2D916 /* ProductDetailView.swift in Sources */,
@@ -813,6 +850,7 @@
 				F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */,
 				F7253C782771908400B8652B /* NavigationExtension.swift in Sources */,
 				F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */,
+				18E3AFC02773994400A476E5 /* AddCategoryView.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
 				4E15B5B92745573700F5C0CF /* CartCard.swift in Sources */,
 				4E102D5B275A25B100AAC2D9 /* UploadBox.swift in Sources */,
@@ -862,6 +900,7 @@
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
 				F76EDFB0277047CF0078D4A0 /* MapView.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
+				18E3AFBB277389C800A476E5 /* CategoryListView.swift in Sources */,
 				F7EBC6922772EFDC009768E4 /* SellerOrdersView.swift in Sources */,
 				4E102D67275C9D6A00AAC2D9 /* LocationCard.swift in Sources */,
 				F75CE2CB274162F600F0977E /* LocationRating.swift in Sources */,
@@ -871,6 +910,7 @@
 				F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
 				4E1920962726BE9600B349C7 /* CategoryCard.swift in Sources */,
+				18E3AFB9277389BA00A476E5 /* ProductListView.swift in Sources */,
 				4E0DEE29276F8FB000A953DE /* OrderReview.swift in Sources */,
 				4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */,
 				F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */,
