@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @StateObject var profileVM: ProfileViewModel = ProfileViewModel()
+    @AppStorage("JWT", store: .standard) var token = ""
     
     var screenwidth =  UIScreen.main.bounds.width
     
@@ -47,7 +48,9 @@ struct ProfileView: View {
                 
             }
             .padding()
-            PrimaryButton(content: "Log Out", maxWidth: screenwidth, action: {}, btnColor: Color.red, textColor: Color.white)
+            PrimaryButton(content: "Log Out", maxWidth: screenwidth, action: {
+                self.token = "" 
+            }, btnColor: Color.red, textColor: Color.white)
                 .padding()
                 
         }
