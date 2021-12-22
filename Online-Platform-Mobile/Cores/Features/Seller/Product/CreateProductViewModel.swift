@@ -14,7 +14,8 @@ class CreateProductViewModel: ObservableObject {
     @Published var packagePrice: String = ""
     @Published var packageCategory: String = "Photo"
     @Published var selectedIndex = 0
-    @Published var revisionAmount = ""
+    @Published var revisionAmount = 1
+    @Published var photoamount = 20
     var highresolution: Bool = false
     var sourcefile: Bool = false
     var commercialuse: Bool = false
