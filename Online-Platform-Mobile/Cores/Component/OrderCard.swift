@@ -28,30 +28,53 @@ struct OrderCard: View {
                             Text(order.name)
                                 .foregroundColor(.black)
                                 .font(.custom(ThemeFont.displayMedium, size: 18))
-                            Text("Wedding")
+                            Text(order.order_category)
                                 .foregroundColor(Color.gray)
                                 .font(.custom(ThemeFont.displayRegular, size: 13.5))
                             Label(order.order_date, systemImage: "calendar")
                                 .foregroundColor(Color.gray)
                                 .font(.custom(ThemeFont.displayRegular, size: 13.5))
                         }
+                        .frame(width: 159, alignment: .leading)
                     }
-                    .padding()
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 18, height: 29)
-                        .padding()
+                    if isPending {
+                        HStack {
+                             Button(action: {
+                                 showAlert.toggle()
+                             }, label: {
+                                 Text("Cancel")
+                                     .font(.custom(ThemeFont.displayMedium, size: 15))
+                                     .foregroundColor(Color.red)
+                                     .frame(width: 80, height: 32)
+                                     .overlay(
+                                         RoundedRectangle(cornerRadius: 12)
+                                             .stroke(Color.red, lineWidth: 1)
+                                     )
+                             })
+                                 .opacity(isPending ? 1 : 0)
+                                 .padding(.trailing, 5)
+                         }
+                    }
+                    else {
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 18, height: 29)
+                            .padding()
+                    }
                 }
-            
+                .alert(isPresented: $showAlert) {
+                             Alert(title: Text("Cancel Order"), message: Text("Are you sure want to cancel order?"), primaryButton: .default(Text("No")), secondaryButton: .default(Text("Yes"), action: {
+                                 OrderViewModel.shared.cancelOrder(orderId: order.order_id)
+                             }))
+                }
         }
     }
 }
 
 struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", status: ""), isPending: true)
+        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", order_category: "", status: ""), isPending: true)
             .frame(width: 358, height: 95)
             .background(Color.white)
             .cornerRadius(10)

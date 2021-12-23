@@ -21,7 +21,7 @@ struct RescheduleView: View {
                 Text("Reschedule")
                     .font(.custom(ThemeFont.displaySemiBold, size: 14))
                 Divider()
-                DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: [.date])
                     .datePickerStyle(.graphical)
                 Divider()
                 HStack {
