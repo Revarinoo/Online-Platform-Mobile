@@ -14,8 +14,12 @@ class CreateProductViewModel: ObservableObject {
     @Published var packagePrice: String = ""
     @Published var packageCategory: String = "Photo"
     @Published var selectedIndex = 0
+    @Published var selectedProduct = 0
+    @Published var selectedType = 0
     @Published var revisionAmount = 1
     @Published var photoamount = 20
+    @Published var desc = ""
+    
     var highresolution: Bool = false
     var sourcefile: Bool = false
     var commercialuse: Bool = false
@@ -24,4 +28,6 @@ class CreateProductViewModel: ObservableObject {
     var revision: Bool = false
     
     var listCategory = ["Photo", "Video", "USB(Photo/Video)", "Photo Album", "Photo Print", "Photo Frame"]
+    var listProductCategory = ["Wedding", "Holiday", "USB(Photo/Video)", "Photo Album", "Photo Print", "Photo Frame"]
+    var listType = ["Photo", "Video", "Photo & Video"]
 }
