@@ -32,6 +32,9 @@ struct Online_Platform_MobileApp: App {
                 }
                 else if role == "Seller" {
                     TabBarSeller(selection: 0)
+                        .onAppear {
+                            UserHelper.shared.getUserData()
+                        }
                 }
             }
         }

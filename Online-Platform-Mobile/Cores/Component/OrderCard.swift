@@ -15,8 +15,6 @@ struct OrderCard: View {
     @State var showAlert = false
     
     var body: some View {
-        NavigationLink(destination: OrderDetailView(orderId: order.order_id)) {
-
                 HStack {
                     HStack(alignment: .top, spacing: 18) {
                          WebImage(url: URL(string: order.photo))
@@ -68,7 +66,6 @@ struct OrderCard: View {
                                  OrderViewModel.shared.cancelOrder(orderId: order.order_id)
                              }))
                 }
-        }
     }
 }
 

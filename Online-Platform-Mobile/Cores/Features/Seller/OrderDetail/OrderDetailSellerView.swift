@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Introspect
 
 enum OrderStatus: String {
     case pending = "Pending"
     case upcoming = "Upcoming"
+    case needRevision = "Need Revision"
+    case notSubmitted = "Not Submitted"
+    case waiting = "Waiting"
     case completed = "Completed"
 }
 
@@ -17,6 +21,7 @@ struct OrderDetailSellerView: View {
     
     @StateObject private var detailVM = OrderDetailSellerViewModel()
     var orderId: Int
+    @State var uiTabBarController: UITabBarController?
     
     var body: some View {
         ScrollView (.vertical, showsIndicators: false) {
@@ -108,8 +113,17 @@ struct OrderDetailSellerView: View {
 
                 Spacer()
             }
+            .navigationTitle("Order Detail")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 detailVM.getOrderDetail(orderId: orderId)
+            }
+            .introspectTabBarController { UITabBarController in
+                UITabBarController.tabBar.isHidden = true
+                uiTabBarController = UITabBarController
+            }
+            .onDisappear {
+                uiTabBarController?.tabBar.isHidden = false
             }
         }
     }
