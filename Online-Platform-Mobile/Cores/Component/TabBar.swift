@@ -26,7 +26,7 @@ struct TabBar: View {
                         .navigationTitle("Product List")
                 }
                 .tabItem {
-                    Label("Product", systemImage: "list.dash")
+                    Label("Product", systemImage: "camera")
                 }
                 .tag(1)
                 
@@ -35,9 +35,19 @@ struct TabBar: View {
                         .navigationTitle("My Order")
                 }
                 .tabItem {
-                    Label("Order", systemImage: "newspaper")
+                    Label("Order", systemImage: "list.dash")
                 }
                 .tag(2)
+                
+                NavigationView {
+                    ProfileView()
+                        .navigationTitle("Profile")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                .tabItem {
+                    Label("Profile", systemImage: "person")
+                }
+                .tag(3)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))

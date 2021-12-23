@@ -117,7 +117,7 @@ struct OrderDetailSellerView: View {
 
 struct OrderDetailSellerView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderDetailSellerView(orderId: 28)
+        OrderDetailSellerView(orderId: 2)
     }
 }
 

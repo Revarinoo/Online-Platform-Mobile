@@ -69,13 +69,7 @@ struct HomeClient: View {
                     
                 }.edgesIgnoringSafeArea(.bottom)
                     .edgesIgnoringSafeArea(.trailing)
-                .navigationBarItems(leading:
-                                        Button(action: {
-                    homeClientVM.signOut()
-                }) {
-                    Text("Log Out")
-                        .foregroundColor(.red)
-                }, trailing:
+                .navigationBarItems(trailing:
                                         NavigationLink(destination: ChatList(), isActive: $isActive) {
                     Button(action: {
                         isActive.toggle()

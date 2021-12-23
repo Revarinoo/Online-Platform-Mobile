@@ -6,41 +6,47 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     
-    @StateObject var profileVM: ProfileViewModel = ProfileViewModel()
     @AppStorage("JWT", store: .standard) var token = ""
+    @StateObject private var profileVM = UserHelper.shared
     
     var screenwidth =  UIScreen.main.bounds.width
     
     var body: some View {
         VStack {
-            Image("welcomepage")
+            Divider()
+            WebImage(url: URL(string: profileVM.user.photo))
                 .resizable()
+                .scaledToFill()
                 .frame(width: 125, height: 125)
                 .cornerRadius(10)
                 .padding()
             
             HStack {
-                VStack(spacing: 15) {
-                    VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text("Name")
-                            .font(.caption)
+                            .font(.custom(ThemeFont.displayRegular, size: 18))
                             .foregroundColor(Color.gray)
-                        Text(profileVM.seller.name)
+                        Text(profileVM.user.name)
+                            .font(.custom(ThemeFont.displayRegular, size: 22.5))
                     }
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text("Email")
-                            .font(.caption)
+                            .font(.custom(ThemeFont.displayRegular, size: 18))
                             .foregroundColor(Color.gray)
-                        Text(profileVM.seller.name)
+                        Text(profileVM.user.email)
+                            .font(.custom(ThemeFont.displayRegular, size: 22.5))
                     }
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text("Phone Number")
-                            .font(.caption)
+                            .font(.custom(ThemeFont.displayRegular, size: 18))
                             .foregroundColor(Color.gray)
-                        Text(profileVM.seller.name)
+                        Text(profileVM.user.phone_number)
+                            .font(.custom(ThemeFont.displayRegular, size: 22.5))
                     }
                     Spacer()
                 }
@@ -52,7 +58,6 @@ struct ProfileView: View {
                 self.token = "" 
             }, btnColor: Color.red, textColor: Color.white)
                 .padding()
-                
         }
     }
 }
