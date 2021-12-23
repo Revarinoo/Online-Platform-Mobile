@@ -52,7 +52,7 @@ class OrderViewModel: ObservableObject {
                 if response.code == 201 {
                     var temp: [MyOrderModel] = []
                     for data in response.data {
-                        temp.append(MyOrderModel(order_id: data.order_id, photo: data.photo, name: data.name, order_date: data.order_date, status: data.status))
+                        temp.append(MyOrderModel(order_id: data.order_id, photo: data.photo, name: data.name, order_date: data.order_date, order_category: data.order_category, status: data.status))
                     }
                     DispatchQueue.main.async {
                         self.pendingOrders = temp.filter { $0.status == "Pending" }

@@ -1,17 +1,17 @@
 //
-//  MyOrderView.swift
+//  OrderListView.swift
 //  Online-Platform-Mobile
 //
-//  Created by Christian Adiputra on 04/12/21.
+//  Created by Revarino Putra on 23/12/21.
 //
 
 import SwiftUI
 
-struct MyOrderView: View {
+struct OrderListView: View {
     
     @State private var orderstatus = 0
     @State private var count = 5
-    @StateObject var orderVM = OrderViewModel.shared
+    @StateObject private var orderVM = SellerOrderViewModel()
     
     //to change segmented color
     init() {
@@ -43,11 +43,11 @@ struct MyOrderView: View {
                 VStack {
                     switch orderstatus {
                     case 0:
-                        PendingOrderView(orders: orderVM.pendingOrders)
+                        AllOrderView(orders: orderVM.pendingOrders, client: false)
                     case 1:
-                        AllOrderView(orders: orderVM.upcomingOrders, client: true)
+                        AllOrderView(orders: orderVM.upcomingOrders, client: false)
                     case 2:
-                        AllOrderView(orders: orderVM.completedOrders, client: true)
+                        AllOrderView(orders: orderVM.completedOrders, client: false)
                     default:
                         Text("")
                     }
@@ -58,45 +58,15 @@ struct MyOrderView: View {
         }
         .frame(maxHeight: .infinity)
         .onAppear {
-            orderVM.getAllOrder()
+            orderVM.getAllOrderSeller()
         }
         
     }
 }
 
-struct AllOrderView: View {
-    var orders: [MyOrderModel]
-    var client: Bool
-    
-    var body: some View {
-        ForEach(orders, id: \.id) { data in
-            NavigationLink(destination: client ? AnyView(OrderDetailView(orderId: data.order_id)) : AnyView(OrderDetailSellerView(orderId: data.order_id))) {
-                OrderCard(order: data, isPending: false)
-                    .frame(width: 357, height: 141)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-            }
-        }
-    }
-}
-
-struct PendingOrderView: View {
-    var orders: [MyOrderModel]
-    
-    var body: some View {
-        ForEach(orders, id: \.id) { data in
-            OrderCard(order: data, isPending: true)
-                .frame(width: 357, height: 141)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-        }
-    }
-}
-
-struct MyOrderView_Previews: PreviewProvider {
+struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyOrderView()
+        OrderListView()
     }
 }
+

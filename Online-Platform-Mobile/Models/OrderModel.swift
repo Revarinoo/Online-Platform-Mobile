@@ -25,6 +25,7 @@ struct MyOrderResponseDetail: Codable {
     let photo: String
     let name: String
     let order_date: String
+    let order_category: String
     let status: String
 }
 
@@ -34,5 +35,6 @@ struct MyOrderModel: Identifiable {
     let photo: String
     let name: String
     let order_date: String
+    let order_category: String
     let status: String
 }

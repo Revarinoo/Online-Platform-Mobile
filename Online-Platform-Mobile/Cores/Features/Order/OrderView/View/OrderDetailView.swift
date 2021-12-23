@@ -18,7 +18,7 @@ struct OrderDetailView: View {
     
     var body: some View {
         VStack {
-            if orderDetailVM.orderDetail.order_status == "Upcoming" {
+            if orderDetailVM.orderDetail.order_status == OrderStatus.upcoming.rawValue {
                 VStack(alignment: .leading){
                     Text("Order Information")
                         .fontWeight(.semibold)
@@ -55,29 +55,8 @@ struct OrderDetailView: View {
                 .padding(.top, 90)
                 .edgesIgnoringSafeArea(.top)
             }
-            if orderDetailVM.orderDetail.order_status == "Completed" {
-                VStack(alignment: .leading){
-                    Text("Shopping Details")
-                        .fontWeight(.semibold)
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Courier")
-                            Spacer()
-                            Text(orderDetailVM.orderDetail.shipping_courier)
-                                .font(.system(size: 22))
-                        }
-                        .padding(.top)
-                        Divider()
-                        Text(orderDetailVM.orderDetail.tracking_number)
-                            .font(.system(size: 22))
-                            .padding(.vertical)
-                    }
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-                }
-                .padding()
+            if orderDetailVM.orderDetail.order_status == OrderStatus.completed.rawValue {
+                CompletedOrderDetailView(detailVM: orderDetailVM)
             }
             Spacer()
             PrimaryButton(content: "Reschedule", maxWidth: 200, action: {

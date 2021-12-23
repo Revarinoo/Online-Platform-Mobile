@@ -37,7 +37,9 @@ extension Seller: Hashable {
 }
 
 struct UserProfile: Codable{
-    var id: Int
-    var name: String
-    var photo: String
+    let id: Int
+    let name: String
+    let email: String
+    let phone_number: String
+    let photo: String
 }

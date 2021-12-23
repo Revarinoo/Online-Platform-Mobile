@@ -75,4 +75,15 @@ class OrderService {
         
         updateRequest(parameters: parameters)
     }
+    
+    func getAllOrderSeller(completionHandler: @escaping(_ result: MyOrderResponse?) -> Void) {
+        guard let url = URL(string: HttpService.endpoint + "seller/order/all") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        HttpService.shared.request(request, resultType: MyOrderResponse.self) { result in
+            completionHandler(result)
+        }
+    }
 }

@@ -15,7 +15,7 @@ struct TabBarSeller: View {
     var body: some View {
             TabView(selection: $selection) {
                 NavigationView {
-                    SellerOrdersView()
+                    OrderListView()
                         .navigationTitle("My Order")
                 }
                 .tabItem {
@@ -34,6 +34,7 @@ struct TabBarSeller: View {
                 NavigationView {
                     ProfileView()
                         .navigationTitle("Profile")
+                        .navigationBarTitleDisplayMode(.inline)
                 }
                 .tabItem {
                     Label("Order", systemImage: "person")

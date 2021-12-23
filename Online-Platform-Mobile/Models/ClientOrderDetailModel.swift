@@ -14,6 +14,7 @@ struct ClientOrderDetail: Codable {
     var order_location: String = String()
     var shipping_courier: String = String()
     var tracking_number: String = String()
+    var result_link: String = String()
     var status: String = String()
     var code: Int = Int()
 }

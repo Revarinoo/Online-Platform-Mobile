@@ -25,10 +25,9 @@ struct WelcomeView: View {
                             .frame(maxHeight: 300)
                         
                         VStack (alignment: .leading){
-                            Text("Cekrek") // App Name
+                            Text("Graf") // App Name
                                 .font(.largeTitle)
                                 .bold()
-                            Text("Slogan") // App Slogan
                         }
                         .foregroundColor(Color.theme.primarywhite)
                         .padding(.vertical)
