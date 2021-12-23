@@ -25,7 +25,7 @@ struct Online_Platform_MobileApp: App {
             }
             else {
                 if role == "Client" {
-                    TabBar(selection: 0)
+                    TabBar()
                         .onAppear {
                             UserHelper.shared.getUserData()
                         }

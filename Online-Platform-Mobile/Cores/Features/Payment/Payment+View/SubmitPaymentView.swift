@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct SubmitPaymentView: View {
     
@@ -13,7 +14,8 @@ struct SubmitPaymentView: View {
     @StateObject var paymentVM = PaymentViewModel()
     var orderId: Int
     @State private var selectedImage: UIImage = UIImage()
-
+    @State var uiTabBarController: UITabBarController?
+    
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading) {
@@ -39,22 +41,28 @@ struct SubmitPaymentView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 300)
             Spacer()
-            NavigationLink(destination: TabBar(selection: 2).navigationBarHidden(true).navigationBarBackButtonHidden(true).ignoresSafeArea(), isActive: $paymentVM.isFinishedUploading) {
-                PrimaryButton(content: "Submit", maxWidth: 200, action: {
-                    paymentVM.submitPaymentModel.order_id = self.orderId
-                    paymentVM.submitPayment()
-                    
-                }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                    .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
-                        ImagePicker(sourceType: .photoLibrary, selectedImage: $paymentVM.submitPaymentModel.transfer_receipt)
-                    })
-            }
+            PrimaryButton(content: "Submit", maxWidth: 200, action: {
+                paymentVM.submitPaymentModel.order_id = self.orderId
+                paymentVM.submitPayment()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
+                    TabBarViewModel.shared.selected = 2
+                }
+            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $paymentVM.submitPaymentModel.transfer_receipt)
+                })
             
         }
         .padding()
         .navigationTitle("Submit Payment")
         .navigationBarTitleDisplayMode(.inline)
-        
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
+        }
+        .onDisappear {
+            uiTabBarController?.tabBar.isHidden = false
+        }
     }
 }
 

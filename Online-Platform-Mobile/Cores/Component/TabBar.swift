@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+class TabBarViewModel: ObservableObject {
+    static let shared = TabBarViewModel()
+    @Published var selected = 0
+}
+
 struct TabBar: View {
-    @State var selection = 0
+    @StateObject private var tabBarVM = TabBarViewModel.shared
     @State var navTitle = ""
     
     var body: some View {
-            TabView(selection: $selection) {
+            TabView(selection: $tabBarVM.selected) {
                 NavigationView {
                     HomeClient()
                         .navigationTitle("Discover")
@@ -57,6 +62,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar(selection: 0)
+        TabBar()
     }
 }
