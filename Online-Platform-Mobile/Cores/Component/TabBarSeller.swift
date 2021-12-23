@@ -15,7 +15,7 @@ struct TabBarSeller: View {
     var body: some View {
             TabView(selection: $selection) {
                 NavigationView {
-                    OrderDetailSellerView()
+                    OrderDetailSellerView(orderId: 28)
                         .navigationTitle("My Order")
                 }
                 .tabItem {
