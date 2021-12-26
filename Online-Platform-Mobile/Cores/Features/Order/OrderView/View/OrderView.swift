@@ -136,6 +136,7 @@ struct OrderView: View {
         for cart in carts {
             total += Int(cart.price!)
         }
+        total += orderVM.randValue
         return total.rupiahFormatter()
     }
 }

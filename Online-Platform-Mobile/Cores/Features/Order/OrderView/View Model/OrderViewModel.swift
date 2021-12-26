@@ -17,6 +17,7 @@ class OrderViewModel: ObservableObject {
     @Published var pendingOrders: [MyOrderModel] = []
     @Published var upcomingOrders: [MyOrderModel] = []
     @Published var completedOrders: [MyOrderModel] = []
+    @Published var randValue: Int = 0
     
     func createOrder(carts: [ProductPackage], shipping: String) {
         var tempId: [Int] = []
@@ -38,12 +39,21 @@ class OrderViewModel: ObservableObject {
         }
     }
     
+    private func random() -> Double {
+        var number = String()
+        for _ in 1...3 {
+           number += "\(Int.random(in: 5...9))"
+        }
+        self.randValue = Int(number)!
+        return Double(number)!
+    }
+    
     private func calculateCart(carts: [ProductPackage]) -> Double {
         var total: Double = 0
         for cart in carts {
             total += cart.price!
         }
-        return total
+        return total + random()
     }
     
     func getAllOrder() {

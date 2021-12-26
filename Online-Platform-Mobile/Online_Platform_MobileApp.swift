@@ -21,7 +21,7 @@ struct Online_Platform_MobileApp: App {
     var body: some Scene {
         WindowGroup {
             if token == "" {
-                MyProductView()
+                WelcomeView()
             }
             else {
                 if role == "Client" {
