@@ -21,14 +21,15 @@ struct Online_Platform_MobileApp: App {
     var body: some Scene {
         WindowGroup {
             if token == "" {
-                CategoryListView()
+                MyProductView()
             }
             else {
                 if role == "Client" {
-                    TabBar()
-                        .onAppear {
-                            UserHelper.shared.getUserData()
-                        }
+                    MyProductView()
+//                    TabBar()
+//                        .onAppear {
+//                            UserHelper.shared.getUserData()
+//                        }
                 }
                 else if role == "Seller" {
                     TabBarSeller(selection: 0)

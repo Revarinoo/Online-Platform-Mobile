@@ -18,6 +18,7 @@ class CreateProductViewModel: ObservableObject {
     @Published var selectedType = 0
     @Published var revisionAmount = 1
     @Published var photoamount = 20
+    @Published var videoduration = 3
     @Published var desc = ""
     
     var highresolution: Bool = false
