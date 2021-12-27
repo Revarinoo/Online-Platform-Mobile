@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Introspect
 
 struct GiveOrderReviewView: View {
     
@@ -16,6 +17,7 @@ struct GiveOrderReviewView: View {
     var sellerImage: String
     @StateObject private var reviewVM = ReviewViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var uiTabBarController: UITabBarController?
     
     var screenwidth =  UIScreen.main.bounds.width
     
@@ -57,7 +59,10 @@ struct GiveOrderReviewView: View {
             }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                 .padding()
         }
-        
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
+        }
     }
     
     
