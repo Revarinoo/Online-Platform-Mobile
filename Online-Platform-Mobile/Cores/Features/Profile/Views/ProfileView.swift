@@ -12,6 +12,7 @@ struct ProfileView: View {
     
     @AppStorage("JWT", store: .standard) var token = ""
     @StateObject private var profileVM = UserHelper.shared
+    @State var showEditPage = false
     
     var screenwidth =  UIScreen.main.bounds.width
     
@@ -58,6 +59,19 @@ struct ProfileView: View {
                 self.token = "" 
             }, btnColor: Color.red, textColor: Color.white)
                 .padding()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    self.showEditPage.toggle()
+                } label: {
+                    Text("Edit")
+                        .foregroundColor(Color.theme.primary)
+                }
+            }
+        }
+        .sheet(isPresented: $showEditPage) {
+            EditProfileView(showThisPage: $showEditPage)
         }
     }
 }
