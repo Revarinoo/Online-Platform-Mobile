@@ -34,22 +34,22 @@ struct OrderDetailSellerView: View {
                             Text("Date")
                                 .font(.custom(ThemeFont.displayRegular, size: 18))
                             Spacer()
-                            Text("Nov 17, 2021")
+                            Text(detailVM.detailModel.schedule_date)
                                 .font(.custom(ThemeFont.displayRegular, size: 22))
                         }
                         .padding(.top)
                         Divider()
                         HStack {
-                            Text("Time")
+                            Text("Date")
                                 .font(.custom(ThemeFont.displayRegular, size: 18))
                                 .font(.custom(ThemeFont.displayRegular, size: 22))
                             Spacer()
-                            Text("15:24")
+                            Text(detailVM.detailModel.schedule_time)
                                 .font(.system(size: 22))
                         }
                         .padding(.top)
                         Divider()
-                        Text("Hotel Shangri-La, Jakarta Pusat")
+                        Text(detailVM.detailModel.order_location)
                             .font(.custom(ThemeFont.displayRegular, size: 18))
                             .padding(.vertical)
                     }
@@ -110,8 +110,10 @@ struct OrderDetailSellerView: View {
                 if detailVM.detailModel.order_status == OrderStatus.pending.rawValue {
                     PendingButton(vm: detailVM, orderId: self.orderId)
                 }
+                else if detailVM.detailModel.order_status != OrderStatus.completed.rawValue {
+                    InProgessButton(vm: detailVM, orderId: self.orderId)
+                }
 
-                Spacer()
             }
             .navigationTitle("Order Detail")
             .navigationBarTitleDisplayMode(.inline)
@@ -135,27 +137,29 @@ struct OrderDetailSellerView_Previews: PreviewProvider {
     }
 }
 
-struct PendingButton: View {
-    var vm: OrderDetailSellerViewModel
+struct InProgessButton: View {
+    @StateObject var vm: OrderDetailSellerViewModel
     var orderId: Int
     
     var body: some View {
         VStack (spacing: 9) {
             Button {
-                vm.updateOrder(orderId: orderId, status: "Upcoming")
+                
             } label: {
-                Text("Accept")
+                Text("Submit Result")
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                     .frame(width: 358, height: 50)
                     .foregroundColor(Color.theme.primary)
                     .background(Color.theme.secondary)
                     .cornerRadius(15)
             }
+            .disabled(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? true : false)
+            .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             
             Button {
-                vm.updateOrder(orderId: orderId, status: "Rejected")
+                
             } label: {
-                Text("Decline")
+                Text("View Revision")
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                     .frame(width: 358, height: 50)
                     .foregroundColor(Color.theme.primary)
@@ -164,6 +168,8 @@ struct PendingButton: View {
                             .stroke(Color.theme.primary, lineWidth: 1)
                     )
             }
+            .disabled(vm.detailModel.order_status == OrderStatus.needRevision.rawValue ? false : true)
+            .opacity(vm.detailModel.order_status == OrderStatus.needRevision.rawValue ? 1 : 0.3)
         }
         .padding(.top, 42)
     }

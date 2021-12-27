@@ -32,6 +32,16 @@ struct OrderCard: View {
                             Label(order.order_date, systemImage: "calendar")
                                 .foregroundColor(Color.gray)
                                 .font(.custom(ThemeFont.displayRegular, size: 13.5))
+                            
+                            if order.status != OrderStatus.pending.rawValue || order.status != OrderStatus.completed.rawValue {
+                                Text(order.status == "Upcoming" ? "Not Submitted" : order.status)
+                                    .font(.custom(ThemeFont.displayRegular, size: 12))
+                                    .foregroundColor(order.status == "Waiting" ? Color.theme.darkGreen : Color.theme.orange)
+                                    .padding(EdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 10))
+                                    .background(order.status == "Waiting" ? Color.init(hex: "C4FFCD") : Color.init(hex: "FFDED4"))
+                                    .cornerRadius(5)
+                                    .padding(.top, 6)
+                            }
                         }
                         .frame(width: 159, alignment: .leading)
                     }
@@ -71,10 +81,11 @@ struct OrderCard: View {
 
 struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "", order_date: "", order_category: "", status: ""), isPending: true)
+        OrderCard(order: MyOrderModel(order_id: 1, photo: "", name: "Kenny Wijaya", order_date: "12 December 2021", order_category: "Wedding", status: ""), isPending: false)
             .frame(width: 358, height: 95)
             .background(Color.white)
             .cornerRadius(10)
             .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+            .previewLayout(.sizeThatFits)
     }
 }
