@@ -9,17 +9,6 @@ import Foundation
 import Alamofire
 import SwiftUI
 
-struct ReviewRequest: Codable {
-    let order_id: Int
-    let comment: String
-    let rating: Int
-}
-
-struct ReviewResponse: Codable {
-    let code: Int
-    let message: String
-}
-
 class ReviewService {
     @AppStorage("JWT", store: .standard) var token = ""
     
