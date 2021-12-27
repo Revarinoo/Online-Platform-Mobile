@@ -13,7 +13,6 @@ struct SubmitPaymentView: View {
     @ObservedObject var orderVM = OrderViewModel()
     @StateObject var paymentVM = PaymentViewModel()
     var orderId: Int
-    @State private var selectedImage: UIImage = UIImage()
     @State var uiTabBarController: UITabBarController?
     
     var body: some View {
@@ -36,10 +35,6 @@ struct SubmitPaymentView: View {
             }
             UploadBox(isShowingPhotoPicker: $paymentVM.isShowingPhotoPicker, isUploaded: paymentVM.submitPaymentModel.transfer_receipt.size.width == 0 ? .constant(false) : .constant(true), image: paymentVM.submitPaymentModel.transfer_receipt.size.width == 0 ? UIImage(systemName: "photo") : paymentVM.submitPaymentModel.transfer_receipt)
                 .padding(.top, 20)
-            Image(uiImage: self.selectedImage)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 300)
             Spacer()
             PrimaryButton(content: "Submit", maxWidth: 200, action: {
                 paymentVM.submitPaymentModel.order_id = self.orderId
@@ -51,6 +46,9 @@ struct SubmitPaymentView: View {
                 .sheet(isPresented: $paymentVM.isShowingPhotoPicker, content: {
                     ImagePicker(sourceType: .photoLibrary, selectedImage: $paymentVM.submitPaymentModel.transfer_receipt)
                 })
+                .disabled(paymentVM.submitPaymentModel.transfer_receipt == UIImage() || paymentVM.submitPaymentModel.bill_name == String() ? true : false)
+            
+                .opacity(paymentVM.submitPaymentModel.transfer_receipt == UIImage() || paymentVM.submitPaymentModel.bill_name == String() ? 0.4 : 1)
             
         }
         .padding()

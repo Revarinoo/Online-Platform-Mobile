@@ -31,32 +31,35 @@ struct CompletedOrderDetailView: View {
             .padding()
             .padding(.top, 90)
             .edgesIgnoringSafeArea(.top)
-            VStack(alignment: .leading){
-                Text("Shipping Details")
-                    .fontWeight(.semibold)
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Courier")
-                            .font(.custom(ThemeFont.displayRegular, size: 18))
-                        Spacer()
-                        Text(detailVM.orderDetail.shipping_courier)
-                            .font(.custom(ThemeFont.displayRegular, size: 22))
+            if detailVM.orderDetail.tracking_number != "" {
+                VStack(alignment: .leading){
+                    Text("Shipping Details")
+                        .fontWeight(.semibold)
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Courier")
+                                .font(.custom(ThemeFont.displayRegular, size: 18))
+                            Spacer()
+                            Text(detailVM.orderDetail.shipping_courier)
+                                .font(.custom(ThemeFont.displayRegular, size: 22))
+                        }
+                        .padding(.top)
+                        Divider()
+                        HStack {
+                            Text(detailVM.orderDetail.tracking_number)
+                                .font(.system(size: 22))
+                        }
+                        .padding(.bottom, 20)
+                        .padding(.top)
                     }
-                    .padding(.top)
-                    Divider()
-                    HStack {
-                        Text(detailVM.orderDetail.tracking_number)
-                            .font(.system(size: 22))
-                    }
-                    .padding(.bottom, 20)
-                    .padding(.top)
+                    .padding(.horizontal)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
                 }
-                .padding(.horizontal)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+                .padding()
             }
-            .padding()
+            
             
             Spacer()
         }

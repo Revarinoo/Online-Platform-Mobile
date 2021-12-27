@@ -43,7 +43,7 @@ struct MyOrderView: View {
                 VStack {
                     switch orderstatus {
                     case 0:
-                        PendingOrderView(orders: orderVM.pendingOrders)
+                        PendingOrderView(orders: orderVM.pendingOrders, client: true)
                     case 1:
                         AllOrderView(orders: orderVM.upcomingOrders, client: true)
                     case 2:
@@ -71,7 +71,7 @@ struct AllOrderView: View {
     var body: some View {
         ForEach(orders, id: \.id) { data in
             NavigationLink(destination: client ? AnyView(OrderDetailView(orderId: data.order_id)) : AnyView(OrderDetailSellerView(orderId: data.order_id))) {
-                OrderCard(order: data, isPending: false)
+                OrderCard(order: data, isPending: false, isClient: client)
                     .frame(width: 357, height: 141)
                     .background(Color.white)
                     .cornerRadius(10)
@@ -83,10 +83,11 @@ struct AllOrderView: View {
 
 struct PendingOrderView: View {
     var orders: [MyOrderModel]
+    var client: Bool
     
     var body: some View {
         ForEach(orders, id: \.id) { data in
-            OrderCard(order: data, isPending: true)
+            OrderCard(order: data, isPending: true, isClient: client)
                 .frame(width: 357, height: 141)
                 .background(Color.white)
                 .cornerRadius(10)

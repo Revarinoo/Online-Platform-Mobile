@@ -22,7 +22,7 @@ struct MapView: View {
                 presentationMode.wrappedValue.dismiss()
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Choose")
+                Text("Continue")
                     .font(.custom(ThemeFont.displaySemiBold, size: 15))
                     .foregroundColor(Color.white)
                     .padding(EdgeInsets(top: 6, leading: 25, bottom: 6, trailing: 25))
@@ -35,6 +35,6 @@ struct MapView: View {
     }
     
     private func getLocation() -> Binding<MKCoordinateRegion> {
-        return .constant(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)))
+        return .constant(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)))
     }
 }
