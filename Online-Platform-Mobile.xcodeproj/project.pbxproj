@@ -69,6 +69,8 @@
 		F7025BF22774D8B800560393 /* SellerOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7025BF12774D8B800560393 /* SellerOrderViewModel.swift */; };
 		F7025BF42774DB3B00560393 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7025BF32774DB3B00560393 /* OrderListView.swift */; };
 		F71A70FA2779648B00D35FEB /* PendingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70F92779648B00D35FEB /* PendingButton.swift */; };
+		F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */; };
+		F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FD2779FC9600D35FEB /* ReviewService.swift */; };
 		F7253C782771908400B8652B /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C772771908400B8652B /* NavigationExtension.swift */; };
 		F7253C7A2772089D00B8652B /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C792772089D00B8652B /* OrderDetailViewModel.swift */; };
 		F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */; };
@@ -196,6 +198,8 @@
 		F7025BF12774D8B800560393 /* SellerOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerOrderViewModel.swift; sourceTree = "<group>"; };
 		F7025BF32774DB3B00560393 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		F71A70F92779648B00D35FEB /* PendingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingButton.swift; sourceTree = "<group>"; };
+		F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		F71A70FD2779FC9600D35FEB /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		F7253C772771908400B8652B /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		F7253C792772089D00B8652B /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderDetailModel.swift; sourceTree = "<group>"; };
@@ -638,6 +642,7 @@
 			children = (
 				F7D4AC9027577053000B0B99 /* OrderViewModel.swift */,
 				F7253C792772089D00B8652B /* OrderDetailViewModel.swift */,
+				F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				F7D4AC9527577316000B0B99 /* PostOrderRequest.swift */,
 				F7D4AC93275772F4000B0B99 /* OrderService.swift */,
 				F7EBC69627733937009768E4 /* OrderDetailService.swift */,
+				F71A70FD2779FC9600D35FEB /* ReviewService.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -915,6 +921,7 @@
 				F75CE2C5274142FC00F0977E /* ImageSlider.swift in Sources */,
 				F7D59015273FF63500A2D916 /* ProductDetailViewModel.swift in Sources */,
 				F785C1ED271539DB008035EC /* UserHelper.swift in Sources */,
+				F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */,
 				4E0DEE2D276F9F6000A953DE /* Rating.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
@@ -968,6 +975,7 @@
 				F75CE2CB274162F600F0977E /* LocationRating.swift in Sources */,
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
+				F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */,
 				F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */,
 				F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,

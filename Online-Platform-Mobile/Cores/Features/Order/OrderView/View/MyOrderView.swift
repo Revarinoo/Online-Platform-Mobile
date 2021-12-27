@@ -70,7 +70,7 @@ struct AllOrderView: View {
     
     var body: some View {
         ForEach(orders, id: \.id) { data in
-            NavigationLink(destination: client ? AnyView(OrderDetailView(orderId: data.order_id)) : AnyView(OrderDetailSellerView(orderId: data.order_id))) {
+            NavigationLink(destination: client ? AnyView(OrderDetailView(orderId: data.order_id, sellerImage: data.photo)) : AnyView(OrderDetailSellerView(orderId: data.order_id))) {
                 OrderCard(order: data, isPending: false, isClient: client)
                     .frame(width: 357, height: 141)
                     .background(Color.white)

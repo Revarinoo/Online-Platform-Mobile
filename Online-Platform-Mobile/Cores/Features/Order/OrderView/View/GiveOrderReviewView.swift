@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct GiveOrderReviewView: View {
     
-    @State var rate: Int = 3
+    @State var rate: Int = 0
     @State var reviewtext: String = ""
+    var orderId: Int
+    var sellerImage: String
+    @StateObject private var reviewVM = ReviewViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var screenwidth =  UIScreen.main.bounds.width
     
@@ -20,8 +25,9 @@ struct GiveOrderReviewView: View {
                 Text("How was your experience?")
                     .font(.title2)
                     .fontWeight(.semibold)
-                Image("welcomepage")
+                WebImage(url: URL(string: sellerImage))
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 140, height: 140)
                     .cornerRadius(10)
             }
@@ -45,7 +51,10 @@ struct GiveOrderReviewView: View {
             }
             .padding(.top, 30)
             .padding()
-            PrimaryButton(content: "Submit", maxWidth: screenwidth, action: {}, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+            PrimaryButton(content: "Submit", maxWidth: screenwidth, action: {
+                reviewVM.addReview(orderId: orderId, comment: reviewtext, rating: rate)
+                presentationMode.wrappedValue.dismiss()
+            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                 .padding()
         }
         
@@ -56,6 +65,6 @@ struct GiveOrderReviewView: View {
 
 struct GiveOrderReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        GiveOrderReviewView()
+        GiveOrderReviewView(orderId: 3, sellerImage: "")
     }
 }
