@@ -59,7 +59,7 @@
 		4EE4F3752765F9B50001B874 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F3742765F9B50001B874 /* PaymentService.swift */; };
 		4EE4F37B27663EE90001B874 /* CreatePackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F37A27663EE90001B874 /* CreatePackageView.swift */; };
 		4EE4F37D27663F190001B874 /* ProductInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F37C27663F190001B874 /* ProductInformation.swift */; };
-		4EE4F380276736AD0001B874 /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F37F276736AD0001B874 /* CreateProductViewModel.swift */; };
+		4EE4F380276736AD0001B874 /* SellerProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F37F276736AD0001B874 /* SellerProductViewModel.swift */; };
 		4EE4F3822769F1C00001B874 /* MyProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F3812769F1C00001B874 /* MyProductView.swift */; };
 		4EE4F3852769F4740001B874 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4F3842769F4740001B874 /* ProfileView.swift */; };
 		4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8C20F2736720200C9AD66 /* ProductView.swift */; };
@@ -118,6 +118,8 @@
 		F7A89957275E6C7700263321 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = F7A89956275E6C7700263321 /* Introspect */; };
 		F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89958275E7A0B00263321 /* ChatModel.swift */; };
 		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
+		F7C70E0F277B44CF002A5C26 /* CreateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */; };
+		F7C70E12277B4858002A5C26 /* CreatePackageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E11277B4858002A5C26 /* CreatePackageViewModel.swift */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC9027577053000B0B99 /* OrderViewModel.swift */; };
 		F7D4AC94275772F4000B0B99 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC93275772F4000B0B99 /* OrderService.swift */; };
@@ -191,7 +193,7 @@
 		4EE4F3742765F9B50001B874 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		4EE4F37A27663EE90001B874 /* CreatePackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePackageView.swift; sourceTree = "<group>"; };
 		4EE4F37C27663F190001B874 /* ProductInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInformation.swift; sourceTree = "<group>"; };
-		4EE4F37F276736AD0001B874 /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
+		4EE4F37F276736AD0001B874 /* SellerProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerProductViewModel.swift; sourceTree = "<group>"; };
 		4EE4F3812769F1C00001B874 /* MyProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductView.swift; sourceTree = "<group>"; };
 		4EE4F3842769F4740001B874 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4EE8C20F2736720200C9AD66 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,8 @@
 		F7A89952275E652100263321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F7A89958275E7A0B00263321 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
+		F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductModel.swift; sourceTree = "<group>"; };
+		F7C70E11277B4858002A5C26 /* CreatePackageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePackageViewModel.swift; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC9027577053000B0B99 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC93275772F4000B0B99 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
@@ -474,8 +478,8 @@
 		4EE4F37827663EB00001B874 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F7C70E10277B4842002A5C26 /* View Models */,
 				4EE4F37927663EC90001B874 /* CreateProductView */,
-				4EE4F37F276736AD0001B874 /* CreateProductViewModel.swift */,
 				4E28FD7727776D6800725DBB /* ProductCard.swift */,
 				4EAEC762277861DE000B6713 /* EditProduct.swift */,
 				4EAEC7662778C3B8000B6713 /* PackageListCard.swift */,
@@ -620,6 +624,7 @@
 				F76EDFB42770C8B30078D4A0 /* SubmitPaymentModel.swift */,
 				F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */,
 				F7025BED27742E3100560393 /* OrderDetailModel.swift */,
+				F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -766,6 +771,15 @@
 				F7A89950275E5E5600263321 /* MessageViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		F7C70E10277B4842002A5C26 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4F37F276736AD0001B874 /* SellerProductViewModel.swift */,
+				F7C70E11277B4858002A5C26 /* CreatePackageViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		F7C86F25271968F700C26C22 /* ViewModels */ = {
@@ -933,7 +947,7 @@
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F7D4AC9827578D0B000B0B99 /* DateExtension.swift in Sources */,
 				F76EDFAE277035C40078D4A0 /* LocationList.swift in Sources */,
-				4EE4F380276736AD0001B874 /* CreateProductViewModel.swift in Sources */,
+				4EE4F380276736AD0001B874 /* SellerProductViewModel.swift in Sources */,
 				F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */,
 				F7253C782771908400B8652B /* NavigationExtension.swift in Sources */,
 				F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */,
@@ -994,6 +1008,7 @@
 				F7A89953275E652100263321 /* UserService.swift in Sources */,
 				4E805DAF271FC0DC0063C83D /* CustomPicker.swift in Sources */,
 				F75CE2C92741622900F0977E /* ThemeFont.swift in Sources */,
+				F7C70E12277B4858002A5C26 /* CreatePackageViewModel.swift in Sources */,
 				F76EDFB0277047CF0078D4A0 /* MapView.swift in Sources */,
 				4E19209027269D6200B349C7 /* CouponCard.swift in Sources */,
 				18E3AFBB277389C800A476E5 /* CategoryListView.swift in Sources */,
@@ -1002,6 +1017,7 @@
 				F72900ED27114680007EF04C /* ContentView.swift in Sources */,
 				4E07267E27182D7B00806F54 /* LoginViewModel.swift in Sources */,
 				F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */,
+				F7C70E0F277B44CF002A5C26 /* CreateProductModel.swift in Sources */,
 				F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */,
 				F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,

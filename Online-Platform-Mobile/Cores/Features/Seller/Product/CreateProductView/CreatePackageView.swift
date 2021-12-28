@@ -9,94 +9,78 @@ import SwiftUI
 
 struct CreatePackageView: View {
     
-    @StateObject var createproductVM: CreateProductViewModel = CreateProductViewModel()
+    @StateObject private var createPackageVM = CreatePackageViewModel()
     @State var selectedIndex = 0
+    var listType = ["Photo", "Video", "Album"]
     
     var body: some View {
             VStack {
                 Form {
                     Section(header: Text("Product Information")) {
-                        TextField("Package Name ", text: $createproductVM.packageName)
-                        Picker(selection: $createproductVM.selectedIndex) {
-                            ForEach(0..<createproductVM.listCategory.count) {
-                                Text(createproductVM.listCategory[$0])
+                        Picker(selection: $createPackageVM.package.type) {
+                            ForEach(0..<listType.count) {
+                                Text(listType[$0])
                             }
                         } label: {
                             Text("Category")
                         }
-                        TextField("Package Price ", text: $createproductVM.packagePrice)
+                        TextField("Package Price", value: $createPackageVM.package.price, formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
                     }
                     
-                    if createproductVM.selectedIndex == 0 {
+                    if createPackageVM.package.type == "Photo" {
                         Section(header: Text("Package Detail")) {
-                            Stepper("Photo Amount (\(createproductVM.photoamount))") {
-                                createproductVM.photoamount += 5
+                            Stepper("Photo Amount (\(createPackageVM.package.quantity))") {
+                                createPackageVM.package.quantity += 5
                             } onDecrement: {
-                                createproductVM.photoamount -= 5
+                                createPackageVM.package.quantity -= 5
                             }
                             
-                            Toggle(isOn: $createproductVM.highresolution) {
+                            Toggle(isOn: $createPackageVM.package.highResolution) {
                                 Text("High Resolution")
                             }
-                            Toggle(isOn: $createproductVM.sourcefile) {
+                            Toggle(isOn: $createPackageVM.package.sourceFile) {
                                 Text("Source File")
                             }
-                            Toggle(isOn: $createproductVM.commercialuse) {
+                            Toggle(isOn: $createPackageVM.package.commercial) {
                                 Text("Commercial Use")
                             }
-                            Toggle(isOn: $createproductVM.fullediting) {
-                                Text("Full Editing")
-                            }
-                            Toggle(isOn: $createproductVM.lightediting) {
+                            Toggle(isOn: $createPackageVM.package.editing) {
                                 Text("Lighting Editing")
                             }
-                            Toggle(isOn: $createproductVM.revision) {
-                                Text("Revision")
-                            }
-                            Picker(selection: $createproductVM.selectedIndex) {
-                                ForEach(0..<createproductVM.listCategory.count) {
-                                    Text(createproductVM.listCategory[$0])
-                                }
-                            } label: {
-                                Text("Category")
-                            }
-                            Stepper("Revision Amount (\(createproductVM.revisionAmount))") {
-                                createproductVM.revisionAmount += 5
+                            Stepper("Revision Amount (\(createPackageVM.package.revision))") {
+                                createPackageVM.package.revision += 1
                             } onDecrement: {
-                                createproductVM.revisionAmount -= 5
+                                if createPackageVM.package.revision - 1 >= 0 {
+                                    createPackageVM.package.revision -= 1
+                                }
                             }
                         }
                     }
                     
-                    if createproductVM.selectedIndex == 1 {
+                    else if createPackageVM.package.type == "Video" {
                         Section(header: Text("Package Detail")) {
-                            Stepper("Video Amount (\(createproductVM.videoduration))") {
-                                createproductVM.videoduration += 1
+                            Stepper("Video Amount (\(createPackageVM.package.quantity))") {
+                                createPackageVM.package.quantity += 1
                             } onDecrement: {
-                                createproductVM.videoduration -= 1
+                                if createPackageVM.package.quantity - 1 >= 0 {
+                                    createPackageVM.package.quantity -= 1
+                                }
                             }
                             
-                            Toggle(isOn: $createproductVM.highresolution) {
-                                Text("Revision")
-                            }
-                            Stepper("Revision Amount (\(createproductVM.revisionAmount))") {
-                                createproductVM.revisionAmount += 1
+                            Stepper("Revision Amount (\(createPackageVM.package.revision))") {
+                                createPackageVM.package.revision += 1
                             } onDecrement: {
-                                createproductVM.revisionAmount -= 1
+                                if createPackageVM.package.revision - 1 >= 0 {
+                                    createPackageVM.package.revision -= 1
+                                }
                             }
                         }
                     }
                 }
                 .navigationBarItems(trailing:
                                         Button("Save") {
-                    print(createproductVM.packageName)
-                    print(createproductVM.packageCategory)
-                    print(createproductVM.highresolution)
-                    print(createproductVM.sourcefile)
-                    print(createproductVM.commercialuse)
-                    print(createproductVM.fullediting)
-                    print(createproductVM.fullediting)
-                    print("X")
+                    
                 }
                 )
                 .navigationBarTitle("Create Package", displayMode: .inline)

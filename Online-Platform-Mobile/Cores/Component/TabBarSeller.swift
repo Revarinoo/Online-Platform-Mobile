@@ -23,7 +23,7 @@ struct TabBarSeller: View {
                 }
                 .tag(0)
                 NavigationView {
-                    ProfileView()
+                    MyProductView()
                         .navigationTitle("Product")
                 }
                 .tabItem {

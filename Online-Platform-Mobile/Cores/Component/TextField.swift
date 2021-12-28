@@ -40,7 +40,9 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
             uiView.text = self.text
         }
         if uiView.window != nil, !uiView.isFirstResponder {
-            uiView.becomeFirstResponder()
+            DispatchQueue.main.async {
+                uiView.becomeFirstResponder()
+            }
         }
         UITextViewWrapper.recalculateHeight(view: uiView, result: $calculatedHeight)
     }

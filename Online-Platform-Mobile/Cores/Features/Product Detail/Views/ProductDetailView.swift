@@ -47,15 +47,22 @@ struct ProductDetailView: View {
                             VStack (alignment: .leading, spacing: 9) {
                                 Text("Reviews")
                                     .font(.custom(ThemeFont.displaySemiBold, size: 15))
-                                ScrollView (.horizontal, showsIndicators: false) {
-                                    HStack (spacing: 15) {
-                                        ForEach(productDetailVM.productDetailModel.reviews) { review in
-                                            ReviewsCard(review: review)
-                                                .frame(height: 120)
-                                                .padding(.bottom, 10)
+                                if productDetailVM.productDetailModel.reviews.count == 0 {
+                                    Text("N/A")
+                                        .font(.custom(ThemeFont.displaySemiBold, size: 14))
+                                        .foregroundColor(Color.theme.primary)
+                                }
+                                else {
+                                    ScrollView (.horizontal, showsIndicators: false) {
+                                        HStack (spacing: 15) {
+                                            ForEach(productDetailVM.productDetailModel.reviews) { review in
+                                                ReviewsCard(review: review)
+                                                    .frame(height: 120)
+                                                    .padding(.bottom, 10)
+                                            }
                                         }
+                                        .padding([.leading, .trailing], 8)
                                     }
-                                    .padding([.leading, .trailing], 8)
                                 }
                             }
             
@@ -177,7 +184,7 @@ struct ProductDetailView: View {
             Text("Description")
                 .font(.custom(ThemeFont.displaySemiBold, size: 15))
             Text(productDetailVM.productDetailModel.description)
-                .font(Font.custom(ThemeFont.displayRegular, size: 12))
+                .font(Font.custom(ThemeFont.displayRegular, size: 14))
                 .foregroundColor(Color.init(hex: "979797"))
                 .frame(minHeight: 100)
         }
