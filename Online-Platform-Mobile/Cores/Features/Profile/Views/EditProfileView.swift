@@ -35,6 +35,8 @@ struct EditProfileView: View {
                                 .font(.custom(ThemeFont.displayRegular, size: 14))
                                 .foregroundColor(.gray)
                         }
+                        .padding(.bottom, 30)
+                        EditProfileForm(profile: $viewModel.profile)
                     }
                 }
             }
@@ -55,14 +57,17 @@ struct EditProfileView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
+                        viewModel.editProfile()
                     } label: {
                         Text("Save")
                             .foregroundColor(Color.theme.primary)
                     }
-
                 }
             }
+        }
+        .onChange(of: viewModel.isFinishedUploading) { _ in
+            self.showThisPage = false
+            UserHelper.shared.getUserData()
         }
     }
 }

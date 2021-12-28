@@ -11,7 +11,7 @@ struct EditProfileForm: View {
     @Binding var profile: EditProfile
     
     var body: some View {
-        VStack {
+        VStack (spacing: 18) {
             VStack(alignment: .leading, spacing: 12){
                 Text("Full Name")
                     .font(Font.custom(ThemeFont.displayRegular, size: 14))
@@ -46,5 +46,6 @@ struct EditProfileForm: View {
 struct EditProfileForm_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileForm(profile: .constant(EditProfile()))
+            .previewLayout(.sizeThatFits)
     }
 }
