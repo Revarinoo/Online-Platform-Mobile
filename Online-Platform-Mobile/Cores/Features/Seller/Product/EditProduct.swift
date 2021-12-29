@@ -8,11 +8,11 @@
 //import SwiftUI
 //
 //struct EditProduct: View {
-//    
+//
 //    @StateObject private var productVM = SellerProductViewModel()
 //    @State var selectedIndex = 0
-//    
-//    
+//
+//
 //    var body: some View {
 //            VStack(alignment: .leading) {
 //                Text("Product Information")
@@ -48,7 +48,7 @@
 //                .cornerRadius(10)
 //                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
 //                .padding(.horizontal)
-//                
+//
 //                VStack(alignment: .leading) {
 //                    Text("Description")
 //                        .bold()
@@ -62,7 +62,7 @@
 //                        .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
 //                        .padding(.horizontal)
 //                }
-//                
+//
 //                VStack {
 //                    HStack {
 //                        Text("Package List")
@@ -74,7 +74,7 @@
 //                                .font(.caption)
 //                                .padding(.horizontal)
 //                        }
-//                        
+//
 //                    }
 //                    .padding(.vertical,5)
 //                    ForEach(1..<3) { _ in
@@ -85,12 +85,12 @@
 //                            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
 //                    }
 //                }
-//                
-//                
+//
+//
 //                Spacer()
 //            }
 //            .navigationBarItems(trailing: Button("Save") {}
-//                                
+//
 //            )
 //            .navigationBarTitle("Create Product", displayMode: .inline)
 //    }

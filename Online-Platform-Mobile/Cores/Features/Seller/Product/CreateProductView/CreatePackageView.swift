@@ -9,23 +9,24 @@ import SwiftUI
 
 struct CreatePackageView: View {
     
-    @StateObject private var createPackageVM = CreatePackageViewModel()
-    @State var selectedIndex = 0
+    @StateObject var createPackageVM: SellerProductViewModel
     var listType = ["Photo", "Video", "Album"]
+    @Binding var showCreatePackage: Bool
     
     var body: some View {
+        NavigationView {
             VStack {
                 Form {
                     Section(header: Text("Product Information")) {
                         Picker(selection: $createPackageVM.package.type) {
-                            ForEach(0..<listType.count) {
-                                Text(listType[$0])
+                            ForEach(listType, id: \.self) {
+                                Text($0)
                             }
                         } label: {
                             Text("Category")
                         }
-                        TextField("Package Price", value: $createPackageVM.package.price, formatter: NumberFormatter())
-                            .keyboardType(.numberPad)
+                        TextField("Package Price", text: $createPackageVM.package.price)
+                            .keyboardType(.decimalPad)
                     }
                     
                     if createPackageVM.package.type == "Photo" {
@@ -78,18 +79,33 @@ struct CreatePackageView: View {
                         }
                     }
                 }
-                .navigationBarItems(trailing:
-                                        Button("Save") {
-                    
-                }
-                )
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            showCreatePackage.toggle()
+                        } label: {
+                            Text("Cancel")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            createPackageVM.allPackage.append(createPackageVM.package)
+                            createPackageVM.package.reset()
+                            showCreatePackage.toggle()
+                        } label: {
+                            Text("Save")
+                        }
+                    }
+                })
                 .navigationBarTitle("Create Package", displayMode: .inline)
+                
             }
+        }
     }
 }
 
 struct CreatePackageView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePackageView()
+        CreatePackageView(createPackageVM: SellerProductViewModel(), showCreatePackage: .constant(true))
     }
 }

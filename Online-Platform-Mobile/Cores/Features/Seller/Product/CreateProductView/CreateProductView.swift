@@ -6,6 +6,7 @@
 //  Edited by Reva on 28/12/21.
 
 import SwiftUI
+import Introspect
 
 struct CreateProductView: View {
     
@@ -13,6 +14,7 @@ struct CreateProductView: View {
     @Binding var showPage: Bool
     @State var showPicker = false
     var listProductCategory = ["Choose", "Birthday", "Family", "Graduation", "Travel", "Newborn", "Wedding"]
+    @State var showCreatePackage = false
     
     var body: some View {
         NavigationView {
@@ -40,6 +42,9 @@ struct CreateProductView: View {
                     .bold()
                     .padding(.horizontal,30)
                 MultilineTextField(text: $createProductVM.product.description)
+                    .introspectTextField(customize: { textField in
+                        textField.resignFirstResponder()
+                    })
                     .padding(.horizontal)
                     .background(Color.white)
                     .cornerRadius(10)
@@ -104,10 +109,40 @@ struct CreateProductView: View {
                 .padding(.leading, 30)
                 .padding(.trailing, 16)
                 .padding(.top, 20)
+                
+                VStack {
+                    HStack {
+                        Text("Package List")
+                            .bold()
+                            .padding(.horizontal,30)
+                        Spacer()
+                        Button {
+                            showCreatePackage.toggle()
+                        } label: {
+                            Label("Add New", systemImage: "plus")
+                                .font(.caption)
+                                .padding(.horizontal)
+                        }
+                    }
+                    .padding(.vertical,5)
+                    ForEach(createProductVM.allPackage) { package in
+                        PackageListCard(package: package)
+                            .frame(width: 358, height: 95)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+                    }
+                }
                 Spacer()
             }
             .sheet(isPresented: $showPicker, content: {
                 ImagePickerReferences(referenceImages: $createProductVM.product.portfolios)
+            })
+            .sheet(isPresented: $showCreatePackage, content: {
+                CreatePackageView(createPackageVM: createProductVM, showCreatePackage: $showCreatePackage)
+            })
+            .alert(isPresented: $createProductVM.showEmpty, content: {
+                Alert(title: Text("Failed"), message: Text("All field must be filled"), dismissButton: .default(Text("OK")))
             })
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -130,6 +165,9 @@ struct CreateProductView: View {
         }
         .onChange(of: createProductVM.successfullyCreated) { _ in
             self.showPage = false
+        }
+        .onTapGesture {
+            self.dismissKeyboard()
         }
     }
 }
