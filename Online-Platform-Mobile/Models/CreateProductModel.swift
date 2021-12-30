@@ -26,6 +26,7 @@ struct CreatePackageModel: Identifiable {
     var revision = Int()
     
     mutating func reset() {
+         id = UUID()
          type = String()
          price = String()
          quantity = Int()

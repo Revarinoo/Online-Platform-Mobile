@@ -12,6 +12,7 @@ struct CreatePackageView: View {
     @StateObject var createPackageVM: SellerProductViewModel
     var listType = ["Photo", "Video", "Album"]
     @Binding var showCreatePackage: Bool
+    @State private var showEmpty = false
     
     var body: some View {
         NavigationView {
@@ -89,9 +90,14 @@ struct CreatePackageView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            createPackageVM.allPackage.append(createPackageVM.package)
-                            createPackageVM.package.reset()
-                            showCreatePackage.toggle()
+                            if createPackageVM.validatePackage() {
+                                createPackageVM.allPackage.append(createPackageVM.package)
+                                createPackageVM.package.reset()
+                                showCreatePackage.toggle()
+                            }
+                            else {
+                                showEmpty.toggle()
+                            }
                         } label: {
                             Text("Save")
                         }
@@ -101,6 +107,9 @@ struct CreatePackageView: View {
                 
             }
         }
+        .alert(isPresented: $showEmpty, content: {
+            Alert(title: Text("Failed"), message: Text("All field must be filled"), dismissButton: .default(Text("OK")))
+        })
     }
 }
 

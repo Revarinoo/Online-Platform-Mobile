@@ -23,6 +23,10 @@ class SellerProductViewModel: ObservableObject {
         return false
     }
     
+    func validatePackage() -> Bool {
+        return package.price == "" ? false : true
+    }
+    
     func createProduct() {
         if !validateField() {
             self.showEmpty = true
