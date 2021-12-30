@@ -22,6 +22,7 @@ struct OrderDetailSellerView: View {
     @StateObject private var detailVM = OrderDetailSellerViewModel()
     var orderId: Int
     @State var uiTabBarController: UITabBarController?
+    @State private var isChat = false
     
     var body: some View {
         ScrollView (.vertical, showsIndicators: false) {
@@ -117,6 +118,16 @@ struct OrderDetailSellerView: View {
             }
             .navigationTitle("Order Detail")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: ChatList(), isActive: $isChat) {
+                Button(action: {
+                    isChat.toggle()
+                }) {
+                Image(systemName: "message").imageScale(.large)
+                    .foregroundColor(Color.theme.primary)
+                }
+            }
+            )
             .onAppear {
                 detailVM.getOrderDetail(orderId: orderId)
             }
