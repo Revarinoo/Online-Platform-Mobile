@@ -36,6 +36,12 @@ struct Online_Platform_MobileApp: App {
                             UserHelper.shared.getUserData()
                         }
                 }
+                else {
+                    TabBarAdmin()
+                        .onAppear {
+                            UserHelper.shared.getUserData()
+                        }
+                }
             }
         }
     }

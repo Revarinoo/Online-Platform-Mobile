@@ -11,7 +11,7 @@ import SwiftUI
 enum Role: String, CaseIterable, Equatable {
     case Client = "Client"
     case Seller = "Seller"
-    
+    case Admin = "Admin"
 }
 
 struct User: Codable {

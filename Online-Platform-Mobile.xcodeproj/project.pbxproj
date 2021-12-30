@@ -122,6 +122,8 @@
 		F7C70E16277C98B2002A5C26 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E15277C98B2002A5C26 /* ProductModel.swift */; };
 		F7C70E18277C9B2C002A5C26 /* MyProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E17277C9B2C002A5C26 /* MyProductViewModel.swift */; };
 		F7C70E1A277D6F3B002A5C26 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E19277D6F3B002A5C26 /* LoadingView.swift */; };
+		F7C70E1E277DA3C7002A5C26 /* TabBarAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E1D277DA3C7002A5C26 /* TabBarAdmin.swift */; };
+		F7C70E20277DF0B8002A5C26 /* ListUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E1F277DF0B8002A5C26 /* ListUserViewModel.swift */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC9027577053000B0B99 /* OrderViewModel.swift */; };
 		F7D4AC94275772F4000B0B99 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC93275772F4000B0B99 /* OrderService.swift */; };
@@ -255,6 +257,8 @@
 		F7C70E15277C98B2002A5C26 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		F7C70E17277C9B2C002A5C26 /* MyProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductViewModel.swift; sourceTree = "<group>"; };
 		F7C70E19277D6F3B002A5C26 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F7C70E1D277DA3C7002A5C26 /* TabBarAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAdmin.swift; sourceTree = "<group>"; };
+		F7C70E1F277DF0B8002A5C26 /* ListUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserViewModel.swift; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC9027577053000B0B99 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC93275772F4000B0B99 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
@@ -331,17 +335,18 @@
 				18E3AFBE2773993400A476E5 /* AddCategoryView */,
 				18E3AFB7277389A700A476E5 /* CategoryListView */,
 				18E3AFB62773899200A476E5 /* ProductListView */,
-				4E30D19D2770EAC200B7BCD0 /* UserView */,
+				4E30D19D2770EAC200B7BCD0 /* User */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
 		};
-		4E30D19D2770EAC200B7BCD0 /* UserView */ = {
+		4E30D19D2770EAC200B7BCD0 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				4E30D19E2770EB1D00B7BCD0 /* UserView.swift */,
+				F7C70E1F277DF0B8002A5C26 /* ListUserViewModel.swift */,
 			);
-			path = UserView;
+			path = User;
 			sourceTree = "<group>";
 		};
 		4E619895275662EE00224C9C /* Payment */ = {
@@ -421,6 +426,7 @@
 				F7EBC68E2772EF83009768E4 /* TabBarSeller.swift */,
 				4E28FD752774CB8800725DBB /* TextField.swift */,
 				F7C70E19277D6F3B002A5C26 /* LoadingView.swift */,
+				F7C70E1D277DA3C7002A5C26 /* TabBarAdmin.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E15A9AA2736C42700440837 /* CategoryIcon.swift in Sources */,
+				F7C70E20277DF0B8002A5C26 /* ListUserViewModel.swift in Sources */,
 				4E61989A275788F700224C9C /* PaymentTime.swift in Sources */,
 				F71A7104277A23EE00D35FEB /* ProfileViewModel.swift in Sources */,
 				18E3AFC22773A01000A476E5 /* OvalTextFieldStyle.swift in Sources */,
@@ -996,6 +1003,7 @@
 				F7253C7E2772453500B8652B /* RescheduleView.swift in Sources */,
 				F79501B2275FC16500F5F8E9 /* PersonalChat.swift in Sources */,
 				F7C70E16277C98B2002A5C26 /* ProductModel.swift in Sources */,
+				F7C70E1E277DA3C7002A5C26 /* TabBarAdmin.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
 				4E6198982756633F00224C9C /* Transfer.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,

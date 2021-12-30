@@ -10,14 +10,16 @@ import SwiftUI
 struct CustomPicker: View {
     
     @Binding var selection: Role
-
+    var isLogin: Bool
     
     var body: some View {
         Menu {
             Picker ( selection: $selection, label: EmptyView()) {
                 ForEach(Role.allCases, id: \.self) {
-                    Text($0.rawValue)
-                        .tag($0.rawValue)
+                    if isLogin || $0.rawValue != "Admin" {
+                        Text($0.rawValue)
+                            .tag($0.rawValue)
+                    }
                 }
                 .frame(width: 200)
             }
@@ -47,6 +49,6 @@ struct CustomPicker: View {
 
 struct CustomPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPicker(selection: .constant(.Client))
+        CustomPicker(selection: .constant(.Client), isLogin: false)
     }
 }

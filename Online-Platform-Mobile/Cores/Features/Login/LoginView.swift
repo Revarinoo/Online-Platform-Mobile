@@ -51,7 +51,8 @@ struct LoginView: View {
                                 VStack(alignment: .leading) {
                                     Text("Role")
                                         .foregroundColor(Color.gray)
-                                    CustomPicker(selection: $selection)
+                                    CustomPicker(selection: $selection, isLogin: true)
+                                        .frame(height: 45)
                                 }
                             }
                             .padding()

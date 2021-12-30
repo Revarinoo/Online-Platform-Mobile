@@ -65,4 +65,21 @@ class UserService {
             }
         }
     }
+    
+    func getAllUser(completionHandler: @escaping(_ result: [User]?)->Void) {
+        Alamofire.request(HttpService.endpoint + "show/users", method: .get, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                let result = try? JSONDecoder().decode([User].self, from: response.data!)
+                completionHandler(result)
+            }
+    }
+    
+    func removeUser(userId: Int, completionHandler: @escaping(_ code: Int)->Void) {
+        Alamofire.request(HttpService.endpoint + "user/delete/\(userId)", method: .delete)
+            .responseJSON { data in
+                if let response = data.response {
+                    completionHandler(response.statusCode)
+                }
+            }
+    }
 }
