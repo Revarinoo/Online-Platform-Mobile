@@ -10,8 +10,8 @@ import SwiftUI
 struct ProductListView: View {
     
     @State private var searchText = ""
-    
-    @State private var itemList = [Item(name: "Andy is real"), Item(name: "Carla"), Item(name: "Mike"), Item(name: "Andy is not real")]
+    @StateObject private var productVM = AdminProductViewModel()
+    var userId: Int
     
     var body: some View {
         ZStack{
@@ -19,9 +19,9 @@ struct ProductListView: View {
                 SearchBar(text: $searchText)
                 VStack {
                     List{
-                        ForEach(itemList.filter({ searchText.isEmpty ? true : $0.name.contains(searchText)
+                        ForEach(productVM.products.data.filter({ searchText.isEmpty ? true : $0.category.contains(searchText)
                         }), id: \.id) { item in
-                            Text(item.name)
+                            Text(item.category)
                         }
                         .onDelete(perform: self.deleteRow)
                     }
@@ -30,14 +30,18 @@ struct ProductListView: View {
         .navigationTitle("Product List")
         .listStyle(PlainListStyle())
         }
+        .onAppear {
+            productVM.getAllSellerProduct(userId: self.userId)
+        }
     }
     private func deleteRow(at indexSet: IndexSet) {
-        self.itemList.remove(atOffsets: indexSet)
+        let id = productVM.products.data[indexSet.first!].id
+        productVM.removeProduct(productId: id, userId: self.userId)
     }
 }
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView()
+        ProductListView(userId: 1)
     }
 }

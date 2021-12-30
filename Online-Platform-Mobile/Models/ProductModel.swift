@@ -8,15 +8,15 @@
 import Foundation
 
 struct SellerProduct: Codable {
-    let data: [SellerProductResponse]
-    let code: Int
-    let message: String
+    var data: [SellerProductResponse] = []
+    var code: Int = Int()
+    var message: String = String()
 }
 
 struct SellerProductResponse: Codable, Identifiable {
-    let id: Int
-    let category: String
-    let icon: String
+    var id: Int = Int()
+    var category: String = String()
+    var icon: String = String()
 }
 
 struct SellerResponse: Codable {

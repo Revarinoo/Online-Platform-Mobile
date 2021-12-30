@@ -26,7 +26,7 @@ struct UserView: View {
                     List{
                         ForEach(listUserVM.users.filter({ searchText.isEmpty ? true : $0.name.contains(searchText)
                         }), id: \.id) { item in
-                            NavigationLink(destination: ProductListView()) {
+                            NavigationLink(destination: ProductListView(userId: item.id)) {
                                 Text(item.name)
                             }
                         }

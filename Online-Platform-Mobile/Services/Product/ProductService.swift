@@ -134,6 +134,23 @@ class ProductService {
             }
         }
     }
+    
+    func removeProduct(productId: Int, completionHandler: @escaping(_ code: Int)->Void) {
+        Alamofire.request(HttpService.endpoint + "product/delete/\(productId)", method: .delete)
+            .responseJSON { data in
+                if let code = data.response?.statusCode {
+                    completionHandler(code)
+                }
+            }
+    }
+    
+    func getAllSellerProduct(userId: Int, completionHandler: @escaping(_ result: SellerProduct?)->Void) {
+        Alamofire.request(HttpService.endpoint + "seller/\(userId)/products", method: .get)
+            .responseJSON { response in
+                let result = try? JSONDecoder().decode(SellerProduct.self, from: response.data!)
+                completionHandler(result)
+            }
+    }
 }
 
 
