@@ -24,7 +24,7 @@ struct TabBarSeller: View {
                 .tag(0)
                 NavigationView {
                     MyProductView()
-                        .navigationTitle("Product")
+                        .navigationTitle("My Product")
                 }
                 .tabItem {
                     Label("Product", systemImage: "archivebox")

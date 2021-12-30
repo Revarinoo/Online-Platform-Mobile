@@ -23,21 +23,35 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
 
 struct MyProductView: View {
     @State var showCreateProduct = false
+    @StateObject private var myProductVM = MyProductViewModel()
+    @State var productId = 0
     
     var body: some View {
         VStack {
-            ScrollView {
-//                NavigationLink(destination: EditProduct()) {
-                    ProductCard()
-                        .frame(width: 358, height: 95)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-                        .padding()
-//                }
+            Divider().background(Color.init(hex: "A7A7A7"))
+            ScrollView (.vertical, showsIndicators: false) {
+                if myProductVM.products != nil {
+                    ForEach(myProductVM.products!.data) { data in
+                        NavigationLink(destination: CreateProductView(showPage: .constant(false), productId: data.id)) {
+                            ProductCard(product: data)
+                                .frame(width: 358, height: 95)
+                                .background(Color.white)
+                                .cornerRadius(10)
+                                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+                                .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
+//                                .onTapGesture {
+//                                    self.productId = data.id
+//                                    self.showCreateProduct.toggle()
+//                                }
+                        }
+                    }
+                }
                 
             }
         }
+//        .sheet(isPresented: $showCreateProduct, content: {
+//            CreateProductView(showPage: $showCreateProduct, productId: productId)
+//        })
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -51,6 +65,9 @@ struct MyProductView: View {
         }
         .sheet(isPresented: $showCreateProduct) {
             CreateProductView(showPage: $showCreateProduct)
+        }
+        .onAppear {
+            myProductVM.getAllProduct()
         }
     }
 }

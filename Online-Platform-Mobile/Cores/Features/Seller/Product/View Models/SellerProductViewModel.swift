@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SellerProductViewModel: ObservableObject {
     @Published var product: CreateProductModel = CreateProductModel()
@@ -19,7 +20,6 @@ class SellerProductViewModel: ObservableObject {
         if product.category != "" && product.description != "" && product.portfolios.count != 0 && allPackage.count != 0 {
             return true
         }
-        
         return false
     }
     
@@ -37,6 +37,35 @@ class SellerProductViewModel: ObservableObject {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func getSellerProductDetail(productId: Int) {
+        productService.getSellerProductDetail(productId: productId) { result in
+            if let result = result {
+                var portfolios: [UIImage] = []
+                for portfolio in result.portfolios {
+                    if let data = try? Data(contentsOf: URL(string: portfolio)!) {
+                        let image: UIImage = UIImage(data: data)!
+                        portfolios.append(image)
+                    }
+                }
+                self.product = CreateProductModel(category: result.product.category_id, description: result.product.description, portfolios: portfolios)
+                
+                var packages: [CreatePackageModel] = []
+                for data in result.product.package {
+                    packages.append(CreatePackageModel(type: data.type, price: String(Int(data.price)), quantity: data.quantity, highResolution: data.high_resolution == 1 ? true : false, sourceFile: data.source_file == 1 ? true : false, commercial: data.commercial_use == 1 ? true : false, editing: data.light_editing == 1 ? true : false, revision: data.revision))
+                }
+                self.allPackage = packages
+            }
+        }
+    }
+    
+    func updateProduct(productId: Int) {
+        productService.updateProduct(productId: productId, productModel: self.product) { statusCode in
+            if statusCode == 200 {
+                self.successfullyCreated = true
             }
         }
     }

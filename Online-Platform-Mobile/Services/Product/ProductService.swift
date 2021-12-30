@@ -9,18 +9,6 @@ import Foundation
 import Alamofire
 import SwiftUI
 
-struct SellerResponse: Codable {
-    let data: [Seller]?
-    let message: String?
-    let code: Int?
-}
-
-struct CreateProductResponse: Codable {
-    let product_id: Int
-    let code: Int
-    let message: String
-}
-
 class ProductService {
     @AppStorage("JWT", store: .standard) var token = ""
     
@@ -89,6 +77,62 @@ class ProductService {
             .responseJSON { response in
                 completionHandler(response.response!.statusCode)
             }
+    }
+    
+    func getSellerProducts(completionHandler: @escaping(_ result: SellerProduct?)-> Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(self.token)",
+            "Content-type": "application/json"
+        ]
+        Alamofire.request(HttpService.endpoint + "products/seller", method: .get, headers: headers)
+            .responseJSON { response in
+                let data = response.data
+                let result = try? JSONDecoder().decode(SellerProduct.self, from: data!)
+                completionHandler(result)
+            }
+    }
+    
+    func getSellerProductDetail(productId: Int, completionHandler: @escaping(_ result: SellerProductDetail?)-> Void) {
+        Alamofire.request(HttpService.endpoint + "seller/product/\(productId)", method: .get)
+            .responseJSON { response in
+                let result = try? JSONDecoder().decode(SellerProductDetail.self, from: response.data!)
+                completionHandler(result)
+            }
+    }
+    
+    func updateProduct(productId: Int, productModel: CreateProductModel, completionHandler: @escaping(_ statusCode: Int) -> Void) {
+        var portfolios : [Data] = []
+        for portfolio in productModel.portfolios {
+            let imageData = portfolio.pngData()!
+            portfolios.append(imageData)
+        }
+        
+        let parameters = [
+            "product_id": String(productId),
+            "category": productModel.category,
+            "description": productModel.description
+        ]
+        
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            for (index, value) in portfolios.enumerated() {
+                multipartFormData.append(value, withName: "portfolios[\(index)]", fileName: "\(index).jpeg", mimeType: "image/jpeg")
+            }
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        }, to: HttpService.endpoint + "products/update", method: .post) { result in
+            switch result {
+            case .success(let upload, _, _):
+                upload.responseData { response in
+                    if let code = response.response?.statusCode {
+                        completionHandler(code)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
