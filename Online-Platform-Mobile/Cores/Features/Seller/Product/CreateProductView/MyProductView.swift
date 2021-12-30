@@ -39,19 +39,12 @@ struct MyProductView: View {
                                 .cornerRadius(10)
                                 .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
                                 .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
-//                                .onTapGesture {
-//                                    self.productId = data.id
-//                                    self.showCreateProduct.toggle()
-//                                }
                         }
                     }
                 }
                 
             }
         }
-//        .sheet(isPresented: $showCreateProduct, content: {
-//            CreateProductView(showPage: $showCreateProduct, productId: productId)
-//        })
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Introspect
 
 struct PersonalChat: View {
     @StateObject var messageVM = MessageViewModel()
@@ -15,6 +16,8 @@ struct PersonalChat: View {
     @State var messageField = ""
     @State private var messageIDScroll: String?
     let columns = [GridItem(.flexible(minimum: 10))]
+    @State var uiTabBarController: UITabBarController?
+    @AppStorage("role", store: .standard) var role = ""
     
     var body: some View {
         VStack {
@@ -93,6 +96,17 @@ struct PersonalChat: View {
         }
         .onTapGesture {
             self.dismissKeyboard()
+        }
+        .introspectTabBarController { (UITabBarController) in
+            if role == "Seller" {
+                UITabBarController.tabBar.isHidden = true
+                uiTabBarController = UITabBarController
+            }
+        }
+        .onDisappear {
+            if role == "Seller" {
+                uiTabBarController?.tabBar.isHidden = false
+            }
         }
     }
     

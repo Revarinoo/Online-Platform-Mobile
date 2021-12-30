@@ -33,7 +33,7 @@ struct OrderListView: View {
             Divider().background(Color.init(hex: "A7A7A7"))
             Picker("Order Status", selection: $orderstatus) {
                 Text("Pending").tag(0)
-                Text("Upcoming").tag(1)
+                Text("In Progress").tag(1)
                 Text("Completed").tag(2)
             }
             .pickerStyle(.segmented)
