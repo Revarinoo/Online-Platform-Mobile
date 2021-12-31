@@ -16,8 +16,6 @@ struct UserView: View {
     @StateObject private var listUserVM = ListUserViewModel()
     @State private var searchText = ""
     
-//    @State private var itemList = [Item(name: "Andy is real"), Item(name: "Carla"), Item(name: "Mike"), Item(name: "Andy is not real")]
-    
     var body: some View {
         ZStack{
             VStack {

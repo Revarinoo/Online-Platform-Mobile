@@ -17,7 +17,6 @@ struct LoginView: View {
     @State var isChecked:Bool = false
     
     var body: some View {
-        NavigationView {
             ZStack {
                 Color.theme.primary
                     .ignoresSafeArea()
@@ -98,8 +97,6 @@ struct LoginView: View {
                 }
                 
             }
-            .navigationBarHidden(true)
-        }
         .onTapGesture {
             self.dismissKeyboard()
         }

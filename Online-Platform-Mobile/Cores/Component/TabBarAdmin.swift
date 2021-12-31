@@ -14,6 +14,15 @@ struct TabBarAdmin: View {
     var body: some View {
             TabView(selection: $selection) {
                 NavigationView {
+                    TransactionListView()
+                        .navigationTitle("Transaction List")
+                }
+                .tabItem {
+                    Label("Transaction", systemImage: "newspaper")
+                }
+                .tag(0)
+                
+                NavigationView {
                     UserView()
                         .navigationTitle("User List")
                         .listStyle(PlainListStyle())
@@ -21,7 +30,7 @@ struct TabBarAdmin: View {
                 .tabItem {
                     Label("User", systemImage: "list.dash")
                 }
-                .tag(0)
+                .tag(1)
                 NavigationView {
                     CategoryListView()
                         .navigationTitle("Category List")
@@ -29,7 +38,7 @@ struct TabBarAdmin: View {
                 .tabItem {
                     Label("Category", systemImage: "archivebox")
                 }
-                .tag(1)
+                .tag(2)
                 
                 NavigationView {
                     ProfileView()
@@ -39,7 +48,7 @@ struct TabBarAdmin: View {
                 .tabItem {
                     Label("Order", systemImage: "person")
                 }
-                .tag(2)
+                .tag(3)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
