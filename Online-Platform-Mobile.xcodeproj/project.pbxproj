@@ -129,6 +129,9 @@
 		F7CC9118277EB41500F43832 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9117277EB41500F43832 /* TransactionListView.swift */; };
 		F7CC911A277EB49000F43832 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9119277EB49000F43832 /* TransactionViewModel.swift */; };
 		F7CC911F277EF8DB00F43832 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC911E277EF8DB00F43832 /* TransactionDetailView.swift */; };
+		F7CC9121277F323300F43832 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9120277F323300F43832 /* CategoryViewModel.swift */; };
+		F7CC9124277F38D500F43832 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9123277F38D500F43832 /* CategoryService.swift */; };
+		F7CC91282780138400F43832 /* SubmitResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC91272780138400F43832 /* SubmitResultView.swift */; };
 		F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC9027577053000B0B99 /* OrderViewModel.swift */; };
 		F7D4AC94275772F4000B0B99 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC93275772F4000B0B99 /* OrderService.swift */; };
 		F7D4AC9627577316000B0B99 /* PostOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4AC9527577316000B0B99 /* PostOrderRequest.swift */; };
@@ -268,6 +271,9 @@
 		F7CC9117277EB41500F43832 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		F7CC9119277EB49000F43832 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		F7CC911E277EF8DB00F43832 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
+		F7CC9120277F323300F43832 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		F7CC9123277F38D500F43832 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		F7CC91272780138400F43832 /* SubmitResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResultView.swift; sourceTree = "<group>"; };
 		F7D4AC9027577053000B0B99 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		F7D4AC93275772F4000B0B99 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 		F7D4AC9527577316000B0B99 /* PostOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOrderRequest.swift; sourceTree = "<group>"; };
@@ -313,18 +319,12 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
-		18E3AFB7277389A700A476E5 /* CategoryList */ = {
-			isa = PBXGroup;
-			children = (
-				18E3AFBA277389C800A476E5 /* CategoryListView.swift */,
-			);
-			path = CategoryList;
-			sourceTree = "<group>";
-		};
 		18E3AFBE2773993400A476E5 /* AddCategory */ = {
 			isa = PBXGroup;
 			children = (
+				18E3AFBA277389C800A476E5 /* CategoryListView.swift */,
 				18E3AFBF2773994400A476E5 /* AddCategoryView.swift */,
+				F7CC9120277F323300F43832 /* CategoryViewModel.swift */,
 			);
 			path = AddCategory;
 			sourceTree = "<group>";
@@ -343,7 +343,6 @@
 			children = (
 				F7CC9116277EB40600F43832 /* Transaction */,
 				18E3AFBE2773993400A476E5 /* AddCategory */,
-				18E3AFB7277389A700A476E5 /* CategoryList */,
 				18E3AFB62773899200A476E5 /* Product */,
 				4E30D19D2770EAC200B7BCD0 /* User */,
 			);
@@ -489,6 +488,7 @@
 		4EE4F37727663DBE0001B874 /* Seller */ = {
 			isa = PBXGroup;
 			children = (
+				F7CC91252780133500F43832 /* Submit Result */,
 				F7EBC69327731682009768E4 /* OrderDetail */,
 				F7EBC6902772EFC2009768E4 /* Order */,
 				4EE4F37827663EB00001B874 /* Product */,
@@ -654,6 +654,7 @@
 		F72901052711491E007EF04C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7CC9122277F38BB00F43832 /* Category */,
 				4EE4F3762765F9BB0001B874 /* Payment */,
 				F7D4AC92275772D8000B0B99 /* Order */,
 				F7D59013273FF2EA00A2D916 /* Home */,
@@ -831,6 +832,30 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F7CC9122277F38BB00F43832 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC9123277F38D500F43832 /* CategoryService.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F7CC91252780133500F43832 /* Submit Result */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC91262780136C00F43832 /* Views */,
+			);
+			path = "Submit Result";
+			sourceTree = "<group>";
+		};
+		F7CC91262780136C00F43832 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC91272780138400F43832 /* SubmitResultView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F7D4AC92275772D8000B0B99 /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1011,7 @@
 				4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */,
 				4E102D61275B2A6100AAC2D9 /* MyOrderView.swift in Sources */,
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
+				F7CC91282780138400F43832 /* SubmitResultView.swift in Sources */,
 				F7D4AC9827578D0B000B0B99 /* DateExtension.swift in Sources */,
 				F76EDFAE277035C40078D4A0 /* LocationList.swift in Sources */,
 				4EE4F380276736AD0001B874 /* SellerProductViewModel.swift in Sources */,
@@ -1026,6 +1052,7 @@
 				4E8A6FE027157C1D00E7461E /* RegisterView.swift in Sources */,
 				F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */,
 				F737A700275295AD00161CF0 /* CartCardView.swift in Sources */,
+				F7CC9124277F38D500F43832 /* CategoryService.swift in Sources */,
 				F7CC9118277EB41500F43832 /* TransactionListView.swift in Sources */,
 				4E8A6FE42715916900E7461E /* LabelForm.swift in Sources */,
 				F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */,
@@ -1035,6 +1062,7 @@
 				F7C70E16277C98B2002A5C26 /* ProductModel.swift in Sources */,
 				F7C70E1E277DA3C7002A5C26 /* TabBarAdmin.swift in Sources */,
 				4EE8C2102736720200C9AD66 /* ProductView.swift in Sources */,
+				F7CC9121277F323300F43832 /* CategoryViewModel.swift in Sources */,
 				4E6198982756633F00224C9C /* Transfer.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
 				4E0A00612764AC68002B0A70 /* PaymentViewModel.swift in Sources */,

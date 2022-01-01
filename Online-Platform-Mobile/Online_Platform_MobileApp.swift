@@ -24,24 +24,25 @@ struct Online_Platform_MobileApp: App {
                 WelcomeView()
             }
             else {
-                if role == "Client" {
-                    TabBar()
-                        .onAppear {
-                            UserHelper.shared.getUserData()
-                        }
-                }
-                else if role == "Seller" {
-                    TabBarSeller(selection: 0)
-                        .onAppear {
-                            UserHelper.shared.getUserData()
-                        }
-                }
-                else {
-                    TabBarAdmin()
-                        .onAppear {
-                            UserHelper.shared.getUserData()
-                        }
-                }
+                SubmitResultView(orderId: 1)
+//                if role == "Client" {
+//                    TabBar()
+//                        .onAppear {
+//                            UserHelper.shared.getUserData()
+//                        }
+//                }
+//                else if role == "Seller" {
+//                    TabBarSeller(selection: 0)
+//                        .onAppear {
+//                            UserHelper.shared.getUserData()
+//                        }
+//                }
+//                else {
+//                    TabBarAdmin()
+//                        .onAppear {
+//                            UserHelper.shared.getUserData()
+//                        }
+//                }
             }
         }
     }

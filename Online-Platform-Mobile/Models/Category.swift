@@ -19,3 +19,15 @@ extension Category: Hashable {
         hasher.combine(category_id)
     }
 }
+
+struct CategoryResponse: Codable {
+    let categories: [Category]?
+    let message: String?
+    let code: Int?
+}
+
+struct RecommendedSellerResponse: Codable {
+    let data: [Seller]?
+    let message: String?
+    let code: Int?
+}

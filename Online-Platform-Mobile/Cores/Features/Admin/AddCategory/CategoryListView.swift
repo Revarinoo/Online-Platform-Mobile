@@ -10,8 +10,8 @@ import SwiftUI
 struct CategoryListView: View {
     
     @State private var searchText = ""
-    
-    @State private var itemList = [Item(name: "Andy is real"), Item(name: "Carla"), Item(name: "Mike"), Item(name: "Andy is not real")]
+    @State var showAddCategory = false
+    @StateObject private var categoryVM = CategoryViewModel()
     
     var body: some View {
         ZStack{
@@ -19,9 +19,9 @@ struct CategoryListView: View {
                 SearchBar(text: $searchText)
                 VStack {
                     List{
-                        ForEach(itemList.filter({ searchText.isEmpty ? true : $0.name.contains(searchText)
-                        }), id: \.id) { item in
-                            Text(item.name)
+                        ForEach(categoryVM.categories.filter({ searchText.isEmpty ? true : $0.name!.contains(searchText)
+                        }), id: \.category_id) { item in
+                            Text(item.name!)
                         }
                         .onDelete(perform: self.deleteRow)
                     }
@@ -31,17 +31,22 @@ struct CategoryListView: View {
         .navigationTitle("Category List")
         .toolbar(content: {
             Button {
-                print("bisa")
+                showAddCategory.toggle()
             } label: {
                 Text("Add Category")
             }
 
         })
         .listStyle(PlainListStyle())
-        
+        .sheet(isPresented: $showAddCategory) {
+            AddCategoryView(showPage: self.$showAddCategory, categoryVM: categoryVM)
+        }
+        .onAppear {
+            categoryVM.getCategories()
+        }
     }
     private func deleteRow(at indexSet: IndexSet) {
-        self.itemList.remove(atOffsets: indexSet)
+        categoryVM.removeCategory(id: categoryVM.categories[indexSet.first!].category_id!)
     }
 }
 
