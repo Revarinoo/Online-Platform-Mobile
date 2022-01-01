@@ -36,6 +36,7 @@
 		4E28FD7A2777BC7800725DBB /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E28FD792777BC7800725DBB /* NavigationConfigurator.swift */; };
 		4E30D19F2770EB1D00B7BCD0 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E30D19E2770EB1D00B7BCD0 /* UserView.swift */; };
 		4E30D1A12770EBB200B7BCD0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E30D1A02770EBB200B7BCD0 /* SearchBar.swift */; };
+		4E4F4E88277E16ED0054E9FE /* OrderResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F4E87277E16ED0054E9FE /* OrderResultViewModel.swift */; };
 		4E58D340272FEB2E0035D7C6 /* Homeservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E58D33F272FEB2E0035D7C6 /* Homeservice.swift */; };
 		4E58D342273033C80035D7C6 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E58D341273033C80035D7C6 /* CategoryListViewModel.swift */; };
 		4E6198982756633F00224C9C /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6198972756633F00224C9C /* Transfer.swift */; };
@@ -50,6 +51,7 @@
 		4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E977268271438D600C28B5D /* PrimaryButton.swift */; };
 		4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97726A271443F800C28B5D /* SecondaryButton.swift */; };
 		4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97726F2714507C00C28B5D /* WelcomeView.swift */; };
+		4E9D0182277A360A00292B76 /* OrderResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D0181277A360A00292B76 /* OrderResultView.swift */; };
 		4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABAC51273C3A46000E7D44 /* ProductService.swift */; };
 		4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */; };
 		4EAEC763277861DE000B6713 /* EditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEC762277861DE000B6713 /* EditProduct.swift */; };
@@ -163,6 +165,7 @@
 		4E28FD792777BC7800725DBB /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		4E30D19E2770EB1D00B7BCD0 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		4E30D1A02770EBB200B7BCD0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		4E4F4E87277E16ED0054E9FE /* OrderResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultViewModel.swift; sourceTree = "<group>"; };
 		4E58D33F272FEB2E0035D7C6 /* Homeservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeservice.swift; sourceTree = "<group>"; };
 		4E58D341273033C80035D7C6 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		4E6198972756633F00224C9C /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		4E977268271438D600C28B5D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E97726A271443F800C28B5D /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		4E97726F2714507C00C28B5D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		4E9D0181277A360A00292B76 /* OrderResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultView.swift; sourceTree = "<group>"; };
 		4EABAC51273C3A46000E7D44 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		4EAEC762277861DE000B6713 /* EditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProduct.swift; sourceTree = "<group>"; };
@@ -629,6 +633,7 @@
 				4E0DEE28276F8FB000A953DE /* OrderReview.swift */,
 				4E0DEE2A276F967B00A953DE /* GiveOrderReviewView.swift */,
 				F7253C7D2772453500B8652B /* RescheduleView.swift */,
+				4E9D0181277A360A00292B76 /* OrderResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 			children = (
 				F7D4AC9027577053000B0B99 /* OrderViewModel.swift */,
 				F7253C792772089D00B8652B /* OrderDetailViewModel.swift */,
+				4E4F4E87277E16ED0054E9FE /* OrderResultViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -919,6 +925,7 @@
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
+				4E4F4E88277E16ED0054E9FE /* OrderResultViewModel.swift in Sources */,
 				F76EDFB52770C8B30078D4A0 /* SubmitPaymentModel.swift in Sources */,
 				F7EBC69927733B87009768E4 /* OrderDetailSellerViewModel.swift in Sources */,
 				4E1920922726AD0900B349C7 /* SellerCard.swift in Sources */,
@@ -928,6 +935,7 @@
 				4E9772702714507C00C28B5D /* WelcomeView.swift in Sources */,
 				4E28FD762774CB8800725DBB /* TextField.swift in Sources */,
 				F7D4AC94275772F4000B0B99 /* OrderService.swift in Sources */,
+				4E9D0182277A360A00292B76 /* OrderResultView.swift in Sources */,
 				F7025BF0277483CD00560393 /* CompletedOrderDetailView.swift in Sources */,
 				F7253C7A2772089D00B8652B /* OrderDetailViewModel.swift in Sources */,
 				F7A89951275E5E5600263321 /* MessageViewModel.swift in Sources */,
