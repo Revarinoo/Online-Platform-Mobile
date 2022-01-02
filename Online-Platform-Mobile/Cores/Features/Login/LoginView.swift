@@ -17,7 +17,6 @@ struct LoginView: View {
     @State var isChecked:Bool = false
     
     var body: some View {
-        NavigationView {
             ZStack {
                 Color.theme.primary
                     .ignoresSafeArea()
@@ -51,7 +50,8 @@ struct LoginView: View {
                                 VStack(alignment: .leading) {
                                     Text("Role")
                                         .foregroundColor(Color.gray)
-                                    CustomPicker(selection: $selection)
+                                    CustomPicker(selection: $selection, isLogin: true)
+                                        .frame(height: 45)
                                 }
                             }
                             .padding()
@@ -97,8 +97,6 @@ struct LoginView: View {
                 }
                 
             }
-            .navigationBarHidden(true)
-        }
         .onTapGesture {
             self.dismissKeyboard()
         }

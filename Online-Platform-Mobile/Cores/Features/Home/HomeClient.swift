@@ -76,7 +76,7 @@ struct HomeClient: View {
                     }) {
                     Image(systemName: "message").imageScale(.large)
                         .foregroundColor(Color.theme.primary)
-                }
+                    }
                 }
                 )
             })

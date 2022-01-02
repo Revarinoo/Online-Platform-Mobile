@@ -14,7 +14,8 @@ struct OrderDetailView: View {
     var orderId: Int
     @State var uiTabBarController: UITabBarController?
     @State var showReschedule = false
-    
+    @State private var navigateReview = false
+    var sellerImage: String
     
     var body: some View {
         VStack {
@@ -59,10 +60,20 @@ struct OrderDetailView: View {
                 CompletedOrderDetailView(detailVM: orderDetailVM)
             }
             Spacer()
-            PrimaryButton(content: "Reschedule", maxWidth: 200, action: {
-                showReschedule.toggle()
-            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                .padding()
+            if orderDetailVM.orderDetail.order_status == OrderStatus.completed.rawValue && orderDetailVM.orderDetail.already_reviewed == 0 {
+                NavigationLink(destination: GiveOrderReviewView(orderId: orderId, sellerImage: self.sellerImage), isActive: $navigateReview) {
+                    PrimaryButton(content: "Review", maxWidth: 200, action: {
+                        navigateReview.toggle()
+                    }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                        .padding()
+                }
+            }
+            else if orderDetailVM.orderDetail.order_status != OrderStatus.completed.rawValue {
+                PrimaryButton(content: "Reschedule", maxWidth: 200, action: {
+                    showReschedule.toggle()
+                }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                    .padding()
+            }
         }
         .navigationBarTitle("Order Detail", displayMode: .inline)
         .onAppear {
@@ -86,7 +97,7 @@ struct OrderDetailView: View {
 
 struct OrderDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderDetailView(orderId: 1)
+        OrderDetailView(orderId: 1, sellerImage: "")
     }
 }
 

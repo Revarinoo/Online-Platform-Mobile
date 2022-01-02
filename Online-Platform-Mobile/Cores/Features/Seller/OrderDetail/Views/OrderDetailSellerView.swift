@@ -22,6 +22,7 @@ struct OrderDetailSellerView: View {
     @StateObject private var detailVM = OrderDetailSellerViewModel()
     var orderId: Int
     @State var uiTabBarController: UITabBarController?
+    @State private var isChat = false
     
     var body: some View {
         ScrollView (.vertical, showsIndicators: false) {
@@ -117,15 +118,22 @@ struct OrderDetailSellerView: View {
             }
             .navigationTitle("Order Detail")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: ChatList(), isActive: $isChat) {
+                Button(action: {
+                    isChat.toggle()
+                }) {
+                Image(systemName: "message").imageScale(.large)
+                    .foregroundColor(Color.theme.primary)
+                }
+            }
+            )
             .onAppear {
                 detailVM.getOrderDetail(orderId: orderId)
             }
             .introspectTabBarController { UITabBarController in
                 UITabBarController.tabBar.isHidden = true
                 uiTabBarController = UITabBarController
-            }
-            .onDisappear {
-                uiTabBarController?.tabBar.isHidden = false
             }
         }
     }
@@ -140,21 +148,24 @@ struct OrderDetailSellerView_Previews: PreviewProvider {
 struct InProgessButton: View {
     @StateObject var vm: OrderDetailSellerViewModel
     var orderId: Int
+    @State private var navigate = false
     
     var body: some View {
         VStack (spacing: 9) {
-            Button {
-                
-            } label: {
-                Text("Submit Result")
-                    .font(.custom(ThemeFont.displaySemiBold, size: 18))
-                    .frame(width: 358, height: 50)
-                    .foregroundColor(Color.theme.primary)
-                    .background(Color.theme.secondary)
-                    .cornerRadius(15)
+            NavigationLink(destination: SubmitResultView(orderId: orderId), isActive: $navigate) {
+                Button {
+                    self.navigate = true
+                } label: {
+                    Text("Submit Result")
+                        .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                        .frame(width: 358, height: 50)
+                        .foregroundColor(Color.theme.primary)
+                        .background(Color.theme.secondary)
+                        .cornerRadius(15)
+                }
+                .disabled(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? true : false)
+                .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             }
-            .disabled(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? true : false)
-            .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             
             Button {
                 

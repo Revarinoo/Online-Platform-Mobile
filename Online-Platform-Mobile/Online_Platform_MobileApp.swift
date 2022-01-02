@@ -25,7 +25,6 @@ struct Online_Platform_MobileApp: App {
             }
             else {
                 if role == "Client" {
-//                    MyProductView()
                     TabBar()
                         .onAppear {
                             UserHelper.shared.getUserData()
@@ -33,6 +32,12 @@ struct Online_Platform_MobileApp: App {
                 }
                 else if role == "Seller" {
                     TabBarSeller(selection: 0)
+                        .onAppear {
+                            UserHelper.shared.getUserData()
+                        }
+                }
+                else {
+                    TabBarAdmin()
                         .onAppear {
                             UserHelper.shared.getUserData()
                         }

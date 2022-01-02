@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Role: String, CaseIterable, Equatable {
     case Client = "Client"
     case Seller = "Seller"
-    
+    case Admin = "Admin"
 }
 
 struct User: Codable {
@@ -42,4 +43,12 @@ struct UserProfile: Codable{
     let email: String
     let phone_number: String
     let photo: String
+}
+
+struct EditProfile {
+    var name = String()
+    var email = String()
+    var phoneNumber = String()
+    var password = String()
+    var photo = UIImage()
 }

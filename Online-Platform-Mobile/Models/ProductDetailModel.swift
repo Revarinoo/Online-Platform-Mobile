@@ -25,3 +25,28 @@ struct ReviewModel: Identifiable {
     let name: String
     let comment: String
 }
+
+struct SellerProductDetail: Codable {
+    let product: SellerProductData
+    let portfolios: [String]
+}
+
+struct SellerProductData: Codable {
+    let id: Int
+    let category_id: String
+    let description: String
+    let package: [SellerPackageDetail]
+}
+
+struct SellerPackageDetail: Codable {
+    let id: Int
+    let price: Double
+    let revision: Int
+    let quantity: Int
+    let type: String
+    let high_resolution: Int
+    let source_file: Int
+    var commercial_use: Int
+    let light_editing: Int
+    
+}

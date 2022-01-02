@@ -9,103 +9,112 @@ import SwiftUI
 
 struct CreatePackageView: View {
     
-    @StateObject var createproductVM: CreateProductViewModel = CreateProductViewModel()
-    @State var selectedIndex = 0
+    @StateObject var createPackageVM: SellerProductViewModel
+    var listType = ["Photo", "Video", "Album"]
+    @Binding var showCreatePackage: Bool
+    @State private var showEmpty = false
     
     var body: some View {
+        NavigationView {
             VStack {
                 Form {
                     Section(header: Text("Product Information")) {
-                        TextField("Package Name ", text: $createproductVM.packageName)
-                        Picker(selection: $createproductVM.selectedIndex) {
-                            ForEach(0..<createproductVM.listCategory.count) {
-                                Text(createproductVM.listCategory[$0])
+                        Picker(selection: $createPackageVM.package.type) {
+                            ForEach(listType, id: \.self) {
+                                Text($0)
                             }
                         } label: {
                             Text("Category")
                         }
-                        TextField("Package Price ", text: $createproductVM.packagePrice)
+                        TextField("Package Price", text: $createPackageVM.package.price)
+                            .keyboardType(.decimalPad)
                     }
                     
-                    if createproductVM.selectedIndex == 0 {
+                    if createPackageVM.package.type == "Photo" {
                         Section(header: Text("Package Detail")) {
-                            Stepper("Photo Amount (\(createproductVM.photoamount))") {
-                                createproductVM.photoamount += 5
+                            Stepper("Photo Amount (\(createPackageVM.package.quantity))") {
+                                createPackageVM.package.quantity += 5
                             } onDecrement: {
-                                createproductVM.photoamount -= 5
+                                createPackageVM.package.quantity -= 5
                             }
                             
-                            Toggle(isOn: $createproductVM.highresolution) {
+                            Toggle(isOn: $createPackageVM.package.highResolution) {
                                 Text("High Resolution")
                             }
-                            Toggle(isOn: $createproductVM.sourcefile) {
+                            Toggle(isOn: $createPackageVM.package.sourceFile) {
                                 Text("Source File")
                             }
-                            Toggle(isOn: $createproductVM.commercialuse) {
+                            Toggle(isOn: $createPackageVM.package.commercial) {
                                 Text("Commercial Use")
                             }
-                            Toggle(isOn: $createproductVM.fullediting) {
-                                Text("Full Editing")
-                            }
-                            Toggle(isOn: $createproductVM.lightediting) {
+                            Toggle(isOn: $createPackageVM.package.editing) {
                                 Text("Lighting Editing")
                             }
-                            Toggle(isOn: $createproductVM.revision) {
-                                Text("Revision")
-                            }
-                            Picker(selection: $createproductVM.selectedIndex) {
-                                ForEach(0..<createproductVM.listCategory.count) {
-                                    Text(createproductVM.listCategory[$0])
-                                }
-                            } label: {
-                                Text("Category")
-                            }
-                            Stepper("Revision Amount (\(createproductVM.revisionAmount))") {
-                                createproductVM.revisionAmount += 5
+                            Stepper("Revision Amount (\(createPackageVM.package.revision))") {
+                                createPackageVM.package.revision += 1
                             } onDecrement: {
-                                createproductVM.revisionAmount -= 5
+                                if createPackageVM.package.revision - 1 >= 0 {
+                                    createPackageVM.package.revision -= 1
+                                }
                             }
                         }
                     }
                     
-                    if createproductVM.selectedIndex == 1 {
+                    else if createPackageVM.package.type == "Video" {
                         Section(header: Text("Package Detail")) {
-                            Stepper("Video Amount (\(createproductVM.videoduration))") {
-                                createproductVM.videoduration += 1
+                            Stepper("Video Amount (\(createPackageVM.package.quantity))") {
+                                createPackageVM.package.quantity += 1
                             } onDecrement: {
-                                createproductVM.videoduration -= 1
+                                if createPackageVM.package.quantity - 1 >= 0 {
+                                    createPackageVM.package.quantity -= 1
+                                }
                             }
                             
-                            Toggle(isOn: $createproductVM.highresolution) {
-                                Text("Revision")
-                            }
-                            Stepper("Revision Amount (\(createproductVM.revisionAmount))") {
-                                createproductVM.revisionAmount += 1
+                            Stepper("Revision Amount (\(createPackageVM.package.revision))") {
+                                createPackageVM.package.revision += 1
                             } onDecrement: {
-                                createproductVM.revisionAmount -= 1
+                                if createPackageVM.package.revision - 1 >= 0 {
+                                    createPackageVM.package.revision -= 1
+                                }
                             }
                         }
                     }
                 }
-                .navigationBarItems(trailing:
-                                        Button("Save") {
-                    print(createproductVM.packageName)
-                    print(createproductVM.packageCategory)
-                    print(createproductVM.highresolution)
-                    print(createproductVM.sourcefile)
-                    print(createproductVM.commercialuse)
-                    print(createproductVM.fullediting)
-                    print(createproductVM.fullediting)
-                    print("X")
-                }
-                )
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            showCreatePackage.toggle()
+                        } label: {
+                            Text("Cancel")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            if createPackageVM.validatePackage() {
+                                createPackageVM.allPackage.append(createPackageVM.package)
+                                createPackageVM.package.reset()
+                                showCreatePackage.toggle()
+                            }
+                            else {
+                                showEmpty.toggle()
+                            }
+                        } label: {
+                            Text("Save")
+                        }
+                    }
+                })
                 .navigationBarTitle("Create Package", displayMode: .inline)
+                
             }
+        }
+        .alert(isPresented: $showEmpty, content: {
+            Alert(title: Text("Failed"), message: Text("All field must be filled"), dismissButton: .default(Text("OK")))
+        })
     }
 }
 
 struct CreatePackageView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePackageView()
+        CreatePackageView(createPackageVM: SellerProductViewModel(), showCreatePackage: .constant(true))
     }
 }

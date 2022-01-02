@@ -19,7 +19,6 @@ struct RegisterView: View {
     func toggle(){isChecked = !isChecked}
     
     var body: some View {
-        NavigationView {
             ZStack {
                 Color.theme.primary
                     .ignoresSafeArea()
@@ -69,7 +68,7 @@ struct RegisterView: View {
                                 Text("Already have an account?")
                                     .foregroundColor(Color.theme.primary)
                                 NavigationLink(
-                                    destination: LoginView(selection: .Client).navigationBarBackButtonHidden(true),
+                                    destination: LoginView(selection: .Client),
                                     label: {
                                         Text("Sign In")
                                             .bold()
@@ -97,8 +96,6 @@ struct RegisterView: View {
                 }
                 
             }
-            .navigationBarHidden(true)
-        }
         .onTapGesture {
             self.dismissKeyboard()
         }
@@ -125,7 +122,7 @@ struct FormView: View {
             VStack(alignment: .leading) {
                 Text("Role")
                     .foregroundColor(Color.gray)
-                CustomPicker(selection: $selection)
+                CustomPicker(selection: $selection, isLogin: false)
             }
             
         }

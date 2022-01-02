@@ -7,18 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
 
-struct PaymentRequest: Encodable {
-    let order_id: Int
-    let transfer_receipt: Data
-    let payment_date: Date
-    let bill_name: String
-}
-
-struct PaymentResponse: Codable {
-    let code: Int
-    let message: String
-}
 class PaymentService {
     @AppStorage("JWT", store: .standard) var token = ""
     
@@ -33,5 +23,17 @@ class PaymentService {
         HttpService.shared.request(request as URLRequest, resultType: PaymentResponse.self) { result in
             completionHandler(result)
         }
+    }
+    
+    func getTransactions(completionHandler: @escaping(_ result: [TransactionListModel]?)->Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(self.token)",
+            "Content-type": "application/json"
+        ]
+        Alamofire.request(HttpService.endpoint + "transactions/pending", method: .get, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                let result = try? JSONDecoder().decode([TransactionListModel].self, from: response.data!)
+                completionHandler(result)
+            }
     }
 }

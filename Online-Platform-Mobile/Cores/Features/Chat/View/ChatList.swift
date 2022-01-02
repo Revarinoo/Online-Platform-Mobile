@@ -12,6 +12,7 @@ import Introspect
 struct ChatList: View {
     @StateObject var chatVM = ChatRoomViewModel()
     @State var uiTabBarController: UITabBarController?
+    @AppStorage("role", store: .standard) var role = ""
     
     var body: some View {
         VStack {
@@ -59,8 +60,10 @@ struct ChatList: View {
             chatVM.getData()
         }
         .introspectTabBarController { (UITabBarController) in
-            UITabBarController.tabBar.isHidden = true
-            uiTabBarController = UITabBarController
+            if role == "Client" {
+                UITabBarController.tabBar.isHidden = true
+                uiTabBarController = UITabBarController
+            }
         }
         .navigationTitle("Chats")
     }

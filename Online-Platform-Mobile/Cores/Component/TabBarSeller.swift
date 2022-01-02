@@ -23,13 +23,21 @@ struct TabBarSeller: View {
                 }
                 .tag(0)
                 NavigationView {
-                    ProfileView()
-                        .navigationTitle("Product")
+                    MyProductView()
+                        .navigationTitle("My Product")
                 }
                 .tabItem {
                     Label("Product", systemImage: "archivebox")
                 }
                 .tag(1)
+                
+                NavigationView {
+                    ChatList()
+                }
+                .tabItem {
+                    Label("Chat", systemImage: "message")
+                }
+                .tag(2)
                 
                 NavigationView {
                     ProfileView()
@@ -39,7 +47,7 @@ struct TabBarSeller: View {
                 .tabItem {
                     Label("Order", systemImage: "person")
                 }
-                .tag(2)
+                .tag(3)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))

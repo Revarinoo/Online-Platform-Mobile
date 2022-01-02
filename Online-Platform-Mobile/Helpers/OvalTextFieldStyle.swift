@@ -19,3 +19,15 @@ struct OvalTextFieldStyle: TextFieldStyle {
             .padding(.top, -5)
     }
 }
+
+struct OvalTextFieldStyleForm: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(15)
+            .background(Color.theme.lightgrey)
+            .cornerRadius(10)
+            .font(Font.custom(ThemeFont.displayRegular, size: 14))
+            .padding(.bottom, 5)
+            .padding(.top, -5)
+    }
+}
