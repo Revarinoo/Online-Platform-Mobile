@@ -12,6 +12,9 @@ struct SubmitResultView: View {
     @State private var showPicker = false
     @State private var resultLink = String()
     var orderId: Int
+    @StateObject private var resultVM = SubmitResultViewModel()
+    @State private var showLoading = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var columns = [
         GridItem(spacing: 0),
@@ -81,11 +84,12 @@ struct SubmitResultView: View {
                 }
                 .padding(.top, 16)
             }
-            
+            .padding(.bottom, 45)
             VStack {
                 Spacer()
                 Button {
-                    
+                    showLoading = true
+                    resultVM.submitOrderResult(orderId: self.orderId, result: self.resultLink, images: self.images)
                 } label: {
                     Text("Submit")
                         .font(.custom(ThemeFont.displaySemiBold, size: 18))
@@ -104,6 +108,14 @@ struct SubmitResultView: View {
         }
         .onTapGesture {
             self.dismissKeyboard()
+        }
+        .fullScreenCover(isPresented: $showLoading) {
+            LoadingView()
+        }
+        .onChange(of: resultVM.successfullySubmitted) { _ in
+            self.showLoading = false
+            presentationMode.wrappedValue.dismiss()
+            presentationMode.wrappedValue.dismiss()
         }
     }
     

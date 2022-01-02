@@ -135,9 +135,6 @@ struct OrderDetailSellerView: View {
                 UITabBarController.tabBar.isHidden = true
                 uiTabBarController = UITabBarController
             }
-            .onDisappear {
-                uiTabBarController?.tabBar.isHidden = false
-            }
         }
     }
 }
@@ -151,21 +148,24 @@ struct OrderDetailSellerView_Previews: PreviewProvider {
 struct InProgessButton: View {
     @StateObject var vm: OrderDetailSellerViewModel
     var orderId: Int
+    @State private var navigate = false
     
     var body: some View {
         VStack (spacing: 9) {
-            Button {
-                
-            } label: {
-                Text("Submit Result")
-                    .font(.custom(ThemeFont.displaySemiBold, size: 18))
-                    .frame(width: 358, height: 50)
-                    .foregroundColor(Color.theme.primary)
-                    .background(Color.theme.secondary)
-                    .cornerRadius(15)
+            NavigationLink(destination: SubmitResultView(orderId: orderId), isActive: $navigate) {
+                Button {
+                    self.navigate = true
+                } label: {
+                    Text("Submit Result")
+                        .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                        .frame(width: 358, height: 50)
+                        .foregroundColor(Color.theme.primary)
+                        .background(Color.theme.secondary)
+                        .cornerRadius(15)
+                }
+                .disabled(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? true : false)
+                .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             }
-            .disabled(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? true : false)
-            .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             
             Button {
                 

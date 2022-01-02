@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct OrderListView: View {
     
     @State private var orderstatus = 0
     @State private var count = 5
     @StateObject private var orderVM = SellerOrderViewModel()
+    @State var uiTabBarController: UITabBarController?
     
     //to change segmented color
     init() {
@@ -60,7 +62,10 @@ struct OrderListView: View {
         .onAppear {
             orderVM.getAllOrderSeller()
         }
-        
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = false
+            uiTabBarController = UITabBarController
+        }
     }
 }
 
