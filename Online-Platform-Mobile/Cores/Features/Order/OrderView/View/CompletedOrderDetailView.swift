@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TextView
 
 struct CompletedOrderDetailView: View {
     var detailVM: OrderDetailViewModel
@@ -15,18 +16,7 @@ struct CompletedOrderDetailView: View {
             VStack(alignment: .leading){
                 Text("Result Link")
                     .fontWeight(.semibold)
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(detailVM.orderDetail.result_link)
-                            .font(.custom(ThemeFont.displayRegular, size: 22))
-                    }
-                    .padding(.top)
-                }
-                .padding(.horizontal)
-                .frame(width: 358, height: 70)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
+                TextArea(text: .constant(detailVM.orderDetail.result_link), placeholder: "", isEditing: .constant(false), height: 70)
             }
             .padding()
             .padding(.top, 90)

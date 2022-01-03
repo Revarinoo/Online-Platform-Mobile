@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import Introspect
+import TextView
 
 struct GiveOrderReviewView: View {
     
@@ -44,12 +45,7 @@ struct GiveOrderReviewView: View {
                 Text("Write a comment")
                     .font(.title3)
                     .fontWeight(.semibold)
-                TextField("Share your experience here...", text: $reviewtext)
-                    .padding()
-                    .frame(width: 358, height: 167, alignment: .top)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 2, y: 2)
+                TextArea(text: $reviewtext, placeholder: "Share your experience here...", isEditing: .constant(true))
             }
             .padding(.top, 30)
             .padding()

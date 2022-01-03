@@ -70,6 +70,13 @@
 		F7025BF0277483CD00560393 /* CompletedOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7025BEF277483CD00560393 /* CompletedOrderDetailView.swift */; };
 		F7025BF22774D8B800560393 /* SellerOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7025BF12774D8B800560393 /* SellerOrderViewModel.swift */; };
 		F7025BF42774DB3B00560393 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7025BF32774DB3B00560393 /* OrderListView.swift */; };
+		F702F8AD2782DE3100B9E6B6 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = F702F8AC2782DE3100B9E6B6 /* TextView */; };
+		F702F8AF2782E01B00B9E6B6 /* SubmitComplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8AE2782E01B00B9E6B6 /* SubmitComplainView.swift */; };
+		F702F8B32782E30F00B9E6B6 /* SubmitComplainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B22782E30F00B9E6B6 /* SubmitComplainViewModel.swift */; };
+		F702F8B52783088A00B9E6B6 /* ComplainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B42783088A00B9E6B6 /* ComplainListView.swift */; };
+		F702F8B727830B6C00B9E6B6 /* AdminComplainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */; };
+		F702F8B9278329CC00B9E6B6 /* ComplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B8278329CC00B9E6B6 /* ComplainDetailView.swift */; };
+		F702F8BB27832F4700B9E6B6 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8BA27832F4700B9E6B6 /* TextArea.swift */; };
 		F71A70FA2779648B00D35FEB /* PendingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70F92779648B00D35FEB /* PendingButton.swift */; };
 		F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */; };
 		F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FD2779FC9600D35FEB /* ReviewService.swift */; };
@@ -220,6 +227,12 @@
 		F7025BEF277483CD00560393 /* CompletedOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrderDetailView.swift; sourceTree = "<group>"; };
 		F7025BF12774D8B800560393 /* SellerOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerOrderViewModel.swift; sourceTree = "<group>"; };
 		F7025BF32774DB3B00560393 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		F702F8AE2782E01B00B9E6B6 /* SubmitComplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitComplainView.swift; sourceTree = "<group>"; };
+		F702F8B22782E30F00B9E6B6 /* SubmitComplainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitComplainViewModel.swift; sourceTree = "<group>"; };
+		F702F8B42783088A00B9E6B6 /* ComplainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainListView.swift; sourceTree = "<group>"; };
+		F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminComplainViewModel.swift; sourceTree = "<group>"; };
+		F702F8B8278329CC00B9E6B6 /* ComplainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainDetailView.swift; sourceTree = "<group>"; };
+		F702F8BA27832F4700B9E6B6 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		F71A70F92779648B00D35FEB /* PendingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingButton.swift; sourceTree = "<group>"; };
 		F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		F71A70FD2779FC9600D35FEB /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
@@ -313,6 +326,7 @@
 				4E0C8213272DA0DB0049B8C8 /* SDWebImageSwiftUI in Frameworks */,
 				F7A89957275E6C7700263321 /* Introspect in Frameworks */,
 				F7A89948275E5C4B00263321 /* FirebaseAuth in Frameworks */,
+				F702F8AD2782DE3100B9E6B6 /* TextView in Frameworks */,
 				F7A8994A275E5C4B00263321 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +460,7 @@
 				4E28FD752774CB8800725DBB /* TextField.swift */,
 				F7C70E19277D6F3B002A5C26 /* LoadingView.swift */,
 				F7C70E1D277DA3C7002A5C26 /* TabBarAdmin.swift */,
+				F702F8BA27832F4700B9E6B6 /* TextArea.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -462,6 +477,7 @@
 		4E97726D2714501D00C28B5D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F702F8A72782D98D00B9E6B6 /* Complain */,
 				4EE4F3832769F40F0001B874 /* Profile */,
 				4E30D19C2770EA8D00B7BCD0 /* Admin */,
 				F76EDFA627702E9B0078D4A0 /* Location */,
@@ -562,6 +578,34 @@
 				F737A6FD2752957F00161CF0 /* View */,
 			);
 			path = OrderView;
+			sourceTree = "<group>";
+		};
+		F702F8A72782D98D00B9E6B6 /* Complain */ = {
+			isa = PBXGroup;
+			children = (
+				F702F8B12782E2F900B9E6B6 /* View Model */,
+				F702F8B02782E2EA00B9E6B6 /* Views */,
+			);
+			path = Complain;
+			sourceTree = "<group>";
+		};
+		F702F8B02782E2EA00B9E6B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F702F8AE2782E01B00B9E6B6 /* SubmitComplainView.swift */,
+				F702F8B42783088A00B9E6B6 /* ComplainListView.swift */,
+				F702F8B8278329CC00B9E6B6 /* ComplainDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F702F8B12782E2F900B9E6B6 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				F702F8B22782E30F00B9E6B6 /* SubmitComplainViewModel.swift */,
+				F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		F71A70F82779645400D35FEB /* Views */ = {
@@ -948,6 +992,7 @@
 				F7A89949275E5C4B00263321 /* FirebaseFirestore */,
 				F7A89956275E6C7700263321 /* Introspect */,
 				F76EDFB22770C1FF0078D4A0 /* Alamofire */,
+				F702F8AC2782DE3100B9E6B6 /* TextView */,
 			);
 			productName = "Online-Platform-Mobile";
 			productReference = F72900E727114680007EF04C /* Online-Platform-Mobile.app */;
@@ -982,6 +1027,7 @@
 				F7A89946275E5C4A00263321 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F7A89955275E6C7700263321 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				F76EDFB12770C1FF0078D4A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F702F8AB2782DE3100B9E6B6 /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = F72900E827114680007EF04C /* Products */;
 			projectDirPath = "";
@@ -1031,12 +1077,15 @@
 				F76EDFAE277035C40078D4A0 /* LocationList.swift in Sources */,
 				4EE4F380276736AD0001B874 /* SellerProductViewModel.swift in Sources */,
 				F7D4AC9127577053000B0B99 /* OrderViewModel.swift in Sources */,
+				F702F8B32782E30F00B9E6B6 /* SubmitComplainViewModel.swift in Sources */,
 				F7253C782771908400B8652B /* NavigationExtension.swift in Sources */,
 				F79501B0275F9FD900F5F8E9 /* ChatList.swift in Sources */,
 				F7025BF22774D8B800560393 /* SellerOrderViewModel.swift in Sources */,
 				4E28FD7A2777BC7800725DBB /* NavigationConfigurator.swift in Sources */,
+				F702F8B727830B6C00B9E6B6 /* AdminComplainViewModel.swift in Sources */,
 				18E3AFC02773994400A476E5 /* AddCategoryView.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
+				F702F8B9278329CC00B9E6B6 /* ComplainDetailView.swift in Sources */,
 				4E15B5B92745573700F5C0CF /* CartCard.swift in Sources */,
 				F7CB13CD2781856B007E9D91 /* OrderResultService.swift in Sources */,
 				4E102D5B275A25B100AAC2D9 /* UploadBox.swift in Sources */,
@@ -1052,6 +1101,7 @@
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
 				4E4F4E88277E16ED0054E9FE /* OrderResultViewModel.swift in Sources */,
 				F76EDFB52770C8B30078D4A0 /* SubmitPaymentModel.swift in Sources */,
+				F702F8AF2782E01B00B9E6B6 /* SubmitComplainView.swift in Sources */,
 				F7EBC69927733B87009768E4 /* OrderDetailSellerViewModel.swift in Sources */,
 				4E1920922726AD0900B349C7 /* SellerCard.swift in Sources */,
 				4EE4F3822769F1C00001B874 /* MyProductView.swift in Sources */,
@@ -1084,6 +1134,7 @@
 				F7CC912A2780348900F43832 /* SubmitResultViewModel.swift in Sources */,
 				4E6198982756633F00224C9C /* Transfer.swift in Sources */,
 				F785C1FB27153A5F008035EC /* User.swift in Sources */,
+				F702F8BB27832F4700B9E6B6 /* TextArea.swift in Sources */,
 				4E0A00612764AC68002B0A70 /* PaymentViewModel.swift in Sources */,
 				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,
 				F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */,
@@ -1138,6 +1189,7 @@
 				F7A8994D275E5E3200263321 /* ChatRoomViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* AuthService.swift in Sources */,
 				F7025BEE27742E3100560393 /* OrderDetailModel.swift in Sources */,
+				F702F8B52783088A00B9E6B6 /* ComplainListView.swift in Sources */,
 				4E977269271438D600C28B5D /* PrimaryButton.swift in Sources */,
 				F71A7106277A2F8400D35FEB /* EditProfileForm.swift in Sources */,
 				4E75F16D2757A8C700F6D382 /* PaymentView.swift in Sources */,
@@ -1370,6 +1422,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F702F8AB2782DE3100B9E6B6 /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F76EDFB12770C1FF0078D4A0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1401,6 +1461,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E0C8211272DA0DB0049B8C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		F702F8AC2782DE3100B9E6B6 /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F702F8AB2782DE3100B9E6B6 /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
 		};
 		F76EDFB22770C1FF0078D4A0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

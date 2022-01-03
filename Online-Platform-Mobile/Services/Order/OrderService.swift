@@ -86,4 +86,34 @@ class OrderService {
             completionHandler(result)
         }
     }
+    
+    func submitComplain(orderId: Int, message: String) {
+        let parameters: [String: Any] = [
+            "order_id": orderId,
+            "complain_message": message
+        ]
+        updateRequest(parameters: parameters)
+    }
+    
+    func getComplains(completionHandler: @escaping(_ result: [ComplainModel]?)->Void) {
+        Alamofire.request(HttpService.endpoint + "order/complain", method: .get)
+            .responseJSON { response in
+                let data = try? JSONDecoder().decode([ComplainModel].self, from: response.data!)
+                completionHandler(data)
+            }
+    }
+    
+    func updateComplain(orderId: Int, status: String, completionHandler: @escaping(_ code: Int)->Void) {
+        let parameters: [String: Any] = [
+            "order_id": orderId,
+            "status": status
+        ]
+        
+        Alamofire.request(HttpService.endpoint + "order/complain/update", method: .post, parameters: parameters)
+            .responseJSON { response in
+                if let response = response.response {
+                    completionHandler(response.statusCode)
+                }
+            }
+    }
 }

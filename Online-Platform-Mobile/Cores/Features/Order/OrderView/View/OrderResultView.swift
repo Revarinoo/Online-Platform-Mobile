@@ -20,6 +20,7 @@ struct OrderResultView: View {
     @State var count = 0
     @StateObject private var orderResultVM = OrderResultViewModel()
     var orderId: Int
+    @State private var navigateToComplain = false
     
     var body: some View {
         ZStack {
@@ -27,7 +28,7 @@ struct OrderResultView: View {
                 Text("Photo Result")
                     .font(.custom(ThemeFont.displaySemiBold, size: 15))
                     .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-                    .padding(.leading, 16)
+                    .padding([.leading, .top], 16)
                 if orderResultVM.results.count == 0 {
                     emptyView
                         .padding(.top, 156)
@@ -50,8 +51,11 @@ struct OrderResultView: View {
                         .bold()
                         .padding(.top)
                     HStack {
-                        PrimaryButton(content: "Complain", maxWidth: 80, action: {
-                        }, btnColor: Color.red, textColor: Color.white)
+                        NavigationLink(destination: SubmitComplainView(orderId: orderId), isActive: $navigateToComplain){
+                            PrimaryButton(content: "Complain", maxWidth: 80, action: {
+                                self.navigateToComplain.toggle()
+                            }, btnColor: Color.red, textColor: Color.white)
+                        }
                             .disabled(orderResultVM.revisionAvailable ? true : false)
                             .opacity(orderResultVM.revisionAvailable ? 0.5 : 1)
                         PrimaryButton(content: "Revision", maxWidth: 80, action: {
@@ -73,6 +77,7 @@ struct OrderResultView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 16)
                 .frame(width: UIScreen.main.bounds.width, height: 120)
+                .padding(.bottom, 16)
                 .background(Color.init(hex: "F7F7F7"))
             }
             

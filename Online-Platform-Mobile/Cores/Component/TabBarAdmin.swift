@@ -23,22 +23,31 @@ struct TabBarAdmin: View {
                 .tag(0)
                 
                 NavigationView {
+                    ComplainListView()
+                        .navigationTitle("Complain List")
+                }
+                .tabItem {
+                    Label("Complain", systemImage: "person.crop.circle.badge.exclamationmark")
+                }
+                .tag(1)
+                
+                NavigationView {
                     UserView()
                         .navigationTitle("User List")
                         .listStyle(PlainListStyle())
                 }
                 .tabItem {
-                    Label("User", systemImage: "list.dash")
+                    Label("User", systemImage: "person")
                 }
-                .tag(1)
+                .tag(2)
                 NavigationView {
                     CategoryListView()
                         .navigationTitle("Category List")
                 }
                 .tabItem {
-                    Label("Category", systemImage: "archivebox")
+                    Label("Category", systemImage: "list.dash")
                 }
-                .tag(2)
+                .tag(3)
                 
                 NavigationView {
                     ProfileView()
@@ -46,9 +55,9 @@ struct TabBarAdmin: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
                 .tabItem {
-                    Label("Order", systemImage: "person")
+                    Label("Setting", systemImage: "gear")
                 }
-                .tag(3)
+                .tag(4)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))

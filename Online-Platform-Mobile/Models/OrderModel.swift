@@ -38,3 +38,10 @@ struct MyOrderModel: Identifiable {
     let order_category: String
     let status: String
 }
+
+struct ComplainModel: Codable, Identifiable {
+    let id: Int
+    let client_name: String
+    let complain_detail: String
+    let result_link: String
+}
