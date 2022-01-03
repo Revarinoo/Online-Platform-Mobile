@@ -13,9 +13,11 @@ struct ProductView: View {
     @StateObject var categoryListVM = CategoryListViewModel()
     @StateObject var productListVM = ProductViewModel()
     @State var uiTabarController: UITabBarController?
+    @State private var searchText = ""
     
     var body: some View {
             VStack {
+                SearchBar(text: $searchText)
                 ScrollView (.horizontal, showsIndicators: false, content: {
                     HStack {
                         ForEach(categoryListVM.categories, id: \.self) { category in
@@ -36,7 +38,7 @@ struct ProductView: View {
                 })
                 ScrollView (.vertical, showsIndicators: false, content: {
                     VStack {
-                        ForEach(productListVM.seller, id: \.self) { seller in
+                        ForEach(productListVM.seller.filter({ searchText.isEmpty ? true : $0.name!.contains(searchText)}), id: \.self) { seller in
                             NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)
                                             .onAppear(perform: {
                                 uiTabarController?.tabBar.isHidden = true
