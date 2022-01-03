@@ -149,6 +149,7 @@ struct InProgessButton: View {
     @StateObject var vm: OrderDetailSellerViewModel
     var orderId: Int
     @State private var navigate = false
+    @State private var viewRevision = false
     
     var body: some View {
         VStack (spacing: 9) {
@@ -167,17 +168,19 @@ struct InProgessButton: View {
                 .opacity(vm.detailModel.order_status == OrderStatus.waiting.rawValue ? 0.3 : 1)
             }
             
-            Button {
-                
-            } label: {
-                Text("View Revision")
-                    .font(.custom(ThemeFont.displaySemiBold, size: 18))
-                    .frame(width: 358, height: 50)
-                    .foregroundColor(Color.theme.primary)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.theme.primary, lineWidth: 1)
-                    )
+            NavigationLink(destination: ViewRevision(orderId: orderId), isActive: $viewRevision) {
+                Button {
+                    self.viewRevision.toggle()
+                } label: {
+                    Text("View Revision")
+                        .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                        .frame(width: 358, height: 50)
+                        .foregroundColor(Color.theme.primary)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.theme.primary, lineWidth: 1)
+                        )
+                }
             }
             .disabled(vm.detailModel.order_status == OrderStatus.needRevision.rawValue ? false : true)
             .opacity(vm.detailModel.order_status == OrderStatus.needRevision.rawValue ? 1 : 0.3)

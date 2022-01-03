@@ -24,3 +24,8 @@ struct OrderRevision: Identifiable {
     var file_path = String()
     var selected = false
 }
+
+struct RevisionListModel: Codable, Identifiable {
+    let id: Int
+    let image: String
+}

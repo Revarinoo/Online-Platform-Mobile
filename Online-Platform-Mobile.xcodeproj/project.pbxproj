@@ -77,6 +77,8 @@
 		F702F8B727830B6C00B9E6B6 /* AdminComplainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */; };
 		F702F8B9278329CC00B9E6B6 /* ComplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8B8278329CC00B9E6B6 /* ComplainDetailView.swift */; };
 		F702F8BB27832F4700B9E6B6 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8BA27832F4700B9E6B6 /* TextArea.swift */; };
+		F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8BD2783546600B9E6B6 /* ViewRevision.swift */; };
+		F702F8C02783595C00B9E6B6 /* ImageRevisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F8BF2783595C00B9E6B6 /* ImageRevisionViewModel.swift */; };
 		F71A70FA2779648B00D35FEB /* PendingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70F92779648B00D35FEB /* PendingButton.swift */; };
 		F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */; };
 		F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FD2779FC9600D35FEB /* ReviewService.swift */; };
@@ -233,6 +235,8 @@
 		F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminComplainViewModel.swift; sourceTree = "<group>"; };
 		F702F8B8278329CC00B9E6B6 /* ComplainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainDetailView.swift; sourceTree = "<group>"; };
 		F702F8BA27832F4700B9E6B6 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		F702F8BD2783546600B9E6B6 /* ViewRevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRevision.swift; sourceTree = "<group>"; };
+		F702F8BF2783595C00B9E6B6 /* ImageRevisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRevisionViewModel.swift; sourceTree = "<group>"; };
 		F71A70F92779648B00D35FEB /* PendingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingButton.swift; sourceTree = "<group>"; };
 		F71A70FB2779FC7600D35FEB /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		F71A70FD2779FC9600D35FEB /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
@@ -514,6 +518,7 @@
 		4EE4F37727663DBE0001B874 /* Seller */ = {
 			isa = PBXGroup;
 			children = (
+				F702F8BC2783545600B9E6B6 /* Revision */,
 				F7CC91252780133500F43832 /* Submit Result */,
 				F7EBC69327731682009768E4 /* OrderDetail */,
 				F7EBC6902772EFC2009768E4 /* Order */,
@@ -606,6 +611,15 @@
 				F702F8B627830B6C00B9E6B6 /* AdminComplainViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		F702F8BC2783545600B9E6B6 /* Revision */ = {
+			isa = PBXGroup;
+			children = (
+				F702F8BD2783546600B9E6B6 /* ViewRevision.swift */,
+				F702F8BF2783595C00B9E6B6 /* ImageRevisionViewModel.swift */,
+			);
+			path = Revision;
 			sourceTree = "<group>";
 		};
 		F71A70F82779645400D35FEB /* Views */ = {
@@ -1096,6 +1110,7 @@
 				F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */,
 				F7C70E22277E0BD7002A5C26 /* AdminProductViewModel.swift in Sources */,
 				4E0DEE2D276F9F6000A953DE /* Rating.swift in Sources */,
+				F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
@@ -1175,6 +1190,7 @@
 				F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */,
 				F7CC911F277EF8DB00F43832 /* TransactionDetailView.swift in Sources */,
 				4EE4F3732765F4420001B874 /* ImagePicker.swift in Sources */,
+				F702F8C02783595C00B9E6B6 /* ImageRevisionViewModel.swift in Sources */,
 				F7D6A4A227200A2100E0BCD1 /* AuthResponse.swift in Sources */,
 				4E58D342273033C80035D7C6 /* CategoryListViewModel.swift in Sources */,
 				4EAEC763277861DE000B6713 /* EditProduct.swift in Sources */,

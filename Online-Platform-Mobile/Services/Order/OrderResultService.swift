@@ -65,4 +65,12 @@ class OrderResultService {
                 }
             }
     }
+    
+    func getOrderRevision(orderId: Int, completionHandler: @escaping(_ result: [RevisionListModel]?) -> Void) {
+        Alamofire.request(HttpService.endpoint + "order/revision/\(orderId)", method: .get, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                let data  = try? JSONDecoder().decode([RevisionListModel].self, from: response.data!)
+                completionHandler(data)
+            }
+    }
 }
