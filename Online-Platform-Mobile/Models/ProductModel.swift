@@ -31,4 +31,9 @@ struct CreateProductResponse: Codable {
     let message: String
 }
 
-
+struct OrderReviewModel: Codable {
+    var user_photo = String()
+    var user_name = String()
+    var rating = Int()
+    var comment = String()
+}

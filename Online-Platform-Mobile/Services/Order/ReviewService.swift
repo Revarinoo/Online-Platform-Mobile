@@ -31,7 +31,16 @@ class ReviewService {
                     print(error.localizedDescription)
 
                 }
-
+            }
+    }
+    
+    func getReviewByOrder(orderId: Int, completionHandler: @escaping(_ result: OrderReviewModel?) -> Void) {
+        Alamofire.request(HttpService.endpoint + "order/review/\(orderId)", method: .get)
+            .responseJSON { response in
+                if let responseData = response.data {
+                    let data = try? JSONDecoder().decode(OrderReviewModel.self, from: responseData)
+                    completionHandler(data)
+                }
             }
     }
     

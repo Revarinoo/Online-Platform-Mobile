@@ -129,6 +129,8 @@
 		F7A89957275E6C7700263321 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = F7A89956275E6C7700263321 /* Introspect */; };
 		F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89958275E7A0B00263321 /* ChatModel.swift */; };
 		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
+		F7BE5790278366970096F305 /* SellerReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BE578F278366970096F305 /* SellerReviewViewModel.swift */; };
+		F7BE5792278367AE0096F305 /* SellerReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BE5791278367AE0096F305 /* SellerReviewView.swift */; };
 		F7C70E0F277B44CF002A5C26 /* CreateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */; };
 		F7C70E16277C98B2002A5C26 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E15277C98B2002A5C26 /* ProductModel.swift */; };
 		F7C70E18277C9B2C002A5C26 /* MyProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E17277C9B2C002A5C26 /* MyProductViewModel.swift */; };
@@ -284,6 +286,8 @@
 		F7A89952275E652100263321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F7A89958275E7A0B00263321 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
+		F7BE578F278366970096F305 /* SellerReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReviewViewModel.swift; sourceTree = "<group>"; };
+		F7BE5791278367AE0096F305 /* SellerReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReviewView.swift; sourceTree = "<group>"; };
 		F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductModel.swift; sourceTree = "<group>"; };
 		F7C70E15277C98B2002A5C26 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		F7C70E17277C9B2C002A5C26 /* MyProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductViewModel.swift; sourceTree = "<group>"; };
@@ -518,6 +522,7 @@
 		4EE4F37727663DBE0001B874 /* Seller */ = {
 			isa = PBXGroup;
 			children = (
+				F7BE578E2783667D0096F305 /* Review */,
 				F702F8BC2783545600B9E6B6 /* Revision */,
 				F7CC91252780133500F43832 /* Submit Result */,
 				F7EBC69327731682009768E4 /* OrderDetail */,
@@ -867,6 +872,15 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		F7BE578E2783667D0096F305 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				F7BE578F278366970096F305 /* SellerReviewViewModel.swift */,
+				F7BE5791278367AE0096F305 /* SellerReviewView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		F7C70E10277B4842002A5C26 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1185,6 +1199,7 @@
 				F7EBC695277316DE009768E4 /* OrderDetailSellerView.swift in Sources */,
 				4E1920962726BE9600B349C7 /* CategoryCard.swift in Sources */,
 				18E3AFB9277389BA00A476E5 /* ProductListView.swift in Sources */,
+				F7BE5792278367AE0096F305 /* SellerReviewView.swift in Sources */,
 				4E0DEE29276F8FB000A953DE /* OrderReview.swift in Sources */,
 				4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */,
 				F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */,
@@ -1198,6 +1213,7 @@
 				4EE4F37B27663EE90001B874 /* CreatePackageView.swift in Sources */,
 				4E102D5D275A2BD800AAC2D9 /* PhotoPicker.swift in Sources */,
 				F75CE2CF2741742300F0977E /* RoundedCorner.swift in Sources */,
+				F7BE5790278366970096F305 /* SellerReviewViewModel.swift in Sources */,
 				F7EBC69B277382D4009768E4 /* PackageView.swift in Sources */,
 				F75CE2C327411F5400F0977E /* DismissKeyboard.swift in Sources */,
 				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,

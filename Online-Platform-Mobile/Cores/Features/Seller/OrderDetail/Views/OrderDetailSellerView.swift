@@ -23,6 +23,7 @@ struct OrderDetailSellerView: View {
     var orderId: Int
     @State var uiTabBarController: UITabBarController?
     @State private var isChat = false
+    @State private var review = false
     
     var body: some View {
         ScrollView (.vertical, showsIndicators: false) {
@@ -114,6 +115,16 @@ struct OrderDetailSellerView: View {
                 else if detailVM.detailModel.order_status != OrderStatus.completed.rawValue {
                     InProgessButton(vm: detailVM, orderId: self.orderId)
                 }
+                else {
+                    NavigationLink(destination: SellerReviewView(orderId: orderId), isActive: $review) {
+                        Button {
+                            self.review.toggle()
+                        } label: {
+                            reviewButton
+                        }
+                    }
+                    .padding(.top ,100)
+                }
 
             }
             .navigationTitle("Order Detail")
@@ -137,6 +148,15 @@ struct OrderDetailSellerView: View {
                 uiTabBarController = UITabBarController
             }
         }
+    }
+    
+    var reviewButton: some View {
+        Text("Review")
+            .font(.custom(ThemeFont.displaySemiBold, size: 18))
+            .frame(width: 358, height: 50)
+            .foregroundColor(Color.theme.primary)
+            .background(Color.theme.secondary)
+            .cornerRadius(15)
     }
 }
 

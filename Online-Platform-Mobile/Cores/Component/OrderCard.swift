@@ -34,7 +34,7 @@ struct OrderCard: View {
                                 .foregroundColor(Color.gray)
                                 .font(.custom(ThemeFont.displayRegular, size: 13.5))
                             
-                            if !isClient && (order.status != OrderStatus.pending.rawValue || order.status != OrderStatus.completed.rawValue) {
+                            if !isClient && (order.status != OrderStatus.pending.rawValue && order.status != OrderStatus.completed.rawValue) {
                                 Text(order.status == "Upcoming" ? "Not Submitted" : order.status)
                                     .font(.custom(ThemeFont.displayRegular, size: 12))
                                     .foregroundColor(order.status == "Waiting" ? Color.theme.darkGreen : Color.theme.orange)
