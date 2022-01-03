@@ -3,61 +3,40 @@
 //  Online-Platform-Mobile
 //
 //  Created by Christian Adiputra on 28/12/21.
-//
+//  Edited by Reva on 02/01/2022
 
 import SwiftUI
-
-struct Photo: Hashable {
-    var image: String
-    var img_op: Double
-    var selected: Bool = Bool()
-}
+import SDWebImageSwiftUI
 
 struct OrderResultView: View {
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     private let gridItem = Array(repeating: GridItem(.flexible(),spacing: 2),count: 4)
-    
     private let threeColumnGrid = [
         GridItem(.adaptive(minimum:40)),
         GridItem(.flexible(minimum: 40)),
         GridItem(.flexible(minimum: 40))
     ]
-    
-    @State var foto = [
-        Photo(image: "0", img_op: 100.0, selected: false),
-        Photo(image: "1", img_op: 100.0,  selected: false),
-        Photo(image: "2", img_op: 2.0, selected: false),
-        Photo(image: "3", img_op: 2.0,  selected: false),
-        Photo(image: "4", img_op: 100.0, selected: false),
-        Photo(image: "5", img_op: 100.0,  selected: false),
-        Photo(image: "6", img_op: 2.0, selected: false),
-        Photo(image: "7", img_op: 2.0,  selected: false),
-        Photo(image: "0", img_op: 100.0, selected: false),
-        Photo(image: "1", img_op: 100.0,  selected: false),
-        Photo(image: "2", img_op: 2.0, selected: false),
-        Photo(image: "3", img_op: 2.0,  selected: false),
-        Photo(image: "0", img_op: 100.0, selected: false),
-        Photo(image: "1", img_op: 100.0,  selected: false),
-        Photo(image: "2", img_op: 2.0, selected: false),
-        Photo(image: "3", img_op: 2.0,  selected: false)
-    ]
-    
     @State var revision = false
     @State var count = 0
-    @StateObject var orderresultVM = OrderResultViewModel()
-    
+    @StateObject private var orderResultVM = OrderResultViewModel()
+    var orderId: Int
     
     var body: some View {
         ZStack {
             VStack {
                 Text("Photo Result")
-                    .bold()
+                    .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                    .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+                    .padding(.leading, 16)
+                if orderResultVM.results.count == 0 {
+                    emptyView
+                        .padding(.top, 156)
+                }
                 ScrollView {
                     LazyVGrid(columns: gridItem, alignment: .center) {
-                        
-                        ForEach(foto, id: \.self) { item in
+                        ForEach(orderResultVM.results, id: \.id) { item in
                             GeometryReader { gr in
-                                card(orderresultVM: orderresultVM, image: item, onrevision: $revision, count: $count)
+                                card(orderresultVM: orderResultVM, image: item, onrevision: $revision, count: $count)
                             }
                             .clipped()
                             .aspectRatio(1, contentMode: .fit)
@@ -67,62 +46,83 @@ struct OrderResultView: View {
                 .padding()
                 Spacer()
                 VStack (alignment: .leading){
-                    Text("\(orderresultVM.selectedPhoto.count) Photo selected ")
+                    Text("\(orderResultVM.selectedPhoto.count) Photo selected ")
                         .bold()
                         .padding(.top)
                     HStack {
-                        
+                        PrimaryButton(content: "Complain", maxWidth: 80, action: {
+                        }, btnColor: Color.red, textColor: Color.white)
+                            .disabled(orderResultVM.revisionAvailable ? true : false)
+                            .opacity(orderResultVM.revisionAvailable ? 0.5 : 1)
                         PrimaryButton(content: "Revision", maxWidth: 80, action: {
                             self.revision.toggle()
                         }, btnColor: Color.red, textColor: Color.white)
+                            .disabled(!orderResultVM.revisionAvailable ? true : false)
+                            .opacity(!orderResultVM.revisionAvailable ? 0.5 : 1)
                             
-                        PrimaryButton(content: "Completed", maxWidth: 50, action: {
-                            //
+                        PrimaryButton(content: revision ? "Submit" : "Completed", maxWidth: 50, action: {
+                            if revision {
+                                orderResultVM.requestRevision(orderId: orderId)
+                            }
+                            else {
+                                orderResultVM.completeOrder(orderId: orderId)
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }, btnColor: Color.theme.primary, textColor: Color.white)
-                            
-                        
                     }
                 }
-                .ignoresSafeArea()
                 .padding([.leading, .trailing, .bottom], 16)
                 .frame(width: UIScreen.main.bounds.width, height: 120)
                 .background(Color.init(hex: "F7F7F7"))
-                
-                
             }
             
-            if orderresultVM.preview {
+            if orderResultVM.preview {
                 ZStack {
                     Rectangle()
                         .fill(Color.gray)
                         .opacity(0.8)
                         .ignoresSafeArea()
                         .onTapGesture {
-                            orderresultVM.preview.toggle()
+                            orderResultVM.preview.toggle()
                         }
                     
-                    
-                    Image(orderresultVM.imagepreview)
+                    WebImage(url: URL(string: orderResultVM.imagepreview))
                         .resizable()
                         .scaledToFit()
                         .onTapGesture {
-                            orderresultVM.preview.toggle()
+                            orderResultVM.preview.toggle()
                         }
-                        
                 }
             }
-            
         }
-        
-        
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationTitle("Result")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            orderResultVM.getOrderResult(orderId: self.orderId)
+        }
+        .onChange(of: orderResultVM.revisionSubmitted) { _ in
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    var emptyView: some View {
+        VStack (spacing: 15) {
+            Image("noResult")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 247, height: 235, alignment: .center)
+            Text("No result uploaded yet ...")
+                .font(.custom(ThemeFont.displayMedium, size: 22.5))
+        }
     }
 }
 
 struct card: View {
     
-    @ObservedObject var orderresultVM:OrderResultViewModel
+    @ObservedObject var orderresultVM: OrderResultViewModel
     
-    @State var image: Photo
+    @State var image: OrderRevision
     @Binding var onrevision: Bool
     @State var tapped: Bool = false
     @Binding var count: Int
@@ -132,28 +132,13 @@ struct card: View {
         ZStack {
             
             if onrevision {
-                Image(image.image)
+                WebImage(url: URL(string: image.file_path))
                     .resizable()
                     .opacity(self.image.selected ? 1 : 0.3)
             } else {
-                Image(image.image)
+                WebImage(url: URL(string: image.file_path))
                     .resizable()
             }
-            
-            //            if tapped {
-            //                popupImage(image: $image)
-            //            }
-            
-            
-            //                        if self.image.selected {
-            //                            Color.black.opacity(0.5)
-            //                            ZStack {
-            //                                Image(systemName: "checkmark")
-            //                                    .resizable()
-            //                                    .frame(width: 30, height: 30)
-            //                                    .foregroundColor(.white)
-            //                            }
-            //                        }
             
         }
         .frame(width: (UIScreen.main.bounds.width - 80) / 2, height: 90)
@@ -162,29 +147,24 @@ struct card: View {
                 if !self.image.selected {
                     orderresultVM.selectedPhoto.append(image)
                     self.image.selected.toggle()
-                    print(orderresultVM.selectedPhoto)
                 } else {
                     orderresultVM.removeSelected(selected: image)
                     self.image.selected.toggle()
-                    print(orderresultVM.selectedPhoto)
                 }
 
                 tapped.toggle()
                 count += 1
             } else {
                 orderresultVM.preview.toggle()
-                orderresultVM.imagepreview = image.image
-                
+                orderresultVM.imagepreview = image.file_path
             }
             
         }
     }
-    
-    
 }
 
 struct OrderResultView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderResultView()
+        OrderResultView(orderId: 3)
     }
 }

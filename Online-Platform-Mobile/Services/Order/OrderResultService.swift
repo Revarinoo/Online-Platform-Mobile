@@ -39,9 +39,30 @@ class OrderResultService {
                         completionHandler(response.statusCode)
                     }
                 }
-                
             case .failure(let error): print(error.localizedDescription)
             }
         }
+    }
+    
+    func getOrderResult(orderId: Int, completionHandler: @escaping(_ result: [OrderResult], _ revisionAvailable: Bool) -> Void) {
+        Alamofire.request(HttpService.endpoint + "order/result/\(orderId)", method: .get, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                let data = try? JSONDecoder().decode(OrderResultResponse.self, from: response.data!)
+                completionHandler(data!.data, data!.revisionAvailable)
+            }
+    }
+    
+    func requestRevision(orderId: Int, reports: [Int], completionHandler: @escaping(_ code: Int)->Void) {
+        let parameters: [String: Any] = [
+            "order_id": orderId,
+            "reports": reports
+        ]
+        
+        Alamofire.request(HttpService.endpoint + "order/result/revision", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { data in
+                if let response = data.response {
+                    completionHandler(response.statusCode)
+                }
+            }
     }
 }

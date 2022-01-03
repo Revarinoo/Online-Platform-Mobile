@@ -129,6 +129,7 @@
 		F7C70E22277E0BD7002A5C26 /* AdminProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E21277E0BD7002A5C26 /* AdminProductViewModel.swift */; };
 		F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86F262719691300C26C22 /* HomeClientViewModel.swift */; };
 		F7CB13CD2781856B007E9D91 /* OrderResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB13CC2781856B007E9D91 /* OrderResultService.swift */; };
+		F7CB13CF2781D392007E9D91 /* OrderResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB13CE2781D392007E9D91 /* OrderResultModel.swift */; };
 		F7CC9118277EB41500F43832 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9117277EB41500F43832 /* TransactionListView.swift */; };
 		F7CC911A277EB49000F43832 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC9119277EB49000F43832 /* TransactionViewModel.swift */; };
 		F7CC911F277EF8DB00F43832 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC911E277EF8DB00F43832 /* TransactionDetailView.swift */; };
@@ -275,6 +276,7 @@
 		F7C70E21277E0BD7002A5C26 /* AdminProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductViewModel.swift; sourceTree = "<group>"; };
 		F7C86F262719691300C26C22 /* HomeClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClientViewModel.swift; sourceTree = "<group>"; };
 		F7CB13CC2781856B007E9D91 /* OrderResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultService.swift; sourceTree = "<group>"; };
+		F7CB13CE2781D392007E9D91 /* OrderResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultModel.swift; sourceTree = "<group>"; };
 		F7CC9117277EB41500F43832 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		F7CC9119277EB49000F43832 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		F7CC911E277EF8DB00F43832 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				F7025BED27742E3100560393 /* OrderDetailModel.swift */,
 				F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */,
 				F7C70E15277C98B2002A5C26 /* ProductModel.swift */,
+				F7CB13CE2781D392007E9D91 /* OrderResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				F71A70FC2779FC7600D35FEB /* ReviewViewModel.swift in Sources */,
 				F7C70E0F277B44CF002A5C26 /* CreateProductModel.swift in Sources */,
 				F7D6A4A0272007D000E0BCD1 /* HttpService.swift in Sources */,
+				F7CB13CF2781D392007E9D91 /* OrderResultModel.swift in Sources */,
 				F76EDFAA277035010078D4A0 /* ChooseLocationView.swift in Sources */,
 				F7C86F272719691300C26C22 /* HomeClientViewModel.swift in Sources */,
 				F7C70E18277C9B2C002A5C26 /* MyProductViewModel.swift in Sources */,

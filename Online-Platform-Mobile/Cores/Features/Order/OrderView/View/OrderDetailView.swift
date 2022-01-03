@@ -16,10 +16,11 @@ struct OrderDetailView: View {
     @State var showReschedule = false
     @State private var navigateReview = false
     var sellerImage: String
+    @State private var showResult = false
     
     var body: some View {
         VStack {
-            if orderDetailVM.orderDetail.order_status == OrderStatus.upcoming.rawValue {
+            if orderDetailVM.orderDetail.order_status != OrderStatus.completed.rawValue {
                 VStack(alignment: .leading){
                     Text("Order Information")
                         .fontWeight(.semibold)
@@ -69,10 +70,23 @@ struct OrderDetailView: View {
                 }
             }
             else if orderDetailVM.orderDetail.order_status != OrderStatus.completed.rawValue {
-                PrimaryButton(content: "Reschedule", maxWidth: 200, action: {
-                    showReschedule.toggle()
-                }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                    .padding()
+                VStack (spacing: -15) {
+                    PrimaryButton(content: "Reschedule", maxWidth: 200, action: {
+                        showReschedule.toggle()
+                    }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                        .padding()
+                        .disabled(orderDetailVM.isExpired ? true : false)
+                        .opacity(orderDetailVM.isExpired ? 0.5 : 1)
+                    
+                    NavigationLink(destination: OrderResultView(orderId: orderId), isActive: $showResult) {
+                        PrimaryButton(content: "Result", maxWidth: 200, action: {
+                            showResult.toggle()
+                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                            .padding()
+                    }
+                    .disabled(!orderDetailVM.isExpired ? true : false)
+                    .opacity(!orderDetailVM.isExpired ? 0.5 : 1)
+                }
             }
         }
         .navigationBarTitle("Order Detail", displayMode: .inline)
@@ -82,9 +96,6 @@ struct OrderDetailView: View {
         .introspectTabBarController { UITabBarController in
             UITabBarController.tabBar.isHidden = true
             uiTabBarController = UITabBarController
-        }
-        .onDisappear {
-            uiTabBarController?.tabBar.isHidden = false
         }
         .fullScreenCover(isPresented: $showReschedule) {
             RescheduleView(orderDetailVM: orderDetailVM, orderId: orderId, isShowed: $showReschedule)

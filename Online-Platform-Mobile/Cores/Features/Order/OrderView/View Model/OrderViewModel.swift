@@ -66,7 +66,7 @@ class OrderViewModel: ObservableObject {
                     }
                     DispatchQueue.main.async {
                         self.pendingOrders = temp.filter { $0.status == "Pending" }
-                        self.upcomingOrders = temp.filter { $0.status == "Upcoming" }
+                        self.upcomingOrders = temp.filter { $0.status == "Upcoming" || $0.status == "Need Revision" || $0.status == "Not Submitted" || $0.status == "Waiting" }
                         self.completedOrders = temp.filter { $0.status == "Completed" }
                     }
                 }
