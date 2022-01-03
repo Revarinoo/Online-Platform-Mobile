@@ -57,15 +57,9 @@ struct CreateProductView: View {
                 Text("Description")
                     .bold()
                     .padding(.horizontal,30)
-                MultilineTextField(text: $createProductVM.product.description)
-                    .introspectTextField(customize: { textField in
-                        textField.resignFirstResponder()
-                    })
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 0, y: 1)
-                    .padding(.horizontal)
+                
+                TextArea(text: $createProductVM.product.description, placeholder: "Write your product description here", isEditing: .constant(true), height: 154)
+                    .padding(.leading, 16)
                 VStack (alignment: .leading) {
                     HStack {
                         Text("Portfolio")
