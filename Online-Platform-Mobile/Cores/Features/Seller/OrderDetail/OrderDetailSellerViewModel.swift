@@ -28,4 +28,14 @@ class OrderDetailSellerViewModel: ObservableObject {
             self.getOrderDetail(orderId: orderId)
         }
     }
+    
+    func startChat(orderId: Int) {
+        var id: Int = 0
+        orderService.getUserByOrder(orderId: orderId) { userId in
+            if let userId = userId {
+                id = userId
+            }
+        }
+        _ = ChatRoomViewModel().createChatRoom(target: id)
+    }
 }

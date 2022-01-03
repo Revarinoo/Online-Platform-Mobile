@@ -121,6 +121,7 @@ struct OrderDetailSellerView: View {
             .navigationBarItems(trailing:
                                     NavigationLink(destination: ChatList(), isActive: $isChat) {
                 Button(action: {
+                    detailVM.startChat(orderId: orderId)
                     isChat.toggle()
                 }) {
                 Image(systemName: "message").imageScale(.large)

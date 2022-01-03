@@ -15,17 +15,12 @@ struct OrderListView: View {
     @StateObject private var orderVM = SellerOrderViewModel()
     @State var uiTabBarController: UITabBarController?
     
-    //to change segmented color
     init() {
-        //this changes the "thumb" that selects between items
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.primary)
-        //and this changes the color for the whole "bar" background
         UISegmentedControl.appearance().backgroundColor = .white
         
-        //this will change the font size
         UISegmentedControl.appearance().setTitleTextAttributes([.font : UIFont.preferredFont(forTextStyle: .largeTitle)], for: .normal)
         
-        //these lines change the text color for various states
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.white)], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.darkGrey)], for: .normal)
     }

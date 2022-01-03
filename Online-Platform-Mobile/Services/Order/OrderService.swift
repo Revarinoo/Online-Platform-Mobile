@@ -116,4 +116,12 @@ class OrderService {
                 }
             }
     }
+    
+    func getUserByOrder(orderId: Int, completionHandler: @escaping(_ userId: Int?) -> Void) {
+        Alamofire.request(HttpService.endpoint + "order/\(orderId)/user", method: .get)
+            .responseJSON { response in
+                let data = try? JSONDecoder().decode(Int.self, from: response.data!)
+                completionHandler(data)
+            }
+    }
 }
