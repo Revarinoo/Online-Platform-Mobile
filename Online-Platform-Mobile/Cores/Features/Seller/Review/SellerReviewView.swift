@@ -24,13 +24,19 @@ struct SellerReviewView: View {
                 VStack (alignment: .leading, spacing: 9) {
                     Text(reviewVM.review.user_name)
                         .font(.custom(ThemeFont.displayMedium, size: 20))
-                    HStack {
-                        ForEach(0..<reviewVM.review.rating, id: \.self) { _ in
-                            Image("sellerStar")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 31, height: 29)
+                    if reviewVM.review.rating != Int() {
+                        HStack {
+                            ForEach(0..<5, id: \.self) { index in
+                                Image(index < reviewVM.review.rating ? "sellerStar" : "emptyStar")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 31, height: 29)
+                            }
                         }
+                    }
+                    else {
+                        Text("No Review yet")
+                            .font(.custom(ThemeFont.displayMedium, size: 20))
                     }
                 }
             }
