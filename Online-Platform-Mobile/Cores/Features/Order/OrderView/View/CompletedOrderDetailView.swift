@@ -16,7 +16,14 @@ struct CompletedOrderDetailView: View {
             VStack(alignment: .leading){
                 Text("Result Link")
                     .fontWeight(.semibold)
-                TextArea(text: .constant(detailVM.orderDetail.result_link), placeholder: "", isEditing: .constant(false), height: 70)
+                Text(detailVM.orderDetail.result_link)
+                    .padding([.top, .bottom], 21)
+                    .padding([.leading, .trailing], 18)
+                    .frame(width: 358)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
+//                TextArea(text: .constant(detailVM.orderDetail.result_link), placeholder: "", isEditing: .constant(false), height: 70)
             }
             .padding()
             .padding(.top, 90)
