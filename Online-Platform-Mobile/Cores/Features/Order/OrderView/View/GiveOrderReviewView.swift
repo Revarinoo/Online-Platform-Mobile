@@ -59,6 +59,9 @@ struct GiveOrderReviewView: View {
             UITabBarController.tabBar.isHidden = true
             uiTabBarController = UITabBarController
         }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
     }
     
     

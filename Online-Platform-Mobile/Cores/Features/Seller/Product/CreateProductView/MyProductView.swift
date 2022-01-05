@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct NavigationConfigurator: UIViewControllerRepresentable {
     var configure: (UINavigationController) -> Void = { _ in }
@@ -25,6 +26,7 @@ struct MyProductView: View {
     @State var showCreateProduct = false
     @StateObject private var myProductVM = MyProductViewModel()
     @State var productId = 0
+    @State var uiTabBarController: UITabBarController?
     
     var body: some View {
         VStack {
@@ -32,7 +34,7 @@ struct MyProductView: View {
             ScrollView (.vertical, showsIndicators: false) {
                 if myProductVM.products != nil {
                     ForEach(myProductVM.products!.data) { data in
-                        NavigationLink(destination: CreateProductView(showPage: .constant(false), productId: data.id)) {
+                        NavigationLink(destination: CreateProductView(showPage: .constant(false), productId: data.id, productVM: myProductVM)) {
                             ProductCard(product: data)
                                 .frame(width: 358, height: 95)
                                 .background(Color.white)
@@ -57,10 +59,14 @@ struct MyProductView: View {
             }
         }
         .sheet(isPresented: $showCreateProduct) {
-            CreateProductView(showPage: $showCreateProduct)
+            CreateProductView(showPage: $showCreateProduct, productVM: myProductVM)
         }
         .onAppear {
             myProductVM.getAllProduct()
+        }
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = false
+            uiTabBarController = UITabBarController
         }
     }
 }

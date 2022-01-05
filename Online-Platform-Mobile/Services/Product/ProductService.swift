@@ -23,7 +23,7 @@ class ProductService {
     func createProduct(productModel: CreateProductModel, completionHandler: @escaping(_ result: Int, _ id: Int) -> Void) {
         var portfolios : [Data] = []
         for portfolio in productModel.portfolios {
-            let imageData = portfolio.pngData()!
+            let imageData = portfolio.jpegData(compressionQuality: 0.7)!
             portfolios.append(imageData)
         }
         
@@ -103,7 +103,7 @@ class ProductService {
     func updateProduct(productId: Int, productModel: CreateProductModel, completionHandler: @escaping(_ statusCode: Int) -> Void) {
         var portfolios : [Data] = []
         for portfolio in productModel.portfolios {
-            let imageData = portfolio.pngData()!
+            let imageData = portfolio.jpegData(compressionQuality: 0.7)!
             portfolios.append(imageData)
         }
         

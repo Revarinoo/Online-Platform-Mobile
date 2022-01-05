@@ -22,22 +22,23 @@ struct Online_Platform_MobileApp: App {
         WindowGroup {
             if token == "" {
                 WelcomeView()
+                    .preferredColorScheme(.light)
             }
             else {
                 if role == "Client" {
-                    TabBar()
+                    TabBar().preferredColorScheme(.light)
                         .onAppear {
                             UserHelper.shared.getUserData()
                         }
                 }
                 else if role == "Seller" {
-                    TabBarSeller(selection: 0)
+                    TabBarSeller(selection: 0).preferredColorScheme(.light)
                         .onAppear {
                             UserHelper.shared.getUserData()
                         }
                 }
                 else {
-                    TabBarAdmin()
+                    TabBarAdmin().preferredColorScheme(.light)
                         .onAppear {
                             UserHelper.shared.getUserData()
                         }
