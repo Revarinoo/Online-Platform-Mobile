@@ -115,7 +115,7 @@ struct FormView: View {
     
     var body: some View {
         VStack (alignment: .leading){
-            LabelForm(content: $registerVM.name, labeltext: "Names", type: "Text")
+            LabelForm(content: $registerVM.name, labeltext: "Name", type: "Text")
             LabelForm(content: $registerVM.email, labeltext: "Email", type: "Text")
             LabelForm(content: $registerVM.password, labeltext: "Password", type: "Password")
             

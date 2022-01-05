@@ -28,8 +28,8 @@ struct EditProfileForm: View {
                 Text("Phone Number")
                     .font(Font.custom(ThemeFont.displayRegular, size: 14))
                     .foregroundColor(Color.theme.darkGrey)
-                TextField("Enter phone number", value: $profile.phoneNumber, formatter: NumberFormatter())
-                    .keyboardType(.numberPad)
+                TextField("Enter phone number", text: $profile.phoneNumber)
+                    .keyboardType(.decimalPad)
                     .textFieldStyle(OvalTextFieldStyleForm())
             }
             VStack(alignment: .leading, spacing: 12){

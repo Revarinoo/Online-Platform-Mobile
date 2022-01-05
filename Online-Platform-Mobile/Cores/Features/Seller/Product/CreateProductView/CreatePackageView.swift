@@ -62,7 +62,7 @@ struct CreatePackageView: View {
                     
                     else if createPackageVM.package.type == "Video" {
                         Section(header: Text("Package Detail")) {
-                            Stepper("Video Amount (\(createPackageVM.package.quantity))") {
+                            Stepper("Video Duration (\(createPackageVM.package.quantity))") {
                                 createPackageVM.package.quantity += 1
                             } onDecrement: {
                                 if createPackageVM.package.quantity - 1 >= 0 {

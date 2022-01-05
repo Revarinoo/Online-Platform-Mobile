@@ -23,41 +23,52 @@ struct GiveOrderReviewView: View {
     var screenwidth =  UIScreen.main.bounds.width
     
     var body: some View {
-        VStack {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                Text("How was your experience?")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                WebImage(url: URL(string: sellerImage))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 140, height: 140)
-                    .cornerRadius(10)
-            }
-            VStack {
-                Rating(rating: $rate)
-                Text("Give 1 star for bad service, 5 for great")
-                    .font(.caption)
-                    .foregroundColor(Color.gray)
-            }
-            .padding(.top)
-            VStack(alignment: .leading) {
-                Text("Write a comment")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                TextArea(text: $reviewtext, placeholder: "Share your experience here...", isEditing: .constant(true))
-            }
-            .padding(.top, 30)
-            .padding()
-            PrimaryButton(content: "Submit", maxWidth: screenwidth, action: {
-                reviewVM.addReview(orderId: orderId, comment: reviewtext, rating: rate)
-                presentationMode.wrappedValue.dismiss()
-            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                VStack {
+                    Text("How was your experience?")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    WebImage(url: URL(string: sellerImage))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 140, height: 140)
+                        .cornerRadius(10)
+                }
+                VStack {
+                    Rating(rating: $rate)
+                    Text("Give 1 star for bad service, 5 for great")
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
+                }
+                .padding(.top)
+                VStack(alignment: .leading) {
+                    Text("Write a comment")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    TextArea(text: $reviewtext, placeholder: "Share your experience here...", isEditing: .constant(true))
+                }
+                .padding(.top, 30)
                 .padding()
-        }
-        .introspectTabBarController { UITabBarController in
-            UITabBarController.tabBar.isHidden = true
-            uiTabBarController = UITabBarController
+                .padding(.bottom, 45)
+                
+                Button {
+                    reviewVM.addReview(orderId: orderId, comment: reviewtext, rating: rate)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Submit")
+                        .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                        .frame(width: 358, height: 50)
+                        .foregroundColor(Color.theme.primary)
+                        .background(Color.theme.secondary)
+                        .cornerRadius(15)
+                }
+                
+            }
+            .introspectTabBarController { UITabBarController in
+                UITabBarController.tabBar.isHidden = true
+                uiTabBarController = UITabBarController
+            }
         }
         .onTapGesture {
             self.dismissKeyboard()

@@ -16,7 +16,7 @@ struct OrderView: View {
     @State var cart: [ProductPackage]
     @State var locationFlag = false
     @StateObject var orderVM = OrderViewModel.shared
-    @State var uiTabarController: UITabBarController?
+    @State var uiTabBarController: UITabBarController?
     @State var location = "Location"
     @State var shipping = "Choose your address"
     
@@ -129,6 +129,10 @@ struct OrderView: View {
         .navigationTitle("Order")
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.bottom)
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
+        }
     }
     
     private func calculateCart(carts: [ProductPackage]) -> String {

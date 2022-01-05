@@ -69,6 +69,9 @@ struct EditProfileView: View {
             self.showThisPage = false
             UserHelper.shared.getUserData()
         }
+        .onAppear {
+            viewModel.fetchData()
+        }
     }
 }
 

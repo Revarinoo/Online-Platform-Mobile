@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct PaymentView: View {
     var amountToPay: String
     var orderId: Int
-    
-    
+    @State var uiTabBarController: UITabBarController?
     
     var body: some View {
         VStack(alignment: .leading){
@@ -60,6 +60,10 @@ struct PaymentView: View {
         .padding()
         .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
+        }
     }
 }
 
