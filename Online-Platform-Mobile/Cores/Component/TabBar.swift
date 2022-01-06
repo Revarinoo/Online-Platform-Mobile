@@ -15,13 +15,23 @@ class TabBarViewModel: ObservableObject {
 struct TabBar: View {
     @StateObject private var tabBarVM = TabBarViewModel.shared
     @State var navTitle = ""
+    @State private var resetNavigationID = UUID()
+    
+    var handler: Binding<Int> { Binding(
+            get: { self.tabBarVM.selected },
+            set: {
+                self.tabBarVM.selected = $0
+                self.resetNavigationID = UUID()
+            }
+        )}
     
     var body: some View {
-            TabView(selection: $tabBarVM.selected) {
+            TabView(selection: handler) {
                 NavigationView {
                     HomeClient()
                         .navigationTitle("Discover")
                 }
+                .id(self.resetNavigationID)
                 .tabItem {
                     Label("Discover", systemImage: "house")
                 }
@@ -30,6 +40,7 @@ struct TabBar: View {
                     ProductView()
                         .navigationTitle("Product List")
                 }
+                .id(self.resetNavigationID)
                 .tabItem {
                     Label("Product", systemImage: "camera")
                 }
@@ -39,6 +50,7 @@ struct TabBar: View {
                     MyOrderView()
                         .navigationTitle("My Order")
                 }
+                .id(self.resetNavigationID)
                 .tabItem {
                     Label("Order", systemImage: "list.dash")
                 }
