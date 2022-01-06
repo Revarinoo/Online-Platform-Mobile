@@ -65,12 +65,14 @@ struct WelcomeView: View {
                             Text("Already have an account?")
                                 .foregroundColor(Color.theme.primarywhite)
                             NavigationLink(
-                                destination: LoginView(selection: .Client),
+                                destination: LoginView(selection: .Client)
+                                    .navigationTitle(Text("Log in")),
                                 label: {
                                     Text("Sign In")
                                         .bold()
                                         .foregroundColor(Color.theme.primarywhite)
                                 })
+                            
                         }
                     }
                     .padding()
