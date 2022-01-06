@@ -48,7 +48,7 @@ struct CreatePackageView: View {
                                 Text("Commercial Use")
                             }
                             Toggle(isOn: $createPackageVM.package.editing) {
-                                Text("Lighting Editing")
+                                Text("Light Editing")
                             }
                             Stepper("Revision Amount (\(createPackageVM.package.revision))") {
                                 createPackageVM.package.revision += 1
