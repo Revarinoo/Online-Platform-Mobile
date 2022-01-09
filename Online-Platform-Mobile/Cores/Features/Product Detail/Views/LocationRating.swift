@@ -23,7 +23,7 @@ struct LocationRating: View {
                 .frame(width: 42, height: 42)
             VStack (alignment: .leading) {
                 HStack {
-                    Text(type == "Location" ? location! : "\(rating!)")
+                    Text(type == "Location" ? location! : "\(String(format: "%.1f", rating!))")
                         .font(.custom(ThemeFont.displayMedium, size: 15))
                         .foregroundColor(Color.theme.primary)
                     Text(type == "Rating" ? "(\(reviewCount!) reviews)" : "")

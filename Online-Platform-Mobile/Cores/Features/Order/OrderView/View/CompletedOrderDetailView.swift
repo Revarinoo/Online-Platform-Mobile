@@ -7,23 +7,51 @@
 
 import SwiftUI
 import TextView
+import MobileCoreServices
 
 struct CompletedOrderDetailView: View {
     var detailVM: OrderDetailViewModel
+    @State private var copyLogo = "doc.on.doc"
+    @State private var isCopied = false
     
     var body: some View {
         VStack (spacing: 0) {
             VStack(alignment: .leading){
                 Text("Result Link")
                     .fontWeight(.semibold)
-                Text(detailVM.orderDetail.result_link)
-                    .padding([.top, .bottom], 21)
-                    .padding([.leading, .trailing], 18)
-                    .frame(width: 358)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
-//                TextArea(text: .constant(detailVM.orderDetail.result_link), placeholder: "", isEditing: .constant(false), height: 70)
+                
+                ZStack {
+                    Text(detailVM.orderDetail.result_link)
+                        .padding([.top, .bottom], 21)
+                        .padding([.leading, .trailing], 18)
+                        .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 4, x: 0, y: 2)
+                    HStack {
+                        Spacer()
+                        Image(systemName: copyLogo)
+                            .padding(.trailing, 16)
+                            .onTapGesture {
+                                UIPasteboard.general.setValue(detailVM.orderDetail.result_link, forPasteboardType: "public.plain-text")
+                                self.copyLogo = "doc.on.doc.fill"
+                                self.isCopied.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    self.isCopied.toggle()
+                                    self.copyLogo = "doc.on.doc"
+                                }
+                            }
+                    }
+                }
+                
+                if isCopied {
+                    HStack {
+                        Spacer()
+                        Text("Copied!")
+                            .foregroundColor(Color.theme.darkGrey)
+                            .font(.custom(ThemeFont.displayRegular, size: 12))
+                    }
+                }
             }
             .padding()
             .padding(.top, 90)
