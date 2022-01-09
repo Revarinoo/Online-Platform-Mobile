@@ -59,6 +59,10 @@ struct ChatList: View {
         .onAppear {
             chatVM.getData()
         }
+//        .onChange(of: chatVM.chatData, perform: { _ in
+//            chatVM.removeData()
+//            chatVM.getData()
+//        })
         .introspectTabBarController { (UITabBarController) in
             if role == "Client" {
                 UITabBarController.tabBar.isHidden = true

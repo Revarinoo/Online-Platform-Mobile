@@ -84,8 +84,6 @@ struct OrderDetailView: View {
                         }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                             .padding()
                     }
-                    .disabled(!orderDetailVM.isExpired ? true : false)
-                    .opacity(!orderDetailVM.isExpired ? 0.5 : 1)
                 }
             }
         }

@@ -12,7 +12,7 @@ struct RatingCard: View {
     var rate: Double
     
     var body: some View {
-        Label(String(rate), systemImage: "star.fill")
+        Label(String(format: "%.1f", rate), systemImage: "star.fill")
             .font(.caption)
             .foregroundColor(Color.theme.secpurple)
             .padding(.vertical,5)

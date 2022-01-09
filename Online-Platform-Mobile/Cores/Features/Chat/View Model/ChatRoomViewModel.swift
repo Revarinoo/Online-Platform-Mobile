@@ -16,6 +16,7 @@ class ChatRoomViewModel: ObservableObject {
     @Published var chatRooms: [ChatRoom] = []
     private var service = UserService()
     @AppStorage("role", store: .standard) var role = ""
+    @Published var countData = 0
     
     func removeData() {
         self.chatRooms.removeAll()
@@ -35,12 +36,31 @@ class ChatRoomViewModel: ObservableObject {
                 self.getUser(id: users[self.role == "Client" ? 1 : 0]) { [weak self] data in
                     DispatchQueue.main.async {
                         self!.getLastMessage(docId: docId) { [weak self] lastMsg, timeMsg  in
+                            self!.checkData(docId: docId)
                             self!.chatData.append(ChatData(chatRooms: ChatRoom(id: docId, users: users), targetUser: data, lastMessage: lastMsg, timeMessage: timeMsg))
+                            self!.sortChat()
                         }
                     }
                 }
+                
                 return ChatRoom(id: docId, users: users)
             })
+        }
+    }
+    
+    private func checkData(docId: String) {
+        for (index, data) in chatData.enumerated() {
+            if data.chatRooms.id == docId {
+                chatData.remove(at: index)
+            }
+        }
+    }
+    
+    private func sortChat() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        chatData.sort{
+            dateFormatter.date(from: $0.timeMessage!)! > dateFormatter.date(from: $1.timeMessage!)!
         }
     }
     
@@ -62,6 +82,7 @@ class ChatRoomViewModel: ObservableObject {
                 let sentAt = (data["sentAt"] as? Timestamp)?.dateValue() ?? Date()
                 return Message(id: docId, content: content, sender: sender, sentAt: sentAt)
             })
+            
             result(messages.last?.content ?? "", dateFormatter.string(from: messages.last?.sentAt ?? Date()))
         }
     }

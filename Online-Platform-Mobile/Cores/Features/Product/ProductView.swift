@@ -17,6 +17,7 @@ struct ProductView: View {
     
     var body: some View {
             VStack {
+                Divider().background(Color.init(hex: "A7A7A7"))
                 SearchBar(text: $searchText)
                 ScrollView (.horizontal, showsIndicators: false, content: {
                     HStack {

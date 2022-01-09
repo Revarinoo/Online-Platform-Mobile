@@ -85,6 +85,9 @@
 		F71A7100277A212900D35FEB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A70FF277A212900D35FEB /* EditProfileView.swift */; };
 		F71A7104277A23EE00D35FEB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A7103277A23EE00D35FEB /* ProfileViewModel.swift */; };
 		F71A7106277A2F8400D35FEB /* EditProfileForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A7105277A2F8400D35FEB /* EditProfileForm.swift */; };
+		F71ECFBA2789C1C800D1B077 /* MapsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ECFB92789C1C700D1B077 /* MapsModel.swift */; };
+		F71ECFBD2789C58F00D1B077 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ECFBC2789C58F00D1B077 /* LocationService.swift */; };
+		F71ECFBF2789E2C800D1B077 /* PhotoPlacesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71ECFBE2789E2C800D1B077 /* PhotoPlacesDetailView.swift */; };
 		F7253C782771908400B8652B /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C772771908400B8652B /* NavigationExtension.swift */; };
 		F7253C7A2772089D00B8652B /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C792772089D00B8652B /* OrderDetailViewModel.swift */; };
 		F7253C7C27720D3700B8652B /* ClientOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */; };
@@ -129,6 +132,9 @@
 		F7A89957275E6C7700263321 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = F7A89956275E6C7700263321 /* Introspect */; };
 		F7A89959275E7A0B00263321 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A89958275E7A0B00263321 /* ChatModel.swift */; };
 		F7A9A1C92742CDB700109692 /* SFProDisplay-Italic.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */; };
+		F7ADD9AE27896B21002EFEF1 /* RecommendationPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADD9AD27896B21002EFEF1 /* RecommendationPlaceView.swift */; };
+		F7ADD9B027897484002EFEF1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADD9AF27897484002EFEF1 /* LocationManager.swift */; };
+		F7ADD9B227897590002EFEF1 /* MKCoordinateRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADD9B127897590002EFEF1 /* MKCoordinateRegion.swift */; };
 		F7BE5790278366970096F305 /* SellerReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BE578F278366970096F305 /* SellerReviewViewModel.swift */; };
 		F7BE5792278367AE0096F305 /* SellerReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BE5791278367AE0096F305 /* SellerReviewView.swift */; };
 		F7C70E0F277B44CF002A5C26 /* CreateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */; };
@@ -245,6 +251,9 @@
 		F71A70FF277A212900D35FEB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		F71A7103277A23EE00D35FEB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F71A7105277A2F8400D35FEB /* EditProfileForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileForm.swift; sourceTree = "<group>"; };
+		F71ECFB92789C1C700D1B077 /* MapsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsModel.swift; sourceTree = "<group>"; };
+		F71ECFBC2789C58F00D1B077 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		F71ECFBE2789E2C800D1B077 /* PhotoPlacesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPlacesDetailView.swift; sourceTree = "<group>"; };
 		F7253C772771908400B8652B /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
 		F7253C792772089D00B8652B /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		F7253C7B27720D3700B8652B /* ClientOrderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderDetailModel.swift; sourceTree = "<group>"; };
@@ -286,6 +295,9 @@
 		F7A89952275E652100263321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F7A89958275E7A0B00263321 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		F7A9A1C82742CDB700109692 /* SFProDisplay-Italic.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Italic.OTF"; sourceTree = "<group>"; };
+		F7ADD9AD27896B21002EFEF1 /* RecommendationPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationPlaceView.swift; sourceTree = "<group>"; };
+		F7ADD9AF27897484002EFEF1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F7ADD9B127897590002EFEF1 /* MKCoordinateRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegion.swift; sourceTree = "<group>"; };
 		F7BE578F278366970096F305 /* SellerReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReviewViewModel.swift; sourceTree = "<group>"; };
 		F7BE5791278367AE0096F305 /* SellerReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReviewView.swift; sourceTree = "<group>"; };
 		F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductModel.swift; sourceTree = "<group>"; };
@@ -441,6 +453,7 @@
 				F7D4AC9727578D0B000B0B99 /* DateExtension.swift */,
 				F7253C772771908400B8652B /* NavigationExtension.swift */,
 				4E28FD792777BC7800725DBB /* NavigationConfigurator.swift */,
+				F7ADD9B127897590002EFEF1 /* MKCoordinateRegion.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -655,6 +668,14 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		F71ECFBB2789C57600D1B077 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F71ECFBC2789C58F00D1B077 /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		F72900DE2711467F007EF04C = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +742,7 @@
 				F7C70E0E277B44CF002A5C26 /* CreateProductModel.swift */,
 				F7C70E15277C98B2002A5C26 /* ProductModel.swift */,
 				F7CB13CE2781D392007E9D91 /* OrderResultModel.swift */,
+				F71ECFB92789C1C700D1B077 /* MapsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -728,6 +750,7 @@
 		F72901052711491E007EF04C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F71ECFBB2789C57600D1B077 /* Location */,
 				F7CC9122277F38BB00F43832 /* Category */,
 				4EE4F3762765F9BB0001B874 /* Payment */,
 				F7D4AC92275772D8000B0B99 /* Order */,
@@ -833,6 +856,8 @@
 			children = (
 				F76EDFA9277035010078D4A0 /* ChooseLocationView.swift */,
 				F76EDFAF277047CF0078D4A0 /* MapView.swift */,
+				F7ADD9AD27896B21002EFEF1 /* RecommendationPlaceView.swift */,
+				F71ECFBE2789E2C800D1B077 /* PhotoPlacesDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -841,6 +866,7 @@
 			isa = PBXGroup;
 			children = (
 				F76EDFAB277035720078D4A0 /* LocationViewModel.swift */,
+				F7ADD9AF27897484002EFEF1 /* LocationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1124,6 +1150,7 @@
 				F71A70FE2779FC9600D35FEB /* ReviewService.swift in Sources */,
 				F7C70E22277E0BD7002A5C26 /* AdminProductViewModel.swift in Sources */,
 				4E0DEE2D276F9F6000A953DE /* Rating.swift in Sources */,
+				F7ADD9AE27896B21002EFEF1 /* RecommendationPlaceView.swift in Sources */,
 				F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
@@ -1168,8 +1195,11 @@
 				4EABAC52273C3A46000E7D44 /* ProductService.swift in Sources */,
 				F7D5900F273FEE8600A2D916 /* ProductDetailService.swift in Sources */,
 				4EE4F3852769F4740001B874 /* ProfileView.swift in Sources */,
+				F7ADD9B027897484002EFEF1 /* LocationManager.swift in Sources */,
 				F7450B3F2742C1D90061B717 /* PackageCard.swift in Sources */,
 				4E28FD7827776D6800725DBB /* ProductCard.swift in Sources */,
+				F7ADD9B227897590002EFEF1 /* MKCoordinateRegion.swift in Sources */,
+				F71ECFBF2789E2C800D1B077 /* PhotoPlacesDetailView.swift in Sources */,
 				F7D4AC9C2757D774000B0B99 /* TabBar.swift in Sources */,
 				F76EDFAC277035720078D4A0 /* LocationViewModel.swift in Sources */,
 				F71A70FA2779648B00D35FEB /* PendingButton.swift in Sources */,
@@ -1204,6 +1234,7 @@
 				4E0C8210272D9FB40049B8C8 /* Category.swift in Sources */,
 				F7D59012273FF0F200A2D916 /* ProductDetailModel.swift in Sources */,
 				F7CC911F277EF8DB00F43832 /* TransactionDetailView.swift in Sources */,
+				F71ECFBA2789C1C800D1B077 /* MapsModel.swift in Sources */,
 				4EE4F3732765F4420001B874 /* ImagePicker.swift in Sources */,
 				F702F8C02783595C00B9E6B6 /* ImageRevisionViewModel.swift in Sources */,
 				F7D6A4A227200A2100E0BCD1 /* AuthResponse.swift in Sources */,
@@ -1227,6 +1258,7 @@
 				4E75F16D2757A8C700F6D382 /* PaymentView.swift in Sources */,
 				4E30D1A12770EBB200B7BCD0 /* SearchBar.swift in Sources */,
 				F7D59017273FF6D300A2D916 /* ProductDetailResponse.swift in Sources */,
+				F71ECFBD2789C58F00D1B077 /* LocationService.swift in Sources */,
 				4E07267C27182C8400806F54 /* LoginView.swift in Sources */,
 				F72900EB27114680007EF04C /* Online_Platform_MobileApp.swift in Sources */,
 				F71A7100277A212900D35FEB /* EditProfileView.swift in Sources */,
@@ -1362,7 +1394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
 				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;
@@ -1395,7 +1427,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Online-Platform-Mobile/Preview Content\"";
 				DEVELOPMENT_TEAM = PKF8ACHM24;
 				ENABLE_PREVIEWS = YES;

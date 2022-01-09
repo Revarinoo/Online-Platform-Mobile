@@ -23,6 +23,7 @@ struct HomeClient: View {
     var body: some View {
             ScrollView (.vertical, showsIndicators: false, content: {
                 VStack (alignment: .leading) {
+                    Divider().background(Color.init(hex: "A7A7A7"))
                     CouponCard()
                         .padding()
                     VStack (alignment: .leading) {
@@ -49,21 +50,21 @@ struct HomeClient: View {
                             Spacer()
                         }
                         
-                        ScrollView (.vertical, showsIndicators: false, content: {
-                            VStack {
-                                ForEach(homeClientVM.recseller, id: \.self) { seller in
-                                    NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)
-                                                    .onAppear(perform: {
-                                        uiTabarController?.tabBar.isHidden = true
-                                    })
-                                    ) {
-                                        SellerCard(name: seller.name ?? "", category: seller.seller_type ?? [], image: seller.photo ?? "", rate: seller.rating)
-                                            .cornerRadius(15)
-                                            .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
-                                    }
+                        
+                        VStack {
+                            ForEach(homeClientVM.recseller, id: \.self) { seller in
+                                NavigationLink(destination: ProductDetailView(productId: seller.product_id ?? 1)
+                                                .onAppear(perform: {
+                                    uiTabarController?.tabBar.isHidden = true
+                                })
+                                ) {
+                                    SellerCard(name: seller.name ?? "", category: seller.seller_type ?? [], image: seller.photo ?? "", rate: seller.rating)
+                                        .cornerRadius(15)
+                                        .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
                                 }
                             }
-                        })
+                        }
+                        .padding(.bottom, 20)
                     }
                     .padding()
                     

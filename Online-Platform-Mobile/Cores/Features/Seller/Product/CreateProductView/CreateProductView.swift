@@ -96,12 +96,32 @@ struct CreateProductView: View {
                                 }
                                 else {
                                     ForEach(createProductVM.product.portfolios, id:\.self) { image in
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 82, height: 88)
-                                            .background(Color.init(hex: "F3F4F8"))
+                                        ZStack {
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 82, height: 88)
+                                                .background(Color.init(hex: "F3F4F8"))
                                             .cornerRadius(10.0)
+                                            
+                                            VStack {
+                                                HStack {
+                                                    Spacer()
+                                                    Button {
+                                                        if let index = createProductVM.product.portfolios.firstIndex(of: image) {
+                                                            createProductVM.product.portfolios.remove(at: index)
+                                                        }
+                                                    } label: {
+                                                        Image("xButton")
+                                                            .resizable()
+                                                            .scaledToFill()
+                                                            .frame(width: 20, height: 20)
+                                                            .padding(.trailing, -5)
+                                                    }
+                                                }
+                                                Spacer()
+                                            }
+                                        }
                                     }
                                     if createProductVM.product.portfolios.count < 5 {
                                         Image(systemName: "plus")

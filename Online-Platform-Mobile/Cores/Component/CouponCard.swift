@@ -10,8 +10,9 @@ import SwiftUI
 struct CouponCard: View {
     
     
-    var headcoupon:String = "Welcoming Offer"
-    var detailcoupon:String = "10% off your first order with phorographer"
+    var headcoupon:String = "Welcoming You"
+    var detailcoupon:String = "Find your best spot in town with our photographer"
+    @State private var isNavigate = false
     
     var body: some View {
         
@@ -19,25 +20,30 @@ struct CouponCard: View {
             VStack (alignment: .leading, spacing: 10) {
                 HStack (spacing: 3){
                     Text(headcoupon)
-                        .font(.callout)
+                        .font(.custom(ThemeFont.displayRegular, size: 15))
+                        .foregroundColor(Color.black)
                     Image("bintang")
                         .resizable()
                         .frame(width: 20, height: 20)
                 }
                 Text(detailcoupon)
-                    .font(.callout)
-                    .fontWeight(.semibold)
+                    .font(.custom(ThemeFont.displaySemiBold, size: 15))
                     .lineLimit(2)
-                Button(action: {}, label: {
-                    Text("Book Now")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(maxWidth : .infinity, maxHeight: 30)
-                        .background(Color.theme.secpurple)
-                        .cornerRadius(10)
-                        
-                })
+                    .foregroundColor(Color.black)
+                    
+                NavigationLink(destination: RecommendationPlaceView(), isActive: $isNavigate) {
+                    Button(action: {
+                        self.isNavigate.toggle()
+                    }, label: {
+                        Text("Discover Now")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth : .infinity, maxHeight: 30)
+                            .background(Color.theme.secpurple)
+                            .cornerRadius(10)
+                    })
+                }
             }
             .frame(width: 180)
             

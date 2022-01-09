@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct LocationList: Identifiable {
+struct LocationList: Identifiable, Equatable {
     let placemark: MKPlacemark
     let id = UUID()
     var name: String {

@@ -22,11 +22,11 @@ struct LoginView: View {
                     .ignoresSafeArea()
                 
                 VStack (alignment: .leading){
-//                    Text("Sign In")
-//                        .foregroundColor(Color.theme.primarywhite)
-//                        .font(.title)
-//                        .bold()
-//                        .padding(.horizontal)
+                    Text("Sign In")
+                        .foregroundColor(Color.theme.primarywhite)
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal)
                     
                     VStack {
                         VStack (alignment: .leading) {
@@ -101,7 +101,6 @@ struct LoginView: View {
         .onTapGesture {
             self.dismissKeyboard()
         }
-//        .navigationBarTitle(Text("Sign In"))
     }
 }
 
