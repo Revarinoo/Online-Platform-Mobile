@@ -112,9 +112,8 @@ class ChatRoomViewModel: ObservableObject {
     }
     
     private func isCreated(user: Int, target: Int) -> Bool {
-        getData()
-        for chatroom in chatRooms {
-            if chatroom.users.contains(user) && chatroom.users.contains(target) {
+        for data in chatData {
+            if data.chatRooms.users.contains(user) && data.chatRooms.users.contains(target) {
                 return true
             }
         }

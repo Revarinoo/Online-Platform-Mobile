@@ -27,6 +27,7 @@ struct LoginView: View {
                         .font(.title)
                         .bold()
                         .padding(.horizontal)
+                        .padding(.top, 90)
                     
                     VStack {
                         VStack (alignment: .leading) {
@@ -97,7 +98,7 @@ struct LoginView: View {
                 }
                 
             }
-            
+            .edgesIgnoringSafeArea(.top)
         .onTapGesture {
             self.dismissKeyboard()
         }

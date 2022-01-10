@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Introspect
 
 struct ProductDetailView: View {
     
@@ -18,6 +19,7 @@ struct ProductDetailView: View {
     @StateObject var chatVM = ChatRoomViewModel()
     @State var isCreated = false
     @State var isNavigate = false
+    @State var uiTabBarController: UITabBarController?
     
     var body: some View {
         ZStack {
@@ -122,8 +124,13 @@ struct ProductDetailView: View {
         .padding(.top, 50)
         
         .onAppear {
+            chatVM.getData()
             productDetailVM.getDetail(productId: productId)
             productDetailVM.refresh(productId: productId)
+        }
+        .introspectTabBarController { UITabBarController in
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
         }
     }
     
@@ -161,7 +168,7 @@ struct ProductDetailView: View {
                 Text(productDetailVM.productDetailModel.user.name ?? "")
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
                 Spacer()
-                NavigationLink(destination: ChatList(), isActive: $isNavigate) {
+                NavigationLink(destination: ChatList(vm: chatVM), isActive: $isNavigate) {
                     Button(action: {
                         isCreated = chatVM.createChatRoom(target: productDetailVM.productDetailModel.user.id ?? 0)
                         isNavigate = true

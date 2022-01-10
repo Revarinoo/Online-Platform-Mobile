@@ -174,9 +174,6 @@ struct CreateProductView: View {
                 .sheet(isPresented: $showCreatePackage, content: {
                     CreatePackageView(createPackageVM: createProductVM, showCreatePackage: $showCreatePackage)
                 })
-                .alert(isPresented: $createProductVM.showEmpty, content: {
-                    Alert(title: Text("Failed"), message: Text("All field must be filled"), dismissButton: .default(Text("OK")))
-                })
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -198,6 +195,8 @@ struct CreateProductView: View {
                         } label: {
                             Text("Save")
                         }
+                        .disabled(createProductVM.validateField() ? false : true)
+                        .opacity(createProductVM.validateField() ? 1 : 0.5)
                     }
                 })
                 .navigationBarTitle(productId == nil ? "Create Product" : "Edit Product", displayMode: .inline)

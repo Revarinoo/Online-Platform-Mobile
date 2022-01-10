@@ -13,9 +13,25 @@ struct RecommendationPlaceView: View {
     @StateObject private var locationVM = LocationViewModel()
     @State var showPhotos = false
     @State var uiTabarController: UITabBarController?
+    let categories = ["Rekreasi", "Wisata", "Waterpark"]
+    @State private var selectedCategory = "Rekreasi"
     
     var body: some View {
         VStack {
+            VStack {
+                Menu("Rekreasi") {
+                    Picker("Select Location Category", selection: $selectedCategory) {
+                        ForEach(categories, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                }
+                .foregroundColor(Color.white)
+                .frame(width: UIScreen.main.bounds.width - 32, height: 40)
+                .background(Color.theme.primary)
+                .cornerRadius(6)
+                .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 4, x: 0, y: 2)
+            }
             Map(coordinateRegion: getRegion(), interactionModes: .all, showsUserLocation: true, userTrackingMode: .constant(MapUserTrackingMode.none), annotationItems: locationVM.landmarks) { landmark in
                 MapAnnotation(coordinate: landmark.coordinate) {
                     VStack {
@@ -42,8 +58,11 @@ struct RecommendationPlaceView: View {
                 }
             }
             .onAppear {
-                locationVM.mappingPhotoRecommendation()
+                locationVM.searchLocation(query: selectedCategory)
             }
+            .onChange(of: self.selectedCategory, perform: { newValue in
+                locationVM.searchLocation(query: newValue)
+            })
             .fullScreenCover(isPresented: $showPhotos, content: {
                 PhotoPlacesDetailView(references: locationVM.references, show: $showPhotos)
             })

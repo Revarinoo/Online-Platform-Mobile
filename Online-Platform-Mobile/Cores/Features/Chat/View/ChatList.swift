@@ -13,6 +13,12 @@ struct ChatList: View {
     @StateObject var chatVM = ChatRoomViewModel()
     @State var uiTabBarController: UITabBarController?
     @AppStorage("role", store: .standard) var role = ""
+    @State private var newVM = true
+    
+    init(vm: ChatRoomViewModel = ChatRoomViewModel()) {
+        _chatVM = StateObject(wrappedValue: vm)
+        newVM = false
+    }
     
     var body: some View {
         VStack {
@@ -36,6 +42,7 @@ struct ChatList: View {
                                     Text(data.lastMessage ?? "")
                                         .font(.custom(ThemeFont.displayRegular, size: 13))
                                         .foregroundColor(Color.init(hex: "999999"))
+                                        .multilineTextAlignment(.leading)
                                 }
                                 .padding([.leading, .trailing], 10)
                                 .frame(minWidth: 245, idealWidth: 245, alignment: .leading)
@@ -57,12 +64,10 @@ struct ChatList: View {
             }
         }
         .onAppear {
-            chatVM.getData()
+            if newVM {
+                chatVM.getData()
+            }
         }
-//        .onChange(of: chatVM.chatData, perform: { _ in
-//            chatVM.removeData()
-//            chatVM.getData()
-//        })
         .introspectTabBarController { (UITabBarController) in
             if role == "Client" {
                 UITabBarController.tabBar.isHidden = true
@@ -75,6 +80,6 @@ struct ChatList: View {
 
 struct ChatList_Previews: PreviewProvider {
     static var previews: some View {
-        ChatList()
+        ChatList(vm: ChatRoomViewModel())
     }
 }

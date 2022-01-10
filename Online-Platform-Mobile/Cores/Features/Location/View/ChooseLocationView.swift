@@ -16,6 +16,7 @@ struct ChooseLocationView: View {
     @State private var searchQuery = ""
     @State private var selectedStack: LocationList? = nil
     @State private var isNavigate = false
+    @State var uiTabBarController: UITabBarController?
     
     var body: some View {
         
@@ -71,6 +72,10 @@ struct ChooseLocationView: View {
             .edgesIgnoringSafeArea(.bottom)
             .onTapGesture {
                 self.dismissKeyboard()
+            }
+            .introspectTabBarController { UITabBarController in
+                UITabBarController.tabBar.isHidden = true
+                uiTabBarController = UITabBarController
             }
         }
     }

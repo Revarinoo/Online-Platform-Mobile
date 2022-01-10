@@ -30,10 +30,7 @@ class SellerProductViewModel: ObservableObject {
     }
     
     func createProduct() {
-        if !validateField() {
-            self.showEmpty = true
-            return
-        }
+        
         productService.createProduct(productModel: self.product) { result, productId in
             if result == 200 {
                 for (index, package) in self.allPackage.enumerated() {
