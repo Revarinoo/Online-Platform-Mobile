@@ -97,6 +97,14 @@ struct OrderResultView: View {
                         .onTapGesture {
                             orderResultVM.preview.toggle()
                         }
+                    Image("LogoBlack")
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0.08)
+                        .padding()
+                        .onTapGesture {
+                            orderResultVM.preview.toggle()
+                        }
                 }
             }
         }
@@ -141,8 +149,8 @@ struct card: View {
                     .resizable()
                     .opacity(self.image.selected ? 1 : 0.3)
             } else {
-                WebImage(url: URL(string: image.file_path))
-                    .resizable()
+                    WebImage(url: URL(string: image.file_path))
+                        .resizable()
             }
             
         }
