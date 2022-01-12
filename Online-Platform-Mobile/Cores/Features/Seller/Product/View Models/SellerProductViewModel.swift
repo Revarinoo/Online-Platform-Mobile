@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreML
 
 class SellerProductViewModel: ObservableObject {
     @Published var product: CreateProductModel = CreateProductModel()
@@ -17,6 +18,28 @@ class SellerProductViewModel: ObservableObject {
     @Published var showEmpty = false
     @Published var categories: [String] = []
     @Published var finishLoad = false
+    @Published var result = []
+    
+    func imageChecker(portfolios: [UIImage]) {
+        for image in portfolios {
+            if let resizedImage = image.resizeImageTo(size: CGSize(width: 224, height: 224)), let buffer = resizedImage.convertToBuffer() {
+                
+                do {
+                    let config = MLModelConfiguration()
+                    let model = try CategoryClassifier_2(configuration: config)
+                    let input = CategoryClassifier_2Input(image: buffer)
+                    let output = try model.prediction(input: input)
+                    let hasil = output.classLabel
+                    print(output.classLabelProbs.description)
+                    result.append(hasil)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+            }
+            
+        }
+    }
     
     func validateField() -> Bool {
         if product.category != "" && product.description != "" && product.portfolios.count != 0 && allPackage.count != 0 && product.category != "Choose" {
