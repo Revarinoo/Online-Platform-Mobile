@@ -49,7 +49,7 @@ struct TransactionDetailView: View {
             Spacer()
             VStack(spacing: 9) {
                 Button {
-                    transactionVM.updateOrderStatus(orderId: transaction.id, status: "Upcoming")
+                    transactionVM.updateOrderStatus(orderId: transaction.id, status: "Paid")
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Accept Payment")

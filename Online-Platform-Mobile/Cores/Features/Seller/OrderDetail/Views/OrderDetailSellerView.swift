@@ -110,7 +110,23 @@ struct OrderDetailSellerView: View {
                 }
                 Spacer()
                 if detailVM.detailModel.order_status == OrderStatus.pending.rawValue {
-                    PendingButton(vm: detailVM, orderId: self.orderId)
+                    if detailVM.detailModel.payment_status != "Paid" {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(Color.white)
+                            Text("Waiting For Payment")
+                                .font(.custom(ThemeFont.displaySemiBold, size: 15))
+                                .foregroundColor(Color.white)
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 37)
+                        .background(Color.theme.primary)
+                        .cornerRadius(10)
+                        .padding(.top, 40)
+                    }
+                    else {
+                        PendingButton(vm: detailVM, orderId: self.orderId)
+                    }
+                    
                 }
                 else if detailVM.detailModel.order_status != OrderStatus.completed.rawValue {
                     InProgessButton(vm: detailVM, orderId: self.orderId)

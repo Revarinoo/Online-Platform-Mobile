@@ -42,6 +42,8 @@ struct PaymentView: View {
                 Image(systemName: "triangle.fill")
                     .foregroundColor(Color.theme.primary)
                 Image("Paymentalert")
+                    .resizable()
+                    .frame(width: 358, height: 72)
             }
             .padding(.top, -25)
             Spacer()

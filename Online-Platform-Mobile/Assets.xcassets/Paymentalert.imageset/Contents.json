@@ -1,8 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Payment Amount Alert.png",
-      "idiom" : "universal"
+      "filename" : "Paymentalert.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

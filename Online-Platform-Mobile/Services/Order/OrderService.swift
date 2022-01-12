@@ -54,6 +54,15 @@ class OrderService {
         updateRequest(parameters: parameters)
     }
     
+    func updatePaymentStatus(orderId: Int, status: String) {
+        let parameters: [String : Any] = [
+            "order_id": orderId,
+            "payment_status": status
+        ]
+        
+        updateRequest(parameters: parameters)
+    }
+    
     private func updateRequest(parameters: [String : Any]) {
         Alamofire.request(HttpService.endpoint + "client/order/update" ,method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in

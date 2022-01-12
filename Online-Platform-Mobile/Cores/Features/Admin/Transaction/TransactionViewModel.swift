@@ -21,7 +21,7 @@ class TransactionViewModel: ObservableObject {
     }
     
     func updateOrderStatus(orderId: Int, status: String) {
-        orderService.updateOrderStatus(orderId: orderId, status: status)
+        orderService.updatePaymentStatus(orderId: orderId, status: status)
         self.getTransactions()
     }
 }

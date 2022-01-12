@@ -15,6 +15,7 @@ struct OrderDetailSeller: Codable {
     var package: [PackageResponse] = []
     var client_name: String = String()
     var shipping_address: String = String()
+    var payment_status: String = String()
 }
 
 struct PackageResponse: Codable, Identifiable {
