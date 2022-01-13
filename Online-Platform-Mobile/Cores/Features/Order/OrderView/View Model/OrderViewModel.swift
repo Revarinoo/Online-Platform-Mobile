@@ -10,7 +10,7 @@ import SwiftUI
 
 class OrderViewModel: ObservableObject {
     static let shared = OrderViewModel()
-    private var orderService = OrderService()
+    private var orderService = OrderService.shared
     @Published var order: CreateOrder = CreateOrder()
     @Published var isNavigate: Bool = false
     @Published var orderId: Int = 0
@@ -19,7 +19,7 @@ class OrderViewModel: ObservableObject {
     @Published var completedOrders: [MyOrderModel] = []
     @Published var randValue: Int = 0
     
-    func createOrder(carts: [ProductPackage], shipping: String) {
+    func createOrder(carts: [ProductPackage], shipping: String, promoId: Int, disc: Int) {
         var tempId: [Int] = []
         for data in carts {
             tempId.append(data.id!)
@@ -27,7 +27,7 @@ class OrderViewModel: ObservableObject {
         order.packages = tempId
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
-        orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages, shipping_address: shipping)) { result in
+        orderService.createOrder(orderRequest: PostOrderRequest(price: calculateCart(carts: carts, promoId: promoId, disc: disc), location: order.location, schedule_date: order.schedule_date.serverFormattedDate(), schedule_time: dateFormatter.string(from: order.schedule_time), packages: order.packages, shipping_address: shipping, promo_id: promoId == 0 ? nil : promoId)) { result in
             if let result = result {
                 if result.code == 201 {
                     DispatchQueue.main.async {
@@ -48,10 +48,14 @@ class OrderViewModel: ObservableObject {
         return Double(number)!
     }
     
-    private func calculateCart(carts: [ProductPackage]) -> Double {
+    private func calculateCart(carts: [ProductPackage], promoId: Int, disc: Int) -> Double {
         var total: Double = 0
         for cart in carts {
             total += cart.price!
+        }
+        if promoId != 0 {
+            let discount = (Int(total) * disc)/100
+            total -= Double(discount)
         }
         return total + random()
     }

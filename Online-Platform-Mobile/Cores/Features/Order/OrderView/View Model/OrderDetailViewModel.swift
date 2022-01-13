@@ -9,7 +9,7 @@ import Foundation
 
 class OrderDetailViewModel: ObservableObject {
     @Published var orderDetail: ClientOrderDetail = ClientOrderDetail()
-    private var orderService = OrderService()
+    private var orderService = OrderService.shared
     @Published var isExpired = false
     
     func getOrderDetail(orderId: Int) {

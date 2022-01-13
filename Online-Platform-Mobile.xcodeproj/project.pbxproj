@@ -180,6 +180,8 @@
 		F7F3D778278FD78A0019162C /* PortfolioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D777278FD78A0019162C /* PortfolioListView.swift */; };
 		F7F3D77B278FD8DE0019162C /* PortfolioListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D77A278FD8DE0019162C /* PortfolioListViewModel.swift */; };
 		F7F3D77D278FD94E0019162C /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D77C278FD94E0019162C /* PortfolioService.swift */; };
+		F7F3D77F2790458D0019162C /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D77E2790458D0019162C /* PromoViewModel.swift */; };
+		F7F3D7832790476A0019162C /* PromoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D7822790476A0019162C /* PromoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -351,6 +353,8 @@
 		F7F3D777278FD78A0019162C /* PortfolioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListView.swift; sourceTree = "<group>"; };
 		F7F3D77A278FD8DE0019162C /* PortfolioListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListViewModel.swift; sourceTree = "<group>"; };
 		F7F3D77C278FD94E0019162C /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		F7F3D77E2790458D0019162C /* PromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
+		F7F3D7822790476A0019162C /* PromoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +551,7 @@
 			children = (
 				4ECA1CB7278EE1BB007A63E7 /* PromoView.swift */,
 				4ECA1CB9278EE218007A63E7 /* PromoCard.swift */,
+				F7F3D77E2790458D0019162C /* PromoViewModel.swift */,
 			);
 			path = Promo;
 			sourceTree = "<group>";
@@ -773,6 +778,7 @@
 				F7CB13CE2781D392007E9D91 /* OrderResultModel.swift */,
 				F71ECFB92789C1C700D1B077 /* MapsModel.swift */,
 				4ECA1CB4278EDF27007A63E7 /* Promo.swift */,
+				F7F3D7822790476A0019162C /* PromoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1164,6 +1170,7 @@
 				4E30D19F2770EB1D00B7BCD0 /* UserView.swift in Sources */,
 				F7D59019273FF74000A2D916 /* ProductDetailView.swift in Sources */,
 				4E1920942726B1A600B349C7 /* RatingCard.swift in Sources */,
+				F7F3D7832790476A0019162C /* PromoModel.swift in Sources */,
 				4E102D61275B2A6100AAC2D9 /* MyOrderView.swift in Sources */,
 				4E97726B271443F800C28B5D /* SecondaryButton.swift in Sources */,
 				F7CC91282780138400F43832 /* SubmitResultView.swift in Sources */,
@@ -1195,6 +1202,7 @@
 				4E0DEE2D276F9F6000A953DE /* Rating.swift in Sources */,
 				F7ADD9AE27896B21002EFEF1 /* RecommendationPlaceView.swift in Sources */,
 				F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */,
+				F7F3D77F2790458D0019162C /* PromoViewModel.swift in Sources */,
 				F7F3D778278FD78A0019162C /* PortfolioListView.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,

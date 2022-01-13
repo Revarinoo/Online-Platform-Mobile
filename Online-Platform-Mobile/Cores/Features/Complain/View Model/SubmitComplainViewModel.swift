@@ -11,6 +11,6 @@ class SubmitComplainViewModel: ObservableObject {
     @Published var complainMessage = ""
     
     func submitComplain(orderId: Int) {
-        OrderService().submitComplain(orderId: orderId, message: complainMessage)
+        OrderService.shared.submitComplain(orderId: orderId, message: complainMessage)
     }
 }

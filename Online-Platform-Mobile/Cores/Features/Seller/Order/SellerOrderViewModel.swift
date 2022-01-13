@@ -11,7 +11,7 @@ class SellerOrderViewModel: ObservableObject {
     @Published var pendingOrders: [MyOrderModel] = []
     @Published var upcomingOrders: [MyOrderModel] = []
     @Published var completedOrders: [MyOrderModel] = []
-    private let orderService = OrderService()
+    private let orderService = OrderService.shared
     
     func getAllOrderSeller() {
         orderService.getAllOrderSeller { result in

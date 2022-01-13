@@ -11,6 +11,7 @@ import Alamofire
 
 class OrderService {
     @AppStorage("JWT", store: .standard) var token = ""
+    static let shared = OrderService()
     
     func createOrder(orderRequest: PostOrderRequest ,completionHandler: @escaping(_ result: PostOrderResponse?) -> Void) {
         let request = NSMutableURLRequest(url: NSURL(string: HttpService.endpoint + "order/create")! as URL)
@@ -131,6 +132,16 @@ class OrderService {
             .responseJSON { response in
                 let data = try? JSONDecoder().decode(Int.self, from: response.data!)
                 completionHandler(data)
+            }
+    }
+    
+    func getAllPromo(completionHandler: @escaping(_ result: [PromoModel]?) -> Void){
+        Alamofire.request(HttpService.endpoint + "promo/all", method: .get)
+            .responseJSON { response in
+                if let data = response.data {
+                    let result = try? JSONDecoder().decode([PromoModel].self, from: data)
+                    completionHandler(result)
+                }
             }
     }
 }

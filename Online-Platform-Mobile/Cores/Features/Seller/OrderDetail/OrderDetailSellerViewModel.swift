@@ -10,7 +10,7 @@ import Foundation
 class OrderDetailSellerViewModel: ObservableObject {
     @Published var detailModel = OrderDetailSeller()
     private var orderDetailService = OrderDetailService()
-    private var orderService = OrderService()
+    private var orderService = OrderService.shared
     @Published var showDeliveryAddress = false
     
     func getOrderDetail(orderId: Int) {

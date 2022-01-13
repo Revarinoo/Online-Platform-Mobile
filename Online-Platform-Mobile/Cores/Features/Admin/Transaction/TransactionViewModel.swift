@@ -9,7 +9,7 @@ import Foundation
 
 class TransactionViewModel: ObservableObject {
     private let paymentService = PaymentService()
-    private let orderService = OrderService()
+    private let orderService = OrderService.shared
     @Published var transactions: [TransactionListModel] = []
     
     func getTransactions() {

@@ -19,6 +19,9 @@ struct OrderView: View {
     @State var uiTabBarController: UITabBarController?
     @State var location = "Location"
     @State var shipping = "Choose your address"
+    @State private var navigateToPromo = false
+    @State var promo_id = 0
+    @State var disc = 0
     
     var body: some View {
         ZStack {
@@ -88,8 +91,10 @@ struct OrderView: View {
             .padding(.bottom, 170)
             VStack {
                 Spacer()
-                CartCard(name: .constant("Apply your coupon code"), desc: "", type: "Disc")
-                    .padding([.leading, .trailing], 16)
+                NavigationLink(destination: PromoView(promo_id: $promo_id, disc: $disc), isActive: $navigateToPromo) {
+                    CartCard(name: .constant(promo_id == 0 ? "Apply your coupon code" : "1 discount is applied"), desc: "", type: "Disc")
+                        .padding([.leading, .trailing], 16)
+                }
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Total Price")
@@ -108,7 +113,7 @@ struct OrderView: View {
                     NavigationLink(destination: PaymentView(amountToPay: calculateCart(carts: cart), orderId: orderVM.orderId), isActive: $orderVM.isNavigate) {
                         Button {
                             
-                            orderVM.createOrder(carts: cart, shipping: locationFlag ? shipping : "")
+                            orderVM.createOrder(carts: cart, shipping: locationFlag ? shipping : "", promoId: promo_id, disc: disc)
                         } label: {
                             Text("Place Order")
                                 .font(.custom(ThemeFont.displaySemiBold, size: 15))
@@ -139,6 +144,10 @@ struct OrderView: View {
         var total = 0
         for cart in carts {
             total += Int(cart.price!)
+        }
+        if promo_id != 0 {
+            let discount = (total * self.disc)/100
+            total -= discount
         }
         total += orderVM.randValue
         return total.rupiahFormatter()

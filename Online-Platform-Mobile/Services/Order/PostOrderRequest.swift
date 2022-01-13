@@ -14,6 +14,7 @@ struct PostOrderRequest: Encodable {
     let schedule_time: String
     let packages: [Int]
     let shipping_address: String
+    let promo_id: Int?
 }
 
 struct PostOrderResponse: Codable {

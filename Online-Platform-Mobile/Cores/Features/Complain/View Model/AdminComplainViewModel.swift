@@ -8,7 +8,7 @@
 import Foundation
 
 class AdminComplainViewModel: ObservableObject {
-    private let service = OrderService()
+    private let service = OrderService.shared
     @Published var complains: [ComplainModel] = []
     @Published var navigate = false
     

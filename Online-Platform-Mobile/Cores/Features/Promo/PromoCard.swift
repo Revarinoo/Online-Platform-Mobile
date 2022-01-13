@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct PromoCard: View {
+    var promo: PromoModel
+    @Binding var promo_id: Int
+    @Binding var disc: Int
+    @State private var isClicked = false
+    
     var body: some View {
         HStack {
             Text("%")
@@ -16,38 +21,32 @@ struct PromoCard: View {
               .foregroundColor(Color.white)
               .background(Color.theme.primary)
               .clipShape(Circle())
-            VStack (alignment: .leading) {
-                Text("5% Discount")
+            VStack (alignment: .leading, spacing: 2) {
+                Text(promo.code)
                     .font(.custom(ThemeFont.displayMedium, size: 18))
-                    .padding(.bottom,0.5)
-                HStack {
-                    Image(systemName: "calendar")
-                    Text("Exp: 21 January 2021")
-                        .font(.caption)
-                        .font(.custom(ThemeFont.displaySemiBold, size: 18))
-                }
-                .foregroundColor(Color.gray)
-                
+                    .foregroundColor(Color.theme.primary)
+                Text("Disc \(promo.percent_discount)%, up to \(Int(promo.maximum_discount).setPriceFormat())")
+                    .font(.custom(ThemeFont.displayRegular, size: 15))
+                    .foregroundColor(Color.theme.darkGrey)
+                Text("Min. \(Int(promo.minimum_order).setPriceFormat())")
+                    .font(.custom(ThemeFont.displayRegular, size: 15))
+                    .foregroundColor(Color.theme.darkGrey)
             }
             .padding(.leading, 12)
             Spacer()
-            Text("Use")
-                .foregroundColor(Color.white)
-                .frame(width: 80, height: 33)
-                .background(Color.theme.primary)
-                .cornerRadius(12)
+            Button {
+                promo_id = promo.id
+                disc = promo.percent_discount
+                isClicked.toggle()
+            } label: {
+                Text("Use")
+                    .foregroundColor(Color.white)
+                    .frame(width: 80, height: 33)
+                    .background(isClicked ? Color.theme.darkGrey : Color.theme.primary)
+                    .cornerRadius(12)
+            }
+
         }
     }
 }
 
-struct PromoCard_Previews: PreviewProvider {
-    static var previews: some View {
-        PromoCard()
-            .padding([.top, .bottom], 21)
-            .padding([.leading, .trailing], 18)
-            .frame(width: 358)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(color: Color.theme.darkGrey.opacity(0.5), radius: 2, x: 0, y: 5)
-    }
-}

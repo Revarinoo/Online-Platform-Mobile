@@ -48,7 +48,7 @@ class OrderResultViewModel: ObservableObject {
     }
     
     func completeOrder(orderId: Int) {
-        OrderService().updateOrderStatus(orderId: orderId, status: "Completed")
+        OrderService.shared.updateOrderStatus(orderId: orderId, status: "Completed")
     }
     
 }
