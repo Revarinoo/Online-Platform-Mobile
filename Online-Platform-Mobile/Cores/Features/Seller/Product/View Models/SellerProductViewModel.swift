@@ -18,7 +18,7 @@ class SellerProductViewModel: ObservableObject {
     @Published var showEmpty = false
     @Published var categories: [String] = []
     @Published var finishLoad = false
-    @Published var result = []
+    @Published var result: [String] = []
     
     func imageChecker(portfolios: [UIImage]) {
         for image in portfolios {
@@ -53,11 +53,11 @@ class SellerProductViewModel: ObservableObject {
     }
     
     func createProduct() {
-        
+        self.imageChecker(portfolios: self.product.portfolios)
         productService.createProduct(productModel: self.product) { result, productId in
             if result == 200 {
                 for (index, package) in self.allPackage.enumerated() {
-                    self.productService.createPackage(productId: productId, package: package) { result in
+                    self.productService.createPackage(productId: productId, package: package, suggestions: self.result) { result in
                         if index == self.allPackage.count - 1 {
                             self.successfullyCreated = true
                         }

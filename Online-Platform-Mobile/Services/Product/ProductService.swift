@@ -60,7 +60,7 @@ class ProductService {
         }
     }
     
-    func createPackage(productId: Int, package: CreatePackageModel, completionHandler: @escaping(_ result: Int)->Void) {
+    func createPackage(productId: Int, package: CreatePackageModel, suggestions: [String], completionHandler: @escaping(_ result: Int)->Void) {
         let parameters: [String: Any] = [
             "product_id": productId,
             "price": Int(package.price) ?? 0,
@@ -70,7 +70,8 @@ class ProductService {
             "high_resolution": package.highResolution ? 1 : 0,
             "source_file": package.sourceFile ? 1 : 0,
             "commercial_use": package.commercial ? 1 : 0,
-            "light_editing": package.editing ? 1 : 0
+            "light_editing": package.editing ? 1 : 0,
+            "suggestions": suggestions
         ]
         
         Alamofire.request(HttpService.endpoint + "package/create", method: .post, parameters: parameters, encoding: JSONEncoding.default)

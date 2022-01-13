@@ -21,7 +21,16 @@ struct ProductListView: View {
                     List{
                         ForEach(productVM.products.data.filter({ searchText.isEmpty ? true : $0.category.contains(searchText)
                         }), id: \.id) { item in
-                            Text(item.category)
+                            NavigationLink(destination: PortfolioListView(productId: item.id, category: item.category, productVM: productVM, userId: userId)) {
+                                HStack {
+                                    Text(item.category)
+                                    if item.status == "Did not match" {
+                                        Spacer()
+                                        Image(systemName: "exclamationmark.triangle")
+                                            .foregroundColor(Color.red)
+                                    }
+                                }
+                            }
                         }
                         .onDelete(perform: self.deleteRow)
                     }

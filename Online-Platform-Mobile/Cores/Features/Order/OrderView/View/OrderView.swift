@@ -15,7 +15,7 @@ struct OrderView: View {
     @State var orderlocation = ""
     @State var cart: [ProductPackage]
     @State var locationFlag = false
-    @StateObject var orderVM = OrderViewModel.shared
+    @StateObject var orderVM = OrderViewModel()
     @State var uiTabBarController: UITabBarController?
     @State var location = "Location"
     @State var shipping = "Choose your address"

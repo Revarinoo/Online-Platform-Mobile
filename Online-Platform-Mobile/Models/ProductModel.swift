@@ -17,6 +17,7 @@ struct SellerProductResponse: Codable, Identifiable {
     var id: Int = Int()
     var category: String = String()
     var icon: String = String()
+    var status = String()
 }
 
 struct SellerResponse: Codable {
@@ -36,4 +37,10 @@ struct OrderReviewModel: Codable {
     var user_name = String()
     var rating = Int()
     var comment = String()
+}
+
+struct PortfoliosModel: Codable, Identifiable {
+    var id = Int()
+    var image = String()
+    var category_suggestion = String()
 }

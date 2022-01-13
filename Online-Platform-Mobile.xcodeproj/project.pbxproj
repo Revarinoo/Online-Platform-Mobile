@@ -174,6 +174,9 @@
 		F7EBC69727733937009768E4 /* OrderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EBC69627733937009768E4 /* OrderDetailService.swift */; };
 		F7EBC69927733B87009768E4 /* OrderDetailSellerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EBC69827733B87009768E4 /* OrderDetailSellerViewModel.swift */; };
 		F7EBC69B277382D4009768E4 /* PackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EBC69A277382D4009768E4 /* PackageView.swift */; };
+		F7F3D778278FD78A0019162C /* PortfolioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D777278FD78A0019162C /* PortfolioListView.swift */; };
+		F7F3D77B278FD8DE0019162C /* PortfolioListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D77A278FD8DE0019162C /* PortfolioListViewModel.swift */; };
+		F7F3D77D278FD94E0019162C /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F3D77C278FD94E0019162C /* PortfolioService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -339,6 +342,9 @@
 		F7EBC69627733937009768E4 /* OrderDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailService.swift; sourceTree = "<group>"; };
 		F7EBC69827733B87009768E4 /* OrderDetailSellerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailSellerViewModel.swift; sourceTree = "<group>"; };
 		F7EBC69A277382D4009768E4 /* PackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageView.swift; sourceTree = "<group>"; };
+		F7F3D777278FD78A0019162C /* PortfolioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListView.swift; sourceTree = "<group>"; };
+		F7F3D77A278FD8DE0019162C /* PortfolioListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListViewModel.swift; sourceTree = "<group>"; };
+		F7F3D77C278FD94E0019162C /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +367,7 @@
 		18E3AFB62773899200A476E5 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F7F3D779278FD8B40019162C /* Portfolio */,
 				18E3AFB8277389BA00A476E5 /* ProductListView.swift */,
 				F7C70E21277E0BD7002A5C26 /* AdminProductViewModel.swift */,
 			);
@@ -1000,6 +1007,7 @@
 			children = (
 				4EABAC51273C3A46000E7D44 /* ProductService.swift */,
 				F7D5900E273FEE8600A2D916 /* ProductDetailService.swift */,
+				F7F3D77C278FD94E0019162C /* PortfolioService.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -1028,6 +1036,15 @@
 				F7EBC69827733B87009768E4 /* OrderDetailSellerViewModel.swift */,
 			);
 			path = OrderDetail;
+			sourceTree = "<group>";
+		};
+		F7F3D779278FD8B40019162C /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				F7F3D777278FD78A0019162C /* PortfolioListView.swift */,
+				F7F3D77A278FD8DE0019162C /* PortfolioListViewModel.swift */,
+			);
+			path = Portfolio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1145,6 +1162,7 @@
 				F702F8B727830B6C00B9E6B6 /* AdminComplainViewModel.swift in Sources */,
 				18E3AFC02773994400A476E5 /* AddCategoryView.swift in Sources */,
 				F764C4C827189CDF00C302A5 /* HomeClient.swift in Sources */,
+				F7F3D77D278FD94E0019162C /* PortfolioService.swift in Sources */,
 				F702F8B9278329CC00B9E6B6 /* ComplainDetailView.swift in Sources */,
 				4E15B5B92745573700F5C0CF /* CartCard.swift in Sources */,
 				F7CB13CD2781856B007E9D91 /* OrderResultService.swift in Sources */,
@@ -1158,6 +1176,7 @@
 				4E0DEE2D276F9F6000A953DE /* Rating.swift in Sources */,
 				F7ADD9AE27896B21002EFEF1 /* RecommendationPlaceView.swift in Sources */,
 				F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */,
+				F7F3D778278FD78A0019162C /* PortfolioListView.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
 				4EF760BB2747795B00BBB0CE /* OrderView.swift in Sources */,
@@ -1257,6 +1276,7 @@
 				F75CE2C327411F5400F0977E /* DismissKeyboard.swift in Sources */,
 				4E8A6FE227157DEC00E7461E /* RegisterViewModel.swift in Sources */,
 				F7025BF42774DB3B00560393 /* OrderListView.swift in Sources */,
+				F7F3D77B278FD8DE0019162C /* PortfolioListViewModel.swift in Sources */,
 				F7A8994D275E5E3200263321 /* ChatRoomViewModel.swift in Sources */,
 				F785C1F527153A24008035EC /* AuthService.swift in Sources */,
 				F7025BEE27742E3100560393 /* OrderDetailModel.swift in Sources */,

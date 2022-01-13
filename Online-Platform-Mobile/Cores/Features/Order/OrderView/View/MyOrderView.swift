@@ -12,7 +12,7 @@ struct MyOrderView: View {
     
     @State private var orderstatus = 0
     @State private var count = 5
-    @StateObject var orderVM = OrderViewModel.shared
+    @StateObject var orderVM = OrderViewModel()
     @State var uiTabBarController: UITabBarController?
     
     //to change segmented color

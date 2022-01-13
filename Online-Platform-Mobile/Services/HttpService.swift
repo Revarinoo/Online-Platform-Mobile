@@ -9,7 +9,7 @@ import Foundation
 
 final class HttpService {
     static let shared = HttpService()
-    static let endpoint = "http://34.124.239.196/online-platform-backend/public/api/"
+    static let endpoint = "http://127.0.0.1:8000/api/"
     private init(){}
 
     func request<T:Decodable>(_ request: URLRequest, resultType:T.Type, completionHandler:@escaping(_ result: T?)-> Void) {
