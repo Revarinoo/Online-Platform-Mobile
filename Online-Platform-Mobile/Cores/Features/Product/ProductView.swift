@@ -14,6 +14,7 @@ struct ProductView: View {
     @StateObject var productListVM = ProductViewModel()
     @State var uiTabarController: UITabBarController?
     @State private var searchText = ""
+    @State var selectedIndex = 1
     
     var body: some View {
             VStack {
@@ -22,17 +23,35 @@ struct ProductView: View {
                 ScrollView (.horizontal, showsIndicators: false, content: {
                     HStack {
                         ForEach(categoryListVM.categories, id: \.self) { category in
-                            CategoryIcon(image: category.icon ?? "", name: category.name ?? "")
-                                .frame(minWidth: 63, maxHeight: 86)
-                                .background(Color.theme.secondary)
-                                .cornerRadius(10)
-                                .onTapGesture {
-                                    productListVM.selectedCategory = category.category_id ?? 1
-                                    //productListVM.selectedCategory = category.id ?? 2
-                                    productListVM.fetchSeller(catId: productListVM.selectedCategory)
-                                    print(productListVM.selectedCategory)
-                                }
-                                .padding(.bottom, 21)
+                            
+                            if (selectedIndex == category.category_id) {
+                                CategoryIcon(image: category.icon ?? "", name: category.name ?? "")
+                                    .frame(minWidth: 63, maxHeight: 86)
+                                    .background(Color.theme.secondary)
+                                    .cornerRadius(10)
+                                    .onTapGesture {
+                                        selectedIndex = category.category_id ?? 0
+                                        productListVM.selectedCategory = category.category_id ?? 1
+                                        //productListVM.selectedCategory = category.id ?? 2
+                                        productListVM.fetchSeller(catId: productListVM.selectedCategory)
+                                        print(productListVM.selectedCategory)
+                                    }
+                                    .padding(.bottom, 21)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 2.5, x: 0, y: 1.5)
+                            } else {
+                                CategoryIcon(image: category.icon ?? "", name: category.name ?? "")
+                                    .frame(minWidth: 63, maxHeight: 86)
+                                    .background(Color.clear)
+                                    .cornerRadius(10)
+                                    .onTapGesture {
+                                        selectedIndex = category.category_id ?? 0
+                                        productListVM.selectedCategory = category.category_id ?? 1
+                                        //productListVM.selectedCategory = category.id ?? 2
+                                        productListVM.fetchSeller(catId: productListVM.selectedCategory)
+                                        print(productListVM.selectedCategory)
+                                    }
+                                    .padding(.bottom, 21)
+                            }
                         }
                     }
                     .padding(.leading)
