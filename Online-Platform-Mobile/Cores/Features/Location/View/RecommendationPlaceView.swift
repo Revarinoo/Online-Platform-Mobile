@@ -13,13 +13,14 @@ struct RecommendationPlaceView: View {
     @StateObject private var locationVM = LocationViewModel()
     @State var showPhotos = false
     @State var uiTabarController: UITabBarController?
-    let categories = ["Rekreasi", "Wisata", "Waterpark"]
+    var categories = ["Rekreasi", "Wisata", "Waterpark"]
     @State private var selectedCategory = "Rekreasi"
+    @State private var showLoading = false
     
     var body: some View {
         VStack {
             VStack {
-                Menu("Rekreasi") {
+                Menu(selectedCategory) {
                     Picker("Select Location Category", selection: $selectedCategory) {
                         ForEach(categories, id: \.self) {
                             Text($0)
@@ -51,12 +52,17 @@ struct RecommendationPlaceView: View {
                     }
                     .onTapGesture {
                         locationVM.getNearbyPlacePhoto(coordinate: landmark.coordinate)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.showLoading.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.showLoading.toggle()
                             self.showPhotos.toggle()
                         }
                     }
                 }
             }
+            .fullScreenCover(isPresented: $showLoading, content: {
+                LoadingView()
+            })
             .onAppear {
                 locationVM.searchLocation(query: selectedCategory)
             }

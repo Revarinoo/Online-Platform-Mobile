@@ -21,81 +21,81 @@ struct RegisterView: View {
     var body: some View {
             ZStack {
                 Color.theme.primary
-                    .ignoresSafeArea()
+                    .edgesIgnoringSafeArea(.top)
                 
-                VStack (alignment: .leading){
-                    Text("Create Account")
-                        .foregroundColor(Color.theme.primarywhite)
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal)
-                    
-                    VStack (spacing: 5) {
-                        VStack (alignment: .leading) {
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text("Welcome")
-                                    .font(.title3)
-                                    .bold()
-                                Text("hello friends sign up to continue")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                            }
-                            .padding()
-                            
-                            FormView(registerVM: registerVM, selection: $selection)
-                            
-                            Button(action: toggle){
-                                HStack (alignment: .firstTextBaseline){
-                                    Image(systemName: isChecked ? "checkmark.square": "square")
-                                    Text(tnc)
-                                        .multilineTextAlignment(.leading)
-                                }
-                                .foregroundColor(Color.theme.primary)
-                            }
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack (alignment: .leading){
+                        Text("Create Account")
+                            .foregroundColor(Color.theme.primarywhite)
+                            .font(.title)
+                            .bold()
                             .padding(.horizontal)
-                        }
                         
-                        
-                        
-                        PrimaryButton(content: "Sign Up", maxWidth: 330, action: {
-                            registerVM.register(role: selection)
-                            print(selection.rawValue)
-                        }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
-                            .padding(15)
-                        
-                        VStack {
-                            HStack {
-                                Text("Already have an account?")
+                        VStack (spacing: 5) {
+                            VStack (alignment: .leading) {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("Welcome")
+                                        .font(.title3)
+                                        .bold()
+                                    Text("hello friends sign up to continue")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                                .padding()
+                                
+                                FormView(registerVM: registerVM, selection: $selection)
+                                
+                                Button(action: toggle){
+                                    HStack (alignment: .firstTextBaseline){
+                                        Image(systemName: isChecked ? "checkmark.square": "square")
+                                        Text(tnc)
+                                            .multilineTextAlignment(.leading)
+                                    }
                                     .foregroundColor(Color.theme.primary)
-                                NavigationLink(
-                                    destination: LoginView(selection: .Client),
-                                    label: {
-                                        Text("Sign In")
-                                            .bold()
-                                            .foregroundColor(Color.theme.primary)
-                                    })
+                                }
+                                .padding(.horizontal)
                             }
+                            
+                            
+                            
+                            PrimaryButton(content: "Sign Up", maxWidth: 330, action: {
+                                registerVM.register(role: selection)
+                                print(selection.rawValue)
+                            }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
+                                .padding(15)
+                                .disabled(isChecked ? false : true)
+                                .opacity(isChecked ? 1 : 0.5)
+                            
+                            VStack {
+                                HStack {
+                                    Text("Already have an account?")
+                                        .foregroundColor(Color.theme.primary)
+                                    NavigationLink(
+                                        destination: LoginView(selection: .Client),
+                                        label: {
+                                            Text("Sign In")
+                                                .bold()
+                                                .foregroundColor(Color.theme.primary)
+                                        })
+                                }
+                            }
+                            .padding(.top,5)
+                            Spacer()
+                            
                         }
-                        .padding(.top,5)
-                        Spacer()
-                        if registerVM.redBanner {
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.red)
-                                Text(registerVM.failedMessage)
-                                    .foregroundColor(Color.white)
-                            }.frame(width: 390, height: 50, alignment: .center)
-                        }
-                        Spacer()
+                        .frame(height: UIScreen.main.bounds.height - 100)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .edgesIgnoringSafeArea(.bottom)
                         
                     }
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .edgesIgnoringSafeArea(.bottom)
-                    
                 }
                 
             }
+            .alert(isPresented: $registerVM.redBanner, content: {
+                Alert(title: Text("Failed"), message: Text(registerVM.failedMessage == "" ? "All field must be filled" : registerVM.failedMessage), dismissButton: .default(Text("OK")))
+            })
+            .edgesIgnoringSafeArea(.bottom)
         .onTapGesture {
             self.dismissKeyboard()
         }

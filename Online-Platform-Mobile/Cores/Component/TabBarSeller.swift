@@ -45,12 +45,13 @@ struct TabBarSeller: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
                 .tabItem {
-                    Label("Order", systemImage: "person")
+                    Label("Profile", systemImage: "person")
                 }
                 .tag(3)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
+            UserHelper.shared.getUserData()
         }
     }
 }

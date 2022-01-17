@@ -62,6 +62,7 @@ struct PaymentView: View {
         .padding()
         .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .introspectTabBarController { UITabBarController in
             UITabBarController.tabBar.isHidden = true
             uiTabBarController = UITabBarController

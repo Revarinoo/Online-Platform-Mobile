@@ -27,9 +27,6 @@ struct Online_Platform_MobileApp: App {
             else {
                 if role == "Client" {
                     TabBar().preferredColorScheme(.light)
-                        .onAppear {
-                            UserHelper.shared.getUserData()
-                        }
                 }
                 else if role == "Seller" {
                     TabBarSeller(selection: 0).preferredColorScheme(.light)

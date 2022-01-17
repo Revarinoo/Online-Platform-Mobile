@@ -12,8 +12,6 @@ import MapKit
 class LocationService {
     
     func getNearbyPlace(coordinate: CLLocationCoordinate2D, completionHandler: @escaping(_ result: NearbyPlaceModel?)->Void) {
-        print("c \(coordinate.latitude)")
-        print("c \(coordinate.longitude)")
         let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&key=AIzaSyA5rh41FwuuWTWZV7ijA9sWn6W-Z8pX1wQ"
         Alamofire.request(url, method: .get)
             .responseJSON { response in

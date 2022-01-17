@@ -21,6 +21,10 @@ class RegisterViewModel: ObservableObject {
     @AppStorage("role", store: .standard) var role = ""
     
     func register(role: Role) {
+        if password == "" || name == "" || email == "" {
+            redBanner = true
+            return
+        }
         AuthService().register(registerRequestBody: RegisterRequestBody(name: name, email: email, password: password, type_role: role.rawValue)) { response in
           
             if let code = response?.code, let message = response?.message {

@@ -56,7 +56,7 @@ struct OrderView: View {
                     VStack (alignment: .leading){
                         Text("Order Details")
                         VStack {
-                            DatePicker("Date", selection: $orderVM.order.schedule_date, displayedComponents: [.date])
+                            DatePicker("Date", selection: $orderVM.order.schedule_date,in: Date()..., displayedComponents: [.date])
                                 .padding(.top)
                             Divider()
                             DatePicker("Time", selection: $orderVM.order.schedule_time, displayedComponents: [.hourAndMinute])
@@ -100,19 +100,23 @@ struct OrderView: View {
                         Text("Total Price")
                             .font(.custom(ThemeFont.displayMedium, size: 14))
                             .foregroundColor(Color.theme.darkGrey)
+                        if disc != 0 {
+                            Text("- IDR \(getDisc(carts: cart))")
+                                .font(.custom(ThemeFont.displaySemiBold, size: 14))
+                                .foregroundColor(Color.red)
+                        }
                         HStack (alignment: .firstTextBaseline) {
                             Text("IDR")
                                 .font(.custom(ThemeFont.displayMedium, size: 14))
                                 .foregroundColor(Color.theme.primary)
                             Text("\(calculateCart(carts: cart))")
                                 .font(.custom(ThemeFont.displayBold, size: 24))
-                                .foregroundColor(Color.theme.primary)
+                                .foregroundColor(Color.theme.primary )
                         }
                     }
                     Spacer()
                     NavigationLink(destination: PaymentView(amountToPay: calculateCart(carts: cart), orderId: orderVM.orderId), isActive: $orderVM.isNavigate) {
                         Button {
-                            
                             orderVM.createOrder(carts: cart, shipping: locationFlag ? shipping : "", promoId: promo_id, disc: disc)
                         } label: {
                             Text("Place Order")
@@ -123,11 +127,13 @@ struct OrderView: View {
                                 .cornerRadius(10)
                         }
                     }
+                    .disabled(cart.count == 0 || orderVM.order.location == "Location" ? true : false)
+                    .opacity(cart.count == 0 || orderVM.order.location == "Location" ? 0.5 : 1)
                 }
-                .padding([.leading, .trailing, .bottom], 16)
+                .padding([.leading, .trailing], 16)
+                .padding(.bottom, 24)
                 .frame(width: UIScreen.main.bounds.width, height: 93)
                 .background(Color.init(hex: "F7F7F7"))
-                
             }
         }
         
@@ -138,6 +144,14 @@ struct OrderView: View {
             UITabBarController.tabBar.isHidden = true
             uiTabBarController = UITabBarController
         }
+    }
+    
+    private func getDisc(carts: [ProductPackage]) -> String {
+        var total = 0
+        for cart in carts {
+            total += Int(cart.price!)
+        }
+        return ((total * self.disc)/100).rupiahFormatter()
     }
     
     private func calculateCart(carts: [ProductPackage]) -> String {

@@ -28,6 +28,7 @@ struct ProductDetailView: View {
                     ImageSlider(images: productDetailVM.productDetailModel)
                     VStack {
                         backButton
+                            .padding(.top, 20)
                        
                         //MARK: Content
                         VStack (alignment: .leading, spacing: 24) {
@@ -121,7 +122,7 @@ struct ProductDetailView: View {
         }
         .navigationBarHidden(true)
         .frame(maxWidth: 390, minHeight: 860, maxHeight: .infinity, alignment: .top)
-        .padding(.top, 50)
+        .padding(.top, 30)
         
         .onAppear {
             chatVM.getData()

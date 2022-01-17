@@ -29,32 +29,6 @@ class LocationViewModel: ObservableObject {
         }
     }
     
-    func mappingPhotoRecommendation() {
-        self.customPlaces(query: "Rekreasi")
-        self.customPlaces(query: "Wisata")
-        self.customPlaces(query: "Waterpark")
-    }
-    
-    func customPlaces(query: String) {
-        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = query
-        
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            if let error = error {
-                print(error)
-            }
-            else if let response = response {
-                let mapItems = response.mapItems
-                self.landmarks.append(contentsOf: mapItems.map {
-                    return LocationList(placemark: $0.placemark)
-                })
-            }
-        }
-    }
-    
-    
     func searchLocation(query: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = query

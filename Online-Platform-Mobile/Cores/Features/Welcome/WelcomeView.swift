@@ -25,7 +25,7 @@ struct WelcomeView: View {
                             .frame(maxHeight: 300)
                         
                         VStack (alignment: .leading){
-                            Text("Graf") // App Name
+                            Text("Grafer") // App Name
                                 .font(.largeTitle)
                                 .bold()
                         }
