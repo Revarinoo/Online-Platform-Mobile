@@ -14,6 +14,7 @@ struct OrderListView: View {
     @State private var count = 5
     @StateObject private var orderVM = SellerOrderViewModel()
     @State var uiTabBarController: UITabBarController?
+    @State private var isActive = false
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.primary)
@@ -57,6 +58,16 @@ struct OrderListView: View {
         .onAppear {
             orderVM.getAllOrderSeller()
         }
+        .navigationBarItems(trailing:
+                                NavigationLink(destination: ChatList.shared, isActive: $isActive) {
+            Button(action: {
+                isActive.toggle()
+            }) {
+            Image(systemName: "message").imageScale(.large)
+                .foregroundColor(Color.theme.primary)
+            }
+        }
+        )
         .introspectTabBarController { UITabBarController in
             UITabBarController.tabBar.isHidden = false
             uiTabBarController = UITabBarController

@@ -167,6 +167,25 @@ struct CreateProductView: View {
                         }
                     }
                     Spacer()
+                    VStack {
+                        Spacer()
+                        if productId != nil {
+                            Button {
+                                createProductVM.removeProduct(id: productId!)
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Text("Delete Product")
+                                    .font(.custom(ThemeFont.displaySemiBold, size: 18))
+                                    .frame(width: UIScreen.main.bounds.width - 32, height: 50, alignment: .center)
+                                    .foregroundColor(Color.red)
+                                    .background(Color.white)
+                                    .overlay(RoundedRectangle(cornerRadius: 15)
+                                                .stroke(Color.red, lineWidth: 1))
+                            }
+
+                        }
+                    }
+                    .padding(.leading, 16)
                 }
                 .sheet(isPresented: $showPicker, content: {
                     ImagePickerReferences(referenceImages: $createProductVM.product.portfolios)
@@ -238,6 +257,6 @@ struct CreateProductView: View {
 
 struct CreateProductView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateProductView(showPage: .constant(true), productVM: MyProductViewModel())
+        CreateProductView(showPage: .constant(true), productId: 1, productVM: MyProductViewModel())
     }
 }

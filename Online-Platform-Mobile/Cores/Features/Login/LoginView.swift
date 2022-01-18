@@ -79,16 +79,6 @@ struct LoginView: View {
                                     })
                             }
                         }
-                        
-                        Spacer()
-                        if loginVM.redBanner {
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.red)
-                                Text(loginVM.failedMessage)
-                                    .foregroundColor(Color.white)
-                            }.frame(width: 390, height: 50, alignment: .center)
-                        }
                         Spacer()
                     }
                     .background(Color.theme.primarywhite)
@@ -98,7 +88,10 @@ struct LoginView: View {
                 }
                 
             }
-            .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea([.top, .bottom])
+            .alert(isPresented: $loginVM.redBanner, content: {
+                Alert(title: Text("Failed"), message: Text(loginVM.failedMessage == "" ? "All field must be filled" : loginVM.failedMessage), dismissButton: .default(Text("OK")))
+            })
         .onTapGesture {
             self.dismissKeyboard()
         }

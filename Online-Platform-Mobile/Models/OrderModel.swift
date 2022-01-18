@@ -45,3 +45,7 @@ struct ComplainModel: Codable, Identifiable {
     let complain_detail: String
     let result_link: String
 }
+
+struct UserByOrder: Codable {
+    let user_id : Int
+}

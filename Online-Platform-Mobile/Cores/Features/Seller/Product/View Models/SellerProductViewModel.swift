@@ -111,4 +111,8 @@ class SellerProductViewModel: ObservableObject {
             }
         }
     }
+    
+    func removeProduct(id: Int) {
+        ProductService().removeProduct(productId: id) { _ in }
+    }
 }

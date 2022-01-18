@@ -11,13 +11,23 @@ struct TabBarSeller: View {
     
     @State var selection = 0
     @State var navTitle = ""
+    @State var resetNavigationID = UUID()
+    
+    var handler: Binding<Int> { Binding(
+            get: { self.selection },
+            set: {
+                self.selection = $0
+                self.resetNavigationID = UUID()
+            }
+        )}
     
     var body: some View {
-            TabView(selection: $selection) {
+            TabView(selection: handler) {
                 NavigationView {
                     OrderListView()
                         .navigationTitle("My Order")
                 }
+                .id(self.resetNavigationID)
                 .tabItem {
                     Label("Order", systemImage: "list.dash")
                 }
@@ -26,18 +36,11 @@ struct TabBarSeller: View {
                     MyProductView()
                         .navigationTitle("My Product")
                 }
+                .id(self.resetNavigationID)
                 .tabItem {
                     Label("Product", systemImage: "archivebox")
                 }
                 .tag(1)
-                
-                NavigationView {
-                    ChatList()
-                }
-                .tabItem {
-                    Label("Chat", systemImage: "message")
-                }
-                .tag(2)
                 
                 NavigationView {
                     ProfileView()
@@ -47,7 +50,7 @@ struct TabBarSeller: View {
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
-                .tag(3)
+                .tag(2)
             }
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))

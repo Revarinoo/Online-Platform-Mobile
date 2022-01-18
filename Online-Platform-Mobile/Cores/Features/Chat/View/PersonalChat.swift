@@ -17,7 +17,6 @@ struct PersonalChat: View {
     @State private var messageIDScroll: String?
     let columns = [GridItem(.flexible(minimum: 10))]
     @State var uiTabBarController: UITabBarController?
-    @AppStorage("role", store: .standard) var role = ""
     
     var body: some View {
         VStack {
@@ -35,6 +34,7 @@ struct PersonalChat: View {
                                     .cornerRadius(15, corners: isUser ? [.topLeft, .bottomLeft, .bottomRight] : [.topRight, .bottomLeft, .bottomRight])
                             }
                             .frame(maxWidth: .infinity, alignment: isUser ? .trailing : .leading)
+                            .padding(.bottom, 8)
                             .padding(.vertical, 3)
                             .padding([.leading, .trailing], 16)
                             .id(message.id)
@@ -48,7 +48,6 @@ struct PersonalChat: View {
                         }
                         .onAppear {
                             if let messageID = messageVM.messages.last?.id {
-                                print("tidak null \(messageID)")
                                 scrollTo(messageID: messageID, shouldAnimate: true, scrollReader: scrollReader)
                             }
                         }
@@ -97,17 +96,7 @@ struct PersonalChat: View {
         .onTapGesture {
             self.dismissKeyboard()
         }
-        .introspectTabBarController { (UITabBarController) in
-            if role == "Seller" {
-                UITabBarController.tabBar.isHidden = true
-                uiTabBarController = UITabBarController
-            }
-        }
-        .onDisappear {
-            if role == "Seller" {
-                uiTabBarController?.tabBar.isHidden = false
-            }
-        }
+        
     }
     
     func scrollTo(messageID: String, anchor: UnitPoint? = nil, shouldAnimate: Bool, scrollReader: ScrollViewProxy) {

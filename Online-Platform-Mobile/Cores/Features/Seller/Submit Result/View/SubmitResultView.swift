@@ -98,6 +98,8 @@ struct SubmitResultView: View {
                         .background(Color.theme.secondary)
                         .cornerRadius(15)
                 }
+                .disabled(resultLink.isEmpty || images == [] ? true : false)
+                .opacity(resultLink.isEmpty || images == [] ? 0.4 : 1)
             }
             .navigationTitle("Submit Result")
             .navigationBarTitleDisplayMode(.inline)

@@ -22,6 +22,10 @@ class LoginViewModel: ObservableObject {
     @AppStorage("role", store: .standard) var role = ""
     
     func login(role: Role) {
+        if email == "" || password == "" {
+            redBanner = true
+            return
+        }
         AuthService().login(loginRequestBody: LoginRequestBody(email: email, password: password, type_role: role.rawValue)) { response in
           
             if let code = response?.code, let message = response?.message {

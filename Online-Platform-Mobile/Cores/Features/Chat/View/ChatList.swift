@@ -10,9 +10,9 @@ import SDWebImageSwiftUI
 import Introspect
 
 struct ChatList: View {
+    static let shared = ChatList()
     @StateObject var chatVM = ChatRoomViewModel()
     @State var uiTabBarController: UITabBarController?
-    @AppStorage("role", store: .standard) var role = ""
     @State private var newVM = true
     
     init(vm: ChatRoomViewModel = ChatRoomViewModel()) {
@@ -69,10 +69,8 @@ struct ChatList: View {
             }
         }
         .introspectTabBarController { (UITabBarController) in
-            if role == "Client" {
-                UITabBarController.tabBar.isHidden = true
-                uiTabBarController = UITabBarController
-            }
+            UITabBarController.tabBar.isHidden = true
+            uiTabBarController = UITabBarController
         }
         .navigationTitle("Chats")
     }

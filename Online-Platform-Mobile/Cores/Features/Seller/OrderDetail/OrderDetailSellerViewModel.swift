@@ -29,13 +29,11 @@ class OrderDetailSellerViewModel: ObservableObject {
         }
     }
     
-    func startChat(orderId: Int) {
-        var id: Int = 0
+    func startChat(orderId: Int, vm: ChatRoomViewModel) {
         orderService.getUserByOrder(orderId: orderId) { userId in
             if let userId = userId {
-                id = userId
+                _ = vm.createChatRoom(target: userId)
             }
         }
-        _ = ChatRoomViewModel().createChatRoom(target: id)
     }
 }

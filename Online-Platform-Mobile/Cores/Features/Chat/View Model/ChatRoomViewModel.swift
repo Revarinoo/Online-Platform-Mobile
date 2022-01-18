@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 
 class ChatRoomViewModel: ObservableObject {
+    static let shared = ChatRoomViewModel()
     @ObservedObject var userProfile = UserHelper.shared
     private var db = Firestore.firestore()
     @Published var chatData: [ChatData] = []
