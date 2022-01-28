@@ -39,7 +39,7 @@ struct SubmitPaymentView: View {
             PrimaryButton(content: "Submit", maxWidth: 200, action: {
                 paymentVM.submitPaymentModel.order_id = self.orderId
                 paymentVM.submitPayment()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(900)) {
                     TabBarViewModel.shared.selected = 2
                 }
             }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)

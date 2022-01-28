@@ -19,6 +19,7 @@ struct GiveOrderReviewView: View {
     @StateObject private var reviewVM = ReviewViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var uiTabBarController: UITabBarController?
+    @State private var showAlert = false
     
     var screenwidth =  UIScreen.main.bounds.width
     
@@ -54,7 +55,7 @@ struct GiveOrderReviewView: View {
                 
                 Button {
                     reviewVM.addReview(orderId: orderId, comment: reviewtext, rating: rate)
-                    presentationMode.wrappedValue.dismiss()
+                    self.showAlert.toggle()
                 } label: {
                     Text("Submit")
                         .font(.custom(ThemeFont.displaySemiBold, size: 18))
@@ -72,6 +73,12 @@ struct GiveOrderReviewView: View {
         }
         .onTapGesture {
             self.dismissKeyboard()
+        }
+        
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Success"), message: Text("Your review successfully submitted"), dismissButton: .default(Text("OK")) {
+                TabBarViewModel.shared.resetNavigationID = UUID()
+            })
         }
     }
     

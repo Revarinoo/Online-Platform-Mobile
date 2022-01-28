@@ -27,7 +27,7 @@ struct ProductView: View {
                             if (selectedIndex == category.category_id) {
                                 CategoryIcon(image: category.icon ?? "", name: category.name ?? "")
                                     .frame(minWidth: 63, maxHeight: 86)
-                                    .background(Color.theme.secondary)
+                                    .background(Color.init(hex: "F6F3FC"))
                                     .cornerRadius(10)
                                     .onTapGesture {
                                         selectedIndex = category.category_id ?? 0

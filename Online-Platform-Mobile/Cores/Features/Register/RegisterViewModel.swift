@@ -21,10 +21,21 @@ class RegisterViewModel: ObservableObject {
     @AppStorage("role", store: .standard) var role = ""
     
     func register(role: Role) {
-        if password == "" || name == "" || email == "" {
+        if password.isEmpty || name.isEmpty || email.isEmpty {
             redBanner = true
             return
         }
+        if !isValidEmail(value: email) {
+            self.failedMessage = "Email format is incorrect!"
+            redBanner = true
+            return
+        }
+        if password.count < 6 {
+            self.failedMessage = "Password must have minimum 6 character!"
+            redBanner = true
+            return
+        }
+        
         AuthService().register(registerRequestBody: RegisterRequestBody(name: name, email: email, password: password, type_role: role.rawValue)) { response in
           
             if let code = response?.code, let message = response?.message {
@@ -43,5 +54,10 @@ class RegisterViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func isValidEmail(value: String) -> Bool {
+        let regex = try! NSRegularExpression(pattern: "(^[0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,64}$)", options: .caseInsensitive)
+        return regex.firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) != nil
     }
 }

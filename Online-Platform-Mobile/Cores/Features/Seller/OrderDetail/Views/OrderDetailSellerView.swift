@@ -24,7 +24,6 @@ struct OrderDetailSellerView: View {
     @State var uiTabBarController: UITabBarController?
     @State private var isChat = false
     @State private var review = false
-    @StateObject var chatVM = ChatRoomViewModel()
     
     var body: some View {
         ScrollView (.vertical, showsIndicators: false) {
@@ -147,9 +146,9 @@ struct OrderDetailSellerView: View {
             .navigationTitle("Order Detail")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
-                                    NavigationLink(destination: ChatList.shared, isActive: $isChat) {
+                                    NavigationLink(destination: ChatList(), isActive: $isChat) {
                 Button(action: {
-                    detailVM.startChat(orderId: orderId, vm: chatVM)
+                    ChatRoomViewModel.shared.startChat(orderId: orderId)
                     isChat.toggle()
                 }) {
                 Image(systemName: "message").imageScale(.large)
@@ -158,7 +157,6 @@ struct OrderDetailSellerView: View {
             }
             )
             .onAppear {
-                chatVM.getData()
                 detailVM.getOrderDetail(orderId: orderId)
             }
             .introspectTabBarController { UITabBarController in

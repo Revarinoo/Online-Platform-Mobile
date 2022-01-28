@@ -11,11 +11,11 @@ import Introspect
 
 struct ChatList: View {
     static let shared = ChatList()
-    @StateObject var chatVM = ChatRoomViewModel()
+    @StateObject var chatVM = ChatRoomViewModel.shared
     @State var uiTabBarController: UITabBarController?
     @State private var newVM = true
     
-    init(vm: ChatRoomViewModel = ChatRoomViewModel()) {
+    init(vm: ChatRoomViewModel = ChatRoomViewModel.shared) {
         _chatVM = StateObject(wrappedValue: vm)
         newVM = false
     }
@@ -64,6 +64,7 @@ struct ChatList: View {
             }
         }
         .onAppear {
+            
             if newVM {
                 chatVM.getData()
             }

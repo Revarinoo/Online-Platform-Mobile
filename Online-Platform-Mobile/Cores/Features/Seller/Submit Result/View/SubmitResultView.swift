@@ -117,7 +117,6 @@ struct SubmitResultView: View {
         .onChange(of: resultVM.successfullySubmitted) { _ in
             self.showLoading = false
             presentationMode.wrappedValue.dismiss()
-            presentationMode.wrappedValue.dismiss()
         }
     }
     

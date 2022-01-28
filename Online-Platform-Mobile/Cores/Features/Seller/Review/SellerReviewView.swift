@@ -12,6 +12,7 @@ import TextView
 struct SellerReviewView: View {
     @StateObject private var reviewVM = SellerReviewViewModel()
     var orderId: Int
+    @State private var isEditing = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 31) {
@@ -43,9 +44,12 @@ struct SellerReviewView: View {
             VStack(alignment: .leading) {
                 Text("Comment")
                     .font(.custom(ThemeFont.displaySemiBold, size: 16))
-                TextArea(text: .constant(reviewVM.review.comment), placeholder: "", isEditing: .constant(false))
+                TextArea(text: .constant(reviewVM.review.comment), placeholder: "", isEditing: $isEditing)
             }
             Spacer()
+        }
+        .onTapGesture {
+            self.dismissKeyboard()
         }
         .padding(EdgeInsets(top: 23, leading: 16, bottom: 0, trailing: 16))
         .navigationTitle("Review")

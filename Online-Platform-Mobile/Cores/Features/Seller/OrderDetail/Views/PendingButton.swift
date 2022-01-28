@@ -10,6 +10,8 @@ import SwiftUI
 struct PendingButton: View {
     var vm: OrderDetailSellerViewModel
     var orderId: Int
+    @State private var showAlert = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack (spacing: 9) {
@@ -25,7 +27,8 @@ struct PendingButton: View {
             }
             
             Button {
-                vm.updateOrder(orderId: orderId, status: "Rejected")
+                self.showAlert.toggle()
+                
             } label: {
                 Text("Decline")
                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
@@ -38,5 +41,11 @@ struct PendingButton: View {
             }
         }
         .padding(.top, 42)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Decline Order"), message: Text("Are you sure want to decline this order?"), primaryButton: .default(Text("No")), secondaryButton: .default(Text("Yes"), action: {
+                vm.updateOrder(orderId: orderId, status: "Rejected")
+                presentationMode.wrappedValue.dismiss()
+            }))
+        }
     }
 }

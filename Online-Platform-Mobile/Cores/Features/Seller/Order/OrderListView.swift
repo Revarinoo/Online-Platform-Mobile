@@ -59,7 +59,7 @@ struct OrderListView: View {
             orderVM.getAllOrderSeller()
         }
         .navigationBarItems(trailing:
-                                NavigationLink(destination: ChatList.shared, isActive: $isActive) {
+                                NavigationLink(destination: ChatList(), isActive: $isActive) {
             Button(action: {
                 isActive.toggle()
             }) {

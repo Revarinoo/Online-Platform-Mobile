@@ -71,6 +71,8 @@ struct PersonalChat: View {
                         .scaledToFill()
                         .frame(width: 27, height: 27)
                 })
+                    .disabled(messageField == "" ? true : false)
+                    .opacity(messageField == "" ? 0.5 : 1)
             }
             .padding([.leading, .trailing], 16)
             .frame(height: 25, alignment: .bottom)

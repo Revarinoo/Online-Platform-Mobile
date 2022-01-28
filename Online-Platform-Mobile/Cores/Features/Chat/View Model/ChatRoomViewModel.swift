@@ -17,7 +17,6 @@ class ChatRoomViewModel: ObservableObject {
     @Published var chatRooms: [ChatRoom] = []
     private var service = UserService()
     @AppStorage("role", store: .standard) var role = ""
-    @Published var countData = 0
     
     func removeData() {
         self.chatRooms.removeAll()
@@ -119,5 +118,13 @@ class ChatRoomViewModel: ObservableObject {
             }
         }
         return false
+    }
+    
+    func startChat(orderId: Int) {
+        OrderService.shared.getUserByOrder(orderId: orderId) { userId in
+            if let userId = userId {
+                _ = self.createChatRoom(target: userId)
+            }
+        }
     }
 }

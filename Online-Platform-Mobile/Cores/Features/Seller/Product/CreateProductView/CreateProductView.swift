@@ -21,6 +21,7 @@ struct CreateProductView: View {
     @State private var isEditing = true
     @State private var loadData = true
     var productVM: MyProductViewModel
+    @State private var showAlert = false
     
     var body: some View {
         if productId == nil {
@@ -171,8 +172,7 @@ struct CreateProductView: View {
                         Spacer()
                         if productId != nil {
                             Button {
-                                createProductVM.removeProduct(id: productId!)
-                                presentationMode.wrappedValue.dismiss()
+                                self.showAlert.toggle()
                             } label: {
                                 Text("Delete Product")
                                     .font(.custom(ThemeFont.displaySemiBold, size: 18))
@@ -182,7 +182,7 @@ struct CreateProductView: View {
                                     .overlay(RoundedRectangle(cornerRadius: 15)
                                                 .stroke(Color.red, lineWidth: 1))
                             }
-
+                            .padding(.top, 50)
                         }
                     }
                     .padding(.leading, 16)
@@ -244,6 +244,13 @@ struct CreateProductView: View {
             }
             .fullScreenCover(isPresented: $showLoading) {
                 LoadingView()
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Delete Product"), message: Text("Are you sure want to delete this product?"), primaryButton: .default(Text("No")), secondaryButton: .default(Text("Yes"), action: {
+                    createProductVM.removeProduct(id: productId!)
+                    showAlert.toggle()
+                    presentationMode.wrappedValue.dismiss()
+                }))
             }
             if productId != nil && loadData {
                LoadingView()

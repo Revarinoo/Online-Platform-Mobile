@@ -43,8 +43,7 @@ struct SubmitComplainView: View {
         }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Success"), message: Text("Your complain successfully submitted, discuss with the seller via chat and wait for the Admin to verify your complain"), dismissButton: .default(Text("OK")) {
-                presentationMode.wrappedValue.dismiss()
-                presentationMode.wrappedValue.dismiss()
+                TabBarViewModel.shared.resetNavigationID = UUID()
             })
         }
 

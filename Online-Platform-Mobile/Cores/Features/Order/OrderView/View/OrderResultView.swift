@@ -21,6 +21,7 @@ struct OrderResultView: View {
     @StateObject private var orderResultVM = OrderResultViewModel()
     var orderId: Int
     @State private var navigateToComplain = false
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
@@ -54,13 +55,13 @@ struct OrderResultView: View {
                         NavigationLink(destination: SubmitComplainView(orderId: orderId), isActive: $navigateToComplain){
                             PrimaryButton(content: "Complain", maxWidth: 80, action: {
                                 self.navigateToComplain.toggle()
-                            }, btnColor: Color.red, textColor: Color.white)
+                            }, btnColor: Color.init(hex: "E86C60"), textColor: Color.white)
                         }
                             .disabled(orderResultVM.revisionAvailable ? true : false)
                             .opacity(orderResultVM.revisionAvailable ? 0.5 : 1)
                         PrimaryButton(content: "Revision", maxWidth: 80, action: {
                             self.revision.toggle()
-                        }, btnColor: Color.red, textColor: Color.white)
+                        }, btnColor: Color.init(hex: "E86C60"), textColor: Color.white)
                             .disabled(!orderResultVM.revisionAvailable ? true : false)
                             .opacity(!orderResultVM.revisionAvailable ? 0.5 : 1)
                             
@@ -70,7 +71,7 @@ struct OrderResultView: View {
                             }
                             else {
                                 orderResultVM.completeOrder(orderId: orderId)
-                                presentationMode.wrappedValue.dismiss()
+                                showAlert.toggle()
                             }
                         }, btnColor: Color.theme.primary, textColor: Color.white)
                     }
@@ -116,6 +117,11 @@ struct OrderResultView: View {
         }
         .onChange(of: orderResultVM.revisionSubmitted) { _ in
             presentationMode.wrappedValue.dismiss()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Success"), message: Text("Your order has successfully completed"), dismissButton: .default(Text("OK")) {
+                TabBarViewModel.shared.resetNavigationID = UUID()
+            })
         }
     }
     

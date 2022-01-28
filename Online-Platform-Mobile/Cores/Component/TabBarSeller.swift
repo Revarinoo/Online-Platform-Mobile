@@ -52,6 +52,7 @@ struct TabBarSeller: View {
                 }
                 .tag(2)
             }
+            .accentColor(Color(UIColor(named: "Primary")!))
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
             UserHelper.shared.getUserData()

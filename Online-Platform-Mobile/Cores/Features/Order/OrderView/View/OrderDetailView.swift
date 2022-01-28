@@ -68,7 +68,6 @@ struct OrderDetailView: View {
                     }, btnColor: Color.theme.secondary, textColor: Color.theme.primary)
                         .padding()
                 }
-                .disabled(orderDetailVM.orderDetail.order_status == OrderStatus.completed.rawValue && orderDetailVM.orderDetail.already_reviewed == 0 ? false : true)
             }
             else if orderDetailVM.orderDetail.order_status != OrderStatus.completed.rawValue {
                 VStack (spacing: -15) {

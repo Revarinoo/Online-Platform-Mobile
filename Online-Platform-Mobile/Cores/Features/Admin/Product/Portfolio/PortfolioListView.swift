@@ -35,16 +35,18 @@ struct PortfolioListView: View {
                             .scaledToFill()
                             .frame(width: 94, height: 100)
                             .cornerRadius(7.7)
-                        HStack {
-                            Image(systemName: portfolio.category_suggestion == category ? "checkmark.circle" : "x.circle")
+                        if portfolio.category_suggestion != "" {
+                            HStack {
+                                Image(systemName: portfolio.category_suggestion == category ? "checkmark.circle" : "x.circle")
+                                    .foregroundColor(portfolio.category_suggestion == category ? Color.theme.darkGreen : Color.red)
+                                    .frame(width: 15, height: 14)
+                                Text(portfolio.category_suggestion)
+                                    .font(.custom(ThemeFont.displayRegular, size: 15))
                                 .foregroundColor(portfolio.category_suggestion == category ? Color.theme.darkGreen : Color.red)
-                                .frame(width: 15, height: 14)
-                            Text(portfolio.category_suggestion)
-                                .font(.custom(ThemeFont.displayRegular, size: 15))
-                            .foregroundColor(portfolio.category_suggestion == category ? Color.theme.darkGreen : Color.red)
-                            .onAppear {
-                                if portfolio.category_suggestion != category {
-                                    self.showButton = true
+                                .onAppear {
+                                    if portfolio.category_suggestion != category {
+                                        self.showButton = true
+                                    }
                                 }
                             }
                         }

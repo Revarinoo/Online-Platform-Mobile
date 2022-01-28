@@ -33,7 +33,8 @@ struct TabBar: View {
                 }
                 .id(self.tabBarVM.resetNavigationID)
                 .tabItem {
-                    Label("Discover", systemImage: "house")
+                    handler.wrappedValue == 0 ? Image("home.fill") : Image("home")
+                    Text("Discover")
                 }
                 .tag(0)
                 NavigationView {
@@ -42,7 +43,8 @@ struct TabBar: View {
                 }
                 .id(self.tabBarVM.resetNavigationID)
                 .tabItem {
-                    Label("Product", systemImage: "camera")
+                    handler.wrappedValue == 1 ? Image("camera.fill") : Image("camera")
+                    Text("Product")
                 }
                 .tag(1)
                 
@@ -62,10 +64,12 @@ struct TabBar: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
                 .tabItem {
-                    Label("Profile", systemImage: "person")
+                    handler.wrappedValue == 3 ? Image("person.fill") : Image("person")
+                    Text("Profile")
                 }
                 .tag(3)
             }
+            .accentColor(Color(UIColor(named: "Primary")!))
         .onAppear {
             UITabBar.appearance().barTintColor = UIColor(Color.init(hex: "f4f4f4"))
             UserHelper.shared.getUserData()
