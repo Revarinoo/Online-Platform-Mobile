@@ -69,6 +69,9 @@ struct EditProfileView: View {
             self.showThisPage = false
             UserHelper.shared.getUserData()
         }
+        .alert(isPresented: $viewModel.redBanner, content: {
+            Alert(title: Text("Failed"), message: Text(viewModel.failedMessage == "" ? "All field must be filled" : viewModel.failedMessage), dismissButton: .default(Text("OK")))
+        })
         .onAppear {
             viewModel.fetchData()
         }
