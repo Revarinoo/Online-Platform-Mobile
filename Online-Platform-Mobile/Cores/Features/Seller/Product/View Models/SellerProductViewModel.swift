@@ -26,8 +26,8 @@ class SellerProductViewModel: ObservableObject {
                 
                 do {
                     let config = MLModelConfiguration()
-                    let model = try CategoryClassifier_2(configuration: config)
-                    let input = CategoryClassifier_2Input(image: buffer)
+                    let model = try CategoryClassifier_3(configuration: config)
+                    let input = CategoryClassifier_3Input(image: buffer)
                     let output = try model.prediction(input: input)
                     let hasil = output.classLabel
                     print(output.classLabelProbs.description)

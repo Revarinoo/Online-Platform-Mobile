@@ -57,6 +57,7 @@
 		4EABAC54273C3BE4000E7D44 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */; };
 		4EAEC763277861DE000B6713 /* EditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEC762277861DE000B6713 /* EditProduct.swift */; };
 		4EAEC7672778C3B8000B6713 /* PackageListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEC7662778C3B8000B6713 /* PackageListCard.swift */; };
+		4EB37E8827BC10340099B0D4 /* CategoryClassifier 3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EB37E8727BC10330099B0D4 /* CategoryClassifier 3.mlmodel */; };
 		4EBE80E12774B2F2008EEB9E /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE80E02774B2F2008EEB9E /* CreateProductView.swift */; };
 		4ECA1CB3278E946D007A63E7 /* CategoryClassifier 2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA1CB2278E946D007A63E7 /* CategoryClassifier 2.mlmodel */; };
 		4ECA1CB5278EDF27007A63E7 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA1CB4278EDF27007A63E7 /* Promo.swift */; };
@@ -233,6 +234,7 @@
 		4EABAC53273C3BE4000E7D44 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		4EAEC762277861DE000B6713 /* EditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProduct.swift; sourceTree = "<group>"; };
 		4EAEC7662778C3B8000B6713 /* PackageListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListCard.swift; sourceTree = "<group>"; };
+		4EB37E8727BC10330099B0D4 /* CategoryClassifier 3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "CategoryClassifier 3.mlmodel"; sourceTree = "<group>"; };
 		4EBE80E02774B2F2008EEB9E /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
 		4ECA1CB2278E946D007A63E7 /* CategoryClassifier 2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "CategoryClassifier 2.mlmodel"; sourceTree = "<group>"; };
 		4ECA1CB4278EDF27007A63E7 /* Promo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
@@ -760,6 +762,7 @@
 			isa = PBXGroup;
 			children = (
 				4ECA1CB2278E946D007A63E7 /* CategoryClassifier 2.mlmodel */,
+				4EB37E8727BC10330099B0D4 /* CategoryClassifier 3.mlmodel */,
 				F785C1FA27153A5F008035EC /* User.swift */,
 				4E0C820F272D9FB40049B8C8 /* Category.swift */,
 				F7D59011273FF0F200A2D916 /* ProductDetailModel.swift */,
@@ -1200,6 +1203,7 @@
 				F7ADD9AE27896B21002EFEF1 /* RecommendationPlaceView.swift in Sources */,
 				F702F8BE2783546600B9E6B6 /* ViewRevision.swift in Sources */,
 				F7F3D77F2790458D0019162C /* PromoViewModel.swift in Sources */,
+				4EB37E8827BC10340099B0D4 /* CategoryClassifier 3.mlmodel in Sources */,
 				F7F3D778278FD78A0019162C /* PortfolioListView.swift in Sources */,
 				4E75F16F2758D51F00F6D382 /* SubmitPaymentView.swift in Sources */,
 				4E102D63275B2EC000AAC2D9 /* OrderCard.swift in Sources */,
