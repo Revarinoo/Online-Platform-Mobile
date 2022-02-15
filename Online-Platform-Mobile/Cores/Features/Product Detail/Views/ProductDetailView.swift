@@ -28,7 +28,7 @@ struct ProductDetailView: View {
                     ImageSlider(images: productDetailVM.productDetailModel)
                     VStack {
                         backButton
-                            .padding(.top, 20)
+                            .padding(.top, 12)
                        
                         //MARK: Content
                         VStack (alignment: .leading, spacing: 24) {
