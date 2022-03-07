@@ -92,8 +92,8 @@ struct RecommendationPlaceView: View {
     
 }
 
-struct RecommendationPlaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendationPlaceView()
-    }
-}
+//struct RecommendationPlaceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecommendationPlaceView()
+//    }
+//}
